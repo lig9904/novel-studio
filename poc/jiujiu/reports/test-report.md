@@ -32,3 +32,24 @@ The contract scripts initially failed before testing because macOS Bash 3.2 lack
 Raw evidence is under `poc/jiujiu/logs/`.
 
 Current build/test gate: **PASS WITH RECORDED ENVIRONMENTAL CAVEAT**. No core source file was changed.
+
+## TEST_SCAFFOLD Story Engine run
+
+| Check | Result |
+|---|---|
+| Architect foundation | PASS after schema-correcting retries |
+| outline-all | PASS in isolated TEST_SCAFFOLD, with recoverable operation receipts |
+| zero-init and initial world tick | PASS |
+| structured v2 physical resources | PASS |
+| Phoenix minimum-knowledge input | PASS |
+| fox-private resource omitted from 九九/Phoenix views | PASS |
+| Arc rehearsal tool execution | PASS (draft and World Arbiter report stored) |
+| Arc rehearsal readiness | FAIL (`ready_for_detail=false`) |
+| direct project-all attempt | FAIL CLOSED before model call |
+| Character Agent runtime | INCONCLUSIVE / not dispatched |
+| seal | NOT RUN because project-all did not complete |
+| promote/render | NOT RUN by authorization |
+| rebase source/archive root equality | PASS |
+| final pending usage calls | PASS (none) |
+
+The final report digest is `sha256:b700daa72c2d853ec872ec21fcc04f186d817906341e326d359581883e38611b`. Its summary says the selected conditional path has no hard-contract reachability failure, but the durable gate remains not ready with 14 unresolved items and one missing material check. The system therefore cannot proceed to detailed Character/World simulation without a product fix or a different source contract.

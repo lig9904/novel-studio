@@ -1,0 +1,14 @@
+{
+  "schema": "jiujiu-rehearsal-failure-snapshot.v1",
+  "classification": "TEST_SCAFFOLD",
+  "report_digest": "sha256:71ea16df2484691f843ec4ed41cfab7b43fd2d91c69b02dd56483ef07bd548b8",
+  "ready_for_detail": false,
+  "project_all_gate_bypassed": false,
+  "accepted_chapter": 0,
+  "promote_run": false,
+  "render_run": false,
+  "core_source_modified": false,
+  "report_sha256": "0bde55af52728230ebcc20d92dd44cdf829a7ea44968b600d532b917fce3aa22",
+  "characters_sha256": "ca9510006f67d73e87fc3c9229a0f2973b28730d127c75f998ef5e8fa1a0f8da",
+  "usage_sha256": "a5cd63a7c1c59c38c75e45d0be52bf33b17efebd0016d6f32d7c8c2840b6f0e9"
+}

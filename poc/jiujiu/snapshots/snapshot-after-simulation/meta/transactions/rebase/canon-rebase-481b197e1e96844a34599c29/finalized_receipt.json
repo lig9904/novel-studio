@@ -1,0 +1,9 @@
+{
+  "version": "directory-publish-finalize.v1",
+  "transaction_id": "canon-rebase-481b197e1e96844a34599c29",
+  "receipt_digest": "sha256:c9721dae8e0c9273193728848798409612f6ae3c982a7e5e734482674f3d992e",
+  "intent_digest": "sha256:500eb4dda3daaffe03d5eb99d1580625ab845fdf4f2d420aefcd54e8752726bb",
+  "live_root": "sha256:43bd4f87526a56abfd440895d03a22fa76c44d870fa7212e6e331aab6eaead79",
+  "finalized_at": "2026-09-16T07:21:32.132943Z",
+  "finalize_digest": "sha256:5c074cdf763d91315ab7d2ea91ac6ceb2871d0a160206e16f8a45223575fc393"
+}

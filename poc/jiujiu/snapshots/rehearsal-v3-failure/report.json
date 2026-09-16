@@ -1,0 +1,552 @@
+{
+  "version": "arc-rehearsal.v1",
+  "authority": "speculative",
+  "arc_id": "arc:v001:a001:c000001-000003",
+  "arc_first_chapter": 1,
+  "arc_last_chapter": 3,
+  "base_canon_chapter": 0,
+  "base_canon_root": "sha256:b8ebffe4c4a0f8eebbb773493378d8f7fd4309dde5bcee8279efc380c9a2d830",
+  "source_root": "sha256:c482c92a196e4f303577ae4eb1cad2de4a6aedd5a0b99105fc7775e1c6a67df7",
+  "input_digest": "sha256:82beacd4e5a859a2ec5070972e0931807214e1529dee51e09c2d044b12704957",
+  "draft_digest": "sha256:9fef5bdb298515b2ed619ab3e910d3f46d46c4b84e4fb4b986ab29f3a14b1677",
+  "ready_for_detail": false,
+  "body": {
+    "summary": "本预演为独立的整弧条件性复核，不执行任何角色行动、不生成正文、不更新正史或世界状态。整弧恰为一卷一弧三章（arc:v001:a001:c000001-000003），base_canon_chapter=0，因此三章全部按未来章处理，全部结论带 assumptions，无已接受章可复制。条件性完整路径（非保证、非已选定）：第一章一个 segment 内三名角色按各自观察包被激活——九九在本人监看任务中先以资源数量测量确认唯一一枚现场警示浮标仍在场（取得当时值），再对既有定性资源“近岸公开水况”做局部亲见观察，并把公开水况、浮标在场数量、“位置似与常态不同（目视印象，未经确认）”、原因未知与查证请求写成第一张事件记录纸（消费 1 张，余 2 张）；未经核实的声望提示同期出现，只登记“提示出现、内容未经证实、与保护职责冲突”，其反应（拒绝、索取信息、提出不放空守护点的替代方案、或离开并承担后果）由真实角色 Agent 决定；九尾狐在礁影观察点只看得到仅自己可见的私密潮痕，保密/核实/传递三路保留，第一章不产生传递记录；凤凰在云缘观察位只对公开水况做局部定性观察，知识仍限自身凤凰身份与羽族关联。第二章承接 T0 后的连续时间：九九提交一个自主行动并写入第二张记录纸（消费第 2 张），世界裁决者按实际选择登记守护覆盖变化或空档；九尾狐独立裁决是否发起带来源、接收者、时点与内容范围的传递，若走沿岸普通通道最早受 0.1 日量级约束；凤凰在观察/避让/（存在真实接收条件时的）示警之间择一。第三章在实际选择落定后结算：九九复核前两张记录后写成第三张结算记录（消费第 3 张，三张用尽、无备用）；至封存时没有可验证传递记录时，九九与凤凰对私密潮痕的终态知识登记为 UNKNOWN，若有记录则仅按证据强度更新指定接收者；登记三类合规兽体与错误兽体拒绝清单；边界维护单元不是已登记角色、也不具备背景核验/签认适配器，其逐项核验、加盖 TEST_SCAFFOLD 标记与封存只能作为脚手架元操作，不得叙述为世界内已执行的核验。逐项硬合同在本路径下均可满足或条件性满足：不渲染正文、不晋升 Canon、停在 promote/render 之前、角色自主与知识隔离不被预设、三类错误兽体与未批准能力保持被拒。软纲中已预设的两项角色选择（九九留守记录、九尾狐最终不传递）在本复核中继续只作条件分支，不作为既定结果；软纲的事件顺序与分钟式安排可重排，重排本身不构成硬合同缺口。真实资料缺口集中在：声望提示来源无对应角色、私密潮痕无实体资源、记录介质恰为 3 张且被三章事件记录用尽、无处置规程/许可/钥匙/仪表类文书、无第二枚浮标或自动告警、无水位或位移单位、边界维护单元无执行适配器。以上缺口已如实记入 material_checks 与 unresolved_items；条件性可行不等于角色会选择该路径，也不等于缺口已被填补。",
+    "chapters": [
+      {
+        "chapter": 1,
+        "conditional_forecast": "条件性预测（非已发生）：在三名角色各自的 chapter=1 观察包逐字生效、且未发生任何故事内传递事件的前提下，第一章最多推进一个 segment，可承载四点并留有余量。①九九在 T0 于渔岛海洋度假区近岸守护点执行本人监看任务：以资源数量测量确认唯一一枚现场警示浮标仍在场（取得当时值），并对既有定性资源“近岸公开水况”做局部亲见观察；她只能把公开水况、浮标在场数量、“位置似与常态不同（目视印象，未经确认）”与原因未知分别写入第一张空白事件记录纸（消费 1 张，余 2 张），使其成为含时点、地点、可见状态与查证请求的可追溯记录。②未经核实的声望提示在她仍承担水边保护职责时出现；本章只登记“提示出现、内容未经证实、与保护职责冲突”，她可拒绝、索取信息、提出不使守护点放空的替代方案、或离开并承担后果，记录内容随其实际选择而定。③九尾狐在礁影观察点以其开局已知的可观察性看到仅自己可见的私密潮痕，保密、核实、传递三种空间均保留，第一章不产出传递记录。④羽族凤凰在云缘观察位只对公开水况做亲见的局部定性观察，其知识仍仅为自身凤凰身份与羽族关联。若第一张记录写成，它成为本弧唯一 T0 基线；若不写，第二章起的保护覆盖与后果结算将缺少参照时点。",
+        "assumptions": [
+          "三名角色的 chapter=1 观察包按原文生效，位置分别为渔岛海洋度假区近岸守护点、近岸礁影观察点、近岸上空云缘观察位；三点互不重叠且不存在自动知识共享。",
+          "九九面对声望提示的实际反应由真实角色 Agent 决定；本预演不假定留守、兼顾、先核实或离开中的任何一项已被选择，软纲中的“留下记录”只作为可能分支之一。",
+          "九尾狐是否保密、核实或传递由角色 Agent 决定；本章假定尚未发生任何可记录的传递事件，且私密潮痕含义、来源、真伪保持 TBD。",
+          "凤凰只使用云缘观察位亲见信息，不获得九九、螭吻身份、九九能力、独角龙传说、泼水节、真实渔岛、九尾狐或私密潮痕。",
+          "本章不调用任何超自然能力；不出现处置规程文书、测量仪表、第二枚浮标或额外记录介质；“位置不同”只作为未经确认的目视印象，不升级为读数或文书事实。"
+        ],
+        "causal_links": [
+          "若九九留在守护点并在 T0 写下第一张记录，则公开水况 + 浮标在场数量 + 未经确认的目视异常印象 + 原因未知成为可追溯凭据，守护连续性在记录层面成立。",
+          "若九九选择先核实或索取证据，则核实行为占用其后（第二章）的时间与注意力，不自动产生空档，也不自动产生证据（提示来源不是已登记角色）。",
+          "若九九离开守护点，则唯一一枚浮标在无人监看期间的状态变化只能由后续章节的现场记录或世界裁决呈现，第一章不得预先写出后果。",
+          "九尾狐的私密观察只有在她实际观察时进入其私人知识；同场、邻近地点、模型推断或大纲信息均不构成对九九与凤凰的传递。",
+          "凤凰对公开水况的局部定性观察只支持其本人对局部公开条件的认识，不构成对全海域安全、开航许可、其他角色或秘密的知悉。"
+        ],
+        "time_resource_checks": [
+          "T0 为本章唯一锚点时点；整弧三章自 T0 起连续，跨地点行动与消息不得零耗时。",
+          "守护点至礁影观察点的沿岸路线为规划值 travel_days=0.1；通行方式与实测距离为 TBD，不得视为瞬时移动；本条件路径第一章不使用该路线。",
+          "本章消费空白事件记录纸 1 张（3→2），无备用介质；浮标仅 1 枚且无备用设备，数量测量只给出当时值，不等于全时监看。",
+          "fac_test_scaffold_boundary 的 clock 规定每个短测试章节至多推进一个 segment（共 3 段），故本章不得把后续章节的选择与结算压缩进来。",
+          "若下游渲染正文，本章需在 2000—3300 字内承载 4 个场景，并遵守 user_rules 的疲劳词上限与禁用短语；本轮不渲染，该约束未被行使，仅作下游字数预算提示。"
+        ]
+      },
+      {
+        "chapter": 2,
+        "conditional_forecast": "条件性预测（非已发生）：在第一章已产生 T0 基线记录、且三名角色仍按各自知识包行动的前提下，第二章最多推进一个 segment，核心是“一次选择落定 + 一处记录 + 三条互不串知的行动线”。九九的角色 Agent 在有限资源下提交一个自主行动：留守监看、先核实声望提示、设计不放空守护点的替代安排、或离开并接受保护空档；世界裁决者只按实际选择记录浮标监看状态、机会查证进度与守护覆盖变化，并消费第二张空白事件记录纸（余 1 张）。该记录内容依分支而定：留守或兼顾时登记连续性与查证进度，离开时登记空档及其公开可见后果，二者不得同时写成，也不得写成已完成安全确认。九尾狐独立权衡保密、核实与传递；若选择传递，须先以本人普通移动沿岸行进（受 0.1 日量级通道约束），到达后在现场向九九陈述，方可形成含发送者、接收者、发送时点与内容范围的故事内事件记录；若选择不传递，九九与凤凰的知识状态不变。凤凰根据云缘观察位的亲见证据选择继续观察、避让，或（在存在真实接收条件时）发出不含未知秘密的示警。三条行动线各自独立、不得互相知晓。",
+        "assumptions": [
+          "第一章的 T0 记录已按九九的实际选择写成；若未写成，本章的“持续时间”与“覆盖变化”缺少基线，只能登记相对观察。",
+          "九九第二章的行动由角色 Agent 选择；本预演同时保留留守、先核实、兼顾、离开四条分支，并假定裁决者按实际选择而非按软纲预设登记后果。",
+          "九尾狐是否传递由其角色 Agent 决定；传递路径假定其本人实际移动并现场陈述，且假定接收者九九在现场可接收；本条件路径不假定传递已发生。",
+          "凤凰的选择限于其知识包允许的范围；不假定其已知道任何其他角色存在，也不假定公开示警存在非角色受众的接收通道。",
+          "本章不新增记录介质、第二枚浮标、仪表或规程文书；所有记录只使用剩余的两张空白事件记录纸。"
+        ],
+        "causal_links": [
+          "若九九留守或采取兼顾方案，则守护连续性可在第二张记录纸中登记为“未出现监看空档”，声望提示的核实受限但无需承担空档代价。",
+          "若九九离开，则唯一一枚浮标在离开时段无人在场，空档及其公开后果进入裁决记录；她所追逐的机会真伪仍为未证实。",
+          "若九尾狐沿岸行进并现场陈述，则一条带发送者、接收者、时点与内容范围的记录成立（载体须落在既有一批介质或 Host 层日志上），接收者可据证据强度更新知识；若行进被延误或接收失败，知识状态不更新。",
+          "若九尾狐不传递，则私密潮痕在本章结束时仍只属于她，九九与凤凰维持 UNKNOWN。",
+          "凤凰的观察、避让或示警只改变其本人行动记录；在无接收者条件下不产生对他人知识的影响。"
+        ],
+        "time_resource_checks": [
+          "本章承接 T0 后的连续时间，为第二段；任何沿岸移动按 0.1 日量级的普通通道约束计算，不得瞬时到达，水况与湿滑礁面可能造成延误或阻断。",
+          "本章消费空白事件记录纸 1 张（2→1）；若九尾狐选择传递而需要一份完整传递记录，除这三张九九独占的记录纸外没有备用介质，该记录只能由接收者九九以本人既有记录载体登记或由 Host 层日志承担。",
+          "声望提示来源不是已登记角色，索取证据的通信没有合法接收者，因此核实进度受此约束，不能以一次往返完成“证实”。",
+          "守护监看资源仅一枚浮标且无自动告警装置，持续监看等于九九本人在场；离开即构成无监视时段，其后果由世界裁决记录。",
+          "本章只推进一个 segment；不得把第三章的结算、封存与兽体登记提前写入。"
+        ]
+      },
+      {
+        "chapter": 3,
+        "conditional_forecast": "条件性预测（非已发生）：在第一、二章的选择均已由角色 Agent 实际作出、且前两张记录已写成的条件下，第三章最多推进一个 segment，并停驻在 promote/render 之前。九九以鱼躯为主体、龙头清晰可辨的螭吻兽体完成她所选定的近岸行动，世界裁决者把保护连续性、声望提示核实结果与相应代价写入第三张空白事件记录纸（三张用尽，无备用）。若至封存时没有任何可验证的故事内传递记录，则九九与凤凰对 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 的终态知识登记为 UNKNOWN；若发生过传递，则只有写明来源、接收者、章节与时间的传递才更新指定角色知识，且该记录必须在本弧已有记录介质内成立（同一作者修订既有记录而不新增介质），否则只能作为 Host 层日志而不能被当作角色知识证据。九尾狐以九条尾巴齐全的真实狐狸兽体完成礁影观察，裁决者依亲见记录登记兽体辨识结果并排除普通狐、单尾狐与狐耳人形替代，其姓名、性别、年龄、能力、目标、关系与角色弧保持 TBD。凤凰以完整东方凤凰神鸟兽体依据亲见证据完成现场判断，兽体拒绝清单登记青鸾、翼人、天使、西方翼人、狮鹫与普通鸟，其知识仅含自身凤凰身份与羽族关联，火焰、重生、治疗与永生能力栏位保持 TBD。边界维护单元的逐项核验、加盖 TEST_SCAFFOLD 标记与封存因该单元不是 world_state.actors 中的角色、也不具备背景核验/签认适配器，只能作为脚手架元操作由 Host 管线登记，不得描述为世界内已执行的核验。流水线把 promote 与 render 登记为未启动，短测试骨架标记为完成且未获人类批准。",
+        "assumptions": [
+          "第一、二章的实际选择已由真实角色 Agent 作出；本预演假定九九完成其选定的近岸行动、九尾狐在保密/核实/传递之间作出某个选择，但不预设该选择为何。",
+          "本条件路径假定第三张记录纸由唯一持有该资源的九九写成；边界维护单元不是角色，封存属于脚手架元操作而非角色动作。",
+          "若九尾狐选择不传递，则不存在发送者、接收者、时点与内容完整的传递记录；这是知识终态登记为 UNKNOWN 的前提。",
+          "三类兽体的呈现方式（鱼躯为主体的龙头鱼身螭吻、九尾齐全的真实狐狸、完整东方凤凰神鸟）按已批准原型呈现，不新增任何能力或身份结论。",
+          "本弧在第三章后停止：不渲染正文、不晋升官方 Canon、不声称人类批准，未批准能力路径保持不可用。"
+        ],
+        "causal_links": [
+          "若第三张记录写成且无传递记录，则九九与凤凰对私密潮痕的终态知识为 UNKNOWN，隔离边界在整个测试中成立。",
+          "若九尾狐实际传递且接收者以本人既有记录载体完成一份含来源、接收者、时点与内容范围的登记，则该接收者知识状态按证据强度更新，终态登记随之改写；本预演不预设该情形发生。",
+          "九九的纪录内容随其第二章的实际选择变化：留守分支登记连续性，离开分支登记空档与公开后果，两者互斥。",
+          "三类合规兽体的登记只固化本次形态辨识；错误兽体方案与未批准能力捷径进入拒绝清单，不产生新的世界规则。",
+          "封存与 promote/render 停驻只影响规划终态，不改变任何已批准来源事实，也不解决或改写官方设定。"
+        ],
+        "time_resource_checks": [
+          "本章为第三段，时间自 T0 连续推进，不再新增前沿时点。",
+          "三张空白事件记录纸在本章用尽（1+1+1=3），无备用介质；任何第四份独立记录需求（传递记录、示警记录、空档独立记录）没有资源支撑，只能并入九九既有记录或留作 Host 层日志。",
+          "唯一一枚浮标的使用与监看记录只有一份来源；无第二设备交叉验证，现场结论只能是单源观察记录加一次数量测量当时值。",
+          "fac_test_scaffold_boundary 的 clock 共 3 segments、进度对应三章，本章结束后测试时钟不再推进，管线停在 promote/render 之前。",
+          "若下游渲染正文，本章需在 2000—3300 字内承载结算、兽体登记、封存与停驻说明；本轮不渲染，该约束未被行使。"
+        ]
+      }
+    ],
+    "character_conflicts": [
+      {
+        "character": "螭吻·九九",
+        "current_goal": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+        "conflicts": [
+          "保护职责要求她在场并持续监看唯一一枚浮标；未经证实的声望机会要求她离开或分心，两者在同一时间段内互斥。",
+          "记录介质只有三张空白记录纸且为她独占：本弧需要三份现场记录，正好用尽；任何额外记录（如替他人登记传递记录、独立登记守护空档）都会挤占事件记录，且没有第四份载体。",
+          "现场没有处置规程、许可、钥匙类文书，也没有第二枚浮标、自动告警或仪表；浮标是数值资源却没有定义的位移单位，近岸公开水况的 unit 为空且 perception 为 unknown，因此“偏位”只能是未经确认的目视印象，不能写成读数或文书事实。",
+          "她的好胜与骄傲可能促使她把目视印象直接当作结论，而保护优先的价值边界要求她只登记可观察、可复现的部分，并如实标注未确认。",
+          "现有硬合同与角色规则要求她的选择不得被规划预设，因此软纲中“留守并留下记录”的分支只是可能路径之一，而非既定结果。"
+        ],
+        "conditional_choices": [
+          "拒绝对声望提示作出承诺，把“来源未经证实、已请求证据”写入第一张记录纸，并在其后继续留守监看。",
+          "先核实再行动：登记查证意图并保留守护点，但核实进度受“提示来源不是已登记角色、无合法通信接收者”限制，不产生往返闭环。",
+          "设计不放空守护点的替代安排（缩短离场时间、分段返回或委托他人），其可行性取决于是否存在可委托对象——目前世界状态没有第二观察者。",
+          "离开守护点追逐机会，并接受守护空档与其公开可见后果被世界裁决记录；该分支与合同中的自主性要求相容。",
+          "若九尾狐实际传递潮痕并形成含来源、接收者、时点与内容范围的记录，她可在知识按证据强度更新后重新判断是否值得追查。"
+        ]
+      },
+      {
+        "character": "羽族凤凰",
+        "current_goal": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+        "conflicts": [
+          "要判断“环境是否安全”需要更多信息，但其知识包只含自身凤凰身份与羽族关联；其他角色、传说、潮痕与泼水节均为 UNKNOWN，模型推断不足以升级知识。",
+          "公开示警看似是合理的保护动作，但通信只支持向已登记角色发送，而它并不认识任何其他角色，示警没有合法接收者。",
+          "飞禽视角可远眺，但观察规则只支持对既有定性资源的局部亲见认识，不能据此确认全海域安全或开航许可。",
+          "火焰、重生、治疗、永生等能力均为 TBD，任何以能力解决现场的写法都与硬合同冲突。"
+        ],
+        "conditional_choices": [
+          "仅登记云缘观察位亲见的近岸公开水况变化，不作安全或危险结论。",
+          "选择避让或保持距离，把行动限定在本人位置与普通移动、观察范围内。",
+          "在存在真实接收条件时发出不含任何未批准秘密的公开示警；在无接收者条件下，该动作只能作为不加指向的本地行为记账或延后处理。",
+          "继续保持 UNKNOWN，不因同场或邻近地点获取任何他人私密信息。"
+        ]
+      },
+      {
+        "character": "九尾狐",
+        "current_goal": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+        "conflicts": [
+          "标记含义、来源与真伪均为 TBD，取舍依据不足：保密可避免误传，传递则可能让相关方及时知情，但其价值尚未确认。",
+          "若选择传递，须沿岸行进并现场陈述，最早受 0.1 日普通通道约束；且她本人没有可用记录介质（空白记录纸为九九独占并按三章配额分配），含发送者、接收者、时点与内容范围的有效传递记录缺少自然载体。",
+          "标记只有她能观察，九九与凤凰不得因邻近地点、同场或模型推断获知；任何泄露都会破坏知识隔离合同。",
+          "她自身能力、身份、姓名、目标与关系均为 TBD，不能以未批准手段解释标记或验证其真伪。"
+        ],
+        "conditional_choices": [
+          "保密：不发起任何传递，标记继续只属于她，九九与凤凰的知识状态保持 UNKNOWN。",
+          "自行核实：在礁影观察点或邻近范围内继续观察，不把未确认含义当作事实。",
+          "传递：先以本人普通移动沿 0.1 日量级沿岸通道到达守护点，再在现场向九九陈述，尝试形成含发送者、接收者、时点与内容范围的记录，并把记录载体的缺口交由角色阶段与裁决者解决。",
+          "只做部分传递（例如只说明存在一处异常、不给出含义推断），仍须满足有来源、有接收、有时点的记录要求才更新接收者知识。"
+        ]
+      }
+    ],
+    "contract_checks": [
+      {
+        "contract": "This is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.",
+        "assessment": "plausible",
+        "conditions": [
+          "本次预演本身不产出正文、post_state 或世界增量，只产出条件性报告。",
+          "所有产出逐项标注 TEST_SCAFFOLD，且不写成官方九九 Canon、人类批准或已接受章节。",
+          "封存与终态描述只针对测试脚手架，不主张其进入 Accepted Character State、Knowledge、Relationship、Timeline、Foreshadow、World State 或 Canon RAG。"
+        ]
+      },
+      {
+        "contract": "Create the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.",
+        "assessment": "plausible",
+        "conditions": [
+          "弧位恰为一卷一弧三章（arc:v001:a001:c000001-000003），与硬合同章位一致。",
+          "三章均按条件性预测填写，不生成任何正文片段、对话或场景散文。",
+          "模型新增描述统一以 TEST_SCAFFOLD 标注；字数合同 2000—3300 字在本轮不被行使。"
+        ]
+      },
+      {
+        "contract": "- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.",
+        "assessment": "plausible",
+        "conditions": [
+          "本报告中的一切叙述都是 SIMULATION 级别预测，章节内容不得被读作已发生的 HISTORY。",
+          "未定义项（声望提示来源、潮痕含义、浮标异常成因、通行方式与实测距离、能力参数、位移与水位单位）一律保持 TBD/PROPOSAL_NEEDED，不补写。",
+          "角色知识只在有来源事件、证据、章节与故事时点的记录成立时更新；模型推断不构成升级依据。"
+        ]
+      },
+      {
+        "contract": "- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.",
+        "assessment": "conditional",
+        "conditions": [
+          "三章中九九的形态呈现必须为鱼躯为主体的龙头鱼身螭吻，并明确排除麒麟、普通四足龙、西方龙、仅蛇形东方龙、陆生兽与机械载具。",
+          "第三章只确认喜水与灭火两项已批准属性；力量强度、频率、来源、代价、升级、战斗层级、额头珠关系与形态差异全部保持 TBD，不因现场需要而升级。",
+          "好胜与骄傲只用于解释可能的炫耀、逞强、否认、过度试探、误判与真实后果，不得据此赋予能力或使其直接解决事件。",
+          "泼水节名称必须正确书写，不作扣水节；独角龙传说整合方式保持 TBD；真九九、机甲九九、凌墨保持不同。",
+          "该合同须在后续角色阶段与渲染阶段落实，本预演不替代其核验。"
+        ]
+      },
+      {
+        "contract": "- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.",
+        "assessment": "conditional",
+        "conditions": [
+          "九尾狐在礁影观察点须以九条尾巴齐全的真实狐狸兽体呈现，排除普通狐、单尾狐与狐耳人形。",
+          "其姓名、性别、年龄呈现、性格、身份、能力、目标、关系与角色弧全部保持 TBD，本弧不新增结论。",
+          "本次只固化兽体辨识结果；其私密观察的存在不赋予任何未批准能力或历史来源。"
+        ]
+      },
+      {
+        "contract": "- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.",
+        "assessment": "conditional",
+        "conditions": [
+          "凤凰须以完整东方凤凰神鸟兽体出现在云缘观察位，排除青鸾、翼人、天使、西方翼人、狮鹫与普通鸟。",
+          "白/金/浅蓝配色、东方凤冠纹样、长尾羽与东方云宫仅为视觉方向，不引申为形象设定或能力。",
+          "整弧内其知识只含自身凤凰身份与羽族关联；本预演不得把九九、螭吻身份、能力、独角龙传说、泼水节、真实渔岛、九尾狐或潮痕写入其知识。",
+          "只有发生并记录来源事件、证据、章节与故事时点的传递后，UNKNOWN 才可能升级；模型推断不足。",
+          "火焰、重生、治疗、永生以及转化、性别、姓名、年龄、地位、性格、目标等栏位保持 TBD。"
+        ]
+      },
+      {
+        "contract": "Build only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.",
+        "assessment": "plausible",
+        "conditions": [
+          "三名角色在 chapter=1 各有生效的观察包与互不重叠的知识包，位置各自独立，足以被激活。",
+          "第一章的条件性预测只提供压力与可观察条件，不替角色作答，也不替裁决者结论。",
+          "不新增角色、势力或机制；fac_test_scaffold_boundary 只作为 TEST_SCAFFOLD 边界记录单元存在，不充当可执行角色。"
+        ]
+      },
+      {
+        "contract": "- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.",
+        "assessment": "conditional",
+        "conditions": [
+          "自主性：软纲预设的九九“留守并记录”与九尾狐“最终不发起传递”在本预演中只作条件分支，第二、三章内容随实际选择改写，不写成已决定。",
+          "知识边界：选定的条件路径假定无传递记录，故九九与凤凰对潮痕保持 UNKNOWN；若角色实际发起并完成传递，须有来源、接收者、章节与时点的记录才可更新，且该记录必须在既有一批介质内成立或降格为 Host 层日志。",
+          "世界状态：地点（守护点、礁影观察点、云缘观察位）、时点（T0 起连续）、资源（公开水况、1 枚浮标、3 张记录纸）与可观察后果明确；事件成因与最终结果仍为 PROPOSAL_NEEDED，不写超自然解法。",
+          "拒绝清单：四足麒麟化九九、以翼人作为凤凰兽体、单尾普通狐逐章保持被拒绝，本预演不提供任何合规化借口。",
+          "提案隔离：九尾狐的私密潮痕不并入九九或凤凰的知识包，也不并入官方来源事实或其他提案分支。",
+          "伏笔：本弧唯一钩子（下一章按实际选择核算监看空档与传递记录）须标注 TEST_SCAFFOLD 并置于官方 Canon 之外，不解决或改写来源事实。"
+        ]
+      },
+      {
+        "contract": "The pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.",
+        "assessment": "plausible",
+        "conditions": [
+          "测试用导航只覆盖一卷一弧三章，并明示为 TEST_SCAFFOLD。",
+          "终态将 promote 与 render 登记为未启动，正文渲染状态为未启动。",
+          "批准状态明确记为未获人类批准，不出现“脚手架已获批”的表述。"
+        ]
+      },
+      {
+        "contract": "每章正文2000—3300字（meta/user_rules.json:structured.chapter_words）",
+        "assessment": "conditional",
+        "conditions": [
+          "本轮不渲染正文，该字数合同在本预演中未被行使，只作为下游约束保留。",
+          "若后续渲染，每章须落在 2000—3300 字：第一章需容纳浮标观察与记录、声望提示、九尾狐私密观察、凤凰公开观察四个场景，密度偏紧但可行，须逐场景分配字数。",
+          "同时须遵守 user_rules 中的疲劳词上限与禁用短语，不得以扩写旁白弥补场景数量。"
+        ]
+      }
+    ],
+    "material_checks": [
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_guard_watch_task",
+            "kind": "self_work",
+            "actor_ref": "ca_28b35c0537fec56e"
+          },
+          {
+            "key": "ch1_buoy_measure",
+            "kind": "resource_measurement",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "resource_refs": [
+              "res_2222333344445555"
+            ],
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response"
+            ],
+            "depends_on": [
+              "ch1_guard_watch_task"
+            ]
+          }
+        ],
+        "operation": "九九在近岸守护点执行本人监看任务，并对唯一一枚现场警示浮标做资源数量测量（取得当时值：仍在场、数量 1）",
+        "requires_readable": false,
+        "resource_refs": [
+          "res_2222333344445555"
+        ],
+        "status": "available",
+        "explanation": "复核确认：res_2222333344445555（TEST_SCAFFOLD现场警示浮标，actual_amount=1，单位 件，access=shared）是 world_state.resources 中已登记的数值资源，且九九的 resource_views 中已观测（as_of_chapter=0）。按现有执行协议，数量测量绑定被测 resource_id、公开机制 mech_scaffold_bounded_coastal_response 与本人 work.task_id（ch1_guard_watch_task），并在本人实际 self_execution 结束时取得当时值；本次预演不执行，故数值 1 是未来条件值而非既成事实。该测量只给出在场数量，不给出成因、水位或整片海域安全结论。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_water_observe",
+            "kind": "operational_observation",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "resource_refs": [
+              "res_1111222233334444"
+            ],
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response"
+            ]
+          }
+        ],
+        "operation": "九九在守护点对既有定性资源“近岸公开水况”做局部亲见观察并登记",
+        "requires_readable": false,
+        "resource_refs": [
+          "res_1111222233334444"
+        ],
+        "status": "available",
+        "explanation": "复核确认：res_1111222233334444（TEST_SCAFFOLD近岸公开水况，access=shared，unit 为空，perception as_of_chapter=0 为 unknown）是既有定性非文书资源，属 execution_capabilities.resource_kinds 中的 existing_qualitative_resource，九九的 resource_views 亦指向它，故可在本人位置做局部可用性观察。该观察只支持局部公开条件的亲见认识，不 establish 全海域安全、开航许可、其他角色或任何秘密；因 unit 为空且 perception 为 unknown，不得据此产生任何带单位的读数。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_displacement_measure",
+            "kind": "resource_measurement",
+            "actor_ref": "ca_28b35c0537fec56e"
+          }
+        ],
+        "operation": "把“浮标位置偏离常态”或近岸水位做成带单位的可核验读数、仪器测量或文书事实",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "missing",
+        "explanation": "复核确认存在真实缺口而非未发生：浮标是数值资源但没有定义位移单位，近岸公开水况 unit 为空且 perception 为 unknown，world_state 中没有水位计、标尺或任何测量装置，也没有可引用的规程或记录文书。因此不存在可测目标与单位，“偏位/水位”只能作为九九本人的、未经校准的目视印象写入记录并标注未确认，不能升级为读数或文书事实。若确需数值，必须先由角色阶段建立可测目标、单位与机制。此项不阻断当前条件路径，因为选定的记录只需写入未确认印象与原因未知。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_rules_read",
+            "kind": "resource_read",
+            "actor_ref": "ca_28b35c0537fec56e"
+          }
+        ],
+        "operation": "查阅现场处置规程/许可/浮标钥匙或维护文书，以确定异常浮标应如何处置",
+        "requires_readable": true,
+        "resource_refs": [],
+        "status": "missing",
+        "explanation": "复核确认：world_state.resources 只有近岸公开水况、现场警示浮标与空白事件记录纸三项，均无 readable_facts，也没有任何规程、许可、钥匙凭据或维护文书实体；世界规则中亦无处理规程或开启时间可引用。因此“按规程处置”“持钥匙开箱查看”“双源交叉验证”一类写法无来源支撑，处置标准保持 TBD，记录只能写可见状态与原因未知。不得以“有交接夹/可查规定”替代实体。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_record_write",
+            "kind": "artifact_write",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "material_inputs": [
+              {
+                "resource_id": "res_3333444455556666",
+                "amount": 1
+              }
+            ]
+          }
+        ],
+        "operation": "九九把第一张空白事件记录纸写成含 T0 时点、守护点位置、浮标在场数量、未确认的目视异常印象与查证请求的可追溯记录",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "available",
+        "explanation": "复核确认：res_3333444455556666（空白事件记录纸，actual_amount=3，单位 张，access=exclusive，仅九九持有）是既有材料，属 existing_numeric_resource 且数量足够本章首次写成。首次写成使用唯一 key ch1_record_write 与现有 material_inputs（1 张），不填不存在的 resource_id；该产物在本报告内只是未来预期产物，不建立真实资源、版本或签名。记录内容限于她本人测量与亲见所得及本人意图，目视印象项须标注未经确认。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch2_ask_tip_source",
+            "kind": "communication",
+            "actor_ref": "ca_28b35c0537fec56e"
+          }
+        ],
+        "operation": "九九就被要求放弃守护职责的声望提示，向提示来源索取证据",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "missing",
+        "explanation": "复核确认：execution_capabilities.recipient_kinds 仅为 existing_character_actor，而“声望机会提示”没有对应 world_state.actors 条目，不存在可填的 recipient_ref，也不能伪造角色 ID；因此不会产生任何背景回复或独立事实。该缺口不阻断条件路径：九九仍可拒绝、保留、把“请求证据、来源未经证实”写进自己的记录纸，只是核实进度受此约束，提示真伪保持 TBD/PROPOSAL_NEEDED。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch2_guard_presence",
+            "kind": "self_work",
+            "actor_ref": "ca_28b35c0537fec56e"
+          }
+        ],
+        "operation": "九九在 T0 后持续留守监看（无第二枚浮标、无自动告警装置）并承担守护在场的工时",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "available",
+        "explanation": "复核确认：world_state 中监看资源只有唯一一枚浮标（actual_amount=1），既无备用设备也无自动告警或仪表资源，持续监看等于九九本人在场，因此该动作只能是本人 self_work 与工时投入。本项只登记她本人的动作与进度，既不绑定也不消耗任何资源，故 resource_refs 为空；观测数值另见浮标数量测量与公开水况观察。她若离开，其守护空档属世界裁决后果，不得由她本人以自述方式替代登记。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch2_record_write",
+            "kind": "artifact_write",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "material_inputs": [
+              {
+                "resource_id": "res_3333444455556666",
+                "amount": 1
+              }
+            ]
+          }
+        ],
+        "operation": "九九把第二章实际选择的行动、开始时点、仍可接触的一枚浮标与守护覆盖变化写入第二张事件记录纸",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "available",
+        "explanation": "复核确认：仍取自 res_3333444455556666（3 张，第一章已消耗 1 张，余 2 张）。这是与第一章记录不同的第二件产物，按首次写成分配 1 张，不重复投入材料也不修改先前版本；内容随她实际分支（留守/兼顾/先核实/离开）而定，离开分支须写空档与公开可见后果，不得写成已完成安全确认。若她选择留守或兼顾，登记的是连续性与查证进度，两种内容不得同时写成。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_fox_mark_observe",
+            "kind": "operational_observation",
+            "actor_ref": "ca_e908a88390ffb536"
+          }
+        ],
+        "operation": "九尾狐在礁影观察点观察仅自己可见的 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，并自行判断保密、核实或传递",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "unclear",
+        "explanation": "复核确认：该私密潮痕在 world_state.resources 中没有 resource_id、没有 inspectable_surfaces、也没有 readable_facts；相关机制 mech_scaffold_secret_fox_tide_mark 在 world_codex.mechanisms 中 tier=secret，未列入任何角色可用的公开机制（角色包机制视图只有 mech_scaffold_bounded_coastal_response 与 mech_scaffold_explicit_knowledge_transfer）。因此该观察没有任何既有定性资源可作 operational_observation 的目标，也不能以 secret 机制冒充公开机制；它只能依赖九尾狐已批准的初始已知事实“自己能够观察到私密标记”承接，其含义、来源、真伪保持 TBD。若后续要把该痕迹作为可核验实体或表面观察对象，必须先建立可引用的资源或表面，本次不创造任何 ID 或文书。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch2_fox_travel",
+            "kind": "self_work",
+            "actor_ref": "ca_e908a88390ffb536"
+          },
+          {
+            "key": "ch2_fox_transmit",
+            "kind": "communication",
+            "actor_ref": "ca_e908a88390ffb536",
+            "recipient_ref": "ca_28b35c0537fec56e",
+            "depends_on": [
+              "ch2_fox_travel"
+            ]
+          }
+        ],
+        "operation": "九尾狐若选择传递潮痕：沿普通沿岸通道移动至守护点，并在现场向九九陈述（需含发送者、接收者、时点与内容范围）",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "unclear",
+        "explanation": "复核确认：路线 place_yudao_nearshore_guard—place_reef_shadow_observation 在 book_world 中存在（travel_days=0.1），接收者九九为已登记角色，故移动与陈述本身不因“尚未发生”而缺资料。真正不清楚之处在记录载体：空白事件记录纸为九九独占且三张已按三章配额分配，九尾狐本人没有记录介质，含发送者/接收者/时点/内容范围的有效传递记录缺少自然产物，只能由接收者九九在其既有记录载体上以同作者修订登记，或降格为 Host 层日志（后者不构成角色知识证据）。此项属未被选定的条件分支，其缺口不阻断当前条件路径：若最终不传递，九九与凤凰维持 UNKNOWN，硬合同的知识隔离仍然成立。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch1_phoenix_observe",
+            "kind": "operational_observation",
+            "actor_ref": "ca_dab3e91796825b05",
+            "resource_refs": [
+              "res_1111222233334444"
+            ],
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response"
+            ]
+          }
+        ],
+        "operation": "凤凰在云缘观察位对既有定性资源“近岸公开水况”做局部亲见观察并登记",
+        "requires_readable": false,
+        "resource_refs": [
+          "res_1111222233334444"
+        ],
+        "status": "available",
+        "explanation": "复核确认：res_1111222233334444 是既有定性非文书资源且为 shared，凤凰在 world_state 中的 resource_views 亦指向该资源，故可在自身位置做局部可用性观察。该观察只支持局部公开条件的亲见认识，不 establish 全海域安全、开航许可、其他角色存在或任何秘密，也不得用于升级其知识包（其开局知识仅为自身凤凰身份与羽族关联）。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch2_phoenix_warn",
+            "kind": "communication",
+            "actor_ref": "ca_dab3e91796825b05"
+          }
+        ],
+        "operation": "凤凰发出不含任何未知秘密的公开示警",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "missing",
+        "explanation": "复核确认：communication 的接收者只接受 existing_character_actor，而凤凰的开局知识不含任何其他角色，“面向不特定公众”的示警没有对应适配器与 recipient_ref；因此该动作无法作为有接收者的事件成立，只能作为不加指向的本地行为由裁决者记账或延后。此项不阻断条件路径：凤凰仍可选择继续观察或避让，并保持自身知识边界。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch3_read_sheet1",
+            "kind": "artifact_read",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "artifact_ref": "ch1_record_write",
+            "depends_on": [
+              "ch1_record_write"
+            ]
+          },
+          {
+            "key": "ch3_read_sheet2",
+            "kind": "artifact_read",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "artifact_ref": "ch2_record_write",
+            "depends_on": [
+              "ch2_record_write"
+            ]
+          },
+          {
+            "key": "ch3_record_write",
+            "kind": "artifact_write",
+            "actor_ref": "ca_28b35c0537fec56e",
+            "depends_on": [
+              "ch3_read_sheet1",
+              "ch3_read_sheet2"
+            ],
+            "material_inputs": [
+              {
+                "resource_id": "res_3333444455556666",
+                "amount": 1
+              }
+            ]
+          }
+        ],
+        "operation": "九九在第三章复核自己前两张记录，并写成第三张结算记录（保护连续性/空缺、声望提示核实结果、各分支代价）",
+        "requires_readable": true,
+        "resource_refs": [],
+        "status": "available",
+        "explanation": "复核确认：前两张记录是本报告内声明的未来预期产物，不是现有资源，故以 ch1_record_write、ch2_record_write 的 artifact_ref 引用各自作者本人已知内容的精确预期版本，并在 depends_on 中显式列出同一 key，读取在写入之前。ch3_record_write 以第三张纸写成，消耗 res_3333444455556666 的 1 张；不重复分配先前材料，也不修改既往版本。若需在结算中改动前文，只能由原作者九九以新的写入引用先前 artifact_ref 生成新版本，且此后任何读取/签认必须引用该精确版本；本报告未新增任何修订版本。"
+      },
+      {
+        "capability_requirements": [
+          {
+            "key": "ch3_boundary_sign",
+            "kind": "artifact_sign",
+            "actor_ref": "",
+            "artifact_ref": "ch3_record_write",
+            "depends_on": [
+              "ch3_record_write"
+            ]
+          }
+        ],
+        "operation": "边界维护单元逐项核验三张事件记录纸、加盖 TEST_SCAFFOLD 标记并把整组记录封存在官方状态之外",
+        "requires_readable": false,
+        "resource_refs": [],
+        "status": "missing",
+        "explanation": "复核确认：fac_test_scaffold_boundary 是 TEST_SCAFFOLD 势力条目，不是 world_state.actors 中的角色，没有 agent_id，也没有对应执行适配器；execution_capabilities.action_kinds 只提供角色级动作类型，不含背景机构的核验、加盖标记与封存。因此 actor_ref 留空、不伪造身份，该操作只能登记为脚手架元操作（由 Host 管线承担），不得描述为世界内已由某角色执行的核验，也不得据此声称记录已被验真；此外签认本身要求签认人本人读过同一预期版本，对非角色无法满足。"
+      }
+    ],
+    "unresolved_items": [
+      "声望机会提示的来源不是 world_state.actors 中的角色，communication 的接收者类别只有 existing_character_actor，因此“索取证据”没有合法接收者，也不会产生背景回复；提示真伪整弧保持 TBD/PROPOSAL_NEEDED。此项不阻断路径，因为拒绝、保留、继续查证与离开并承担后果都在九九的合法选择空间内。",
+      "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 在 world_state.resources 中没有实体（无 resource_id、无 inspectable_surfaces、无 readable_facts），其机制 tier=secret 且未列入任何角色可用公开机制；本弧只能依赖九尾狐已批准的初始已知事实承接，含义、来源与作用保持 TBD；若后续需要实体化观察对象，须先建立可引用资源或表面。",
+      "记录介质只有 3 张空白事件记录纸且为九九独占，恰被三章事件记录用尽；若九尾狐选择传递而形成传递记录、或需要一份公开示警/守护空档的独立记录，则缺少第四份载体，也缺少九尾狐与凤凰可用的记录接口。该缺口属未被选定的条件分支，须在角色阶段由接收者九九以同作者修订其既有记录载体承担，或降格为 Host 层日志（不构成角色知识证据），不能默认成立。",
+      "浮标位置偏离常态与近岸水位都没有可核验的数值来源：浮标为数值资源但无位移单位，近岸公开水况 unit 为空且 perception 为 unknown，世界状态也没有水位计或标尺；因此只能作为未经确认的目视印象登记，如需数值必须先建立可测目标与机制。此项不影响选定路径，因为该路径只登记未确认印象与原因未知。",
+      "边界维护单元不是已登记角色，第三章的逐项核验、TEST_SCAFFOLD 标记与封存无法通过角色级动作执行，也没有背景签认适配器；只能作为脚手架元操作登记，且不得被叙述为世界内已完成的验真。此项属管线终态描述，不构成世界内资料缺口。",
+      "现场没有规程、许可、钥匙、维护文书或任何具 readable_facts 的文书，也没有第二枚浮标、自动告警或仪表资源；因此“依规定处置浮标”“开箱检查”“双源交叉验证”均不可写；守护连续性只能靠九九本人在场。",
+      "凤凰的公开示警没有非角色受众接口；在它不认识任何其他角色的前提下，该动作只能作为不加指向的本地行为或延后处理。此项不阻断条件路径。",
+      "软纲预设的两项角色选择（九九留守记录、九尾狐最终不发起传递）已在本预演中继续降级为条件分支；若角色 Agent 实际选择离开或实际完成传递，第二、三章记录内容与终态知识登记须相应改写，本预演不预设结果，条件性可行不等于角色会如此选择。",
+      "沿岸通道只给出规划值 travel_days=0.1，通行方式与实测距离为 TBD，且水况与湿滑礁面可能造成阻断或延误；任何跨地点行动与消息都须按非零耗时结算。",
+      "记录版本引用存在条件性耦合：第三章的 artifact_read 引用 ch1_record_write/ch2_record_write 这两个精确预期版本；若某分支产生同一作者的新版本（同作者修订），后续读取与签认必须改为引用该新版本，本报告未创建任何修订版本，该情形留待角色阶段处理。",
+      "每章正文 2000—3300 字的字数合同在本轮未被行使（不渲染正文）；若后续渲染，第一章需在字数内承载四个场景，须逐场景核字并遵守疲劳词上限与禁用短语。",
+      "本预演未穷尽自然语言层面的全部资料缺口，仅对计划中各项关键操作的资料来源作了诚实分类；已有资源不代表已被读取、协商已完成或许可条件已满足。"
+    ]
+  },
+  "call": {
+    "role": "world_arbiter",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "usage_ids": [
+      "direct_usage_YHSIC3OWKC6PTIZCBJIPQZ6UPQ"
+    ],
+    "tool_call_id": "call_00_S3GK1SDe1qUHqYgKZKEU5169",
+    "response_digest": "sha256:d57ea44acd6609fd284764f7e3219219074274dbb6748ac55bb6cfbc2e549cd3"
+  },
+  "report_digest": "sha256:71ea16df2484691f843ec4ed41cfab7b43fd2d91c69b02dd56483ef07bd548b8"
+}

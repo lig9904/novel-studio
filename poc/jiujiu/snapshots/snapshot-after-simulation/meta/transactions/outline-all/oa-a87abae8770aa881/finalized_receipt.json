@@ -1,0 +1,9 @@
+{
+  "version": "directory-publish-finalize.v1",
+  "transaction_id": "oa-a87abae8770aa881",
+  "receipt_digest": "sha256:0bcfb336c7b4dc0b6b9841699ca279242664bed42b38a0c66e77b02f724d0869",
+  "intent_digest": "sha256:3fd68a6bd353f9b8643728fabf7a0aa76cbd3554ffe4a2e4dc7f7d3e43d48116",
+  "live_root": "sha256:759f1c6894440064e6e8d93bb01727e8841d31279498a968794c20e9d6019e5b",
+  "finalized_at": "2026-09-16T07:24:19.545627Z",
+  "finalize_digest": "sha256:c00dd553d4a9e1d60f967e1a986f80e6b4c4a14326d8f634fa788773d60ab0d3"
+}

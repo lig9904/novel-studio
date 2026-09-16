@@ -56,4 +56,8 @@ Build only the smallest planning scaffold that activates 九九, 九尾狐, and 
 - Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.
 - Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.
 
+The physical TEST_SCAFFOLD foundation supplies stable resource IDs. Use the public-water resource for qualitative operational observation, the warning buoy only for its actual supported measurement/use, the fox tide-mark resource only inside 九尾狐's private observation package, and blank paper only as material for records. Do not treat an ordinary object as an artifact before a valid artifact write creates a version.
+
+World State evidence is the original World Arbiter receipt plus the pipeline's source/time/resource consequences. `fac_test_scaffold_boundary` is not a character actor and must never be asked to sign, read, stamp, or execute an in-world action. TEST_SCAFFOLD labeling and external snapshot sealing are Host-level audit operations, not story events. The unverified prestige prompt does not need a background reply; inability to contact an absent sender must remain a legitimate constraint on 九九's autonomous decision.
+
 The pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.

@@ -1,0 +1,205 @@
+[
+  {
+    "name": "螭吻·九九",
+    "aliases": [
+      "九九"
+    ],
+    "role": "主角",
+    "description": "来源 Canon：龙之九子中的螭吻，喜水并具有灭火属性；兽体以鱼躯为主体，龙头鱼身。性格为好奇、好胜、骄傲、负责，主动探索是主要行动驱动力，保护是核心价值边界。TEST_SCAFFOLD：仅用于三章自治与保护边界测试，不构成官方角色履历；力量强度、频率、来源、代价、升级、战斗层级、额头珠关系及形态差异均为 TBD。真九九、机甲九九、凌墨保持不同。",
+    "arc": "TEST_SCAFFOLD：面对要求其放弃眼前水边保护职责、转而追逐未经证实声望机会的柔性压力；可拒绝、另选方案、索取信息或服从并承担后果，不预定决定，不形成官方 Canon。",
+    "traits": [
+      "好奇",
+      "好胜",
+      "骄傲",
+      "负责",
+      "主动探索",
+      "以保护为核心价值边界"
+    ],
+    "tier": "core",
+    "initial_state": {
+      "time": "TEST_SCAFFOLD：第一章开始前",
+      "location": "渔岛海洋度假区近岸守护点",
+      "current_goal": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+      "current_action": "TEST_SCAFFOLD：关注近岸公开可见的水域状况",
+      "pressure": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力",
+      "known_facts": [
+        "自己的正式名为螭吻·九九，简称九九",
+        "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+        "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+        "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+        "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+        "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD"
+      ],
+      "resources": null,
+      "resource_balances": [
+        {
+          "resource_id": "res_1111222233334444",
+          "perceived_name": "近岸公开水况",
+          "perceived_label": "近岸公开水况",
+          "name": "TEST_SCAFFOLD近岸公开水况",
+          "unit": "",
+          "actual_amount": null,
+          "access": "shared",
+          "perception": {
+            "kind": "unknown",
+            "as_of_chapter": 0
+          }
+        },
+        {
+          "resource_id": "res_2222333344445555",
+          "perceived_name": "现场警示浮标",
+          "perceived_label": "现场警示浮标",
+          "perceived_unit": "件",
+          "name": "TEST_SCAFFOLD现场警示浮标",
+          "unit": "件",
+          "actual_amount": 1,
+          "access": "shared",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 1,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "user_targeted_repair:authored_opening_resource:warning_buoy"
+            ]
+          },
+          "evidence_refs": [
+            "user_targeted_repair:authored_opening_resource:warning_buoy"
+          ]
+        },
+        {
+          "resource_id": "res_3333444455556666",
+          "perceived_name": "空白事件记录纸",
+          "perceived_label": "空白事件记录纸",
+          "perceived_unit": "张",
+          "name": "TEST_SCAFFOLD空白事件记录纸",
+          "unit": "张",
+          "actual_amount": 6,
+          "access": "exclusive",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 6,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "user_targeted_repair:authored_opening_resource:blank_event_paper"
+            ]
+          },
+          "evidence_refs": [
+            "user_targeted_repair:authored_opening_resource:blank_event_paper"
+          ]
+        }
+      ],
+      "relationships": [
+        "与九尾狐的开局关系为 TBD，无已记录相识或秘密传递事件",
+        "与羽族凤凰的开局关系为 TBD，无已记录相识或信息传递事件"
+      ],
+      "commitments": [
+        "TEST_SCAFFOLD：不把未经核实的声望信息自动视为事实",
+        "TEST_SCAFFOLD：眼前水边保护职责需进入其自主决策，而非由规划者替其作答"
+      ]
+    }
+  },
+  {
+    "name": "九尾狐",
+    "role": "重要配角",
+    "description": "来源 Canon：兽体是真正的九尾狐，不得以普通狐狸、单尾狐或狐耳人形替代。正式名、性别、年龄呈现、性格、身份、力量、Want、Need、Misbelief、Secret、目标、关系与角色弧均为 TBD。TEST_SCAFFOLD：仅作为知识边界探针参与测试，不构成官方设定补全。",
+    "arc": "TEST_SCAFFOLD：仅九尾狐能够观察私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK；是否保密、核实或通过明确故事内事件传递，由角色推演决定，不预定结果，不并入官方 Canon。",
+    "traits": [
+      "TBD"
+    ],
+    "tier": "important",
+    "initial_state": {
+      "time": "TEST_SCAFFOLD：第一章开始前",
+      "location": "近岸礁影观察点",
+      "current_goal": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+      "current_action": "TEST_SCAFFOLD：观察近岸礁面，不自动向任何角色传递私密信息",
+      "pressure": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认",
+      "known_facts": [
+        "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+        "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+        "该标记的含义、来源及是否应传递均为 TBD"
+      ],
+      "resources": null,
+      "resource_balances": [
+        {
+          "resource_id": "res_1111222233334444",
+          "perceived_name": "近岸公开水况",
+          "perceived_label": "近岸公开水况",
+          "name": "TEST_SCAFFOLD近岸公开水况",
+          "unit": "",
+          "actual_amount": null,
+          "access": "shared",
+          "perception": {
+            "kind": "unknown",
+            "as_of_chapter": 0
+          }
+        },
+        {
+          "resource_id": "res_4444555566667777",
+          "perceived_name": "私密潮痕",
+          "perceived_label": "私密潮痕",
+          "name": "TEST_SCAFFOLD九尾狐私密潮痕",
+          "unit": "",
+          "actual_amount": null,
+          "access": "exclusive",
+          "perception": {
+            "kind": "unknown",
+            "as_of_chapter": 0
+          },
+          "evidence_refs": [
+            "user_targeted_repair:authored_opening_resource:fox_tide_mark"
+          ]
+        }
+      ],
+      "relationships": [
+        "与九九的开局关系为 TBD，无已记录秘密传递事件",
+        "与羽族凤凰的开局关系为 TBD，无已记录秘密传递事件"
+      ],
+      "commitments": [
+        "TEST_SCAFFOLD：私密标记在未发生明确故事内传递事件前仅由自己知悉"
+      ]
+    }
+  },
+  {
+    "name": "羽族凤凰",
+    "role": "重要配角",
+    "description": "来源 Canon：原型为凤凰而非青鸾，兽体是真实完整的凤凰神鸟形态，属于东方神话幻想体系，并与羽族有关；不得以带翅人类、天使、西方翼人、狮鹫或普通鸟替代兽体。人形视觉探索可采用白、金、浅蓝、东方凤冠与纹样、长尾羽和东方云宫，但仅属视觉方向。转化、性别、姓名、年龄、地位、性格、Want、Need、目标、Misbelief、Secret、力量、关系、CP 与世界秘密均为 TBD。TEST_SCAFFOLD：不发明火焰、重生、治疗、永生等能力。",
+    "arc": "TEST_SCAFFOLD：以最小知识进入有限海岸测试环境，只能依据亲见或有记录的传递更新认知；其选择与关系不预定，不构成官方 Canon。",
+    "traits": [
+      "TBD"
+    ],
+    "tier": "important",
+    "initial_state": {
+      "time": "TEST_SCAFFOLD：第一章开始前",
+      "location": "近岸上空云缘观察位",
+      "current_goal": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+      "current_action": "TEST_SCAFFOLD：仅观察自身可见环境，不推断未知角色、传说或秘密",
+      "pressure": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少",
+      "known_facts": [
+        "自己是凤凰",
+        "自己与羽族有关"
+      ],
+      "resources": null,
+      "resource_balances": [
+        {
+          "resource_id": "res_1111222233334444",
+          "perceived_name": "近岸公开水况",
+          "perceived_label": "近岸公开水况",
+          "name": "TEST_SCAFFOLD近岸公开水况",
+          "unit": "",
+          "actual_amount": null,
+          "access": "shared",
+          "perception": {
+            "kind": "unknown",
+            "as_of_chapter": 0
+          }
+        }
+      ],
+      "relationships": [
+        "与其他角色的关系均为 TBD，开局无已记录相识或信息传递事件"
+      ],
+      "commitments": [
+        "TEST_SCAFFOLD：未知信息保持 UNKNOWN，只有记录来源事件、证据、章节和故事时间后才可转为 KNOWN"
+      ]
+    }
+  }
+]

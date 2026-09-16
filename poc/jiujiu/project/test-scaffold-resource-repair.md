@@ -27,9 +27,18 @@ Use these exact stable resource identities and consistent world-authoritative fi
 3. `res_3333444455556666`
    - name: `TEST_SCAFFOLD空白事件记录纸`
    - unit: `张`
-   - actual_amount: 3
+   - actual_amount: 6
    - ordinary blank material with no readable facts
-   - 九九 has exclusive access, `last_observed` amount 3 at chapter 0, safe perceived name/label `空白事件记录纸`, perceived unit `张`, with an authored opening evidence ref
+   - 九九 has exclusive access, `last_observed` amount 6 at chapter 0, safe perceived name/label `空白事件记录纸`, perceived unit `张`, with an authored opening evidence ref
    - other characters have no access and do not know the quantity
+
+4. `res_4444555566667777`
+   - name: `TEST_SCAFFOLD九尾狐私密潮痕`
+   - unit: empty string
+   - actual_amount: null
+   - qualitative non-document resource; no readable facts and no public inspectable surface
+   - 九尾狐 alone has exclusive access with `last_observed` perception at chapter 0, perceived name/label `私密潮痕`, and an authored opening evidence ref
+   - 九九 and 凤凰 must not receive a holding, name, perception, evidence ref, or known fact for this resource
+   - this resource permits a later private operational observation by 九尾狐; it does not reveal meaning, origin, truth, effect, or transmission
 
 All perceptions must use the exact v2 `resource_balances` schema, `as_of_chapter: 0`, valid access values, and non-secret evidence refs. Do not encode quantities or secrets in resource IDs. Do not create duplicate world balances. Do not add the fox tide-mark secret to 九九 or 凤凰. Do not alter Phoenix known facts, which remain exactly own phoenix identity and 羽族 association.

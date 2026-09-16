@@ -1,8 +1,8 @@
 # Canon summary
 
-Status: **SOURCE-ONLY / NOT LOADED INTO NOVEL STUDIO**.
+Status: **SOURCE LOADED INTO ISOLATED TEST_SCAFFOLD / NOT OFFICIAL CANON**.
 
-The following is a faithful inventory of the immutable input, not an Accepted Canon commit:
+The following immutable input was loaded into the isolated Novel Studio scaffold, not an official Accepted Canon commit:
 
 - 九九: formal name `螭吻·九九`; prototype 螭吻; likes water and can extinguish fire; beast body must be dragon head plus fish body; must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or vehicle.
 - 九九 approved character direction: curious, competitive, proud, responsible; active exploration; protection as a value boundary; pride/competitiveness may cause showing off, overreaching, denial, and consequential mistakes.
@@ -12,3 +12,5 @@ The following is a faithful inventory of the immutable input, not an Accepted Ca
 - All AI additions default to PROPOSED. IDEA/PROPOSAL/SIMULATION/DRAFT are not Accepted Canon or human approval.
 
 Input SHA-256: `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`.
+
+All additional foundation, outline, resources, world ticks, plans, rehearsal drafts/reports, relationships, and foreshadow entries are covered by the run-level `TEST_SCAFFOLD_SCOPE.json`; they are not human approval.

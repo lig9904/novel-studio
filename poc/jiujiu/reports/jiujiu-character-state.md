@@ -1,7 +1,15 @@
 # 九九 Initial Character State
 
-Result: **INCONCLUSIVE / NOT RUN**.
+Result: **PASS as TEST_SCAFFOLD initialization; not official Canon**.
 
-The source canon can be mapped mechanically, but the task requires a Novel Studio Initial Character State and observation of real Story Engine behavior. The native zero-init path is gated by prohibited `outline-all`; no state was fabricated outside the product path.
+The original Architect/zero-init path created a structured Initial Character State:
 
-No values were guessed, no TBD field was filled, and no state was committed.
+- CurrentGoal: protect the immediate water-side duty and independently assess the unverified opportunity.
+- PrimaryPressure: protection duty versus unverified prestige pressure.
+- Resources: public water condition, one warning buoy, and six blank event-record sheets, all TEST_SCAFFOLD physical resources.
+- KnowledgeLedger: source-known identity, body form, water/fire-extinguishing boundary, protection/exploration values, festival name, and the limited 渔岛/独角龙 connection; no fox secret.
+- DecisionFramework: keep the choice open to refuse, defer, seek evidence, propose an alternative, or leave and bear consequences.
+- RelationshipContract: initial relationships remain TBD with no fabricated acquaintance or secret transfer.
+- EmotionAppraisal/ArcAxis/ActionBias/RiskPressure/NextLikelyAction: zero-init derived TEST_SCAFFOLD fields; missing source facts remain TBD rather than official additions.
+
+This state was used only in the isolated run. It was never promoted to official 九九 Canon or human-approved character state.

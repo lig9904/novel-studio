@@ -1,0 +1,18 @@
+{
+  "chapter": 0,
+  "generated_at": "2026-09-16T15:24:19+08:00",
+  "scope": "zero_chapter_initial",
+  "seeds": [
+    {
+      "description": "TEST_SCAFFOLD：那条口信把九九的现场职责与一个未经证实的声望机会压进同一段时间，它索要凭据的结果会决定下一章它手上多出什么可核验的材料；九尾狐未外传的标记与凤凰尚未填写任何身份的认知清单，分别被登记为未决条目，等待后续裁决而非旁白代答。",
+      "id": "ch01-opening-hook",
+      "payoff_horizon": "第2章以后按大纲和审阅回填推进。",
+      "planting_rule": "第一章只能埋可被现场证据承载的种子，不提前解释答案。",
+      "required_audit": "commit 后由 review 检查是否成为有效伏笔或只是装饰。",
+      "source_chapter": 0,
+      "status": "planned_seed",
+      "target_chapter": 1
+    }
+  ],
+  "version": 1
+}

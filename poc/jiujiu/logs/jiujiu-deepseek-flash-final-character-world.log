@@ -1,0 +1,27 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：preplan → rehearse-arc → project-all → seal
+
+========== 阶段：preplan ==========
+[pipeline:preplan] 全书 3 个稳定章位已从正史第 0 章重新建立非正史骨架；下一步只物化 V1A1（第1-3章），整弧计划封存后再逐章渲染/逐章审核
+[pipeline] 阶段完成：preplan
+
+========== 阶段：rehearse-arc ==========
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 15:25:50 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+[pipeline:project-all:usage] 既有账本仍含计量缺口；恢复后的成本及预算继续使用已知小计。
+[pipeline:rehearse-arc] 整弧 1..3：Architect 条件预演 → World Arbiter 复核；不写正文或正史
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"material_checks[1].capability_requirements[0] key=\\\"ob_ch1_buoy_guard\\\" kind=\\\"operational_observation\\\": operational_observation requires one existing qualitative non-document resource and public mechanism; it cannot certify quantities or overall safety\""
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"material_checks[4].capability_requirements[0] key=\\\"ob_fox_mark_series\\\" kind=\\\"operational_observation\\\": capability references a non-public or undefined mechanism \\\"mech_scaffold_secret_fox_tide_mark\\\"\""
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"material_checks[8].capability_requirements[0] key=\\\"r_ch3_own_ch1_note\\\" kind=\\\"artifact_read\\\" artifact_ref=\\\"w_ch1_field_note\\\": artifact read/sign requires an actual artifact or earlier expected write, not an ordinary document\""
+[pipeline:watchdog] stage=rehearse-arc chapter=0 已连续 5m15s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+[pipeline:rehearse-arc:world_arbiter] 提交校验未通过："\"material_checks[8].capability_requirements[0] key=\\\"ar_ch3_review_ch1\\\" kind=\\\"artifact_read\\\" artifact_ref=\\\"w_ch1_field_note\\\": artifact read/sign requires an actual artifact or earlier expected write, not an ordinary document\""
+pipeline: 阶段 rehearse-arc 失败（修复后重跑 --pipeline 即从此阶段继续）: 整弧预演发现未解决的前提或可达性问题；请修复报告 sha256:b700daa72c2d853ec872ec21fcc04f186d817906341e326d359581883e38611b 指出的来源，再进入详细规划
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1

@@ -35,3 +35,17 @@ Choose a later authorized path after review:
 3. relax the Season Planning prohibition and allow the native `architect,outline-all,zero-init` path.
 
 No option was assumed in this run.
+
+## Continuation after human authorization
+
+The user subsequently authorized `outline-all` strictly as TEST_SCAFFOLD. `BLOCKER-P0-001` was therefore closed for this run without modifying core source.
+
+The original pipeline successfully completed Architect, outline-all, zero-init, physical resource repair, initial world tick, preplan, multiple rebase/recovery cycles, and several Architect/World Arbiter rehearsals.
+
+## Final blocker
+
+`BLOCKER-P0-002_REHEARSAL_NOT_READY`: the final durable World Arbiter report has digest `sha256:b700daa72c2d853ec872ec21fcc04f186d817906341e326d359581883e38611b` and `ready_for_detail=false`.
+
+The report is valid and speculative. Its own summary says the selected conditional path has no hard-contract reachability failure, but the stored result retains 14 unresolved items and one missing material check. The supported `project-all` command refuses before any Character Agent model call when the current rehearsal is not ready.
+
+No further scaffold expansion was attempted. Phase 0 stops with NO-GO, no accepted chapter, no proposal promotion, no render, and no core-source change.

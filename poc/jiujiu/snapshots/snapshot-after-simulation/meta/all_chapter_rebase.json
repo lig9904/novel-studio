@@ -1,0 +1,13 @@
+{
+  "version": "pipeline-all-chapter-rebase.v1",
+  "source_output": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel",
+  "source_root": "sha256:481b197e1e96844a34599c29c570f8fd220e5f9106c52a981f071dd3e79af5e8",
+  "source_rag_authority_root": "sha256:1f935a13730f594ee01f41c21d0241e638f04eb6f1c458c9a828e33c2fc374fc",
+  "archive_output": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/archives/sealed-rebase-20260916T072130.854386000Z/output/novel",
+  "archive_root": "sha256:481b197e1e96844a34599c29c570f8fd220e5f9106c52a981f071dd3e79af5e8",
+  "archive_rag_authority_root": "sha256:1f935a13730f594ee01f41c21d0241e638f04eb6f1c458c9a828e33c2fc374fc",
+  "previous_progress": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/archives/sealed-rebase-20260916T072130.854386000Z/output/novel/meta/progress.json",
+  "new_generation_id": "simulation-20260916-072132017923",
+  "rebased_rag_authority_root": "sha256:1f935a13730f594ee01f41c21d0241e638f04eb6f1c458c9a828e33c2fc374fc",
+  "rebased_at": "2026-09-16T07:21:32.051089Z"
+}

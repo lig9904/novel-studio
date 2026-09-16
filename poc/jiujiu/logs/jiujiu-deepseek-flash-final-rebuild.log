@@ -1,0 +1,536 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：outline-all → zero-init
+
+========== 阶段：outline-all ==========
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 15:22:48 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 15:22:55 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 15:23:29 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+[pipeline] 阶段完成：outline-all
+
+========== 阶段：zero-init ==========
+[pipeline:zero-init] 执行 zero-init：meta/first_chapter_generation_readiness.json 不存在（尚未执行 zero-init）
+[zero-init] 已生成零章写前梳理：/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/ch01_zero_init_plan.md
+[zero-init] RAG 来源=24 chunks=178 index=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/rag/index_state.json
+/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/first_chapter_generation_readiness.md
+[pipeline:zero-init] 生成第 1 章前初始 world_tick
+2026/09/16 15:24:19 INFO 启动 module=boot provider=deepseek model=deepseek-flash output=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 15:24:19 INFO 模型就绪 module=boot summary="default=deepseek/deepseek-flash architect=deepseek/deepseek-flash writer=deepseek/deepseek-flash character=deepseek/deepseek-flash world_arbiter=deepseek/deepseek-flash drafter=deepseek/deepseek-flash editor=deepseek/deepseek-flash reviewer=deepseek/deepseek-flash coordinator=deepseek/deepseek-flash"
+2026/09/16 15:24:19 INFO 模型元数据已就绪 module=models count=214
+2026/09/16 15:24:19 INFO 上下文窗口（来自配置文件 context_window） module=context role=coordinator model=deepseek-flash window=1048576 source=config
+2026/09/16 15:24:19 INFO 上下文窗口（来自配置文件 context_window） module=context role=writer model=deepseek-flash window=1048576 source=config
+2026/09/16 15:24:19 INFO 上下文窗口（来自配置文件 context_window） module=context role=drafter model=deepseek-flash window=1048576 source=config
+headless 启动: /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+[15:24:19] [SYSTEM] 开始创作
+
+
+The task is clear: dispatch architect_long with the exact contract block copied verbatim.
+
+I must copy the contract block exactly into the task. Let me compose the task including the contract verbatim, plus context about generation_id, arc, characters, factions, and constraints.
+
+Let me be careful to copy the contract block literally.
+
+I'll include the marker line and all content, then add supporting context (canon anchors, chapter boundaries, character visibility, factions) and the "stop after" instruction.
+
+The dispatch contract must be copied verbatim, not summarized. I'll add necessary context around it.[15:24:21] [DISPATCH] subagent
+[15:24:21] [DISPATCH] architect_long
+[15:24:21] [DISPATCH] architect_long（[Pipeline zero-init 初始 world_t...）
+
+
+
+
+Let me start by getting the context to understand the current state.
+
+Actually, the task is quite clear: call save_world_tick for the initial world tick before chapter 1. Let me first read novel_context to get world_simulation, book_world factions, story_calendar.
+
+Let me call novel_context with profile world_simulation.[15:24:33] [TOOL] novel_context
+
+
+✻ 查询上下文
+profile: world_simulation
+[15:24:33] [TOOL] novel_context
+
+
+Now I need to construct the initial world tick. Key constraints:
+
+- through_chapter = 0 (pre-chapter-1 initial tick)
+- events must be offscreen events before chapter 1
+- visibility_chapter must be >= 1 (all three characters earliest visible chapter is 1), and must not be earlier than chapter
+- actors only from: 螭吻·九九, 九尾狐, 羽族凤凰, fac_test_scaffold_boundary / TEST_SCAFFOLD场景边界维护单元 / TEST_SCAFFOLD边界单元
+- Do not pre-empt chapter 1: no new evidence items, no transfer, no testimony, no direct contact, no scene results beyond what's authorized.
+
+Hmm, but the core_event describes things happening in chapter 1 itself. The tick must set conditions only, not complete the chapter-1 events. So events should be things happening before chapter 1: e.g., tide rising, the passage of a rumor through the shore, the buoy being placed, fox arriving at reef observation point, phoenix arriving at cloud edge observation position, etc.
+
+But careful: the "过路人" (passerby) is not in the allowed actor list. So I can't use a passerby as actor. However, events can be about conditions — e.g., a rumor circulating along the shore. Hmm, but "口信" comes from a passerby in chapter 1, which is chapter-1 content. The NO_PREEMPT rule says chapter0 must only set conditions needed for chapter1; must not pre-complete chapter1's discovery, choice, action, and results. The passerby's message delivery is a chapter-1 action. So I should not have the message delivered at chapter 0... Actually wait — "不得新增 exact core_event / exact hook 未授权的证据物、转交、证言、直接接触或场景结果" — so I shouldn't add new evidence items, transfers, testimony, direct contact, or scene results not authorized by core_event/hook.
+
+Hmm, but the "口信" already circulating is a condition. The message existing somewhere as a rumor is a condition for the passerby's relaying. But is that adding a "证言"? Careful. I think an offscreen event like "岸边人群间流通着一条关于某处扬名机会的口信" — the rumor source. But "actors" must use allowed names. Could use fac_test_scaffold_boundary? No, that's the boundary maintenance unit (evaluation only, not an in-world org).
+
+Hmm. This is tricky. Allowed actors: the three characters or the boundary unit. Actually the boundary unit is explicitly "不代表世界内官方机构" — it's a maintenance unit for the scaffold. Using it as an actor in-world would be odd but it's explicitly listed as available.
+
+Let me design events that are conservative: world conditions before chapter 1, without naming the passerby, without pre-completing chapter-1 outcomes.
+
+Candidate events (chapter=0, visibility_chapter 1..3):
+
+1. Tide rising: 渔岛海洋度假区近岸守护点 — 潮位在开局前持续上涨，唯一一枚现场警示浮标仍在原位，近岸公开水况的实测数字未公布（只有目视可判的公开部分）。actors: 螭吻·九九 (九九 is at the guard point pre-chapter-1 — its initial location). visibility_chapter=1, path=亲见/现场可见.
+
+Hmm but careful: the event "九九把浮标原位记进记录纸" is chapter-1 core_event content. So I shouldn't have 九九 recording. But 九九 being on station and observing the water is its initial_state — that's fine as a condition, not chapter-1's specific discovery/action.
+
+Actually wait — the NO_PREEMPT says "不得提前完成、替换、预答，也不得换演员执行第1章发现、选择、动作和结果" — so the tick events should be environmental/background conditions, not 九九's chapter-1 actions.
+
+2. 沿岸通道/礁影观察点: 潮线在开局前的一次小涨落里把湿礁面重新盖过又退出，留下新的潮湿带。（不指明标记含义；标记本身是九尾狐私密观察，其存在与可见由私密资源承载——九尾狐已有 res_4444555566667777 私密潮痕 perception unknown as_of_chapter 0。Hmm, perception kind unknown — so 九尾狐 doesn't yet know? Interesting: 九尾狐's private tide mark resource perception is "unknown". So at chapter 0, 九尾狐 has not yet observed it. Chapter 1 is when it sees it. So I should NOT state that 九尾狐 observed the mark pre-chapter-1.
+
+So event: 潮水在开局前退过礁面，留下新的潮湿带（环境条件），九尾狐在礁影观察点俯视礁面 —— actually stating 九尾狐 is there and looking is fine (initial_state: location=近岸礁影观察点, current_action=观察近岸礁面). But should the event say that? It's the tick's agenda update maybe.
+
+3. Phoenix: 近岸上空云缘观察位 — 海面水色在开局前随潮汐变化；凤凰悬停观察。Also fine as initial state.
+
+Hmm, but I must avoid pre-empting. Actually initial states themselves already say these things. The tick is about *offscreen events* — things that happened in the world before chapter 1 that the protagonist may not yet perceive, with visibility paths and later reveal.
+
+What offscreen things can exist? Consider the fabula: someone somewhere (behind the rumor) is running a "扬名机会". But we cannot invent new organizations or characters. The rumor's origin is not authorized. So I must be careful: "不得引入 premise、user_rules、world_rules 与冻结首弧没有授权的题材、人物、组织或机制."
+
+So the safest offscreen events are environmental and boundary-level:
+
+E1. 潮水条件：开局前一段潮位持续上涨，把近岸浅水线与湿礁面边界整体上移（地点：渔岛海洋度假区近岸守护点 / 近岸礁影观察点），consequence：唯一一枚现场警示浮标的可复核原位窗口收窄到退潮前的一段时间。visibility_chapter=1, path=亲见。actors: 螭吻·九九? Hmm, the event is environmental. actors could be 螭吻·九九 (because it's at the guard point, perceiving it). But "actors" of an event where nothing happens... The schema requires actors list non-empty.
+
+Maybe better to frame each event as "某角色在镜头外做了什么" — the guidance: "谁在主角看不见的地方做了什么、造成什么后果".
+
+For 九九: it's the protagonist; its actions are on-screen. Hmm.
+
+Alternative framing: Because this is a bounded domain with only 3 characters + boundary unit, offscreen events should be about the two supporting characters (九尾狐 and 羽族凤凰) doing things before chapter 1, and environmental preconditions at the guard point, plus boundary-unit bookkeeping.
+
+But careful about knowledge isolation and no-preempt.
+
+Let me draft:
+
+Event 1 (chapter 0, 环境/守护点):
+- actors: ["fac_test_scaffold_boundary"] — hmm, using the boundary unit as an actor for an environmental event is weird but it is the only faction. Actually the boundary unit is "维护一卷一弧三章评估的地点、信息隔离与资源有限性" — it's the scaffold's own maintenance unit, not an in-world actor. Using it as actor would create in-world fiction. The dispatch says events.actors can use "已入册角色名，或 book_world.factions 的 id/name/aliases" — so it's allowed. But is it meaningful? It could be used for "记录槽位" boundary bookkeeping events, e.g., "边界单元登记三处观察位置的起始状态，未替任何角色填写身份、能力或选择结果". That's a meta-level event, and it matches its goal. Since this is a TEST_SCAFFOLD pipeline evaluation, meta-level boundary events are acceptable and safe (they don't inject in-world facts). Actually this is quite elegant: it keeps the tick from inventing world facts.
+
+Hmm, but the tick is supposed to produce 3-6 offscreen events that will surface later (visibility_chapter 1-8, here 1-3). The point is "世界在自转从第一章就成立". Given the extremely tight NO_PREEMPT constraints, some events can be boundary-level and some environmental in-world.
+
+Let me think about what in-world conditions are needed for chapter 1 and are safe:
+
+(a) 涨潮前的水况：nearshore water level rising, the single warning buoy in original position — chapter 1 core event includes 九九 recording the buoy's original position and the public water conditions. So the condition "浮标仍在原位、公开水况只有目视可见部分、无实测数字" is a precondition. Safe.
+
+(b) 一条沿岸流传的口信的存在：The rumor exists in the resort area before chapter 1, enough that a passerby relays it. Hmm — is this "未授权的证据物/证言"? The core_event says the passerby relays a message that a chance to become famous exists elsewhere. The message's existence in the world before chapter 1 is implied. But the dispatch says "不得新增 exact core_event / exact hook 未授权的证据物、转交、证言、直接接触或场景结果". Stating the rumor circulates on shore is... risky. Actually it may be fine if I frame it as: 度假区岸上有人之间在开场前就流传一条关于“别处有一场能立刻扬名的机会”的口信，来源与凭据均未落地（这正是第一章九九要索要的东西）。That's a condition, not a transfer to 九九. But actors? The rumor has no named actor. I could use actors: ["fac_test_scaffold_boundary"]? Odd. Hmm.
+
+Hmm, maybe I should keep it: actors must be allowed names. Could I list 螭吻·九九 as actor for an event where the rumor exists but 九九 hasn't received it? No — actors should be who participated.
+
+Maybe I can write event: "TEST_SCAFFOLD：岸上往来人群之间流传一条关于别处扬名机会的口信，只有口信内容在流通，来源与可核验凭据均未出现" with actors ["fac_test_scaffold_boundary"]... no, the boundary unit doesn't circulate rumors.
+
+Hmm. Let me reconsider: maybe I can avoid needing an actor by attributing the event to... The schema: required fields are chapter, actors, summary, visibility_chapter. actors is an array; presumably must be non-empty. Could I put the location as an actor? No, must be character or faction.
+
+Option: Use 螭吻·九九 for the rumor-adjacent event since 九九 is at the guard point and the rumor reaches it in chapter 1 via the passerby. E.g.:
+
+Event: "TEST_SCAFFOLD：近岸守护点外侧岸上，往来人群把一条关于别处扬名机会的口信带过护栏一带；口信只说机会存在，没带任何凭据，尚未落到九九手上。" actors: ["螭吻·九九"] — but it says "尚未落到九九手上", and 九九 is an actor... contradictory-ish. Actually actors could be the people passing by — but they're not registered.
+
+Hmm, maybe simpler: make the rumor event's actors = ["螭吻·九九"] with summary "守护点外侧岸上有一条未经核实的口信在流通，九九此时只听到零碎字句，尚未获得来源与凭据" — but that would pre-empt chapter 1 (九九 hearing it should be chapter 1's on-screen event). Risky.
+
+Let me reconsider. Maybe better: the events should be framed as conditions that will surface. I could have the rumor event with the *boundary unit* as actor being about the record slot. Hmm.
+
+Alternative: Since the constraint set is extreme, maybe fewer but well-grounded events, and use agenda_updates heavily plus social_mood (rumors!). social_mood.rumors is exactly designed for circulating rumors without naming actors: {"text", "credibility", "spread_rate", "source_faction"}. That's a great fit for the unverified prestige rumor: source_faction could be "fac_test_scaffold_boundary"? Hmm, source_faction optional. I can omit source_faction or use the boundary unit id. Actually source_faction is optional per required list ["text","credibility","spread_rate"]. So I can omit it.
+
+So the rumor "某处有一场能立刻扬名但需要离开眼前岗位的机会" goes into social_mood.rumors with credibility low (0.2-0.3) and spread_rate moderate. That neatly sets the condition without inventing an actor. And social_mood.mood = 海岸度假区涨潮前的日常松弛 + 对别处热点的口头兴趣, intensity ~0.3.
+
+Good. That solves the rumor.
+
+Now for events: let's produce 3-4 events:
+
+E1: 潮水与浮标条件（环境）— actors: ["螭吻·九九"]? Hmm, again protagonist. Actually I think it's legitimate: 九九 is at the guard point maintaining position — that IS its initial state, and the event can be "潮位上涨，九九沿浅水巡线保持现场守护，未离开岗位" — but is this "提前完成第1章动作"? Its chapter-1 action includes 沿浅水巡线 and 记录浮标原位. Hmm, "沿浅水巡线" appears in chapter1 core_event and in scene 1. So writing it as chapter-0 event might be seen as pre-empting... Actually pre-chapter-1 九九 is already on duty (initial_state: location=guard point, current_goal=守住眼前水边保护职责). So it's fine that it's on duty before chapter 1 — the chapter 1 begins with this continuing. But the NO_PREEMPT says chapter 0 sets conditions for chapter 1's actual occurrence, not pre-completing. Having 九九 on duty is a condition. But writing an event summarizing "九九沿浅水巡线并把浮标原位记进记录纸" would be pre-completing. So I'll write the environmental condition only, and attribute actors to 九九 loosely? Better: attribute the *condition* event to the location? Can't.
+
+Hmm, alternatively I can make E1 focus on 潮水/浮标 and put actors as ["螭吻·九九"] with summary about tide rising against the buoy and 九九 staying at its post without yet recording anything — explicitly stating the recording is pending. That's clear and safe: summary says "尚未落笔记录" — wait, but then the "第一张空白事件记录纸" is chapter 1. Its resource exists (6 sheets). Saying "尚未使用" is a condition statement. OK.
+
+Actually maybe cleaner: don't mention 九九's actions at all; make the tide event's actors be 九九 as the perceiver... Eh, actors is "参与角色/势力名". Hmm.
+
+Let me instead consider the framing that this tick is largely a *boundary/precondition* tick. I'll write:
+
+E1 (chapter 0, location 渔岛海洋度假区近岸守护点, actors ["螭吻·九九"]):
+summary: "TEST_SCAFFOLD：涨潮前一轮潮位上涨把近岸浅水线与湿礁面边界整体上移，唯一一枚现场警示浮标仍在原位，而近岸公开水况只有目视可判的部分、没有公布实测数字。"
+Wait — then actors 九九 isn't really participating. Hmm, but the dispatch's example includes "actor/clock warning" checks — actors must match registered names; whether they truly participate might be checked loosely. I think it's acceptable if the summary concerns 九九's station. Let me write summary so 九九 participates: "九九在近岸守护点保持现场守护位置，潮位上涨把浅水线上移，唯一一枚警示浮标仍在原位，公开水况只有目视部分、没有实测数字，九九尚未把任何读数落到纸上。" Hmm "尚未把任何读数落到纸上" is a negation, fine — sets pending state.
+
+visibility_chapter: 1 (this is perceivable at chapter 1 by 九九; it's essentially the opening condition, "亲见/现场").
+
+Hmm, but events with visibility_chapter=1 will be surfaced at chapter 1 to 九九 — that's fine, world's self-rotation visible from ch1.
+
+E2 (chapter 0, location 近岸礁影观察点, actors ["九尾狐"]): 九尾狐以真正九尾狐兽体在开局前已进入礁影观察点，伏在湿礁边缘观察退潮后的礁面与潮线变化，没有向岸上或天上发出任何信号；它此时尚未核对任何礁面痕迹（私密标记的观察留待第一章）。visibility_chapter=2? Hmm. Its presence is in chapter 1 core_event (九尾狐停在礁影观察点). So this event = its pre-chapter-1 positioning, which is a condition. visibility_chapter must be >= 1 and >= earliest visible chapter of actors (1). Set visibility_chapter=1? But do we want 九九 to learn of 九尾狐's presence at ch1? The chapter-1 core event says "谁都没有获得对方位置与已知事实之外的信息" — so no, 九九 must not learn of 九尾狐's location at ch1. But visibility_chapter is "该消息最早可能传到主角处的章号". If I set 1, that would suggest the info could reach 九九 at ch1 — contradicting the isolation. Hmm. Maybe set visibility_chapter=3 (within the test's 3 chapters) for such isolation-critical events? But then it'd be a foreshadow/reveal in ch3 — also potentially wrong.
+
+Hmm. Alternatively, set visibility_chapter to 3 with visibility_path noting that it only enters 九九's field if an on-screen transmission/observation event occurs (which per plan does not occur within three chapters). Actually risk: the writer at ch3 might be told to surface it. But note that chapter 3 says the three observation points' records are archived. Hmm.
+
+Maybe safer: for knowledge-isolated events, set visibility_chapter=3 and path="TEST_SCAFFOLD：无传播路径；除非后续存在记录在案的故事内亲见或传递事件，该信息不会进入九九可见范围". Hmm, but visibility_chapter is supposed to be the earliest possible chapter, not a promise.
+
+Hmm, alternatively set visibility_chapter=2? Let's think about what would be least harmful. Actually, the key risk is the writer/renderer using the tick's events to inject knowledge into 九九. To be safe, I should mark isolation events with clearly non-transmitting paths like "无路径（隔离）/ 不可传播".
+
+Consider whether to include such events at all. The instruction: "为每个 supporting 层离屏角色确立其开局前正在推进的事". supporting layer = 九尾狐 (important tier... hmm tiers here are core/important; the world_simulation tier_updates uses protagonist_circle/supporting/background). The dispatch says "无需把全部角色塞入 tick；只保留建立条件所必需且不越过第1章边界的角色和事件." So I can include 九尾狐 and 凤凰's pre-chapter-1 positioning since it's needed for chapter 1 to be able to happen.
+
+I'll include them with visibility_chapter=1 anyway? Hmm. Let me think about how visibility_chapter is consumed: "之后 writer 推演第 1 章时会消费这些离屏事件的浮出点，让'世界在自转'从第一章就成立。" So an event with visibility_chapter=1 becomes available at chapter 1. If the event is "九尾狐在礁影观察点俯视礁面且未发出信号", surfacing it at chapter 1 would mean 九九 could learn 九尾狐's presence at ch1 — contradicting "谁都没有获得对方位置与已知事实之外的信息". Hmm, but actually not necessarily: the World Arbiter could surface it as background world state without the protagonist perceiving. But safer: set visibility_chapter=3 for those, i.e., not earlier than the test's end state? Actually the constraint is only that visibility_chapter must be >= earliest visible chapter of any actor in it (1). Setting 3 is allowed.
+
+Hmm,    Now I need to construct the initial world tick. Key constraints:
+
+- through_chapter = 0 (pre-chapter-1 initial tick)
+- events must be offscreen events before chapter 1
+- visibility_chapter must be >= 1 (all three characters earliest visible chapter is 1), and must not be earlier than chapter
+- actors only from: 螭吻·九九, 九尾狐, 羽族凤凰, fac_test_scaffold_boundary / TEST_SCAFFOLD场景边界维护单元 / TEST_SCAFFOLD边界单元
+- Do not pre-empt chapter 1: no new evidence items, no transfer, no testimony, no direct contact, no scene results beyond what's authorized.
+
+Hmm, but the core_event describes things happening in chapter 1 itself. The tick must set conditions only, not complete the chapter-1 events. So events should be things happening before chapter 1: e.g., tide rising, the passage of a rumor through the shore, the buoy being placed, fox arriving at reef observation point, phoenix arriving at cloud edge observation position, etc.
+
+But careful: the "过路人" (passerby) is not in the allowed actor list. So I can't use a passerby as actor. However, events can be about conditions — e.g., a rumor circulating along the shore. Hmm, but "口信" comes from a passerby in chapter 1, which is chapter-1 content. The NO_PREEMPT rule says chapter0 must only set conditions needed for chapter1; must not pre-complete chapter1's discovery, choice, action, and results. The passerby's message delivery is a chapter-1 action. So I should not have the message delivered at chapter 0... Actually wait — "不得新增 exact core_event / exact hook 未授权的证据物、转交、证言、直接接触或场景结果" — so I shouldn't add new evidence items, transfers, testimony, direct contact, or scene results not authorized by core_event/hook.
+
+Hmm, but the "口信" already circulating is a condition. The message existing somewhere as a rumor is a condition for the passerby's relaying. But is that adding a "证言"? Careful. I think an offscreen event like "岸边人群间流通着一条关于某处扬名机会的口信" — the rumor source. But "actors" must use allowed names. Could use fac_test_scaffold_boundary? No, that's the boundary maintenance unit (evaluation only, not an in-world org).
+
+Hmm. This is tricky. Allowed actors: the three characters or the boundary unit. Actually the boundary unit is explicitly "不代表世界内官方机构" — it's a maintenance unit for the scaffold. Using it as an actor in-world would be odd but it's explicitly listed as available.
+
+Let me design events that are conservative: world conditions before chapter 1, without naming the passerby, without pre-completing chapter-1 outcomes.
+
+Candidate events (chapter=0, visibility_chapter 1..3):
+
+1. Tide rising: 渔岛海洋度假区近岸守护点 — 潮位在开局前持续上涨，唯一一枚现场警示浮标仍在原位，近岸公开水况的实测数字未公布（只有目视可判的公开部分）。actors: 螭吻·九九 (九九 is at the guard point pre-chapter-1 — its initial location). visibility_chapter=1, path=亲见/现场可见.
+
+Hmm but careful: the event "九九把浮标原位记进记录纸" is chapter-1 core_event content. So I shouldn't have 九九 recording. But 九九 being on station and observing the water is its initial_state — that's fine as a condition, not chapter-1's specific discovery/action.
+
+Actually wait — the NO_PREEMPT says "不得提前完成、替换、预答，也不得换演员执行第1章发现、选择、动作和结果" — so the tick events should be environmental/background conditions, not 九九's chapter-1 actions.
+
+2. 沿岸通道/礁影观察点: 潮线在开局前的一次小涨落里把湿礁面重新盖过又退出，留下新的潮湿带。（不指明标记含义；标记本身是九尾狐私密观察，其存在与可见由私密资源承载——九尾狐已有 res_4444555566667777 私密潮痕 perception unknown as_of_chapter 0。Hmm, perception kind unknown — so 九尾狐 doesn't yet know? Interesting: 九尾狐's private tide mark resource perception is "unknown". So at chapter 0, 九尾狐 has not yet observed it. Chapter 1 is when it sees it. So I should NOT state that 九尾狐 observed the mark pre-chapter-1.
+
+So event: 潮水在开局前退过礁面，留下新的潮湿带（环境条件），九尾狐在礁影观察点俯视礁面 —— actually stating 九尾狐 is there and looking is fine (initial_state: location=近岸礁影观察点, current_action=观察近岸礁面). But should the event say that? It's the tick's agenda update maybe.
+
+3. Phoenix: 近岸上空云缘观察位 — 海面水色在开局前随潮汐变化；凤凰悬停观察。Also fine as initial state.
+
+Hmm, but I must avoid pre-empting. Actually initial states themselves already say these things. The tick is about *offscreen events* — things that happened in the world before chapter 1 that the protagonist may not yet perceive, with visibility paths and later reveal.
+
+What offscreen things can exist? Consider the fabula: someone somewhere (behind the rumor) is running a "扬名机会". But we cannot invent new organizations or characters. The rumor's origin is not authorized. So I must be careful: "不得引入 premise、user_rules、world_rules 与冻结首弧没有授权的题材、人物、组织或机制."
+
+So the safest offscreen events are environmental and boundary-level:
+
+E1. 潮水条件：开局前一段潮位持续上涨，把近岸浅水线与湿礁面边界整体上移（地点：渔岛海洋度假区近岸守护点 / 近岸礁影观察点），consequence：唯一一枚现场警示浮标的可复核原位窗口收窄到退潮前的一段时间。visibility_chapter=1, path=亲见。actors: 螭吻·九九? Hmm, the event is environmental. actors could be 螭吻·九九 (because it's at the guard point, perceiving it). But "actors" of an event where nothing happens... The schema requires actors list non-empty.
+
+Maybe better to frame each event as "某角色在镜头外做了什么" — the guidance: "谁在主角看不见的地方做了什么、造成什么后果".
+
+For 九九: it's the protagonist; its actions are on-screen. Hmm.
+
+Alternative framing: Because this is a bounded domain with only 3 characters + boundary unit, offscreen events should be about the two supporting characters (九尾狐 and 羽族凤凰) doing things before chapter 1, and environmental preconditions at the guard point, plus boundary-unit bookkeeping.
+
+But careful about knowledge isolation and no-preempt.
+
+Let me draft:
+
+Event 1 (chapter 0, 环境/守护点):
+- actors: ["fac_test_scaffold_boundary"] — hmm, using the boundary unit as an actor for an environmental event is weird but it is the only faction. Actually the boundary unit is "维护一卷一弧三章评估的地点、信息隔离与资源有限性" — it's the scaffold's own maintenance unit, not an in-world actor. Using it as actor would create in-world fiction. The dispatch says events.actors can use "已入册角色名，或 book_world.factions 的 id/name/aliases" — so it's allowed. But is it meaningful? It could be used for "记录槽位" boundary bookkeeping events, e.g., "边界单元登记三处观察位置的起始状态，未替任何角色填写身份、能力或选择结果". That's a meta-level event, and it matches its goal. Since this is a TEST_SCAFFOLD pipeline evaluation, meta-level boundary events are acceptable and safe (they don't inject in-world facts). Actually this is quite elegant: it keeps the tick from inventing world facts.
+
+Hmm, but the tick is supposed to produce 3-6 offscreen events that will surface later (visibility_chapter 1-8, here 1-3). The point is "世界在自转从第一章就成立". Given the extremely tight NO_PREEMPT constraints, some events can be boundary-level and some environmental in-world.
+
+Let me think about what in-world conditions are needed for chapter 1 and are safe:
+
+(a) 涨潮前的水况：nearshore water level rising, the single warning buoy in original position — chapter 1 core event includes 九九 recording the buoy's original position and the public water conditions. So the condition "浮标仍在原位、公开水况只有目视可见部分、无实测数字" is a precondition. Safe.
+
+(b) 一条沿岸流传的口信的存在：The rumor exists in the resort area before chapter 1, enough that a passerby relays it. Hmm — is this "未授权的证据物/证言"? The core_event says the passerby relays a message that a chance to become famous exists elsewhere. The message's existence in the world before chapter 1 is implied. But the dispatch says "不得新增 exact core_event / exact hook 未授权的证据物、转交、证言、直接接触或场景结果". Stating the rumor circulates on shore is... risky. Actually it may be fine if I frame it as: 度假区岸上有人之间在开场前就流传一条关于“别处有一场能立刻扬名的机会”的口信，来源与凭据均未落地（这正是第一章九九要索要的东西）。That's a condition, not a transfer to 九九. But actors? The rumor has no named actor. I could use actors: ["fac_test_scaffold_boundary"]? Odd. Hmm.
+
+Hmm, maybe I should keep it: actors must be allowed names. Could I list 螭吻·九九 as actor for an event where the rumor exists but 九九 hasn't received it? No — actors should be who participated.
+
+Maybe I can write event: "TEST_SCAFFOLD：岸上往来人群之间流传一条关于别处扬名机会的口信，只有口信内容在流通，来源与可核验凭据均未出现" with actors ["fac_test_scaffold_boundary"]... no, the boundary unit doesn't circulate rumors.
+
+Hmm. Let me reconsider: maybe I can avoid needing an actor by attributing the event to... The schema: required fields are chapter, actors, summary, visibility_chapter. actors is an array; presumably must be non-empty. Could I put the location as an actor? No, must be character or faction.
+
+Option: Use 螭吻·九九 for the rumor-adjacent event since 九九 is at the guard point and the rumor reaches it in chapter 1 via the passerby. E.g.:
+
+Event: "TEST_SCAFFOLD：近岸守护点外侧岸上，往来人群把一条关于别处扬名机会的口信带过护栏一带；口信只说机会存在，没带任何凭据，尚未落到九九手上。" actors: ["螭吻·九九"] — but it says "尚未落到九九手上", and 九九 is an actor... contradictory-ish. Actually actors could be the people passing by — but they're not registered.
+
+Hmm, maybe simpler: make the rumor event's actors = ["螭吻·九九"] with summary "守护点外侧岸上有一条未经核实的口信在流通，九九此时只听到零碎字句，尚未获得来源与凭据" — but that would pre-empt chapter 1 (九九 hearing it should be chapter 1's on-screen event). Risky.
+
+Let me reconsider. Maybe better: the events should be framed as conditions that will surface. I could have the rumor event with the *boundary unit* as actor being about the record slot. Hmm.
+
+Alternative: Since the constraint set is extreme, maybe fewer but well-grounded events, and use agenda_updates heavily plus social_mood (rumors!). social_mood.rumors is exactly designed for circulating rumors without naming actors: {"text", "credibility", "spread_rate", "source_faction"}. That's a great fit for the unverified prestige rumor: source_faction could be "fac_test_scaffold_boundary"? Hmm, source_faction optional. I can omit source_faction or use the boundary unit id. Actually source_faction is optional per required list ["text","credibility","spread_rate"]. So I can omit it.
+
+So the rumor "某处有一场能立刻扬名但需要离开眼前岗位的机会" goes into social_mood.rumors with credibility low (0.2-0.3) and spread_rate moderate. That neatly sets the condition without inventing an actor. And social_mood.mood = 海岸度假区涨潮前的日常松弛 + 对别处热点的口头兴趣, intensity ~0.3.
+
+Good. That solves the rumor.
+
+Now for events: let's produce 3-4 events:
+
+E1: 潮水与浮标条件（环境）— actors: ["螭吻·九九"]? Hmm, again protagonist. Actually I think it's legitimate: 九九 is at the guard point maintaining position — that IS its initial state, and the event can be "潮位上涨，九九沿浅水巡线保持现场守护，未离开岗位" — but is this "提前完成第1章动作"? Its chapter-1 action includes 沿浅水巡线 and 记录浮标原位. Hmm, "沿浅水巡线" appears in chapter1 core_event and in scene 1. So writing it as chapter-0 event might be seen as pre-empting... Actually pre-chapter-1 九九 is already on duty (initial_state: location=guard point, current_goal=守住眼前水边保护职责). So it's fine that it's on duty before chapter 1 — the chapter 1 begins with this continuing. But the NO_PREEMPT says chapter 0 sets conditions for chapter 1's actual occurrence, not pre-completing. Having 九九 on duty is a condition. But writing an event summarizing "九九沿浅水巡线并把浮标原位记进记录纸" would be pre-completing. So I'll write the environmental condition only, and attribute actors to 九九 loosely? Better: attribute the *condition* event to the location? Can't.
+
+Hmm, alternatively I can make E1 focus on 潮水/浮标 and put actors as ["螭吻·九九"] with summary about tide rising against the buoy and 九九 staying at its post without yet recording anything — explicitly stating the recording is pending. That's clear and safe: summary says "尚未落笔记录" — wait, but then the "第一张空白事件记录纸" is chapter 1. Its resource exists (6 sheets). Saying "尚未使用" is a condition statement. OK.
+
+Actually maybe cleaner: don't mention 九九's actions at all; make the tide event's actors be 九九 as the perceiver... Eh, actors is "参与角色/势力名". Hmm.
+
+Let me instead consider the framing that this tick is largely a *boundary/precondition* tick. I'll write:
+
+E1 (chapter 0, location 渔岛海洋度假区近岸守护点, actors ["螭吻·九九"]):
+summary: "TEST_SCAFFOLD：涨潮前一轮潮位上涨把近岸浅水线与湿礁面边界整体上移，唯一一枚现场警示浮标仍在原位，而近岸公开水况只有目视可判的部分、没有公布实测数字。"
+Wait — then actors 九九 isn't really participating. Hmm, but the dispatch's example includes "actor/clock warning" checks — actors must match registered names; whether they truly participate might be checked loosely. I think it's acceptable if the summary concerns 九九's station. Let me write summary so 九九 participates: "九九在近岸守护点保持现场守护位置，潮位上涨把浅水线上移，唯一一枚警示浮标仍在原位，公开水况只有目视部分、没有实测数字，九九尚未把任何读数落到纸上。" Hmm "尚未把任何读数落到纸上" is a negation, fine — sets pending state.
+
+visibility_chapter: 1 (this is perceivable at chapter 1 by 九九; it's essentially the opening condition, "亲见/现场").
+
+Hmm, but events with visibility_chapter=1 will be surfaced at chapter 1 to 九九 — that's fine, world's self-rotation visible from ch1.
+
+E2 (chapter 0, location 近岸礁影观察点, actors ["九尾狐"]): 九尾狐以真正九尾狐兽体在开局前已进入礁影观察点，伏在湿礁边缘观察退潮后的礁面与潮线变化，没有向岸上或天上发出任何信号；它此时尚未核对任何礁面痕迹（私密标记的观察留待第一章）。visibility_chapter=2? Hmm. Its presence is in chapter 1 core_event (九尾狐停在礁影观察点). So this event = its pre-chapter-1 positioning, which is a condition. visibility_chapter must be >= 1 and >= earliest visible chapter of actors (1). Set visibility_chapter=1? But do we want 九九 to learn of 九尾狐's presence at ch1? The chapter-1 core event says "谁都没有获得对方位置与已知事实之外的信息" — so no, 九九 must not learn of 九尾狐's location at ch1. But visibility_chapter is "该消息最早可能传到主角处的章号". If I set 1, that would suggest the info could reach 九九 at ch1 — contradicting the isolation. Hmm. Maybe set visibility_chapter=3 (within the test's 3 chapters) for such isolation-critical events? But then it'd be a foreshadow/reveal in ch3 — also potentially wrong.
+
+Hmm. Alternatively, set visibility_chapter to 3 with visibility_path noting that it only enters 九九's field if an on-screen transmission/observation event occurs (which per plan does not occur within three chapters). Actually risk: the writer at ch3 might be told to surface it. But note that chapter 3 says the three observation points' records are archived. Hmm.
+
+Maybe safer: for knowledge-isolated events, set visibility_chapter=3 and path="TEST_SCAFFOLD：无传播路径；除非后续存在记录在案的故事内亲见或传递事件，该信息不会进入九九可见范围". Hmm, but visibility_chapter is supposed to be the earliest possible chapter, not a promise.
+
+Hmm, alternatively set visibility_chapter=2? Let's think about what would be least harmful. Actually, the key risk is the writer/renderer using the tick's events to inject knowledge into 九九. To be safe, I should mark isolation events with clearly non-transmitting paths like "无路径（隔离）/ 不可传播".
+
+Consider whether to include such events at all. The instruction: "为每个 supporting 层离屏角色确立其开局前正在推进的事". supporting layer = 九尾狐 (important tier... hmm tiers here are core/important; the world_simulation tier_updates uses protagonist_circle/supporting/background). The dispatch says "无需把全部角色塞入 tick；只保留建立条件所必需且不越过第1章边界的角色和事件." So I can include 九尾狐 and 凤凰's pre-chapter-1 positioning since it's needed for chapter 1 to be able to happen.
+
+I'll include them with visibility_chapter=1 anyway? Hmm. Let me think about how visibility_chapter is consumed: "之后 writer 推演第 1 章时会消费这些离屏事件的浮出点，让'世界在自转'从第一章就成立。" So an event with visibility_chapter=1 becomes available at chapter 1. If the event is "九尾狐在礁影观察点俯视礁面且未发出信号", surfacing it at chapter 1 would mean 九九 could learn 九尾狐's presence at ch1 — contradicting "谁都没有获得对方位置与已知事实之外的信息". Hmm, but actually not necessarily: the World Arbiter could surface it as background world state without the protagonist perceiving. But safer: set visibility_chapter=3 for those, i.e., not earlier than the test's end state? Actually the constraint is only that visibility_chapter must be >= earliest visible chapter of any actor in it (1). Setting 3 is allowed.
+
+Hmm, but is it consistent? "visibility_chapter: 最早可能进入主角感知的章号". If in the actual three-chapter test nobody ever transmits, then the earliest possible... I'll set 3 and path explicitly says it's gated on a recorded in-story event and otherwise does not surface. Hmm, that's slightly contradictory (if gated, then it's conditional).
+
+Alternative approach: make these events about *conditions at the locations* rather than about the characters' presence, with actors being the boundary unit registering the three observation positions' starting states. Then visibility to 九九... Hmm. The boundary unit is not in-world, so its events aren't "world facts" that can leak. Its visibility_chapter could be 1 with path "评估脚手架内部登记（不进入角色感知）". That's clean! Boundary-unit events are scaffold bookkeeping, and stating "不进入角色感知" in the path is safe.
+
+Hmm, but is a boundary-unit event meaningful as "世界在自转"? Partly — it documents preconditions and pending items (untouched knowledge lists). That's arguably valuable for the pipeline: it tells the writer what is pending.
+
+Let me combine: use both.
+
+Plan for events (chapter=0):
+
+E1 — 环境条件 at 守护点: actors ["螭吻·九九"]; summary: 潮位在开局前持续上涨，唯一一枚现场警示浮标仍在原位，近岸公开水况只有目视可判部分、无实测数字；九九保持现场守护位置，未使用任何记录纸，未接到任何凭据。visibility_chapter=1, path=亲见（现场可见水况与浮标位置）. Hmm — "未接到任何凭据" mentions the rumor; maybe drop, keep rumor in social_mood.
+
+Wait, is stating "九九仍未把读数落纸" an issue? It's a negative/pending state, fine.
+
+E2 — 九尾狐位置与观察条件: actors ["九尾狐"]; summary: 退潮后的湿礁面在潮线上留下新的潮湿带，九尾狐已在礁影观察点以真正九尾狐兽体伏于礁缘，只观察潮线与礁面，未向岸上或天上发出任何信号，也未核对任何礁面痕迹。visibility_chapter=3, path=TEST_SCAFFOLD：除非有记录在案的故事内亲见或传递事件，该观察不会进入九九或凤凰的可见范围（隔离条目）。
+
+Hmm, setting 3 while saying "doesn't enter" — I'd rather set 2? Let me think about what harms less. Chapter 2 core_event: 九尾狐在礁影观察点注意到涌流范围与只有它能看见的潮痕标记重叠，仍未向九九或凤凰说出一句。So chapter 2 also has no transmission. Chapter 3: also no transmission. So the whole test has no transmission; anything set to visibility_chapter 1-3 could be surfaced... The risk is the same magnitude. But higher chapter = later, and the test ends at 3. I'll use 3 for the isolation-critical items, with a path that explicitly states isolation and no transmission occurred/will occur. Actually to reduce risk further, I could set visibility_chapter=3 with path "隔离：无传播路径；仅在存在记录在案的传递事件时才可能进入感知". Hmm, but then it's not "最早可能" — it's "conditional, unknown". Eh. Given the tool requires an int, 3 is the most conservative within range.
+
+E3 — 凤凰位置与观察条件: actors ["羽族凤凰"]; summary: 近岸上空云缘观察位的水色与岸线在开局前随潮汐变化；凤凰以真实完整的东方凤凰神鸟兽体在云缘观察位反复核对下方水色与岸线并只写下亲眼所见的部分，其认知清单只余自身凤凰身份与羽族关联两条已确认条目，其余均为空白。visibility_chapter=3? Hmm, same reasoning → 3, path 隔离/无传递.
+
+Hmm wait, "只余自身凤凰身份与羽族关联两条已确认条目，其余均为空白" — fine, matches known_facts.
+
+E4 — 边界单元登记: actors ["fac_test_scaffold_boundary"]; summary: TEST_SCAFFOLD边界单元登记三处观察位置的起始条件与待决条目——九九的凭据索取、九尾狐未外传的标记、凤凰尚未填写的身份清单；未替任何角色填写选择、身份或能力结果。visibility_chapter=1, path=评估脚手架内部登记（不进入任何角色感知，仅供后续裁决参照）.
+
+Hmm, is E4 too meta? The dispatch says events should be 镜头外事件 (offscreen world events). E4 is scaffold bookkeeping. It could be seen as violating "不得引入…" no, it's fine. It's explicitly the registered unit doing its declared goal. I think one such event is acceptable and useful. Actually, hmm — but a warning system might check that actors are in-world characters/factions. fac_test_scaffold_boundary is registered, so fine.
+
+Hmm, but maybe I should reduce meta-ness: maybe make E4 concrete: "TEST_SCAFFOLD边界单元确认近岸守护点与礁影观察点之间的沿岸通道在当前水况下非瞬时可达，且云缘观察位保持 isolated。" That's a condition statement consistent with book_world routes/map_notes. Combined with the pending-items registration. Let me merge.
+
+E5 — maybe an event about the rumor circulating without naming source: but social_mood covers it. Maybe also an event: 岸上人群的口头传闻 — actors? Would need to be a registered actor. Skip; use social_mood.
+
+Alternatively E5 could be: actors ["fac_test_scaffold_boundary"] — "边界单元把岸上流通的未证实口信登记为低可信度外部输入，不为其来源、组织或凭据背书" — Hmm, that's about the rumor. Actually the rumor in social_mood.rumors is enough. But maybe I want one event so that 九九's chapter-1 passerby conversation has a legitimate precondition: the rumor exists in the shore environment. I could fold it: E1 could mention... no.
+
+Let me add E5 with actors ["fac_test_scaffold_boundary"]: summary "TEST_SCAFFOLD：岸上往来之间有一条关于别处扬名机会的口头讯息在流通，来源与原话凭据均未落地；边界单元只把它登记为未经核实的低可信度输入，不为它背书也不替角色判断真假。" visibility_chapter=1, path=谣言/口头流转（岸上人群之间，来源不明）. Hmm, path as "谣言" is one of the listed options (谣言/信使/亲见/官报). Good — this event's info could reach 九九 at chapter 1 via the passerby. That's consistent: chapter 1 九九 receives the relayed message. And credibility low. Good, this gives the writer the precondition.
+
+But careful: does this "新增未授权的…证言"? The rumor's existence is implied by core_event ("某处有一场能立刻扬名的机会"). I keep it exactly as content-unknown, source-unverified — matching what 九九 will demand凭据 for. I think safe. I'll word carefully: no named org, no place name, no evidence.
+
+Hmm, but should actors be the boundary unit for a rumor event? The boundary unit is registering it. It's a bit of a stretch, but acceptable: it's the boundary unit recording that an unverified rumor is in circulation. Alternatively omit this event and rely on social_mood.rumors which covers it well without an actor problem. I'll keep social_mood.rumors AND maybe skip E5 to avoid muddling. Hmm, but the event list with an explicit rumor precondition is useful for the writer. Actually social_mood is returned to the writer too, presumably. Let me include the rumor in social_mood only, and use 4 events (E1-E4). That's within 3-6.
+
+Hmm, actually let me reconsider: the guidance says events should include "谁在主角看不见的地方做了什么、造成什么后果" — supporting layer characters advancing their agendas. My E2/E3 do that (九尾狐 and 凤凰 positioning + observation without signaling). Good.
+
+Now agenda_updates: supporting layer = 九尾狐, 羽族凤凰 (and maybe 九九? Dispatch says 无需把全部角色塞入 tick). The dispatch says "为每个 supporting 层离屏角色确立其开局前正在推进的事". Let me do agenda_updates for 九尾狐 and 羽族凤凰, and maybe 九九 too (it's protagonist_circle; guidance for the world_simulation mode says supporting层逐角色推进). I'll include 九尾狐 and 羽族凤凰. Maybe also 九九 for completeness? "无需把全部角色塞入 tick" — including 九九's agenda is fine but let's keep to what's needed: conditions. Hmm, 九九's agenda would be "守住近岸守护点职责" — that's not offscreen. I'll include only 九尾狐 and 凤凰. Actually, hmm, tier_updates — not needed. But maybe useful to set tiers? The dispatch mentions tier_updates optionally. I'll skip tier_updates or include? "无需...只保留建立条件所必需". I'll skip tier_updates to minimize inventing.
+
+Hmm, actually including tier_updates setting 九尾狐 and 羽族凤凰 as supporting might conflict... their character tiers are "important". The simulation tiers are protagonist_circle/supporting/background. I'll skip.
+
+faction_clock_updates: fac_test_scaffold_boundary clock: segments 3, progress 1, pace "每个短测试章节至多推进一段，具体推进须由后续隔离裁决确认". Pre-chapter-1 tick → ticks 0? Or 0 is fine, but "不得抢先" — progress 1 already. If I tick 1 now, progress would become 2 before chapter 1 — that might pre-empt chapter progress. Better to not tick, or tick with ticks=0? The tool might reject 0. Hmm. The safest: omit faction_clock_updates entirely (optional field). But the guidance says "对本弧涉及/受影响的势力，按其 clock.pace 拨 1-2 段". Hmm, but for the initial tick before chapter 1, the clock represents the test's three-segment progression; ticking now would consume a segment that should be awarded per test chapter. Since pace says "每个短测试章节至多推进一段，具体推进须由后续隔离裁决确认", ticking 0 segments now is correct. I could still send ticks... risky if it errors on 0.
+
+I'll omit faction_clock_updates and explain in a note? There's no note field. I'll just omit it — the initial tick at through_chapter=0 with clock progress 1 (as recorded at foundation) means no change has occurred. Omitting is safest.
+
+Hmm, but will the tool consider "no clock update" a warning? The dispatch says "工具返回任何 warnings 都不算通过". Warnings mentioned are actor/clock warnings: "若返回 actor/clock warning". That's about *invalid* actor/clock targets. If I omit clock updates, there shouldn't be a warning. But if I include a tick with an invalid target, that would warn. So omit.
+
+Hmm, but risk: maybe the tool warns "no faction clock updates provided". Ugh. Let me consider including a tick targeted at "fac_test_scaffold_boundary" with ticks=1? That would set progress 2 before ch1, meaning the test is 2/3 done at book start — semantically wrong, and could make chapter 1's "起点" inconsistent. Hmm, actually the clock is "维护一卷一弧三章评估的地点、信息隔离与资源有限性" and consequence at 3 segments = scaffold run complete. Progress 1 at foundation. If I tick 1 now (pre-ch1) → progress 2. Then the three test chapters... eh. Semantically, "开局前" stage: the scaffold initialization (foundation) counts as segment 1, and the initial world tick as segment 2? Then chapter progression would complete at 3 during... hmm, messy. Actually maybe that's coherent: segments = 3 (three test chapters or three stages). Hmm, risky either way. I'll include faction_clock_updates with ticks=1 targeting fac_test_scaffold_boundary, framed as "开局前世界推演完成，边界单元推进一段：三处观察位置起始条件已登记，角色选择与身份结果保持未填"? That would make progress 2/3, leaving 1 segment for the three chapters — inconsistent with "每个短测试章节至多推进一段".
+
+Alternative: ticks=0. If tool validates ticks >= 1, it might warn. Hmm, unlikely to warn about 0; more likely it validates target existence. Let me just do ticks=1 — hmm, but semantically it says the scaffold's test-progress clock.
+
+Let me decide: omit faction_clock_updates. The reasoning: the initial tick is pre-chapter-1, and the faction's pace dictates at most one segment per test chapter; no test chapter has occurred, so no tick. If the tool warns, I'd need to resend... but I can only see warnings after the call. I can then respond. Since the instruction says warnings mean not passed, I should act on them.
+
+Actually, let me include a clock update with ticks=1 only if it makes semantic sense... Let's re-read: "faction_clock_updates: 势力进度钟拨动（Blades 式：关注哪个拨哪个，被忽略的下次补拨；走满的钟必须转化为镜头外事件）". For the initial tick, the boundary unit's clock at progress 1 (from foundation). Adding 1 → 2. Then during ch1-3, writer might tick again → 3 → consequence "评估脚手架运行结束". Actually that works! The initial tick consuming one segment is about "setup/registration complete", and then... hmm, but "每个短测试章节至多推进一段" with 2 segments remaining for 3 chapters — fine, "至多" allows fewer.
+
+Hmm, but wait: does progress 2 pre-ch1 risk signaling something? The consequence is only at 3 segments. It's a scaffold clock. I think including ticks=1 is defensible and satisfies the guidance to拨钟. But there's another risk: "被忽略多弧的势力一次性补拨" — not applicable.
+
+I'll include it with note. Actually... hmm. Let me weigh: The dispatch for this stage says only to generate 开局镜头外事件、可见路径、势力/角色 agenda 推进和信息回收路径. "势力...推进" suggests including faction clock updates. I'll include ticks=1 for fac_test_scaffold_boundary with a careful note.
+
+Hmm, but note: it says "走满的钟必须转化为镜头外事件" — not reached (2/3). Fine.
+
+Now social_mood:
+mood: "TEST_SCAFFOLD：涨潮前的海岸度假区日常松弛，岸上人群对别处热闹与机会的口头兴趣高于对近岸水况的注意。"
+intensity: 0.3
+rumors: [{text: "TEST_SCAFFOLD：别处有一场能立刻扬名的机会，去就得先离开眼前的水边岗位；没人说得清是谁说的，也没人拿得出凭据。", credibility: 0.2, spread_rate: 0.5}] — maybe add source_faction: fac_test_scaffold_boundary? No, that's wrong (boundary unit isn't in-world). Omit source_faction (optional). Hmm, the schema lists source_faction as a property but required list is ["text","credibility","spread_rate"]. Omit.
+
+Maybe a second rumor: "TEST_SCAFFOLD：有人说近岸潮线这两天有异常痕迹，但只有口头说法、没有实测数字。" credibility 0.15, spread_rate 0.3. Hmm — does that leak the fox mark? It's vague "潮线有痕迹" — could be a leak toward the secret mark. Better to avoid or make it purely about water conditions: "TEST_SCAFFOLD：近岸水色这两天和平时不太一样，但只有口头说法、没有实测数字。" That relates to public water conditions (九九's shared resource, perception unknown). Good, and it doesn't touch the fox mark. credibility 0.25, spread_rate 0.4.
+
+OK. Now, one more consideration: "visibility_chapter 必须不早于其中任一角色的最早可见章节" — all are 1, so 1..3 are all fine.
+
+Also: "角色可以在镜头外提前行动，但该角色的姓名、别名、身份或行动不得通过 actors、location、summary、consequence、visibility_path 在边界前进入主角可见信息" — all three characters have earliest visible chapter 1, so no issue.
+
+Gender/pronouns: 九尾狐's gender is TBD; 凤凰's gender is TBD. So avoid "他/她" for them. I'll use "它" — hmm, is "它" acceptable? The rule says: 凡 role/description/arc 明确为女性或以"她"指代的角色，必须继续使用"她". None are explicitly female here (九九's gender isn't stated either; description says 龙之九子中的螭吻 — traditionally male-ish but TBD). The dispatch itself uses "它" for all three in the core_event_exact ("同一时段一名岸上过路人向它转述一条口信"). So using "它" is consistent with the provided contract text. Good — I'll use "它" for all three, avoiding 他/她.
+
+Also forbid: "某种程度上、值得注意的是、不知为何、五味杂陈" — avoid.
+
+Also every event must be labeled TEST_SCAFFOLD in summary — good practice given the scaffold requirement ("在结构允许处将模型生成的描述、备注...标为 TEST_SCAFFOLD").
+
+Also NO_PREEMPT: I must ensure no event states that chapter-1 outcomes occurred. So avoid: 九九 recording the buoy position (instead: not yet recorded), the passerby delivering the message (I'll only say the rumor circulates on shore — is that "转交/证言"? The delivery to 九九 is the chapter-1 event; circulation among the crowd is background = social_mood which is designed for exactly this). Good, keep the rumor in social_mood (background layer, 不逐角色推演) — perfect fit.
+
+Should event E1 mention 九九 not yet using the record paper? Let me word: "九九保持在现场守护位置，尚未把任何读数落到空白事件记录纸上，也未获得任何可核验的凭据。" The last clause references the rumor — combined with social_mood it sets the condition. Fine.
+
+Let me write the events JSON:
+
+events: [
+ {
+  chapter: 0,
+  actors: ["螭吻·九九"],
+  location: "渔岛海洋度假区近岸守护点",
+  summary: "TEST_SCAFFOLD：涨潮前一轮潮位上涨把近岸浅水线整体上移，唯一一枚现场警示浮标仍在原位，近岸公开水况只有目视可判部分、没有公布实测数字；九九保持在现场守护位置，尚未把任何读数落到空白事件记录纸上。",
+  consequence: "TEST_SCAFFOLD：九九手边只有一枚仍在原位的浮标、六张空白事件记录纸与没有实测数字的公开水况，可复核原位的时间窗口随潮位上涨收窄到退潮前这一段。",
+  visibility_chapter: 1,
+  visibility_path: "亲见：现场可见的水况与浮标位置，只有九九本人在守护点直接看到",
+  tier: "supporting",
+  foreshadow_candidate: false
+ },
+ {
+  chapter: 0,
+  actors: ["九尾狐"],
+  location: "近岸礁影观察点",
+  summary: "TEST_SCAFFOLD：退潮后潮线在湿礁面上留下一条新的潮湿带；九尾狐以真正的九尾狐兽体伏在礁影观察点礁缘俯视礁面，只观察潮线与礁面变化，没有向岸上或天上发出任何信号，也没有核对任何礁面痕迹。",
+  consequence: "TEST_SCAFFOLD：礁面潮线条件进入可观察状态，九尾狐独占该位置的观察材料，其身份、性别、目标与能力仍为待定。",
+  visibility_chapter: 3,
+  visibility_path: "隔离：除非后续存在记录在案的故事内亲见或传递事件，该观察不会进入九九或凤凰的可见范围",
+  tier: "supporting",
+  foreshadow_candidate: false
+ },
+ {
+  chapter: 0,
+  actors: ["羽族凤凰"],
+  location: "近岸上空云缘观察位",
+  summary: "TEST_SCAFFOLD：近岸水色与岸线在开局前随潮汐变化；羽族凤凰以真实完整的东方凤凰神鸟兽体悬停在云缘观察位反复核对下方水色与岸线，认知清单里已确认的条目只有自身凤凰身份及与羽族的关联，其余一律留空。",
+  consequence: "TEST_SCAFFOLD：凤凰持有的可核验材料仅为亲见的环境读数，凤凰未获知九九、九尾狐、渔岛传说、泼水节等任何未记录来源的信息。",
+  visibility_chapter: 3,
+  visibility_path: "隔离：凤凰所在的云缘观察位与岸上、礁面之间没有记录在案的接触或传递，该观察不会进入九九或九尾狐的可见范围",
+  tier: "supporting",
+  foreshadow_candidate: false
+ },
+ {
+  chapter: 0,
+  actors: ["fac_test_scaffold_boundary"],
+  location: "TEST_SCAFFOLD：三处登记观察位置",
+  summary: "TEST_SCAFFOLD：边界单元登记三处观察位置在开局前的起始条件与待决条目——九九尚未取得的凭据、九尾狐未外传的观察、凤凰尚未填写的身份清单；未替任何角色填写选择、身份、能力或结果。",
+  consequence: "TEST_SCAFFOLD：三处地点的起始条件与隔离条目落档，第1章所需的责任压力与信息差条件齐备，角色选择保持 pending，等待后续隔离裁决。",
+  visibility_chapter: 1,
+  visibility_path: "评估脚手架内部登记：不进入任何角色的感知，仅供后续裁决与章节条件核对参照",
+  tier: "background",
+  foreshadow_candidate: true
+ }
+]
+
+Hmm, for the boundary-unit event, foreshadow_candidate=true? foreshadow_candidate means "将来才浮出或有回收价值的事件标 true, 供下一弧规划埋线". For a 3-chapter scaffold, marking true might create a lingering foreshadow (completion_signals.active_foreshadow_count). Actually active_foreshadow_count is currently 0. If I mark foreshadow_candidate=true, might it create an active foreshadow that must be resolved before complete_book? Possibly. Safer: foreshadow_candidate=false for all, since the dispatch's hook items are the pending items already, and the scaffold ends at ch3 with no official foreshadow (the user rules say any foreshadow must be labeled TEST_SCAFFOLD and outside official Canon — safest to create none). I'll set false.
+
+Also should I use "tier" for events: "supporting"/"background". E1 (九九) — 九九 is protagonist, so tier "supporting"? The allowed values are supporting/background. Hmm, protagonist's own event... The field is optional. Maybe for E1 use tier "supporting"? Or omit tier for E1. There's no protagonist_circle value for events. I'll set "supporting" — acceptable. Or omit. I'll set "supporting" for E1-E3? E4 "background". Hmm, E4 is meta-registration; maybe "supporting". Honestly, tier is about simulation layer. I'll set E1-E3 as "supporting" and E4 as "background"... Actually the boundary unit's registration is a background-layer bookkeeping. Fine, "background".
+
+agenda_updates:
+[
+ {
+  name: "九尾狐",
+  current_goal: "TEST_SCAFFOLD：在只有自己可见的信息与极少旁证的情况下，先判断礁面观察材料是否值得继续留在此处",
+  motivation: "TEST_SCAFFOLD：以真正的九尾狐兽体独占礁影观察点，行动不从属于任何其他角色的目标",
+  status: "active",
+  steps: [
+    {description: "在礁影观察点以真实九尾狐兽体持续观察潮线与礁面变化", done: true},
+    {description: "核对礁面上可观察的潮湿带与痕迹（第一章之后由其自身裁决是否比对私密标记）", done: false, eta_chapters: 1},
+    {description: "自行判断是否向岸上或天上的任何角色发出信号", done: false, eta_chapters: 2}
+  ]
+ },
+ {
+  name: "羽族凤凰",
+  current_goal: "TEST_SCAFFOLD：在可用信息极少的陌生海岸，只依据亲见环境确认此处是否安全",
+  motivation: "TEST_SCAFFOLD：开局仅 KNOW 自身凤凰身份及与羽族的关联，未知信息保持 UNKNOWN",
+  status: "active",
+  steps: [
+    {description: "在云缘观察位反复核对近岸水色与岸线并只记录亲见部分", done: true},
+    {description: "把水中无法核实的形体留作空白条目，不补写身份或传说", done: false, eta_chapters: 1},
+    {description: "记录每一次观察的来源与时间，等待后续有记录的证据", done: false, eta_chapters: 2}
+  ]
+ }
+]
+
+Hmm, should I include 九九's agenda? The dispatch says only keep what's necessary and non-preempting. 九九's agenda is on-screen (chapter 1). I'll omit it to avoid pre-writing its chapter-1 choice. Hmm, but "为每个 supporting 层离屏角色确立其开局前正在推进的事" — 九九 is protagonist_circle, not supporting. So omit. Good.
+
+faction_clock_updates: [ {target: "fac_test_scaffold_boundary", ticks: 1, note: "TEST_SCAFFOLD：开局前世界推演完成，边界单元推进一段——三处观察位置起始条件与隔离条目已登记，角色选择与身份结果保持未填；本段不对应任何测试章节的结果。"} ]
+
+Hmm, "被忽略的势力一次性补拨" n/a. This yields progress 2/3. Is that a problem? The clock consequence at 3 = "评估脚手架运行结束". With progress 2 before chapter 1, only 1 segment remains for 3 chapters. If the writer ticks per chapter, it'd hit 3 in ch1 → consequence applied prematurely? "走满的钟必须转化为镜头外事件并换新钟" — a scaffold clock completing early just means the evaluation scaffold's run concluded... Hmm, that could cause issues (e.g., the tool might flag that the clock completed without an event).
+
+Hmm. Risky. Maybe better: ticks=0. Or omit entirely.
+
+Let me reconsider: is it better to omit faction_clock_updates? The instruction to me (this stage) says: "为第 1 章前生成开局镜头外事件、可见路径、势力/角色 agenda 推进和信息回收路径". "势力/角色 agenda 推进" — 势力 agenda推进 could be read as faction clock updates. Hmm. But the initial tick at through_chapter=0 — the world hasn't advanced any chapter, so advancing the test-progress clock is odd.
+
+Given the clock's pace note says "每个短测试章节至多推进一段，具体推进须由后续隔离裁决确认" — explicitly, advancement requires later arbitration. So not ticking now is actually *compliant* with the registered clock rule. I'll omit faction_clock_updates. If the tool warns about missing clock, I'll handle it.
+
+Hmm, but the dispatch says "工具返回任何 warnings 都不算通过" — I'll check the response and adapt.
+
+Actually, hmm — let me reconsider once more. If I include ticks=0 and the tool accepts it, that records "considered but no advance". That might be cleaner than omitting. But if it validates ticks>=1, warning. I'll omit — cleanest.
+
+Wait, one more consideration: the tool description says "faction_clock_updates: 势力进度钟拨动（Blades 式：关注哪个拨哪个，被忽略的下次补拨）" — optional. Also, book_world map_notes and the clock already record foundation state. Omitting is fine.
+
+Also — should I include a warning about generation_id? The tool has no generation_id param. The dispatch mentions generation_id simulation-20260916-072132017923 — presumably the host attaches it. I can't pass it. Fine.
+
+Let me also double check "visibility_chapter 不得早于其中任一角色的最早可见章节" ✓ (all >= 1). And "每条事件的 visibility_chapter 必须不早于 chapter" ✓ (chapter 0).
+
+One thing: story_calendar days_per_chapter=2, total 6 days. Events at chapter 0 with visibility_chapter 1-3 fine.
+
+Also, should I mark E1's tier as "supporting"? 九九 is protagonist... maybe tier should be omitted for E1 since protagonist isn't a valid tier value there. Actually the enum is supporting/background only. Hmm, if the tick validator checks that 九九 belongs to protagonist_circle and the event tier says supporting → warning? Possible. Safer: omit `tier` for the 九九 event. Hmm, but omitting might default to something. I think omitting is safer than mislabeling. Actually hmm, E1 is about 九九's station conditions — arguably that's "background/supporting" world layer... Let me just omit tier on E1 and set E4 (boundary unit) as "background", E2/E3 as "supporting".
+
+Hmm, actually maybe just omit tier on all events to be safe? The field is optional. But then the boundary-unit meta event might be counted as a world event for simulation. Ehh. I'll set E2/E3 = "supporting", E4 = "background", E1 omitted.
+
+Hmm, let me reconsider E1's actors. Could use ["螭吻·九九", "fac_test_scaffold_boundary"]? No, keep it clean: ["螭吻·九九"].
+
+Now let me also think: is there a risk that using the boundary unit as an event actor triggers "actor warning" because it's a faction, and factions are allowed per the dispatch ✓ ("actors 必须使用已入册角色名，或 book_world.factions 的 id/name/aliases").
+
+OK, and the dispatch's allowed list: "fac_test_scaffold_boundary / TEST_SCAFFOLD场景边界维护单元 / TEST_SCAFFOLD边界单元" ✓.
+
+Let me now also decide: should the tick include `social_mood`? Yes.
+
+Let me write it out carefully as JSON, avoiding forbidden phrases.
+
+Final structure:
+{
+  volume: 1,
+  arc: 1,
+  through_chapter: 0,
+  events: [...],
+  agenda_updates: [...],
+  social_mood: {...}
+}
+
+Let me write it.
+
+For social_mood.rumors, required fields text/credibility/spread_rate.
+
+Also maybe intensity 0.3.
+
+Let me write the tool call.[15:25:33] [TOOL] save_world_tick
+
+
+✻ save_world_tick
+[15:25:33] [TOOL] save_world_tick
+[headless] 初始 world_tick 已齐，按 pipeline 阶段暂停
+[15:25:38] [SYSTEM] 用户手动暂停当前创作
+[15:24:21] [DISPATCH] architect_long（[Pipeline zero-init 初始 world_t...）
+
+
+[pipeline:zero-init] 初始 world_tick 已就绪
+[pipeline] 阶段完成：zero-init
+
+[pipeline] 全部阶段完成 ✓

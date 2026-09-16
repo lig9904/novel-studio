@@ -1,0 +1,13 @@
+{
+  "version": "directory-publish-receipt.v2",
+  "transaction_id": "oa-087c01d407481132",
+  "intent_digest": "sha256:89eeb895528842c353d8281027f218b61cb287402d76d1ab28a8e5dcfb47e442",
+  "live_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel",
+  "candidate_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/.outline-all/oa-087c01d407481132/output/novel",
+  "archive_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/.outline-all-publish/oa-087c01d407481132/archive/live",
+  "before_live_root": "sha256:e5ceb971ccafcc4424078d72ee9b7b849f49d963ae829967939d1bb0072babd7",
+  "candidate_root": "sha256:f69b18f963bad02bb7a453cfe5025f32ba6fa5c9935b680f56f0de02eb3cdefd",
+  "committed_live_root": "sha256:f69b18f963bad02bb7a453cfe5025f32ba6fa5c9935b680f56f0de02eb3cdefd",
+  "committed_at": "2026-09-16T06:18:01.316083Z",
+  "receipt_digest": "sha256:f3ab97a41cee770d9c53be77fdae52a7635f94eb1d50834d9bf4695c1dc77c2e"
+}

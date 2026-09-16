@@ -1,0 +1,8 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：project-all → seal
+
+========== 阶段：project-all ==========
+pipeline: 阶段 project-all 失败（修复后重跑 --pipeline 即从此阶段继续）: project-all 缺少当前正史/资料对应的整弧预演；先执行 --stages rehearse-arc
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1

@@ -1,0 +1,13 @@
+{
+  "novel_name": "test-scaffold-run",
+  "phase": "init",
+  "current_chapter": 0,
+  "total_chapters": 3,
+  "completed_chapters": null,
+  "total_word_count": 0,
+  "current_volume": 1,
+  "current_arc": 1,
+  "layered": true,
+  "generation_id": "simulation-20260916-072132017923",
+  "generation_mode": "simulation_restart_from_seed"
+}

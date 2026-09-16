@@ -1,0 +1,13 @@
+{
+  "version": "directory-publish-receipt.v2",
+  "transaction_id": "canon-rebase-93f92b1b99d2b73ff9d914c2",
+  "intent_digest": "sha256:f9b7174a9ffef64a75fb5c3c3a3a9015e99732f96055e060a87308554075a8e6",
+  "live_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel",
+  "candidate_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/.canon-rebase/rebase-20260916T063030.604886000Z/output",
+  "archive_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/.canon-rebase-publish/canon-rebase-93f92b1b99d2b73ff9d914c2/archive/live",
+  "before_live_root": "sha256:93f92b1b99d2b73ff9d914c24517ef326c0ff9702ef56325b755d9aef4d8fb9a",
+  "candidate_root": "sha256:4a6719e37fe4356a040a33fe277ec15bf18c3f81c116c81680e1b72fb0fd25e3",
+  "committed_live_root": "sha256:4a6719e37fe4356a040a33fe277ec15bf18c3f81c116c81680e1b72fb0fd25e3",
+  "committed_at": "2026-09-16T06:30:31.968324Z",
+  "receipt_digest": "sha256:695262aab4a236567529a44dc7ecc1d7e5b84d5b1877a3fcbd1da17393af59ab"
+}
