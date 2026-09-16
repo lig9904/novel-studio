@@ -1,0 +1,54 @@
+{
+  "version": "chapter-zero-outline-repair.v1",
+  "reason": "Phase 0 Resume: remove the fabricated messenger and credential verification from the selected path while preserving the unverified pressure as a Character Agent option.",
+  "expected_layered_digest": "sha256:59527f78ac8dd2fc086f970373cfc9a938906c685dde380d00c99348beed0b7d",
+  "arcs": [
+    {
+      "volume": 1,
+      "arc": 1,
+      "expected_start_chapter": 1,
+      "expected_end_chapter": 3,
+      "chapter_replacements": [
+        {
+          "chapter": 1,
+          "title": "TEST_SCAFFOLD：未证实机会与眼前水线",
+          "core_event": "TEST_SCAFFOLD：近岸公开环境中存在一条无来源、无发送者、无凭据的声望机会信息，状态固定为 UNVERIFIED；它只构成压力，不发生传话者接触、凭据读取或核查任务。九九以龙头鱼身、鱼躯为主体的螭吻兽体在渔岛海洋度假区近岸守护点面对持续变化的公开水况、唯一警示浮标和六张空白记录纸。Character Agent 必须根据九九的当前知识、好奇、好胜、爱面子、有担当、主动探索、资源、风险与守护底线，自主提出拒绝、延后、索取证据、替代方案、接受风险、离岗承担后果或其他合法行动；本章合同不预定选择，也不要求取得凭据。平行观察中，九尾狐以真正九尾狐兽体独占私密潮痕资源，凤凰以完整东方凤凰神鸟形态只观察公开水况；三者知识互不连通。",
+          "hook": "近岸水况继续变化，而声望机会仍无发送者和凭据；下一章只承接 Character Agent 的实际选择与 World Arbiter 的真实后果，不承诺出现任何新证据或材料。",
+          "scenes": [
+            "TEST_SCAFFOLD：九九在近岸守护点接收公开水况、警示浮标、空白记录纸与 UNVERIFIED 声望压力组成的真实观察包；没有传话者、发送者或凭据实体。",
+            "TEST_SCAFFOLD：Character Agent 基于九九当前状态提出自主行动；索证只是可选动作，且找不到发送者、没有凭据、无法核实均是合法运行结果。",
+            "TEST_SCAFFOLD：九尾狐在礁影观察点观察独占的私密潮痕资源；其含义、来源、真伪与是否传递保持开放。",
+            "TEST_SCAFFOLD：凤凰在云缘观察位只获得自身凤凰身份、与羽族有关和公开水况的可见信息，不获得九九、九尾狐、私密潮痕或未来剧情。",
+            "TEST_SCAFFOLD：World Arbiter 只记录实际角色行动对应的位置、时间、资源与可观察后果；Host 的 TEST_SCAFFOLD 标记不属于故事内行为。"
+          ]
+        },
+        {
+          "chapter": 2,
+          "title": "TEST_SCAFFOLD：选择先于答案",
+          "core_event": "TEST_SCAFFOLD：近岸水况与唯一警示浮标形成有界的现场变化，World Arbiter 根据第一章 Character Agent 的实际选择推进时间、路线、资源与守护覆盖。九九若留守、延后、索证、提出替代方案、接受风险或离岗，分别产生对应但不预定的后果；没有发送者或凭据不会阻断模拟。九尾狐可选择保密、继续观察或通过明确故事内行动向指定角色传递其私密观察；凤凰只能基于亲见公开水况或合法收到的信息行动。未发生的选择、传递和后果保持未发生。",
+          "hook": "第三章只结算已经形成的角色行动、传递、时间消耗、资源变化和 World Arbiter 回执；不存在的凭据、回复或分支不会被补造。",
+          "scenes": [
+            "TEST_SCAFFOLD：World Arbiter 从第一章真实 proposal/decision 读取九九的选择，不从软纲代写动作。",
+            "TEST_SCAFFOLD：现场水况、浮标、记录纸与非零路线只按实际可达条件产生 resource/time/route consequence。",
+            "TEST_SCAFFOLD：九尾狐的私密潮痕仍只在其观察包中；只有真实传递并被记录时，指定接收者知识才可改变。",
+            "TEST_SCAFFOLD：凤凰继续最小知识运行，不从同场、规划或模型推断获得角色身份、私密潮痕或未来结果。",
+            "TEST_SCAFFOLD：所有 post-state 与 arbitration evidence 保持 candidate/test 状态，不进入 Accepted Canon。"
+          ]
+        },
+        {
+          "chapter": 3,
+          "title": "TEST_SCAFFOLD：只结算真实发生的事",
+          "core_event": "TEST_SCAFFOLD：World Arbiter 对前两章真实发生的 Character Action、位置、时间、资源、路线、传递与可观察后果进行有界结算，形成 TEST_SCAFFOLD post-state 与 durable receipts。九九的行动必须来自 Character Agent 且能由其当前状态解释；九尾狐私密信息只按真实传递记录更新；凤凰没有来源的知识继续 UNKNOWN。未发生的声望机会核实、凭据取得、关系变化、能力升级、提案分支和未来剧情不写入结果。章节合同在测试层结束，Host 在故事外保存快照与差异；不 promote、不 render、不写正式 Accepted Canon。",
+          "hook": "Phase 0 Runtime evidence 到此只等待人工审核；所有 Candidate、Character Memory、World State、Arbitration 和 Knowledge 仍受 TEST_SCAFFOLD 与 Human Approval 边界约束。",
+          "scenes": [
+            "TEST_SCAFFOLD：核对九九真实选择及其 resource/time/route consequence，不评价哪一种选择唯一正确。",
+            "TEST_SCAFFOLD：核对九尾狐私密潮痕是否发生明确传递；无记录则九九与凤凰继续 UNKNOWN。",
+            "TEST_SCAFFOLD：核对凤凰 Known Facts 是否仍只包含有来源的自身事实、亲见环境或合法接收内容。",
+            "TEST_SCAFFOLD：核对 pre-state、Character Action、post-state、arbitration evidence、candidate memory 与 seal evidence 的身份和 digest。",
+            "TEST_SCAFFOLD：Host 在故事外生成 Phase 0 报告；不让边界单元、pipeline 或 AI Review 成为故事内 actor 或人工批准。"
+          ]
+        }
+      ]
+    }
+  ]
+}
