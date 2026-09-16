@@ -24,7 +24,10 @@ const outlineAllOperationSystemBoundary = `你是 outline-all 的 Architect 主�
 // agentcore treats MaxToolErrors=0 as unlimited rather than "no errors".
 // Bound the complete regeneration attempts here; a positive MaxToolErrors
 // would only disable the tool and leave the model looping until MaxTurns.
-const outlineAllOperationMaxTurns = 4
+const (
+	outlineAllOperationDefaultMaxTurns = 4
+	outlineAllOperationMaxTurns        = 20
+)
 
 // OutlineAllOperationProtocolDigest binds the direct Architect system
 // boundary to outline-all's generation identity without exposing prompt text
@@ -188,7 +191,7 @@ func runOutlineAllOperationWithModel(
 		},
 		agentcore.LoopConfig{
 			Model:               model,
-			MaxTurns:            cappedMaxTurns(cfg.ResolveMaxTurns("architect", outlineAllOperationMaxTurns), outlineAllOperationMaxTurns),
+			MaxTurns:            cappedMaxTurns(cfg.ResolveMaxTurns("architect", outlineAllOperationDefaultMaxTurns), outlineAllOperationMaxTurns),
 			MaxRetries:          subagentMaxRetries,
 			MaxToolErrors:       0,
 			ThinkingLevel:       resolvedRoleThinking(resolved.ChatModel, cfg, "architect"),

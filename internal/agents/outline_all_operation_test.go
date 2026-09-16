@@ -270,7 +270,7 @@ func TestRunOutlineAllOperationWithModelReanchorsExactFailureOnRetry(t *testing.
 	}
 }
 
-func TestRunOutlineAllOperationWithModelStopsAfterFourRejectedTurns(t *testing.T) {
+func TestRunOutlineAllOperationWithModelHonorsConfiguredBoundedTurns(t *testing.T) {
 	st := store.NewStore(t.TempDir())
 	if err := st.Init(); err != nil {
 		t.Fatal(err)
@@ -303,7 +303,7 @@ func TestRunOutlineAllOperationWithModelStopsAfterFourRejectedTurns(t *testing.T
 		saveTool,
 	)
 	if !errors.Is(err, agentcore.ErrMaxTurns) {
-		t.Fatalf("four rejected turns error = %v, want ErrMaxTurns", err)
+		t.Fatalf("bounded rejected turns error = %v, want ErrMaxTurns", err)
 	}
 	if model.calls != outlineAllOperationMaxTurns || executions != outlineAllOperationMaxTurns {
 		t.Fatalf(

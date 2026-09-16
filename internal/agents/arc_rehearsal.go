@@ -266,7 +266,7 @@ func runArcRehearsalStage(ctx context.Context, cfg bootstrap.Config, models *boo
 	}
 	var runErr error
 	var lastToolError error
-	events := agentcore.AgentLoop(ctx, []agentcore.AgentMessage{inputMessage}, agentcore.AgentContext{SystemPrompt: prompt, Tools: []agentcore.Tool{tool}}, agentcore.LoopConfig{Model: model, OnMessage: onMessage, MaxTurns: 4, MaxRetries: subagentMaxRetries, MaxToolErrors: 0, ToolsAreIdempotent: false, ThinkingLevel: resolvedRoleThinking(snapshot.Model, cfg, role), StopAfterTool: func(name string) bool { return name == tool.Name() }})
+	events := agentcore.AgentLoop(ctx, []agentcore.AgentMessage{inputMessage}, agentcore.AgentContext{SystemPrompt: prompt, Tools: []agentcore.Tool{tool}}, agentcore.LoopConfig{Model: model, OnMessage: onMessage, MaxTurns: cappedMaxTurns(cfg.ResolveMaxTurns(role, 4), 8), MaxRetries: subagentMaxRetries, MaxToolErrors: 0, ToolsAreIdempotent: false, ThinkingLevel: resolvedRoleThinking(snapshot.Model, cfg, role), StopAfterTool: func(name string) bool { return name == tool.Name() }})
 	for event := range events {
 		if event.Type == agentcore.EventToolExecEnd && event.IsError {
 			message := []rune(string(event.Result))
