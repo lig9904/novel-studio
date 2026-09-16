@@ -55,7 +55,7 @@
     "protocol": "v2",
     "scope": "active_core",
     "activation": "event_driven",
-    "execution_policy": "v1",
+    "execution_policy": "v3",
     "max_concurrency": 4,
     "max_revision_rounds": 1,
     "max_activation_cycles": 4
