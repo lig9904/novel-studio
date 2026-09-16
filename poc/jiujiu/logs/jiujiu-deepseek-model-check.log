@@ -1,0 +1,24 @@
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:02 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-v4-pro
+[check] 共 1 个待测模型目标（含兜底，超时 30s/个）
+
+✓ deepseek/deepseek-v4-pro  [default(主), coordinator(主), architect(主), writer(主), character(主), world_arbiter(主), drafter(主), editor(主), reviewer(主)]  7019ms
+
+按角色汇总：
+  ✓ default：主模型可用
+  ✓ coordinator：主模型可用
+  ✓ architect：主模型可用
+  ✓ writer：主模型可用
+  ✓ character：主模型可用
+  ✓ world_arbiter：主模型可用
+  ✓ drafter：主模型可用
+  ✓ editor：主模型可用
+  ✓ reviewer：主模型可用
+
+[check] 全部角色主模型可用 ✓

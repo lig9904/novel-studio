@@ -1,7 +1,7 @@
 # Phase 0 project configuration
 
 - The configuration is intentionally project-scoped and contains no API key.
-- All first-round roles use the Codex CLI subscription provider and `gpt-5.6-sol`; no fallback model is configured.
+- Scaffold construction used the Codex CLI subscription provider and `gpt-5.6-sol`. After the user supplied and authorized an official DeepSeek API key, the remaining Character/World evaluation roles switch uniformly to `deepseek-v4-pro`; no fallback is configured and the credential is referenced only through `DEEPSEEK_API_KEY`.
 - Novel Studio implements Planner as the `writer` role, so the task's Planner/Medium requirement maps to `roles.writer.reasoning_effort = medium`.
 - Architect, World Arbiter, Reviewer, and Coordinator use High; Character uses Medium.
 - Architect `max_turns` is set to 20 after the first unmodified outline-all attempt reproducibly exhausted the default four turns without publishing a candidate. The failed attempt and interruption remain in the audit logs.

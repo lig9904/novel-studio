@@ -1,0 +1,39 @@
+pipeline: Architect refresh 在流水线完成证据失效前被章零门禁拒绝: foundation refresh rebase evidence is invalid: read verified chapter-zero rebase receipt: lstat /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/all_chapter_rebase.json: no such file or directory: tool precondition failed
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[pipeline] 已锁定弧式 sealed 流程：推演并封存当前弧 → 逐章渲染/逐章审核 → 再进入下一弧
+[pipeline:rebase-all] chapter-zero 失败代次已完整归档到 /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/archives/sealed-rebase-20260916T063030.604886000Z/output/novel；活动正史保持第0章，将创建全新 generation 并统一重推第1-3章
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect
+
+========== 阶段：architect ==========
+[pipeline:architect] 刷新 foundation characters（尝试 1/3）
+2026/09/16 14:30:32 INFO 启动 module=boot provider=codex model=gpt-5.6-sol output=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:30:32 INFO 模型就绪 module=boot summary="default=codex/gpt-5.6-sol world_arbiter=codex/gpt-5.6-sol drafter=codex/gpt-5.6-sol editor=codex/gpt-5.6-sol reviewer=codex/gpt-5.6-sol coordinator=codex/gpt-5.6-sol architect=codex/gpt-5.6-sol writer=codex/gpt-5.6-sol character=codex/gpt-5.6-sol"
+2026/09/16 14:30:32 INFO 模型元数据已就绪 module=models count=214
+2026/09/16 14:30:32 INFO 上下文窗口 module=context role=coordinator model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 14:30:32 INFO 上下文窗口 module=context role=writer model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 14:30:32 INFO 上下文窗口 module=context role=drafter model=gpt-5.6-sol window=1050000 source=registry
+headless 启动: /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+[14:30:32] [SYSTEM] 开始创作
+[14:31:11] [DISPATCH] architect_long（[Architect 执行任务]）
+[14:31:24] [TOOL] novel_context(第1章)
+[14:31:24] [TOOL] novel_context(第1章)
+[14:32:27] [TOOL] save_foundation[characters]
+[14:32:27] [TOOL] save_foundation[characters]
+[headless] Architect foundation 已更新，按 pipeline 刷新阶段暂停
+[14:32:27] [SYSTEM] 用户手动暂停当前创作
+[14:31:11] [DISPATCH] architect_long（[Architect 执行任务]）
+/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/architect_readiness.md
+[pipeline:architect] Architect readiness 已落盘
+[pipeline] 阶段完成：architect
+
+[pipeline] 全部阶段完成 ✓

@@ -1,53 +1,58 @@
 {
-  "provider": "codex",
-  "model": "gpt-5.6-sol",
+  "provider": "deepseek",
+  "model": "deepseek-v4-pro",
   "reasoning_effort": "high",
   "providers": {
     "codex": {
       "type": "codex-cli",
       "models": ["gpt-5.6-sol"]
+    },
+    "deepseek": {
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "base_url": "https://api.deepseek.com",
+      "models": ["deepseek-v4-pro"]
     }
   },
   "roles": {
     "coordinator": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "high"
     },
     "architect": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "high",
       "max_turns": 20
     },
     "writer": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "medium"
     },
     "character": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "medium"
     },
     "world_arbiter": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "high"
     },
     "drafter": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "medium"
     },
     "editor": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "high"
     },
     "reviewer": {
-      "provider": "codex",
-      "model": "gpt-5.6-sol",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
       "reasoning_effort": "high"
     }
   },
