@@ -53,3 +53,16 @@ Current build/test gate: **PASS WITH RECORDED ENVIRONMENTAL CAVEAT**. No core so
 | final pending usage calls | PASS (none) |
 
 The final report digest is `sha256:b700daa72c2d853ec872ec21fcc04f186d817906341e326d359581883e38611b`. Its summary says the selected conditional path has no hard-contract reachability failure, but the durable gate remains not ready with 14 unresolved items and one missing material check. The system therefore cannot proceed to detailed Character/World simulation without a product fix or a different source contract.
+# Runtime continuation update — 2026-09-16
+
+The later authorized continuation supersedes the earlier “Character Agent not executed” status:
+
+- Rehearsal Gate: PASS (`ready_for_detail=true`, report `41434f…3252`);
+- Character Agent: EXECUTED for four candidate activation cycles;
+- Character Autonomy: PASS;
+- Knowledge Boundary: FAIL because global character-view rules injected forbidden identity facts into Phoenix's real observation packet;
+- Proposal Isolation: INCONCLUSIVE for the exact PHOENIX-A/PHOENIX-B branch test;
+- World State: PASS for candidate execution;
+- Recovery: PASS;
+- project-all chapter 1: incomplete at the four-cycle readiness ceiling;
+- Promote/Render/Accepted Canon: not run / unchanged.

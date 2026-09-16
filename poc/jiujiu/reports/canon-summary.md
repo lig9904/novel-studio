@@ -14,3 +14,6 @@ The following immutable input was loaded into the isolated Novel Studio scaffold
 Input SHA-256: `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`.
 
 All additional foundation, outline, resources, world ticks, plans, rehearsal drafts/reports, relationships, and foreshadow entries are covered by the run-level `TEST_SCAFFOLD_SCOPE.json`; they are not human approval.
+# Runtime continuation boundary — 2026-09-16
+
+The official input remains byte-identical at SHA-256 `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`. Runtime generation `pg2_378bb2c691e5a07d2c2b8d02` stayed in the TEST_SCAFFOLD `.project-all` candidate workspace; live accepted/current chapter remained 0. No Promote, Render, Accepted Canon, or human approval write occurred.

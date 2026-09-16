@@ -1,0 +1,25 @@
+{
+  "version": "character-activation-session.v1",
+  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+  "chapter": 1,
+  "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+  "initial_physical_root": "sha256:0d26007dd44b804c8341bf9f0bd225da7ffe67b6058ae0cd42686409d3466c8e",
+  "initial_day": 0,
+  "max_cycles": 4,
+  "cycle_digests": [
+    "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+    "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+    "sha256:b5bd660e38507c317643c362115d2fb98b018bb1f3080b7f36b2f2efb0866927",
+    "sha256:4b0da6782be19551e59764c06e8f949bdd7ce7e488081941595ecce2985e2b92"
+  ],
+  "readiness_digests": [
+    "sha256:be80f57504bc41e7bee5ead9c1d3d5a17f89b6a149188b7e17706ef9ec5e211b",
+    "sha256:d79a2264e6e97afdf93cebc3887ab3d55b14f132d9c378a11df223ab3d045422",
+    "sha256:3b28b46ab97e1040ecc3950450533114afffe9f34259b3beed27bbdff199c35b",
+    "sha256:5ee14cfa8fd0beb6410c16e697de75af44095382b794c423b39e3f3a576e9c91"
+  ],
+  "phase": "collecting",
+  "current_physical_root": "sha256:0baa509f8c825e2c32a643a5c32e415536f2eafa4aa706595e9d92adb3eda84e",
+  "current_day": 0.08333334,
+  "digest": "sha256:02f294ba45523a99fd1241399235625bb513157e557937568c91671bef78375a"
+}

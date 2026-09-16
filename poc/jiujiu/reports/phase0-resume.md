@@ -1,41 +1,38 @@
 # Phase 0 Resume
 
-Status: **COMPLETE / STOPPED AT OUTLINE REPAIR PUBLICATION**
+Status: **COMPLETE / STOPPED AFTER RUNTIME VALIDATION**
 
-This is a continuation of the original Phase 0, not Phase 1.
+This is a continuation of Phase 0, not Phase 1. Historical failed Resume evidence remains in Git history and the original reports remain present.
 
-Baseline core commit: `5e4d6912bae5f20a6224fa84ecd0e34b7838118e`.
+## Authorized continuation
 
-The branch HEAD contains prior `poc/jiujiu/**` evidence commits, but the core source tree has no differences from the fixed baseline. The official input copy still matches the source SHA-256 `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`.
+The user later authorized bounded core fixes and instructed that subsequent changes did not need upstream PRs. The active implementation branch is `codex/physical-resource-semantics` on the user fork. The official input remained unchanged:
 
-Confirmed prior Gate root cause:
+- baseline: `5e4d6912bae5f20a6224fa84ecd0e34b7838118e`;
+- official input SHA-256: `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`;
+- all generated setting/character/outline/runtime material remains `TEST_SCAFFOLD`;
+- no Promote, Render, Accepted Canon write, Human Approval claim, or Phase 1 work ran.
 
-- 14 `unresolved_items` are not readiness blockers.
-- All 10 contract checks were `plausible` or `conditional`.
-- The sole blocker was the selected-path material check “第一章：九九核查声望机会口信的来源与凭据” with `status=missing`.
-- The resume prompt removes that operation from the selected path while preserving the unverified opportunity and all Character Agent choices.
+## Implemented product repairs
 
-Authorized sequence: rebase → outline-all → zero-init → preplan → rehearse-arc; only after a legal `ready_for_detail=true` may project-all continue.
+- physical resources distinguish `quantitative`, `qualitative`, and `environmental` semantics;
+- actor/resource permissions distinguish `observe`, `use`, `possess`, `control`, and `claim`;
+- public non-owner and private actor-scoped observation channels are explicit;
+- material checks declare `required`, `optional`, or `proposed` readiness impact;
+- Codex MCP inventory timeout defaults to 15 seconds and is project-configurable;
+- outline-all and rehearsal honor bounded configured turn limits;
+- observe-only tasks can execute a typed observation without gaining access/use/ownership.
 
-Still prohibited: core-source changes, official Canon additions, fake sender/credential/evidence, digest edits, Gate bypass, direct Character Agent invocation, promote, render, and Phase 1 work.
+## Executed sequence
 
-## Execution result
+1. chapter-zero rebase archived the prior failed generation;
+2. outline-all completed and published;
+3. zero-init completed;
+4. preplan completed;
+5. rehearsal report `sha256:41434f9c31522ab69ecfdfd487549d852449e4d218d00ea65a2cb83c971e3252` passed with `ready_for_detail=true`;
+6. project-all started the real Character Agent and World Arbiter;
+7. chapter 1 executed four durable activation cycles and stopped at the configured cycle ceiling because readiness remained `continue`.
 
-1. rebase: PASS; old chapter-zero generation archived with accepted chapter still 0.
-2. outline-all: PASS, but the freely generated outline still introduced a messenger-like contact and mandatory evidence-seeking behavior.
-3. deterministic `outline-repair-file`: operation 0 PASS; all three chapters were replaced in the isolated candidate.
-4. outline-all continuation: FAIL semantically; operation 3 overwrote the repaired chapter contracts before publication.
-5. zero-init/preplan/rehearse-arc for the repaired outline: NOT RUN, because the final published outline no longer matched the authorized repair.
-6. project-all and Character Agent: NOT RUN.
+Character Agent: **EXECUTED**. Generation `pg2_378bb2c691e5a07d2c2b8d02` contains cycle receipts, proposals, observations, arbitrations, usage, private/projected memory, and physical roots.
 
-The supported pipeline offers no post-operation-3 repair stage. Continuing requires a core product fix or manual live-state mutation; both are outside Phase 0 authorization. Final decision remains NO-GO.
-
-## Additional corrected-input continuation
-
-A later isolated attempt froze the Gate correction in the original TEST_SCAFFOLD author source rather than applying it as operation 0. Architect readiness passed after removing one shared placeholder alias that had merged 九尾狐 and 凤凰 into the same AgentID.
-
-The corrected author contracts then survived through outline-all operations 1 and 2. DeepSeek Flash failed to converge on operation 3 `expand_arc` twice within the direct Architect four-turn limit, so outline-all did not publish and the Rehearsal Gate was not reached. See `phase0-resume-fresh-input-blocker.md`. This does not change the Phase 0 decision.
-
-Authorized DeepSeek V4 Pro, GLM-5.3, and GPT-5.6 Sol comparisons later reproduced the boundary. GPT-5.6 Sol completed operation 2 and submitted eight full operation-3 candidates; the validator rejected negative invariants and host-only rules because they were not positively enacted as chapter events. This confirms a contract-kind/payoff-validation design blocker rather than a context or output-length shortage. See `phase0-resume-model-comparison-blocker.md`.
-
-After explicit authorization to modify core source, the project-audit solution was implemented and submitted upstream as `Xiaoyangy/novel-studio#6`. The real 九九 outline-all then completed: 16 persistent constraints stayed arc-only, five actual open-thread payoffs were bound to chapter 3, and zero-init/preplan passed. Rehearsal still returned `ready_for_detail=false` for a separate qualitative-resource/private-observation/material-blocking boundary. See `phase0-continuous-contract-fix-validation.md`.
+The chapter was not sealed. Runtime testing nevertheless produced evidence for Character Autonomy, Knowledge Boundary, World State, Recovery, and candidate-to-live isolation. The run stopped after finding a real Phoenix minimum-knowledge violation in its input observation packet.

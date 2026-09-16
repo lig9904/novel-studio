@@ -1,15 +1,17 @@
 # Recovery test
 
-Result: **PASS** for checkpoint/recovery integrity; no production chapter recovery was claimed.
+Result: **PASS**
 
-Project-specific evidence:
+Recovery was exercised across multiple real failure points:
 
-- outline-all operation receipts persisted across process failures and resumed from the pending operation;
-- after an Architect rehearsal succeeded and the Arbiter MCP inventory timed out, the next run reused the stored Architect draft and dispatched only World Arbiter;
-- an interrupted DeepSeek Pro attempt left recoverable state and the later Flash run created a new model-bound rehearsal without corrupting prior reports;
-- two `all_chapter_rebase` operations archived the failed generation before creating a new generation;
-- the current rebase receipt has identical `source_root` and `archive_root`;
-- final accepted/current chapter is 0, no prose exists, and no pending usage call remains;
-- Store/Race recovery suites also passed in the baseline test phase.
+- outline-all resumed a pending operation after the old four-turn ceiling and completed after the bounded configured-turn fix;
+- a completed outline-all publication fed zero-init/preplan without replaying accepted operations;
+- rehearsal retained the Architect draft while the World Arbiter corrected rejected submissions;
+- project-all retained round-1/round-2 observations, proposals, arbitration receipts, and diagnostics across process exits;
+- after observe-only execution and turn-bound fixes, the same activation session recovered and advanced to four verified cycles;
+- the session's cycle-digest chain, before/after roots, and readiness digests are complete and ordered;
+- live Accepted Canon remained chapter 0 throughout recovery.
 
-Boundary: this proves chapter-zero candidate/checkpoint/rebase recovery, not recovery of an accepted rendered chapter.
+No reset, deletion, manual digest edit, or state rollback was used. Failure diagnostics remain available.
+
+Boundary: there is no rendered/accepted chapter recovery claim because Promote/Render did not run.

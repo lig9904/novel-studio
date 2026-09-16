@@ -1,0 +1,205 @@
+{
+  "version": "character-chapter-readiness.v2",
+  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+  "chapter": 1,
+  "cycle_digest": "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+  "review_protocol": "sha256:2bf23868c1c4a4dc1d3533d2eb3e86e88790e90bc57a9ff49a6af130bf4214f2",
+  "input_digest": "sha256:c24706501d068eeab04b4742adba16e26c489ff870d6ec1c1da6df19fa9d1f3f",
+  "evidence_refs": [
+    "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+    "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+    "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+    "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+    "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+  ],
+  "contract_checks": [
+    {
+      "contract_id": "hard_b22c56411137ea29d678a4eede73998f2b9004685439ce40b1b0b491a859e6a8",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_d0fa61e0ce0de69a145dd9380e98756f6fa364588f9cd22c7c4e26f09b7bce7f",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_bfe293ec088065ebb2d4933dd36b043beed65f6c401dacf54019364b22b70929",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_f3481825dfc7b8bd54234535d5f391680faed8f34bcb9f774d342518180980ad",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_171bf886641e18c51fa9038216f3923b3ae550de5c26d51b8418c43df920bf90",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_96e11d0d106ec654c766d37fe17add0bd33229f6e617728e54b217d3960a2eb8",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_69139f7c9eaec55bd9232563e3999dc27dd779595c174ecca706518e67e90e42",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_0ec97a2758be0e729a3d0fe496a9a994732b6f14a8733accbabe69b994c4235a",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_8dc0136306bda0c798cf716b389e688be1b619eecba326d3d5d37b6e90179392",
+      "status": "pending",
+      "evidence_refs": [
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e"
+      ]
+    },
+    {
+      "contract_id": "hard_b796c5b3c55ab7a601669349d933697a34e96e7ec9c186843b3ffbd9c732341d",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_696c2d2ec3c67fe4c69045f4f92b66870c2ce02630cfd1eb3f191f05ee1d30e4",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_174d93fed4af120168e56bfed80e71fa136179287e431e402cd64c040f1f5e03",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_252fade54bf9d34e519871cdb4fa589b8b74290f65fd675b17cf65f874758222",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_bef4c1625c77c25b7f6078192757fd591df8bce0f766adfed57ed9cfddb96f10",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_3e33d774efbc90957ac7e02144bc2450f892554b9f3547fb75be29740c73adda",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_ac62f249460311f649bee09616789f9dce760edd165400054f7b11fa2f3e133c",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    },
+    {
+      "contract_id": "hard_7f008577a25bda7e3e9105e7611d7ea5f9b561d05166e71937c71c96d7a2ee46",
+      "status": "preserved",
+      "evidence_refs": [
+        "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+        "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+        "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59",
+        "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      ]
+    }
+  ],
+  "decision": "continue",
+  "reason": "已裁决的两轮cycle（e002/e006，仲裁e003/e007，终态e001）中，三角色均只做本地目视观测并选择留守、不传递信息，hard_contract_status=feasible。知识隔离得到维持：私密潮痕仅九尾狐本人可观察，e003/e007与e001终态均确认未发生任何故事内传递事件，九九与凤凰知识状态不变；未补造九九或凤凰的未批准力量，仅依赖普通观察等现场资源；九九对无来源声望邀约未采信、未追逐，其留守选择由自身价值边界推演产生，角色自主性得到保留，符合c002/c008/c011/c017等边界。但chapter的核心世界事件——警示浮标偏离原警示位置、保护区域出现可见缺口——在e002/e006及e001终态中均未实际发生（浮标感知不变、水况无风险），world-state测试c009要求的“明确地点/时间/现场资源及可观察后果”的沿海事件尚无任何已裁决落地；九九对声望压力仅重复目视观察，未产生真实时间/机会代价之外的后果，也未有跨角色互动或冲突。completed的观测工时只是局部工时，不等于整项检查或叙事单元合格。当前叙事单元偏薄且流程重复，需继续以真实事件与角色响应落地，故判continue；无硬合同被判infeasible，故非hard_conflict。",
+  "digest": "sha256:d79a2264e6e97afdf93cebc3887ab3d55b14f132d9c378a11df223ab3d045422"
+}

@@ -1,33 +1,18 @@
 # Phase 0 Resume Gate
 
-Result: **FAIL**
+Result: **PASS**
 
-`ready_for_detail`: **false**
+`ready_for_detail`: **true**
 
-No current Arc Rehearsal report was created for the corrected outline because the supported outline publication sequence did not preserve the correction.
+Verified report: `sha256:41434f9c31522ab69ecfdfd487549d852449e4d218d00ea65a2cb83c971e3252`.
 
-## Required acceptance
+## Gate counts
 
-- contract `unresolved=0`: NOT EVALUATED on corrected input.
-- contract `infeasible_prediction=0`: NOT EVALUATED on corrected input.
-- material `missing=0`: NOT EVALUATED on corrected input.
-- material `unclear=0`: NOT EVALUATED on corrected input.
-- `ready_for_detail=true`: NOT ACHIEVED.
+- blocking contract `unresolved`: 0;
+- blocking contract `infeasible_prediction`: 0;
+- blocking material `missing/unclear` with `requiredness=required`: 0;
+- optional missing material: 1 (`读取既有规程、许可、邀约文书或历史台账`), correctly non-blocking.
 
-The 14 historical `unresolved_items` were not treated as blockers and were not cleared or supplemented.
+Public coastal-water observation is available to all three actors through an environmental resource and public observe-only channel. The fox-private tide mark is available only to 九尾狐 through an actor/resource-bound private channel.
 
-## Gate repair evidence
-
-The host-only operation 0 repair was valid:
-
-- repaired chapters: 3;
-- repair after layered digest: `sha256:afc1ab134d27491c7444684e4138d49b0fd941ce8f34c03db47bae31d1e00a03`;
-- repair receipt: `sha256:5b8241ee78fe75140dd024620e4586352efd1481a9a22ee14dba4b091f716669`.
-
-The later outline-all operation 3 published a different layered digest:
-
-- final operation-3 digest: `sha256:e42cc429dcd10281a7c1f8a3b0de807aaad4327586bd6b795d96598de26b86fc`.
-
-The final outline again contains a messenger-like actor (`岸上有人` / `喊话人`), a completed request for source/evidence, and a second-chapter selected path in which 九九 chases the speaker and receives only repeated claims. That is the dependency the authorized repair removed.
-
-Gate execution stops before zero-init/rehearsal on this invalidly re-expanded outline.
+No sender, credential, readable invitation, background actor, or fake evidence was created. The unverified reputation pressure remained a host-bound opening pressure rather than a required material dependency. The historical unresolved notes were not required to become zero.

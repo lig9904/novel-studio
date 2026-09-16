@@ -10,12 +10,8 @@ Boundary: accepted chapter remained 0 and the ledger is TEST_SCAFFOLD. This conf
 
 ## RISK-002 — Candidate State / Accepted Canon
 
-Result: **INCONCLUSIVE; official pollution NOT OBSERVED**.
+Updated result: **PASS within the exercised non-promotion boundary**.
 
-- outline-all candidates remained in separate candidate directories and published only through directory transaction receipts;
-- failed generations were archived through all-chapter rebase with equal source/archive content roots;
-- source input SHA-256 remained unchanged;
-- accepted/current chapter remained 0;
-- no `project-all` proposal, arbitration, Character Agent canonical memory, promote receipt, rendered chapter, or accepted episode exists.
+Project-all created generation `pg2_378bb2c691e5a07d2c2b8d02` with four real activation cycles, proposals, observations, arbitrations, candidate/projected memories, physical roots, readiness receipts, and usage rows. All remained under the isolated `.project-all` workspace. Live accepted/current chapter stayed 0; no sealed bundle, promote receipt, rendered chapter, or accepted episode was created; the official input SHA-256 remained unchanged.
 
-The requested proposal-candidate-to-accepted-canon pollution test cannot be completed because `project-all` never started. No pollution was observed, but absence of the candidate layer is not a PASS.
+This proves the engine did not automatically promote Candidate state or interpret AI results as human approval. An explicitly invoked Promote path was not authorized and is not claimed tested.

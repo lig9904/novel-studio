@@ -1,14 +1,19 @@
-# RISK-002 Runtime
+# RISK-002 Runtime — Candidate State / Accepted Canon
 
-Result: **INCONCLUSIVE**
+Result: **PASS within the exercised non-promotion boundary**
 
-No project-all Candidate layer, Character proposal, projected memory, arbitration result, promote receipt, rendered chapter, or Accepted Canon write was produced in this Resume.
+An actual project-all Candidate layer now exists:
 
-Positive boundary evidence:
+- generation `pg2_378bb2c691e5a07d2c2b8d02`;
+- four activation cycles;
+- actor proposals, observations, private/projected memories, arbitrations, physical roots, readiness receipts, and usage rows.
 
-- official `jiujiu-poc-input.md` SHA-256 remained unchanged;
-- accepted/current chapter remained 0;
-- failed/replaced chapter-zero generations were archived through rebase;
-- no promote/render stage ran.
+None crossed into live Accepted Canon:
 
-Candidate-to-Accepted pollution cannot be tested without the Candidate layer.
+- candidate data stayed under `.project-all/pg2_378bb2c691e5a07d2c2b8d02`;
+- live `current_chapter` remained 0 and `completed_chapters` remained empty;
+- no sealed bundle, promote receipt, rendered chapter, or accepted episode was created;
+- official input SHA-256 remained `7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a`;
+- AI readiness/arbitration results were not interpreted as human approval.
+
+Boundary: no Promote attempt was authorized, so this proves absence of automatic Candidate→Accepted pollution, not the behavior of an explicitly invoked Promote stage.

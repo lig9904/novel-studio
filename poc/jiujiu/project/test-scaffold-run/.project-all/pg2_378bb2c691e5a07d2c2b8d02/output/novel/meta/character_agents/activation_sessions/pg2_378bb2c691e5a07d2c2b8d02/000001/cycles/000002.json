@@ -1,0 +1,2938 @@
+{
+  "version": "character-activation-cycle.v3",
+  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+  "chapter": 1,
+  "index": 2,
+  "previous_digest": "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+  "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+  "input_set_digest": "sha256:6481d12fdff35922ab7edde5e208012ec64a21f1de8e87c2aa7ff0e93372e6b4",
+  "before_physical_root": "sha256:8198f144954be6dc1e8f691c9efa369d5c928f8f9c01c7c0204abc7cca8328b0",
+  "after_physical_root": "sha256:eaed86ee38f933d275e5041f6287fe62af3955e70d09dd594d633a91e1d57a7e",
+  "start_day": 0.020833333333333332,
+  "end_day": 0.041666666666666664,
+  "evidence": {
+    "version": "character-agent-execution-evidence.v3",
+    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+    "chapter": 1,
+    "registry": {
+      "version": "character-agent-registry.v1",
+      "project": "test-scaffold-run",
+      "entries": [
+        {
+          "agent_id": "ca_28b35c0537fec56e",
+          "agent_name": "character_ca_28b35c0537fec56e",
+          "character": "螭吻·九九",
+          "aliases": [
+            "九九"
+          ],
+          "tier": "core",
+          "status": "active",
+          "first_registered_chapter": 1,
+          "last_activated_chapter": 1,
+          "memory_version": 1,
+          "created_at": "migration:chapter-000000",
+          "updated_at": "2026-09-16T15:14:00.393602Z"
+        },
+        {
+          "agent_id": "ca_dab3e91796825b05",
+          "agent_name": "character_ca_dab3e91796825b05",
+          "character": "羽族凤凰",
+          "tier": "important",
+          "status": "active",
+          "first_registered_chapter": 1,
+          "last_activated_chapter": 1,
+          "memory_version": 1,
+          "created_at": "migration:chapter-000000",
+          "updated_at": "2026-09-16T15:14:00.393602Z"
+        },
+        {
+          "agent_id": "ca_e908a88390ffb536",
+          "agent_name": "character_ca_e908a88390ffb536",
+          "character": "九尾狐",
+          "tier": "important",
+          "status": "active",
+          "first_registered_chapter": 1,
+          "last_activated_chapter": 1,
+          "memory_version": 1,
+          "created_at": "migration:chapter-000000",
+          "updated_at": "2026-09-16T15:14:00.393602Z"
+        }
+      ],
+      "registry_root": "sha256:46bc67a0680fcd1aee2ebcb64c597f6d5cd037eda92b48f3b380eaf9db73a812"
+    },
+    "stimulus": {
+      "self_evaluation_context": {
+        "version": "character-self-chronology:evaluation.v1",
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "cycle": 2,
+        "previous_cycle_digest": "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+        "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+        "session_digest": "sha256:bb343584e2a0c8a98116efc7c5d0b943e15b964a0b2fc23493d529c23b0755d5",
+        "before_physical_root": "sha256:8198f144954be6dc1e8f691c9efa369d5c928f8f9c01c7c0204abc7cca8328b0",
+        "current_day": 0.020833333333333332,
+        "digest": "sha256:729959cf5d235ecd0f02260a62a5f25a34c6dfec849c9d25a09b864ee8ec60af"
+      },
+      "version": "world-stimulus-packet.v2",
+      "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+      "chapter": 1,
+      "time_window": "全书开局后 30.000000 分钟（已确认的当前时间；不是章均估算）",
+      "story_clock": {
+        "current_day": 0.020833333333333332,
+        "time_contract_core_digest": "sha256:2bb0530c1a8a5354bf6127495e079cd92b6ee11d3ea5e12255b4a01730cafa8c",
+        "duration_days_min": 6,
+        "duration_days_max": 6,
+        "nominal_budget": true,
+        "digest": "sha256:1ee1847a93632c07d2254c07aeba67d188c7084ca8d81b2ae6b64c9ba382113c"
+      },
+      "physical_state": {
+        "version": "world-physical-state.v2",
+        "resources": [
+          {
+            "resource_id": "res_1111222233334444",
+            "name": "TEST_SCAFFOLD近岸公开水况",
+            "semantics": "environmental",
+            "unit": "",
+            "actual_amount": null
+          },
+          {
+            "resource_id": "res_2222333344445555",
+            "name": "TEST_SCAFFOLD现场警示浮标",
+            "unit": "件",
+            "actual_amount": 1
+          },
+          {
+            "resource_id": "res_3333444455556666",
+            "name": "TEST_SCAFFOLD空白事件记录纸",
+            "unit": "张",
+            "actual_amount": 6
+          },
+          {
+            "resource_id": "res_4444555566667777",
+            "name": "TEST_SCAFFOLD九尾狐私密潮痕",
+            "semantics": "qualitative",
+            "unit": "",
+            "actual_amount": null
+          }
+        ],
+        "actors": [
+          {
+            "self_chronology_baseline": {
+              "version": "character-self-chronology:evaluation.v1",
+              "agent_id": "ca_28b35c0537fec56e",
+              "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+              "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+              "experience_count": 0,
+              "digest": "sha256:6f137b9bd57e7f8120f6c43fc30c4c5a6758c8e9d33c42601b47c4f1141d6556"
+            },
+            "operational_observations": [
+              {
+                "id": "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471",
+                "agent_id": "ca_28b35c0537fec56e",
+                "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                "chapter": 1,
+                "task_id": "task_watch_nearshore_1",
+                "request_id": "obs_watch_water_1",
+                "resource_id": "res_1111222233334444",
+                "resource_label": "近岸公开水况",
+                "purpose": "确认近岸水域当前是否有需要示警或处置的可见风险",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "result": "available",
+                "observed_at_day": 0.006944444444444444,
+                "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8",
+                "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+              }
+            ],
+            "agent_id": "ca_28b35c0537fec56e",
+            "character": "螭吻·九九",
+            "location": "渔岛海洋度假区近岸守护点",
+            "resources": [
+              {
+                "resource_id": "res_1111222233334444",
+                "perceived_name": "近岸公开水况",
+                "perceived_label": "近岸公开水况",
+                "access": "none",
+                "permissions": [
+                  "observe"
+                ],
+                "observation_channels": [
+                  {
+                    "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                    "visibility": "public",
+                    "label": "TEST_SCAFFOLD现场公开水况目视"
+                  }
+                ],
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                }
+              },
+              {
+                "resource_id": "res_2222333344445555",
+                "perceived_name": "现场警示浮标",
+                "perceived_label": "现场警示浮标",
+                "perceived_unit": "件",
+                "access": "shared",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 1,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "user_targeted_repair:authored_opening_resource:warning_buoy"
+                  ]
+                },
+                "evidence_refs": [
+                  "user_targeted_repair:authored_opening_resource:warning_buoy"
+                ]
+              },
+              {
+                "resource_id": "res_3333444455556666",
+                "perceived_name": "空白事件记录纸",
+                "perceived_label": "空白事件记录纸",
+                "perceived_unit": "张",
+                "access": "exclusive",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 6,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "user_targeted_repair:authored_opening_resource:blank_event_paper"
+                  ]
+                },
+                "evidence_refs": [
+                  "user_targeted_repair:authored_opening_resource:blank_event_paper"
+                ]
+              }
+            ],
+            "self_experiences": [
+              {
+                "evaluation": {
+                  "version": "character-self-chronology:evaluation.v1",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "cycle": 1,
+                  "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+                  "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+                  "evaluated_at_day": 0.020833333333333332,
+                  "ordinal": 1
+                },
+                "id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e",
+                "chapter": 1,
+                "task_id": "task_watch_nearshore_1",
+                "kind": "work",
+                "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+                "status": "completed",
+                "resource_ids": [
+                  "res_1111222233334444"
+                ],
+                "start_day": 0,
+                "end_day": 0.006944444444444444,
+                "progress_target": 10,
+                "progress_unit": "minute",
+                "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8"
+              }
+            ],
+            "task_progress": [
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_watch_nearshore_1",
+                "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+                "unit": "minute",
+                "target": 10,
+                "completed": 10,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+              }
+            ]
+          },
+          {
+            "self_chronology_baseline": {
+              "version": "character-self-chronology:evaluation.v1",
+              "agent_id": "ca_dab3e91796825b05",
+              "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+              "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+              "experience_count": 0,
+              "digest": "sha256:24b9e3b442b538059d864fd43b6bbe02143ce0b67f2007967eaaf58df9f1a56a"
+            },
+            "agent_id": "ca_dab3e91796825b05",
+            "character": "羽族凤凰",
+            "location": "近岸上空云缘观察位",
+            "resources": [
+              {
+                "resource_id": "res_1111222233334444",
+                "perceived_name": "近岸公开水况",
+                "perceived_label": "近岸公开水况",
+                "access": "none",
+                "permissions": [
+                  "observe"
+                ],
+                "observation_channels": [
+                  {
+                    "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                    "visibility": "public",
+                    "label": "TEST_SCAFFOLD现场公开水况目视"
+                  }
+                ],
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                }
+              }
+            ]
+          },
+          {
+            "self_chronology_baseline": {
+              "version": "character-self-chronology:evaluation.v1",
+              "agent_id": "ca_e908a88390ffb536",
+              "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+              "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+              "experience_count": 0,
+              "digest": "sha256:eed2cc3ec180f063d232e7365467944659c44a4532df973db0a8bf5465398c8b"
+            },
+            "operational_observations": [
+              {
+                "id": "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a",
+                "agent_id": "ca_e908a88390ffb536",
+                "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                "chapter": 1,
+                "task_id": "task_fox_observe_tide_mark_1",
+                "request_id": "obs_private_tide_mark",
+                "resource_id": "res_4444555566667777",
+                "resource_label": "私密潮痕",
+                "purpose": "确认私密潮痕是否有可见变化，以判断其性质与是否紧迫",
+                "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                "result": "available",
+                "observed_at_day": 0.020833333333333332,
+                "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+                "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+              },
+              {
+                "id": "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+                "agent_id": "ca_e908a88390ffb536",
+                "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                "chapter": 1,
+                "task_id": "task_fox_observe_tide_mark_1",
+                "request_id": "obs_public_water",
+                "resource_id": "res_1111222233334444",
+                "resource_label": "近岸公开水况",
+                "purpose": "确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "result": "available",
+                "observed_at_day": 0.020833333333333332,
+                "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+                "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+              }
+            ],
+            "agent_id": "ca_e908a88390ffb536",
+            "character": "九尾狐",
+            "location": "近岸礁影观察点",
+            "resources": [
+              {
+                "resource_id": "res_1111222233334444",
+                "perceived_name": "近岸公开水况",
+                "perceived_label": "近岸公开水况",
+                "access": "none",
+                "permissions": [
+                  "observe"
+                ],
+                "observation_channels": [
+                  {
+                    "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                    "visibility": "public",
+                    "label": "TEST_SCAFFOLD现场公开水况目视"
+                  }
+                ],
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                }
+              },
+              {
+                "resource_id": "res_4444555566667777",
+                "perceived_name": "私密潮痕",
+                "perceived_label": "私密潮痕",
+                "access": "none",
+                "permissions": [
+                  "observe"
+                ],
+                "observation_channels": [
+                  {
+                    "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                    "visibility": "private",
+                    "label": "TEST_SCAFFOLD九尾狐本人私密潮痕感知"
+                  }
+                ],
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                },
+                "evidence_refs": [
+                  "user_targeted_repair:authored_opening_resource:fox_tide_mark"
+                ]
+              }
+            ],
+            "self_experiences": [
+              {
+                "evaluation": {
+                  "version": "character-self-chronology:evaluation.v1",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "cycle": 1,
+                  "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+                  "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+                  "evaluated_at_day": 0.020833333333333332,
+                  "ordinal": 1
+                },
+                "id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974",
+                "chapter": 1,
+                "task_id": "task_fox_observe_tide_mark_1",
+                "kind": "work",
+                "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                "status": "completed",
+                "resource_ids": [
+                  "res_1111222233334444",
+                  "res_4444555566667777"
+                ],
+                "start_day": 0,
+                "end_day": 0.020833333333333332,
+                "progress_target": 30,
+                "progress_unit": "minute",
+                "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21"
+              }
+            ],
+            "task_progress": [
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_fox_observe_tide_mark_1",
+                "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                "unit": "minute",
+                "target": 30,
+                "completed": 30,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+              }
+            ]
+          }
+        ]
+      },
+      "public_facts": [
+        {
+          "id": "fact_621d279dfc73b980",
+          "kind": "world_rule_character_view",
+          "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_bd883bcbbad9a9c1",
+          "kind": "world_rule_character_view",
+          "text": "可见兽体辨识须遵守既定原型：九九是以鱼躯为主体的龙头鱼身螭吻，九尾狐具有真实九尾狐兽体，凤凰具有真实完整的东方凤凰神鸟兽体；被明确排除的替代形态不成立。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_9a223d4e9af55e67",
+          "kind": "world_rule_character_view",
+          "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_6473ff3b0924a6ba",
+          "kind": "world_rule_character_view",
+          "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_52e59f363e43f2f1",
+          "kind": "world_rule_character_view",
+          "text": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。",
+          "source": "world_rules.json",
+          "visibility": "informal"
+        },
+        {
+          "id": "fact_774bb01c51c0b912",
+          "kind": "world_rule_character_view",
+          "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_7c094649304903df",
+          "kind": "world_rule_character_view",
+          "text": "名称与身份只按各自已有知识使用：节庆正确名称为泼水节，真九九、机甲九九与凌墨不可混同；任何角色不知道的传说、身份或关联仍须通过有记录的事件或证据获知。",
+          "source": "world_rules.json",
+          "visibility": "formal"
+        }
+      ],
+      "operational_world": {
+        "version": 2,
+        "name": "TEST_SCAFFOLD：渔岛近岸测试舞台",
+        "places": [
+          {
+            "id": "place_yudao_nearshore_guard",
+            "name": "渔岛海洋度假区近岸守护点",
+            "rules": [
+              "TEST_SCAFFOLD：现场事件必须具有明确时间、可接触资源和可观察后果",
+              "TEST_SCAFFOLD：不得依赖未批准神力自动解决",
+              "TEST_SCAFFOLD：未经传播的私密信息不可在此自动共享"
+            ],
+            "factions": [
+              "fac_test_scaffold_boundary"
+            ],
+            "tags": [
+              "TEST_SCAFFOLD",
+              "coast",
+              "water",
+              "resort"
+            ]
+          },
+          {
+            "id": "place_reef_shadow_observation",
+            "name": "近岸礁影观察点",
+            "rules": [
+              "TEST_SCAFFOLD：该私密标记不得因地点邻近自动泄露给九九或凤凰",
+              "TEST_SCAFFOLD：只有记录明确的故事内传递事件后，其他角色的知识才可更新"
+            ],
+            "factions": [
+              "fac_test_scaffold_boundary"
+            ],
+            "tags": [
+              "TEST_SCAFFOLD",
+              "coast",
+              "reef",
+              "knowledge_isolation"
+            ]
+          },
+          {
+            "id": "place_cloud_edge_observation",
+            "name": "近岸上空云缘观察位",
+            "rules": [
+              "TEST_SCAFFOLD：凤凰开局仅 KNOW 自身凤凰身份及与羽族的关联",
+              "TEST_SCAFFOLD：其他信息保持 UNKNOWN，直至记录来源事件、证据、章节与故事时间"
+            ],
+            "factions": [
+              "fac_test_scaffold_boundary"
+            ],
+            "tags": [
+              "TEST_SCAFFOLD",
+              "isolated",
+              "knowledge_boundary"
+            ]
+          }
+        ],
+        "routes": [
+          {
+            "from": "place_yudao_nearshore_guard",
+            "to": "place_reef_shadow_observation",
+            "description": "TEST_SCAFFOLD：近岸守护点与礁影观察点之间的普通沿岸通道；具体通行方式与实测距离为 TBD。",
+            "risk": "TEST_SCAFFOLD：水况、湿滑礁面或现场保护职责可能造成阻断与延误；不得视为瞬时移动。",
+            "travel_days": 0.1
+          }
+        ],
+        "factions": [
+          {
+            "id": "fac_test_scaffold_boundary",
+            "name": "TEST_SCAFFOLD场景边界维护单元",
+            "aliases": [
+              "TEST_SCAFFOLD边界单元"
+            ],
+            "goal": "TEST_SCAFFOLD：仅维护一卷一弧三章评估的地点、信息隔离与资源有限性，不代表世界内官方机构。",
+            "resources": [
+              "TEST_SCAFFOLD：三个已登记观察位置的边界记录",
+              "TEST_SCAFFOLD：有限的事件时间、地点、资源与后果记录槽位"
+            ],
+            "stance": "TEST_SCAFFOLD：中立记录，不替任何角色选择，也不把 AI 判断升级为人类批准。",
+            "internal_tension": "TEST_SCAFFOLD：既要让三名角色在第一章被激活，又必须保持知识隔离、形态禁区和能力 TBD。",
+            "clock": {
+              "segments": 3,
+              "progress": 3,
+              "consequence": "TEST_SCAFFOLD：若三段测试均完成，只表示评估脚手架运行结束，不产生官方 Canon、HISTORY 或 ACCEPTED EPISODE。",
+              "pace": "TEST_SCAFFOLD：每个短测试章节至多推进一段，具体推进须由后续隔离裁决确认。"
+            }
+          }
+        ]
+      },
+      "mechanisms": [
+        {
+          "id": "mech_scaffold_bounded_coastal_response",
+          "name": "TEST_SCAFFOLD有限海岸水域响应",
+          "visibility": "formal",
+          "section_refs": [
+            "mechanism_structure",
+            "ability_scope",
+            "geography_ecology",
+            "daily_life",
+            "calendar_time"
+          ],
+          "actor_scope": [
+            "身处既有book_world海岸水域测试地点且能感知现场的角色"
+          ],
+          "trigger": "角色感知到有明确地点与边界的海岸水域风险或保护义务。",
+          "preconditions": [
+            "角色实际位于可行动范围内。",
+            "角色只依据自身已知事实与可观察证据行动。"
+          ],
+          "inputs": [
+            "普通观察",
+            "普通移动与交流",
+            "既有且可访问的现场资源"
+          ],
+          "costs": [
+            "占用角色当下时间与注意力。",
+            "离开当前保护位置可能使该处风险继续发展。"
+          ],
+          "effects": [
+            "角色可观察、示警、请求信息、采取普通保护行动，或拒绝、替代、延后其他请求。",
+            "具体选择和结果由后续角色推演与世界裁决决定。"
+          ],
+          "failure_modes": [
+            "不在现场或缺少可访问资源时，行动不能凭空生效。",
+            "不得调用未批准超自然能力。"
+          ],
+          "observability": [
+            "现场角色可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+            "不在场角色不会自动获知。"
+          ],
+          "timing": "本地普通行动按现场连续时间发生；跨地点行动与消息传播不得即时到达，具体耗时服从既有路线与裁决。",
+          "character_view": {
+            "name": "有限海岸水域响应",
+            "actor_scope": [
+              "身处现场且能感知风险的角色"
+            ],
+            "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+            "preconditions": [
+              "你实际位于可行动范围内。",
+              "你只能依据自己已知的事实与可观察证据行动。"
+            ],
+            "inputs": [
+              "普通观察",
+              "普通移动与交流",
+              "你可访问的现场资源"
+            ],
+            "costs": [
+              "行动会占用你当下的时间与注意力。",
+              "若离开当前保护位置，该处风险可能继续发展。"
+            ],
+            "effects": [
+              "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+            ],
+            "failure_modes": [
+              "不在现场或缺少可访问资源时，行动不能凭空生效。",
+              "不能调用未获批准的超自然能力。"
+            ],
+            "observability": [
+              "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+              "不在场者不会自动获知。"
+            ],
+            "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+          }
+        },
+        {
+          "id": "mech_scaffold_explicit_knowledge_transfer",
+          "name": "TEST_SCAFFOLD显式知识传递",
+          "visibility": "formal",
+          "section_refs": [
+            "mechanism_structure",
+            "language_symbols",
+            "calendar_time",
+            "taboos_constraints"
+          ],
+          "actor_scope": [
+            "持有亲见信息的角色与可能的接收者"
+          ],
+          "trigger": "知情角色尝试把一项私人观察传给另一角色。",
+          "preconditions": [
+            "发送者确实通过亲见或有来源证据获得该信息。",
+            "存在可记录的故事内传递行为与实际接收条件。"
+          ],
+          "inputs": [
+            "信息来源",
+            "传递行为",
+            "接收者可用的接收渠道"
+          ],
+          "costs": [
+            "传递占用故事内时间并受地点、路线与接收条件约束。"
+          ],
+          "effects": [
+            "只有完成且被记录的传递，才可让接收者获得与证据强度相符的知识。"
+          ],
+          "failure_modes": [
+            "没有来源、没有传递事件或接收失败时，接收者知识状态不改变。",
+            "模型推断、未观察的同场、分支提案或作者态秘密不能自动完成传递。"
+          ],
+          "observability": [
+            "传递参与者可知道传递是否发生；旁观者只有实际观察到时才可知道。"
+          ],
+          "timing": "传递行为完成并被接收时生效；跨地点传播按既有路线与渠道裁决，不得提前。",
+          "character_view": {
+            "name": "显式知识传递",
+            "actor_scope": [
+              "持有亲见信息的角色与可能的接收者"
+            ],
+            "trigger": "你尝试把一项私人观察传给另一角色。",
+            "preconditions": [
+              "你确实通过亲见或有来源证据获得该信息。",
+              "存在对方实际可接收的故事内传递行为。"
+            ],
+            "inputs": [
+              "信息来源",
+              "传递行为",
+              "可用接收渠道"
+            ],
+            "costs": [
+              "传递占用故事内时间，并受地点、路线与接收条件约束。"
+            ],
+            "effects": [
+              "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+            ],
+            "failure_modes": [
+              "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+              "推测不能替代传递。"
+            ],
+            "observability": [
+              "传递参与者可知道传递是否发生；旁观者须实际观察。"
+            ],
+            "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+          }
+        },
+        {
+          "id": "mech_scaffold_secret_fox_tide_mark",
+          "name": "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK私密观察隔离",
+          "visibility": "secret",
+          "section_refs": [
+            "mechanism_structure",
+            "language_symbols",
+            "taboos_constraints"
+          ],
+          "actor_scope": [
+            "九尾狐"
+          ],
+          "trigger": "九尾狐在有界海岸水域测试事件中实际观察到该私人痕迹。",
+          "preconditions": [
+            "九尾狐本人完成可裁决的观察。"
+          ],
+          "inputs": [
+            "现场痕迹"
+          ],
+          "costs": [
+            "观察占用当下注意力；具体含义仍为TBD。"
+          ],
+          "effects": [
+            "该观察只进入九尾狐的TEST_SCAFFOLD私人知识。",
+            "九九与凤凰的知识状态保持不变，除非后续发生显式且有记录的故事内传递。"
+          ],
+          "failure_modes": [
+            "未实际观察时九尾狐也不得获得该信息。",
+            "同场、模型推断、章节规划或分支合并均不能泄露给九九或凤凰。"
+          ],
+          "observability": [
+            "仅九尾狐可直接观察；其他角色只能通过后续明确传递及相应证据获知。"
+          ],
+          "timing": "九尾狐实际观察时仅对其本人即时生效；对其他角色永不自动生效。"
+        }
+      ],
+      "counterfactual_tests": [
+        {
+          "id": "cf_scaffold_no_unapproved_power",
+          "given": [
+            "角色处于有限海岸水域事件。",
+            "角色只有普通行动条件且没有获批超自然能力。"
+          ],
+          "action": "角色尝试响应现场风险。",
+          "expected_outcome": "角色可观察、示警、请求信息或尝试普通保护行动；具体选择与后果留给角色和裁决。",
+          "forbidden_outcome": "自动生成任何未批准能力。",
+          "mechanism_refs": [
+            "mech_scaffold_bounded_coastal_response"
+          ]
+        },
+        {
+          "id": "cf_scaffold_autonomy",
+          "given": [
+            "未经核实的声望机会要求九九离开当前水边保护义务。"
+          ],
+          "action": "九九评估请求。",
+          "expected_outcome": "九九可拒绝、请求信息、提出替代方案或承担后果后配合，选择不被预定。",
+          "forbidden_outcome": "规划者替九九强制选择。",
+          "mechanism_refs": [
+            "mech_scaffold_bounded_coastal_response"
+          ]
+        },
+        {
+          "id": "cf_scaffold_cross_place",
+          "given": [
+            "信息发送者与接收者不在同一地点。"
+          ],
+          "action": "发送者尝试传递观察信息。",
+          "expected_outcome": "消息仅在符合既有路线、渠道与接收条件后到达。",
+          "forbidden_outcome": "跨地点零耗时同步知识。",
+          "mechanism_refs": [
+            "mech_scaffold_explicit_knowledge_transfer"
+          ]
+        },
+        {
+          "id": "cf_scaffold_private_mark",
+          "given": [
+            "只有九尾狐实际观察到TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK。",
+            "没有发生传递。"
+          ],
+          "action": "九九或凤凰尝试得知该痕迹。",
+          "expected_outcome": "九九与凤凰继续保持UNKNOWN。",
+          "forbidden_outcome": "因同场、模型推断、作者态记录或测试大纲而自动获知秘密。",
+          "mechanism_refs": [
+            "mech_scaffold_secret_fox_tide_mark",
+            "mech_scaffold_explicit_knowledge_transfer"
+          ]
+        },
+        {
+          "id": "cf_scaffold_missing_precondition",
+          "given": [
+            "角色不在现场。",
+            "角色没有可用观察渠道或可访问资源。"
+          ],
+          "action": "角色尝试直接改变海岸水域事件。",
+          "expected_outcome": "行动不能直接生效，角色可寻找渠道或等待信息。",
+          "forbidden_outcome": "无视地点、时间和资源边界远程解决事件。",
+          "mechanism_refs": [
+            "mech_scaffold_bounded_coastal_response"
+          ]
+        }
+      ],
+      "world_coherence_digest": "sha256:182a73fea5008908c434401f675fd1280f748a002bea7a7f8d51b1607f0159bc",
+      "hard_contracts": [
+        "- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.",
+        "- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.",
+        "- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.",
+        "- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.",
+        "- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.",
+        "Build only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.",
+        "Create the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.",
+        "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 是 TEST_SCAFFOLD 私密观察，仅九尾狐在开局可观察。其含义、来源、真伪与作用均为 TBD。；边界：在发生并记录明确的故事内传递事件之前，九九与羽族凤凰不得获得该标记或由其推导的信息；规划者不得以旁白、巧合、共享视野或模型推断绕过隔离。",
+        "TEST_SCAFFOLD：世界状态测试只能使用边界明确的沿海水域事件，并明确地点、时间、现场可用资源及可观察后果。；边界：事件不得无限扩张为世界灾难，不得靠未批准神力自动解决；角色不在场、不可见或尚未传播的信息不能直接进入其决策包。具体事件成因与最终结果为 PROPOSAL_NEEDED，须由后续角色推演与世界裁决确定。",
+        "TEST_SCAFFOLD：本轮生成的世界、角色、关系、时间线、伏笔与规划内容仅为评估脚手架，不是官方九九 Canon、人类批准、FACT、HISTORY 或 ACCEPTED EPISODE。；边界：只可用于恰好一卷、一弧、三章的规划与后续隔离测试；未知信息保持 TBD 或 PROPOSAL_NEEDED，不得进入官方 Accepted Character State、Knowledge、Relationship、Timeline、Foreshadow、World State 或 Canon RAG。",
+        "TEST_SCAFFOLD：柔性剧情压力可以邀请九九放弃眼前水边保护职责并追逐未经证实的声望机会，但角色决定必须由其当前知识、价值、压力与可用信息推演产生。；边界：不得预定九九接受或拒绝；必须保留拒绝、另选方案、索取信息、或服从并承担真实后果的合法空间。规划只能提供压力和可观察条件，不能替角色作答。",
+        "The pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.",
+        "This is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.",
+        "九九喜水并具有灭火属性；其力量强度、频率、来源、代价、升级、战斗层级、额头珠关系与形态差异均为 TBD。凤凰的火焰、重生、治疗、永生等力量均为 TBD；九尾狐力量为 TBD。；边界：不得为测试便利补造力量等级、施放参数、能力来源或凤凰未批准能力；没有已批准机制时，角色行动只能依赖普通观察、移动、交流和明确可用的现场资源。",
+        "九九正式名为螭吻·九九、简称九九，原型为龙之九子中的螭吻；其与渔岛海洋度假区和‘独角龙一夜开海口’传说有关，具体整合方式为 TBD。正确节庆名称是泼水节，水、祝福、互动和喷水祝福是已知基础概念。真九九、机甲九九、凌墨彼此不同。凤凰仅开局已知自身凤凰身份及与羽族的关联。；边界：不得把关联自动补成具体历史、关系或力量机制；不得把泼水节误写为扣水节；不得合并真九九、机甲九九与凌墨。凤凰对九九、螭吻身份、九九能力、独角龙传说、泼水节、真实渔岛、九尾狐及重大世界秘密均从 UNKNOWN 开始。",
+        "螭吻·九九的兽体必须以鱼躯为主体、呈龙头鱼身；九尾狐兽体必须是真正的九尾狐；羽族凤凰兽体必须是真实完整的东方凤凰神鸟。；边界：九九不得变为麒麟、普通四足龙、西方龙、仅蛇形东方龙、陆生兽或机械载具；九尾狐不得由普通狐狸、单尾狐或狐耳人形替代；凤凰不得写成青鸾、带翅人类、天使、西方翼人、狮鹫或普通鸟。",
+        "角色知识只能由其开局已知事实，或有记录的来源事件、证据、章节和故事时间更新；模型推断不足以把 UNKNOWN 升级为 KNOWN。；边界：不得把他人私密秘密、未批准未来剧情、Arc Rehearsal 结果、分支候选或规划者全知信息投放给未知情角色；读取公开环境不等于获知遮蔽信息。"
+      ],
+      "soft_guidance": [
+        "TEST_SCAFFOLD：在渔岛海洋度假区近岸守护点，九九以龙头鱼身、鱼躯为主体的螭吻兽体观察到警示浮标偏位和保护区域缺口，只能依据公开水况判断眼前风险。",
+        "TEST_SCAFFOLD：在近岸上空云缘观察位，完整东方凤凰神鸟只确认自己是凤凰且与羽族有关，并从亲见环境中获得有限水况信息；它不得自动知道九九、九尾狐、渔岛传说、泼水节或私密潮痕。",
+        "TEST_SCAFFOLD：在近岸礁影观察点，真正九尾狐独自观察到TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK；其含义仍未确认，是否核实、保留或通过明确事件传递由九尾狐自行决定。",
+        "TEST_SCAFFOLD：未经核实的声望邀约进入九九可见范围，但不提供可信来源、能力保证或私密潮痕信息；Character Agent据九九的好奇、好胜、骄傲、负责与保护边界生成自主回应。",
+        "TEST_SCAFFOLD：测试时点T0，渔岛海洋度假区近岸守护点唯一一件警示浮标偏离原警示位置，使保护区域出现可见缺口，同时一条来源未核实的声望邀约要求九九离开眼前职责；九九受到保护价值与好胜骄傲的双重拉扯，Character Agent让其在留守、索取证据、另寻兼顾方案或离开并承担后果之间自主选择，九尾狐与凤凰也分别依据各自可见信息提交行动，使三名角色从静态初始态变为各自拥有独立决策输入的激活态。",
+        "TEST_SCAFFOLD：潮线偏了，声望邀约也来了",
+        "arc_goal: TEST_SCAFFOLD：在三章有界测试中于第一章激活螭吻·九九、真正九尾狐与完整东方凤凰神鸟，由角色 Agent 和 World Arbiter 在明确地点、时间、资源及可观察后果下裁决九九面对保护职责与未经核实声望机会的自主选择；严格隔离仅九尾狐可观察的 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，未知信息保持 TBD 或 PROPOSAL_NEEDED，不启用未批准能力，不渲染正文，并在第三章完成仅限测试的收束后停止于 promote/render 之前。",
+        "ending_direction: TEST_SCAFFOLD：在三章有界测试中，为角色自治、知识边界与有限海岸水域事件留下可裁决的测试收束空间；不预定九九的选择，不渲染正文，不把任何测试结果升级为官方 Canon 或人类批准。"
+      ],
+      "sources": [
+        "chapter-activation-cycles.v3",
+        "character-activation-cycle:sha256:c76516ae1bd1f955bd949eb2f25d611058591b3341e64f67955d65203929e5d0",
+        "character-agent-protocol:sha256:39e448bdcda490caf755c64917e7bd4d4986d5945488e7d703b7d002e355d966",
+        "character-arbitration:verified-round-sources.v1",
+        "character-incoming-material-read:receipt.v1",
+        "character-operational-availability:receipt.v1",
+        "character-passive-reception:receipt.v1",
+        "character-resource-observation-time.v1",
+        "character-revision-feedback:owner-constraints.v1",
+        "character-scoped-observation-channel:v1",
+        "character-self-chronology:evaluation.v1",
+        "character-self-completion-view:receipt.v1",
+        "character-self-experience:receipt.v1",
+        "character-source-refs:opaque.v1",
+        "character-surface-inspection:receipt.v1",
+        "character-work-artifact:receipt.v1",
+        "character-work-continuation-history:full-owner.v1",
+        "character-work-continuation:explicit.v1",
+        "context-access:c99baaaf88d1aaff465929f3838a0a5d079ae0acaea895d84d59754a44b3d930",
+        "plan-grounding:arbitration.v1",
+        "project-all-state:sha256:0064758f326b96482413af8271d31cf1e9a6fe25a5d50958222299eb5b062cc4",
+        "story-time-core:sha256:2bb0530c1a8a5354bf6127495e079cd92b6ee11d3ea5e12255b4a01730cafa8c"
+      ],
+      "generated_at": "2026-09-16T15:14:00.393602Z",
+      "digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767"
+    },
+    "activation": {
+      "version": "character-agent-activation.v1",
+      "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+      "chapter": 1,
+      "registry_root": "sha256:46bc67a0680fcd1aee2ebcb64c597f6d5cd037eda92b48f3b380eaf9db73a812",
+      "entries": [
+        {
+          "agent_id": "ca_28b35c0537fec56e",
+          "character": "螭吻·九九",
+          "tier": "core",
+          "state": "active",
+          "reasons": [
+            "observed_resource_change",
+            "personal_memory_feedback",
+            "self_execution_feedback"
+          ],
+          "observation_digest": "sha256:9c75bd4808135f26b7ceea4d822d985b9e6a257fe81457cb3f0132b643147f58"
+        },
+        {
+          "agent_id": "ca_dab3e91796825b05",
+          "character": "羽族凤凰",
+          "tier": "important",
+          "state": "active",
+          "reasons": [
+            "observed_resource_change"
+          ],
+          "observation_digest": "sha256:aa20d67b6c821fb2a7a97a641065be4d27788f30f987bb065da64bf50c7747b5"
+        },
+        {
+          "agent_id": "ca_e908a88390ffb536",
+          "character": "九尾狐",
+          "tier": "important",
+          "state": "active",
+          "reasons": [
+            "observed_resource_change",
+            "personal_memory_feedback",
+            "self_execution_feedback"
+          ],
+          "observation_digest": "sha256:921b957d13bc5568315a22c89a61d47f073662e1d99aad92c8d1132ce3a68380"
+        }
+      ],
+      "generated_at": "2026-09-16T15:14:00.393602Z",
+      "digest": "sha256:8e079a5981d919b3595cdba03e7759bd5354744fbac3fac76a9a455a1ba355e9"
+    },
+    "observations": [
+      {
+        "operational_observations": [
+          {
+            "id": "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471",
+            "agent_id": "ca_28b35c0537fec56e",
+            "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+            "chapter": 1,
+            "task_id": "task_watch_nearshore_1",
+            "request_id": "obs_watch_water_1",
+            "resource_id": "res_1111222233334444",
+            "resource_label": "近岸公开水况",
+            "purpose": "确认近岸水域当前是否有需要示警或处置的可见风险",
+            "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+            "result": "available",
+            "observed_at_day": 0.006944444444444444,
+            "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8",
+            "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+          }
+        ],
+        "cycle_context": {
+          "version": "character-observation-cycle.prior-self.v1",
+          "index": 2,
+          "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+          "previous_cycle_digest": "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+          "current_day": 0.020833333333333332
+        },
+        "version": "character-observation-packet.v2",
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_28b35c0537fec56e",
+        "character": "螭吻·九九",
+        "tier": "core",
+        "time_window": "全书开局后 30.000000 分钟（已确认的当前时间；不是章均估算）",
+        "location": "渔岛海洋度假区近岸守护点",
+        "current_goal": "守住眼前近岸水域的保护职责；对未经证实、无来源记录的声望机会保持不采信、不擅离岗位",
+        "pressure": "保护职责与一个没有来源记录的声望机会同时争夺我的注意力",
+        "resource_views": [
+          {
+            "resource_id": "res_1111222233334444",
+            "name": "近岸公开水况",
+            "semantics": "environmental",
+            "unit": "",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          },
+          {
+            "resource_id": "res_2222333344445555",
+            "name": "现场警示浮标",
+            "unit": "件",
+            "access": "shared",
+            "perception": {
+              "kind": "last_observed",
+              "amount": 1,
+              "as_of_chapter": 0,
+              "evidence_refs": [
+                "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+              ]
+            },
+            "evidence_refs": [
+              "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+            ]
+          },
+          {
+            "resource_id": "res_3333444455556666",
+            "name": "空白事件记录纸",
+            "unit": "张",
+            "access": "exclusive",
+            "perception": {
+              "kind": "last_observed",
+              "amount": 6,
+              "as_of_chapter": 0,
+              "evidence_refs": [
+                "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+              ]
+            },
+            "evidence_refs": [
+              "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+            ]
+          }
+        ],
+        "self_experiences": [
+          {
+            "evaluation": {
+              "version": "character-self-chronology:evaluation.v1",
+              "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+              "cycle": 1,
+              "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+              "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+              "evaluated_at_day": 0.020833333333333332,
+              "ordinal": 1
+            },
+            "id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e",
+            "chapter": 1,
+            "task_id": "task_watch_nearshore_1",
+            "kind": "work",
+            "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+            "status": "completed",
+            "resource_ids": [
+              "res_1111222233334444"
+            ],
+            "start_day": 0,
+            "end_day": 0.006944444444444444,
+            "progress_target": 10,
+            "progress_unit": "minute",
+            "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8"
+          }
+        ],
+        "task_progress": [
+          {
+            "latest_attempt_status": "completed",
+            "task_id": "task_watch_nearshore_1",
+            "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+            "unit": "minute",
+            "target": 10,
+            "completed": 10,
+            "state": "completed",
+            "as_of_chapter": 1,
+            "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+          }
+        ],
+        "relationships": [
+          "与九尾狐的开局关系为 TBD，无已记录相识或秘密传递事件",
+          "与羽族凤凰的开局关系为 TBD，无已记录相识或信息传递事件"
+        ],
+        "commitments": [
+          "TEST_SCAFFOLD：不把未经核实的声望信息自动视为事实",
+          "TEST_SCAFFOLD：眼前水边保护职责需进入其自主决策，而非由规划者替其作答"
+        ],
+        "known_facts": [
+          {
+            "id": "fact_b7b06596f6d8d6c0",
+            "kind": "self_profile",
+            "text": "身份：螭吻·九九；角色：主角；特征：好奇、好胜、骄傲、负责、主动探索、以保护为核心价值边界",
+            "source": "src_c060600623fc75b59281ff7cae056ab5e9fcec19fc136bb23158f7151873d82a",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_66c4ff642f256d31",
+            "kind": "initial_known",
+            "text": "自己的正式名为螭吻·九九，简称九九",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_14fc1f0e0d44f3c2",
+            "kind": "initial_known",
+            "text": "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_2b0b0ede98bf7450",
+            "kind": "initial_known",
+            "text": "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_c405032c1c26f983",
+            "kind": "initial_known",
+            "text": "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_451c0d1ded05e179",
+            "kind": "initial_known",
+            "text": "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_698428ad8dc9f9e7",
+            "kind": "initial_known",
+            "text": "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD",
+            "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+            "visibility": "private"
+          }
+        ],
+        "public_rules": [
+          {
+            "id": "fact_621d279dfc73b980",
+            "kind": "world_rule_character_view",
+            "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_bd883bcbbad9a9c1",
+            "kind": "world_rule_character_view",
+            "text": "可见兽体辨识须遵守既定原型：九九是以鱼躯为主体的龙头鱼身螭吻，九尾狐具有真实九尾狐兽体，凤凰具有真实完整的东方凤凰神鸟兽体；被明确排除的替代形态不成立。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_9a223d4e9af55e67",
+            "kind": "world_rule_character_view",
+            "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_6473ff3b0924a6ba",
+            "kind": "world_rule_character_view",
+            "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_52e59f363e43f2f1",
+            "kind": "world_rule_character_view",
+            "text": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "informal"
+          },
+          {
+            "id": "fact_774bb01c51c0b912",
+            "kind": "world_rule_character_view",
+            "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_7c094649304903df",
+            "kind": "world_rule_character_view",
+            "text": "名称与身份只按各自已有知识使用：节庆正确名称为泼水节，真九九、机甲九九与凌墨不可混同；任何角色不知道的传说、身份或关联仍须通过有记录的事件或证据获知。",
+            "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+            "visibility": "formal"
+          }
+        ],
+        "public_mechanisms": [
+          {
+            "id": "mech_scaffold_bounded_coastal_response",
+            "name": "有限海岸水域响应",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "身处现场且能感知风险的角色"
+            ],
+            "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+            "preconditions": [
+              "你实际位于可行动范围内。",
+              "你只能依据自己已知的事实与可观察证据行动。"
+            ],
+            "inputs": [
+              "普通观察",
+              "普通移动与交流",
+              "你可访问的现场资源"
+            ],
+            "costs": [
+              "行动会占用你当下的时间与注意力。",
+              "若离开当前保护位置，该处风险可能继续发展。"
+            ],
+            "effects": [
+              "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+            ],
+            "failure_modes": [
+              "不在现场或缺少可访问资源时，行动不能凭空生效。",
+              "不能调用未获批准的超自然能力。"
+            ],
+            "observability": [
+              "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+              "不在场者不会自动获知。"
+            ],
+            "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+          },
+          {
+            "id": "mech_scaffold_explicit_knowledge_transfer",
+            "name": "显式知识传递",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "持有亲见信息的角色与可能的接收者"
+            ],
+            "trigger": "你尝试把一项私人观察传给另一角色。",
+            "preconditions": [
+              "你确实通过亲见或有来源证据获得该信息。",
+              "存在对方实际可接收的故事内传递行为。"
+            ],
+            "inputs": [
+              "信息来源",
+              "传递行为",
+              "可用接收渠道"
+            ],
+            "costs": [
+              "传递占用故事内时间，并受地点、路线与接收条件约束。"
+            ],
+            "effects": [
+              "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+            ],
+            "failure_modes": [
+              "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+              "推测不能替代传递。"
+            ],
+            "observability": [
+              "传递参与者可知道传递是否发生；旁观者须实际观察。"
+            ],
+            "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+          }
+        ],
+        "memory": [
+          {
+            "id": "mem_302d34f55441e63c",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD",
+            "source_digest": "sha256:302d34f55441e63c69ae79d3441288efce4ebf291e2c7b33660f9a165b48a603",
+            "accepted": true
+          },
+          {
+            "id": "mem_46f995d4e83cbdc0",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+            "source_digest": "sha256:46f995d4e83cbdc08b32f71e2fc80ad9c2e035a1fa55bffafb6a501e1e273815",
+            "accepted": true
+          },
+          {
+            "id": "mem_adb84e4551a08f74",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+            "source_digest": "sha256:adb84e4551a08f74f426669cd7e00c1b60d6813abaa318c3f7c71d00fcef4920",
+            "accepted": true
+          },
+          {
+            "id": "mem_b6f968d62c638f63",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己的正式名为螭吻·九九，简称九九",
+            "source_digest": "sha256:b6f968d62c638f63bdc66280955056a07724c387744b676014f145b18ef1be06",
+            "accepted": true
+          },
+          {
+            "id": "mem_c2900bca8920ca69",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+            "source_digest": "sha256:c2900bca8920ca69e49dfd0b4f52e9306af4f7c29834d2d6c609cea2a3694383",
+            "accepted": true
+          },
+          {
+            "id": "mem_d9f9cc32d0f9bfd9",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+            "source_digest": "sha256:d9f9cc32d0f9bfd9a384a98446addfa551160bd6c90e15aed22f118170febd80",
+            "accepted": true
+          },
+          {
+            "id": "mem_f0400ddc6e1063c6",
+            "chapter": 1,
+            "kind": "projected_decision",
+            "text": "本轮决定：留在守护点，对近岸公开水况做一次实际目视观察；对那条未经证实、无来源记录的声望机会不采取追逐行动，也不当成事实；本轮意图（不代表全部完成）：在近岸守护点用现场公开目视频道检查近岸水域的可见状况，确认是否存在需要示警或处置的可见风险；不离开岗位，也不凭传闻行动。；完成度：completed；位置：渔岛海洋度假区近岸守护点；本人经历（第1章，task_watch_nearshore_1）：在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险；已完成此步骤；实际区间T+0至T+10分钟；第1次评估于T+30分钟确认本次状态（评估时刻不等于执行工时）；本人任务进度（task_watch_nearshore_1）：在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险；累计有效工时10分钟；状态completed；最近一次尝试状态completed（不清零既有工时）；本人申报目标10分钟，尚余0分钟；达到工时不等于作业结果合格；资源感知：近岸公开水况（res_1111222233334444；access=none）：信息未确认；现场警示浮标（res_2222333344445555；access=shared）：最后观测 1 件（第0章）；空白事件记录纸（res_3333444455556666；access=exclusive）：最后观测 6 张（第0章）；本人操作性观察（近岸公开水况；第1章T+10分钟；oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471）：局部可操作；仅限当时对本人任务用途的操作性，不证明持续可用、容量或整项检查合格；本人申请用途（其中数量和命题未由此观察证实）：确认近岸水域当前是否有需要示警或处置的可见风险",
+            "source_digest": "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+            "accepted": false
+          }
+        ],
+        "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+        "memory_root": "sha256:959c050009fb366bf631cd85959743449057cf037f9621cda0290bf6a73373db",
+        "sources": [
+          "chapter-activation-cycles.v3",
+          "character-arbitration:verified-round-sources.v1",
+          "character-incoming-material-read:receipt.v1",
+          "character-operational-availability:receipt.v1",
+          "character-resource-observation-time.v1",
+          "character-revision-feedback:owner-constraints.v1",
+          "character-scoped-observation-channel:v1",
+          "character-self-chronology:evaluation.v1",
+          "character-self-completion-view:receipt.v1",
+          "character-self-experience:receipt.v1",
+          "character-source-refs:opaque.v1",
+          "character-surface-inspection:receipt.v1",
+          "character-work-artifact:receipt.v1",
+          "character-work-continuation-history:full-owner.v1",
+          "character-work-continuation:explicit.v1",
+          "src_0f38976a883101d57d1decb172d33f8f69a17188d29af548718c0b4730825ac9",
+          "src_765efb63f940f2f43f8e37070c98f09ee194e8aafb3019b3331cfceb6666184a",
+          "src_c060600623fc75b59281ff7cae056ab5e9fcec19fc136bb23158f7151873d82a",
+          "src_d4c0b8a47817ec35d261741d4efd8d26a56320bcdcee6bf2565289d3e3de990a",
+          "src_dbfd1d030801bc2b92dc6d714f67d5fe8cb974becb8afaa6cc0b7d19789131f4",
+          "src_e95d970413db3be8ffdea4eff5d020a48dd9ea26c88f06b4e7f973b55ab17d7d",
+          "src_ef81cad7dc7d825bf9d0647196cf42cbdc173942ad742458e450b6823704cc54",
+          "src_f93029dc0054684e099b2c8e1f9beb1434cd77e5e9e230cad498f845a7c14001"
+        ],
+        "generated_at": "2026-09-16T15:14:00.393602Z",
+        "digest": "sha256:9c75bd4808135f26b7ceea4d822d985b9e6a257fe81457cb3f0132b643147f58"
+      },
+      {
+        "cycle_context": {
+          "version": "character-observation-cycle.prior-self.v1",
+          "index": 2,
+          "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+          "previous_cycle_digest": "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+          "current_day": 0.020833333333333332
+        },
+        "version": "character-observation-packet.v2",
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_dab3e91796825b05",
+        "character": "羽族凤凰",
+        "tier": "important",
+        "time_window": "全书开局后 30.000000 分钟（已确认的当前时间；不是章均估算）",
+        "location": "近岸上空云缘观察位",
+        "current_goal": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+        "pressure": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少",
+        "resource_views": [
+          {
+            "resource_id": "res_1111222233334444",
+            "name": "近岸公开水况",
+            "semantics": "environmental",
+            "unit": "",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          }
+        ],
+        "relationships": [
+          "与其他角色的关系均为 TBD，开局无已记录相识或信息传递事件"
+        ],
+        "commitments": [
+          "TEST_SCAFFOLD：未知信息保持 UNKNOWN，只有记录来源事件、证据、章节和故事时间后才可转为 KNOWN"
+        ],
+        "known_facts": [
+          {
+            "id": "fact_2cbfc18c95962285",
+            "kind": "self_profile",
+            "text": "身份：羽族凤凰；角色：重要配角；特征：TBD",
+            "source": "src_a3fbb34200d146b60a63b95fb34dab8c1449b5119e979a6ee7a8ee8d1051680c",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_b04f70d74cba7885",
+            "kind": "initial_known",
+            "text": "自己是凤凰",
+            "source": "src_930384ce1690e8c976e90166c4cd88ddb8da52d461de44e76bcb517e8548042a",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_ea6a122587408cd4",
+            "kind": "initial_known",
+            "text": "自己与羽族有关",
+            "source": "src_930384ce1690e8c976e90166c4cd88ddb8da52d461de44e76bcb517e8548042a",
+            "visibility": "private"
+          }
+        ],
+        "public_rules": [
+          {
+            "id": "fact_621d279dfc73b980",
+            "kind": "world_rule_character_view",
+            "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_bd883bcbbad9a9c1",
+            "kind": "world_rule_character_view",
+            "text": "可见兽体辨识须遵守既定原型：九九是以鱼躯为主体的龙头鱼身螭吻，九尾狐具有真实九尾狐兽体，凤凰具有真实完整的东方凤凰神鸟兽体；被明确排除的替代形态不成立。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_9a223d4e9af55e67",
+            "kind": "world_rule_character_view",
+            "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_6473ff3b0924a6ba",
+            "kind": "world_rule_character_view",
+            "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_52e59f363e43f2f1",
+            "kind": "world_rule_character_view",
+            "text": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "informal"
+          },
+          {
+            "id": "fact_774bb01c51c0b912",
+            "kind": "world_rule_character_view",
+            "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_7c094649304903df",
+            "kind": "world_rule_character_view",
+            "text": "名称与身份只按各自已有知识使用：节庆正确名称为泼水节，真九九、机甲九九与凌墨不可混同；任何角色不知道的传说、身份或关联仍须通过有记录的事件或证据获知。",
+            "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+            "visibility": "formal"
+          }
+        ],
+        "public_mechanisms": [
+          {
+            "id": "mech_scaffold_bounded_coastal_response",
+            "name": "有限海岸水域响应",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "身处现场且能感知风险的角色"
+            ],
+            "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+            "preconditions": [
+              "你实际位于可行动范围内。",
+              "你只能依据自己已知的事实与可观察证据行动。"
+            ],
+            "inputs": [
+              "普通观察",
+              "普通移动与交流",
+              "你可访问的现场资源"
+            ],
+            "costs": [
+              "行动会占用你当下的时间与注意力。",
+              "若离开当前保护位置，该处风险可能继续发展。"
+            ],
+            "effects": [
+              "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+            ],
+            "failure_modes": [
+              "不在现场或缺少可访问资源时，行动不能凭空生效。",
+              "不能调用未获批准的超自然能力。"
+            ],
+            "observability": [
+              "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+              "不在场者不会自动获知。"
+            ],
+            "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+          },
+          {
+            "id": "mech_scaffold_explicit_knowledge_transfer",
+            "name": "显式知识传递",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "持有亲见信息的角色与可能的接收者"
+            ],
+            "trigger": "你尝试把一项私人观察传给另一角色。",
+            "preconditions": [
+              "你确实通过亲见或有来源证据获得该信息。",
+              "存在对方实际可接收的故事内传递行为。"
+            ],
+            "inputs": [
+              "信息来源",
+              "传递行为",
+              "可用接收渠道"
+            ],
+            "costs": [
+              "传递占用故事内时间，并受地点、路线与接收条件约束。"
+            ],
+            "effects": [
+              "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+            ],
+            "failure_modes": [
+              "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+              "推测不能替代传递。"
+            ],
+            "observability": [
+              "传递参与者可知道传递是否发生；旁观者须实际观察。"
+            ],
+            "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+          }
+        ],
+        "memory": [
+          {
+            "id": "mem_73a70f9269fa5e35",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己与羽族有关",
+            "source_digest": "sha256:73a70f9269fa5e3503893282aa5597e9384b2c9ff5a17ccf9807005459502bbb",
+            "accepted": true
+          },
+          {
+            "id": "mem_f22afdd60b501f06",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己是凤凰",
+            "source_digest": "sha256:f22afdd60b501f064826f12607cf90e0a178263f5442ec7d9332dda2d750e4c9",
+            "accepted": true
+          }
+        ],
+        "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+        "memory_root": "sha256:d6553620cc09a103ec365ba56f194cda5f55d83113c3f8f99e6e72e71b1a651c",
+        "sources": [
+          "chapter-activation-cycles.v3",
+          "character-arbitration:verified-round-sources.v1",
+          "character-incoming-material-read:receipt.v1",
+          "character-operational-availability:receipt.v1",
+          "character-resource-observation-time.v1",
+          "character-revision-feedback:owner-constraints.v1",
+          "character-scoped-observation-channel:v1",
+          "character-self-chronology:evaluation.v1",
+          "character-self-completion-view:receipt.v1",
+          "character-self-experience:receipt.v1",
+          "character-source-refs:opaque.v1",
+          "character-surface-inspection:receipt.v1",
+          "character-work-artifact:receipt.v1",
+          "character-work-continuation-history:full-owner.v1",
+          "character-work-continuation:explicit.v1",
+          "src_14aa03b1425ec591b31570b32ac60f1dcf61b77717792586faca246105a40f7c",
+          "src_23c0627b0dcc7d6658d2716e8e45f45e8618614090d30d4d11a05db4f36708bd",
+          "src_5064d12c692eb2b7cfac76656c0eba33669dce72a547a702af8ea97ba0877c86",
+          "src_7777480cb7e2d224767e587cc0ee4a4008c0f6bed331f713e1fe1e915457ac86",
+          "src_84d9b215df54d1b08f80c79a7859f51aa324ceed3ba158fe9f5b762580db2aa8",
+          "src_9e49378685f72597eaee0222b9a115108fd2dacc05e272a3ebb5c4c8beeb7db8",
+          "src_a3fbb34200d146b60a63b95fb34dab8c1449b5119e979a6ee7a8ee8d1051680c",
+          "src_f58870a844eff1008b4e9d1407c6681098f9b8be16c3e673e666593bdf07d91f"
+        ],
+        "generated_at": "2026-09-16T15:14:00.393602Z",
+        "digest": "sha256:aa20d67b6c821fb2a7a97a641065be4d27788f30f987bb065da64bf50c7747b5"
+      },
+      {
+        "operational_observations": [
+          {
+            "id": "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a",
+            "agent_id": "ca_e908a88390ffb536",
+            "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+            "chapter": 1,
+            "task_id": "task_fox_observe_tide_mark_1",
+            "request_id": "obs_private_tide_mark",
+            "resource_id": "res_4444555566667777",
+            "resource_label": "私密潮痕",
+            "purpose": "确认私密潮痕是否有可见变化，以判断其性质与是否紧迫",
+            "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+            "result": "available",
+            "observed_at_day": 0.020833333333333332,
+            "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+            "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+          },
+          {
+            "id": "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+            "agent_id": "ca_e908a88390ffb536",
+            "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+            "chapter": 1,
+            "task_id": "task_fox_observe_tide_mark_1",
+            "request_id": "obs_public_water",
+            "resource_id": "res_1111222233334444",
+            "resource_label": "近岸公开水况",
+            "purpose": "确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+            "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+            "result": "available",
+            "observed_at_day": 0.020833333333333332,
+            "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+            "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+          }
+        ],
+        "cycle_context": {
+          "version": "character-observation-cycle.prior-self.v1",
+          "index": 2,
+          "chapter_context_digest": "sha256:99e51d1d9eaaa65e6dd645dcf39256bd66711a5812e74123e8149612f9210949",
+          "previous_cycle_digest": "sha256:9e97b548d6019ab6edd298daf57923a04c60e5bb1e4289ce6631e3b98363fa34",
+          "current_day": 0.020833333333333332
+        },
+        "version": "character-observation-packet.v2",
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_e908a88390ffb536",
+        "character": "九尾狐",
+        "tier": "important",
+        "time_window": "全书开局后 30.000000 分钟（已确认的当前时间；不是章均估算）",
+        "location": "近岸礁影观察点",
+        "current_goal": "继续确认仅自己可观察的私密潮痕的性质、来源与是否值得行动；在其含义与来源未明、且无明确传递事件前，只自行观察而不向任何角色传递",
+        "pressure": "私密观察可能与沿海事件有关，但其含义与行动价值均未获确认；同时存在真的或有价值的责任风险",
+        "resource_views": [
+          {
+            "resource_id": "res_1111222233334444",
+            "name": "近岸公开水况",
+            "semantics": "environmental",
+            "unit": "",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          },
+          {
+            "resource_id": "res_4444555566667777",
+            "name": "私密潮痕",
+            "semantics": "qualitative",
+            "unit": "",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                "visibility": "private",
+                "label": "TEST_SCAFFOLD九尾狐本人私密潮痕感知"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            },
+            "evidence_refs": [
+              "src_de80f3c5e1c129889188f68439330aa275b3328b9c33ea03e1dfc6fc23c444c6"
+            ]
+          }
+        ],
+        "self_experiences": [
+          {
+            "evaluation": {
+              "version": "character-self-chronology:evaluation.v1",
+              "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+              "cycle": 1,
+              "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+              "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+              "evaluated_at_day": 0.020833333333333332,
+              "ordinal": 1
+            },
+            "id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974",
+            "chapter": 1,
+            "task_id": "task_fox_observe_tide_mark_1",
+            "kind": "work",
+            "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+            "status": "completed",
+            "resource_ids": [
+              "res_1111222233334444",
+              "res_4444555566667777"
+            ],
+            "start_day": 0,
+            "end_day": 0.020833333333333332,
+            "progress_target": 30,
+            "progress_unit": "minute",
+            "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21"
+          }
+        ],
+        "task_progress": [
+          {
+            "latest_attempt_status": "completed",
+            "task_id": "task_fox_observe_tide_mark_1",
+            "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+            "unit": "minute",
+            "target": 30,
+            "completed": 30,
+            "state": "completed",
+            "as_of_chapter": 1,
+            "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+          }
+        ],
+        "relationships": [
+          "与九九的开局关系为 TBD，无已记录秘密传递事件",
+          "与羽族凤凰的开局关系为 TBD，无已记录秘密传递事件"
+        ],
+        "commitments": [
+          "TEST_SCAFFOLD：私密标记在未发生明确故事内传递事件前仅由自己知悉"
+        ],
+        "known_facts": [
+          {
+            "id": "fact_960c8a4bce4e0691",
+            "kind": "self_profile",
+            "text": "身份：九尾狐；角色：重要配角；特征：TBD",
+            "source": "src_343945da0e07e77348d379650ebe804a3207561ed7cdb40ff63f27c0e5b3023d",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_c9c8ebeddc82c45c",
+            "kind": "initial_known",
+            "text": "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+            "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_b5ec33c23fc5b2ac",
+            "kind": "initial_known",
+            "text": "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+            "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+            "visibility": "private"
+          },
+          {
+            "id": "fact_00b9eae03ee214a9",
+            "kind": "initial_known",
+            "text": "该标记的含义、来源及是否应传递均为 TBD",
+            "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+            "visibility": "private"
+          }
+        ],
+        "public_rules": [
+          {
+            "id": "fact_621d279dfc73b980",
+            "kind": "world_rule_character_view",
+            "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_bd883bcbbad9a9c1",
+            "kind": "world_rule_character_view",
+            "text": "可见兽体辨识须遵守既定原型：九九是以鱼躯为主体的龙头鱼身螭吻，九尾狐具有真实九尾狐兽体，凤凰具有真实完整的东方凤凰神鸟兽体；被明确排除的替代形态不成立。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_9a223d4e9af55e67",
+            "kind": "world_rule_character_view",
+            "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_6473ff3b0924a6ba",
+            "kind": "world_rule_character_view",
+            "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_52e59f363e43f2f1",
+            "kind": "world_rule_character_view",
+            "text": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "informal"
+          },
+          {
+            "id": "fact_774bb01c51c0b912",
+            "kind": "world_rule_character_view",
+            "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          },
+          {
+            "id": "fact_7c094649304903df",
+            "kind": "world_rule_character_view",
+            "text": "名称与身份只按各自已有知识使用：节庆正确名称为泼水节，真九九、机甲九九与凌墨不可混同；任何角色不知道的传说、身份或关联仍须通过有记录的事件或证据获知。",
+            "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+            "visibility": "formal"
+          }
+        ],
+        "public_mechanisms": [
+          {
+            "id": "mech_scaffold_bounded_coastal_response",
+            "name": "有限海岸水域响应",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "身处现场且能感知风险的角色"
+            ],
+            "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+            "preconditions": [
+              "你实际位于可行动范围内。",
+              "你只能依据自己已知的事实与可观察证据行动。"
+            ],
+            "inputs": [
+              "普通观察",
+              "普通移动与交流",
+              "你可访问的现场资源"
+            ],
+            "costs": [
+              "行动会占用你当下的时间与注意力。",
+              "若离开当前保护位置，该处风险可能继续发展。"
+            ],
+            "effects": [
+              "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+            ],
+            "failure_modes": [
+              "不在现场或缺少可访问资源时，行动不能凭空生效。",
+              "不能调用未获批准的超自然能力。"
+            ],
+            "observability": [
+              "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+              "不在场者不会自动获知。"
+            ],
+            "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+          },
+          {
+            "id": "mech_scaffold_explicit_knowledge_transfer",
+            "name": "显式知识传递",
+            "visibility": "formal",
+            "section_refs": null,
+            "actor_scope": [
+              "持有亲见信息的角色与可能的接收者"
+            ],
+            "trigger": "你尝试把一项私人观察传给另一角色。",
+            "preconditions": [
+              "你确实通过亲见或有来源证据获得该信息。",
+              "存在对方实际可接收的故事内传递行为。"
+            ],
+            "inputs": [
+              "信息来源",
+              "传递行为",
+              "可用接收渠道"
+            ],
+            "costs": [
+              "传递占用故事内时间，并受地点、路线与接收条件约束。"
+            ],
+            "effects": [
+              "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+            ],
+            "failure_modes": [
+              "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+              "推测不能替代传递。"
+            ],
+            "observability": [
+              "传递参与者可知道传递是否发生；旁观者须实际观察。"
+            ],
+            "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+          }
+        ],
+        "memory": [
+          {
+            "id": "mem_98767204f3bd7b6a",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+            "source_digest": "sha256:98767204f3bd7b6a81fab19bc437b0c3b14e4aa9595446ab694ffee944bf3a91",
+            "accepted": true
+          },
+          {
+            "id": "mem_9a25a806f007f4be",
+            "chapter": 1,
+            "kind": "projected_decision",
+            "text": "本轮决定：留在观察点继续自行观察，暂不向任何角色传递私密信息；本轮意图（不代表全部完成）：在近岸礁影观察点持续安静观察私密潮痕与近岸公开水况，留意是否有可见变化，并只把结果保留给自己，不向九九、羽族凤凰或任何其他角色传递。；完成度：completed；位置：近岸礁影观察点；本人经历（第1章，task_fox_observe_tide_mark_1）：持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递；已完成此步骤；实际区间T+0至T+30分钟；第1次评估于T+30分钟确认本次状态（评估时刻不等于执行工时）；本人任务进度（task_fox_observe_tide_mark_1）：持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递；累计有效工时30分钟；状态completed；最近一次尝试状态completed（不清零既有工时）；本人申报目标30分钟，尚余0分钟；达到工时不等于作业结果合格；资源感知：近岸公开水况（res_1111222233334444；access=none）：信息未确认；私密潮痕（res_4444555566667777；access=none）：信息未确认；本人操作性观察（私密潮痕；第1章T+30分钟；oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a）：局部可操作；仅限当时对本人任务用途的操作性，不证明持续可用、容量或整项检查合格；本人申请用途（其中数量和命题未由此观察证实）：确认私密潮痕是否有可见变化，以判断其性质与是否紧迫；本人操作性观察（近岸公开水况；第1章T+30分钟；oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058）：局部可操作；仅限当时对本人任务用途的操作性，不证明持续可用、容量或整项检查合格；本人申请用途（其中数量和命题未由此观察证实）：确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+            "source_digest": "sha256:58b4c177f5ce773b98384aa12d50c2fad0a51ac04ee11f21abb5f501e687103f",
+            "accepted": false
+          },
+          {
+            "id": "mem_ed58b0b7ec11080b",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+            "source_digest": "sha256:ed58b0b7ec11080b103c211b3288f42c1147208a8099adb55f3f71772944efe4",
+            "accepted": true
+          },
+          {
+            "id": "mem_f8de2f71a64ad4bc",
+            "chapter": 1,
+            "kind": "accepted_continuity",
+            "text": "该标记的含义、来源及是否应传递均为 TBD",
+            "source_digest": "sha256:f8de2f71a64ad4bc00ce220474f2aea21746932cd8b624e2711e6809cc343669",
+            "accepted": true
+          }
+        ],
+        "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+        "memory_root": "sha256:efcc2406d76a78a23e15dd5f0bc1922d506dfbda5bbca78a4044749d5d9a70ad",
+        "sources": [
+          "chapter-activation-cycles.v3",
+          "character-arbitration:verified-round-sources.v1",
+          "character-incoming-material-read:receipt.v1",
+          "character-operational-availability:receipt.v1",
+          "character-resource-observation-time.v1",
+          "character-revision-feedback:owner-constraints.v1",
+          "character-scoped-observation-channel:v1",
+          "character-self-chronology:evaluation.v1",
+          "character-self-completion-view:receipt.v1",
+          "character-self-experience:receipt.v1",
+          "character-source-refs:opaque.v1",
+          "character-surface-inspection:receipt.v1",
+          "character-work-artifact:receipt.v1",
+          "character-work-continuation-history:full-owner.v1",
+          "character-work-continuation:explicit.v1",
+          "src_0d99766d4a5e60e7c3b8ca2bea86c6fa7b21c58d1bca655c3e16974bf904ecdf",
+          "src_1d32fc303110e35cf8f9b5a23e9ce27128f26dc27ca985243274a8338b26c2d9",
+          "src_246e646c877e459ae14b7240d7fcb180c4e39001a37103bfe57b716b411d261c",
+          "src_343945da0e07e77348d379650ebe804a3207561ed7cdb40ff63f27c0e5b3023d",
+          "src_75fd9d87f85f97b9d9fddbe70518a8419b1310caa77e86cf7f2383a1d7ad23d3",
+          "src_77311d1f80204cfa554f3c75fa4d40b3d1bf67da9c2891a912a50f4861130f05",
+          "src_8e607c9aa6cf84808be48c464056b5aabb73289ecdc492f7cb597445cb1cb4ba",
+          "src_de854bc184252045d55f7c93854429d4c8c95c27ab7b8e6ddb7f0af28c7a6793"
+        ],
+        "generated_at": "2026-09-16T15:14:00.393602Z",
+        "digest": "sha256:921b957d13bc5568315a22c89a61d47f073662e1d99aad92c8d1132ce3a68380"
+      }
+    ],
+    "proposals": [
+      {
+        "version": "character-decision-proposal.v1",
+        "self_tasks": [
+          {
+            "observation_requests": [
+              {
+                "request_id": "obs_watch_water_2",
+                "resource_id": "res_1111222233334444",
+                "purpose": "确认近岸水域当前是否有需要示警或处置的可见风险",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "knowledge_refs": [
+                  "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471",
+                  "fact_6473ff3b0924a6ba"
+                ]
+              }
+            ],
+            "task_id": "task_watch_nearshore_2",
+            "kind": "work",
+            "action": "在近岸守护点对近岸公开水况进行第二轮实际目视观察，确认有无可见风险",
+            "resource_ids": [
+              "res_1111222233334444"
+            ],
+            "progress_target": 10,
+            "progress_unit": "minute",
+            "knowledge_refs": [
+              "fact_6473ff3b0924a6ba",
+              "fact_774bb01c51c0b912",
+              "fact_c405032c1c26f983"
+            ]
+          },
+          {
+            "task_id": "task_log_watch_1",
+            "kind": "work",
+            "action": "将已完成的首轮近岸值守观察与当时的局部可操作性记入空白事件记录纸",
+            "resource_ids": [
+              "res_3333444455556666"
+            ],
+            "knowledge_refs": [
+              "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e",
+              "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471"
+            ]
+          }
+        ],
+        "work_continuations": [
+          {
+            "task_id": "task_watch_nearshore_2",
+            "max_effective_minutes": 10
+          }
+        ],
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_28b35c0537fec56e",
+        "character": "螭吻·九九",
+        "observation_digest": "sha256:9c75bd4808135f26b7ceea4d822d985b9e6a257fe81457cb3f0132b643147f58",
+        "time": "第1章 T+30分钟（day 0.0208）",
+        "location": "渔岛海洋度假区近岸守护点",
+        "current_goal": "守住眼前近岸水域的保护职责；对未经证实、无来源记录的声望机会保持不采信、不擅离岗位",
+        "pressure": "保护职责与一个没有来源记录的声望机会同时争夺我的注意力",
+        "resources": [
+          "现场警示浮标",
+          "空白事件记录纸",
+          "近岸公开水况（现场公开目视频道）"
+        ],
+        "available_options": [
+          "原地等待，不做任何进一步观察或记录",
+          "向可能的相关者索取该声望机会的来源与证据信息",
+          "留在近岸守护点，用现场公开目视频道对近岸公开水况再做一轮实际目视观察，并把已完成的首轮值守写进事件记录纸",
+          "离开守护点去追逐或探查那条没有来源记录的声望机会"
+        ],
+        "rejected_options": [
+          "把未证实、无来源记录的声望信息当作事实并据此改变职责",
+          "离开守护点去追逐未经证实的声望机会",
+          "调用本人未获批准的超自然能力去处理水况"
+        ],
+        "decision": "留在渔岛海洋度假区近岸守护点，完成第二轮近岸公开水况目视观察，并把已完成的首轮值守记入事件记录纸；不追逐未经证实的声望机会。",
+        "decision_reason": "保护是我的核心价值边界，眼前守护职责优先；近岸公开水况有本人已亲证可用的现场公开目视频道，而那条声望机会没有来源记录、不能当作事实。因此选择留岗续做目视观察并留下有来源与时间的值守记录，不因未证传闻离岗。",
+        "intended_action": "在近岸守护点对近岸公开水况进行第二轮实际目视观察，确认有无需要示警或处置的可见风险；同时将已完成的首轮值守（观察行为与当时局部可操作性）写成一份值守记录。全程不离开守护点，不凭传闻行动。",
+        "action_duration": "约10分钟（以目视观察为主，另含少量记录时间）",
+        "knowledge_refs": [
+          "fact_52e59f363e43f2f1",
+          "fact_6473ff3b0924a6ba",
+          "fact_774bb01c51c0b912",
+          "fact_9a223d4e9af55e67",
+          "fact_b7b06596f6d8d6c0",
+          "fact_c405032c1c26f983",
+          "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471",
+          "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+        ],
+        "mechanism_refs": [
+          "mech_scaffold_bounded_coastal_response"
+        ],
+        "resource_claims": [
+          "空白事件记录纸 1 张（用于书写值守记录）",
+          "近岸公开水况（本轮观察占用本人时间与注意力）"
+        ],
+        "resource_estimates": [
+          {
+            "resource_id": "res_3333444455556666",
+            "estimate_min": 5,
+            "estimate_max": 5,
+            "evidence_refs": [
+              "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+            ]
+          },
+          {
+            "resource_id": "res_2222333344445555",
+            "estimate_min": 1,
+            "estimate_max": 1,
+            "evidence_refs": [
+              "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+            ]
+          }
+        ],
+        "constraints": [
+          "不因未经证实的声望机会离开守护点",
+          "不把未证实的声望信息当作事实",
+          "只在本人已知事实与有记录来源的观察内行动，未知能力强度维持 TBD",
+          "记录只写本人已亲历或已实际观察到的内容"
+        ],
+        "contingencies": [
+          "若收到有来源记录的声望机会信息并被实际传达，则重新评估后再作决定",
+          "若本轮目视发现可见风险，则就地示警并采取普通保护行动，同时写入记录",
+          "若观察受阻或现场公开目视频道不可用，则原地保持值守并记下受阻情况"
+        ],
+        "expected_consequences": [
+          "守护点持续有人在岗",
+          "新增一条带来源与时间的值守记录",
+          "那条声望机会仍未被采信、未被追逐"
+        ],
+        "submitted_at": "2026-09-16T15:15:31.664172Z",
+        "digest": "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328"
+      },
+      {
+        "version": "character-decision-proposal.v1",
+        "self_tasks": [
+          {
+            "observation_requests": [
+              {
+                "request_id": "obs_coastal_water_1",
+                "resource_id": "res_1111222233334444",
+                "purpose": "从当前观察位判断近岸水域是否存在可见风险，以评估环境是否安全",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "knowledge_refs": [
+                  "fact_774bb01c51c0b912",
+                  "fact_b04f70d74cba7885"
+                ]
+              }
+            ],
+            "task_id": "observe_nearshore_water_safety",
+            "kind": "work",
+            "action": "在近岸上空云缘观察位，用现场公开目视通道观察近岸公开水况，记录可见的安全或风险迹象",
+            "resource_ids": [
+              "res_1111222233334444"
+            ],
+            "progress_target": 10,
+            "progress_unit": "minute",
+            "knowledge_refs": [
+              "fact_b04f70d74cba7885",
+              "fact_ea6a122587408cd4",
+              "fact_621d279dfc73b980",
+              "fact_774bb01c51c0b912"
+            ]
+          }
+        ],
+        "work_continuations": [
+          {
+            "task_id": "observe_nearshore_water_safety",
+            "until_target": true
+          }
+        ],
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_dab3e91796825b05",
+        "character": "羽族凤凰",
+        "observation_digest": "sha256:aa20d67b6c821fb2a7a97a641065be4d27788f30f987bb065da64bf50c7747b5",
+        "location": "近岸上空云缘观察位",
+        "current_goal": "在不越过自身知识边界的前提下确认陌生海岸环境是否安全：先留在观察位收集可见证据",
+        "pressure": "身处陌生海岸环境，可用信息极少，身份与关系多为 TBD",
+        "available_options": [
+          "下降到近岸低空或岸边近距离探查，承担未知风险",
+          "向未知方向发出信号试图接触其他存在",
+          "留在云缘观察位，用公开目视通道观察近岸水况，先积累可见证据",
+          "继续隐匿等待，不主动获取信息"
+        ],
+        "decision": "选择留在云缘观察位，对近岸公开水况做一次有边界的目视观察，先判断能否用可见证据排除明显危险，暂不下降接触。",
+        "decision_reason": "自己是凤凰、与羽族有关，但对这片陌生海岸与周边角色一无所知；在不清楚风险且无从获取他人信息时，先以可观察证据判断环境安全性最稳妥，且不必冒险离开现有保护位置。",
+        "intended_action": "在近岸上空云缘观察位原地停留，通过现场公开目视通道观察近岸公开水况的可见状况，据此记录可观察到的安全/风险迹象；不靠近水面、不登岸、不发出跨地点信号。",
+        "action_duration": "约 10 分钟",
+        "knowledge_refs": [
+          "fact_2cbfc18c95962285",
+          "fact_621d279dfc73b980",
+          "fact_774bb01c51c0b912",
+          "fact_b04f70d74cba7885",
+          "fact_bd883bcbbad9a9c1",
+          "fact_ea6a122587408cd4",
+          "mem_73a70f9269fa5e35",
+          "mem_f22afdd60b501f06"
+        ],
+        "mechanism_refs": [
+          "mech_scaffold_bounded_coastal_response"
+        ],
+        "constraints": [
+          "不假定任何未获批准的能力、强度或代价",
+          "不离开现有保护位置、不接触其他角色、不发出跨地点信号",
+          "只依据已知事实与亲自观察的证据更新认知，未知项保持 UNKNOWN"
+        ],
+        "contingencies": [
+          "若出现其他存在接近，则先观察其行为再决定是否接触",
+          "若目视观察仍无法判断安全性，则保持原位等待下一轮信息，不擅自下降",
+          "若观察到明确危险迹象，则维持在云缘高位并避免接近"
+        ],
+        "expected_consequences": [
+          "可能仍留大量未知项，需后续观察或他人传递信息补充",
+          "可能获得关于近岸水况的可见证据，用于判断环境是否安全"
+        ],
+        "submitted_at": "2026-09-16T15:15:05.642793Z",
+        "digest": "sha256:0fab84a5b61d374323079f1b15fb51798ae709b7d1e78379677f0b9cfbfe1d50"
+      },
+      {
+        "version": "character-decision-proposal.v1",
+        "self_tasks": [
+          {
+            "observation_requests": [
+              {
+                "request_id": "obs_private_tide_mark_2",
+                "resource_id": "res_4444555566667777",
+                "purpose": "确认私密潮痕是否有新的可见变化，以判断其性质与紧迫程度",
+                "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                "knowledge_refs": [
+                  "fact_b5ec33c23fc5b2ac",
+                  "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a"
+                ]
+              },
+              {
+                "request_id": "obs_public_water_2",
+                "resource_id": "res_1111222233334444",
+                "purpose": "确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "knowledge_refs": [
+                  "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+                  "fact_774bb01c51c0b912"
+                ]
+              }
+            ],
+            "task_id": "task_fox_observe_tide_mark_2",
+            "kind": "work",
+            "action": "在近岸礁影观察点安静持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+            "resource_ids": [
+              "res_1111222233334444",
+              "res_4444555566667777"
+            ],
+            "progress_target": 30,
+            "progress_unit": "minute",
+            "knowledge_refs": [
+              "fact_b5ec33c23fc5b2ac",
+              "fact_00b9eae03ee214a9",
+              "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a",
+              "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+              "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+            ]
+          }
+        ],
+        "work_continuations": [
+          {
+            "task_id": "task_fox_observe_tide_mark_2",
+            "until_target": true
+          }
+        ],
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "agent_id": "ca_e908a88390ffb536",
+        "character": "九尾狐",
+        "observation_digest": "sha256:921b957d13bc5568315a22c89a61d47f073662e1d99aad92c8d1132ce3a68380",
+        "time": "全书开局后30分钟起",
+        "location": "近岸礁影观察点",
+        "current_goal": "继续确认私密潮痕的性质、来源与是否值得行动；在其含义与来源未明、且无明确传递事件前，只自行观察而不向任何角色传递",
+        "pressure": "私密观察可能与沿海事件有关，但其含义与行动价值均未获确认；同时存在真的或有价值的责任风险",
+        "resources": [
+          "私密潮痕（仅本人可观察的私密感知通道）",
+          "近岸公开水况（现场公开目视通道）"
+        ],
+        "available_options": [
+          "不采取进一步行动，原地等待，仅保持既有认知",
+          "留在近岸礁影观察点，开始新一轮安静自我观察，检查私密潮痕与近岸公开水况是否出现可见变化",
+          "离开观察点沿近岸移动，试图寻找私密潮痕的可能来源或与公开水况的关联"
+        ],
+        "decision": "留在近岸礁影观察点，开始新一轮限时自我观察，继续检查私密潮痕与近岸公开水况的可见变化，结果只保留给自己，不向任何角色传递",
+        "decision_reason": "上一轮30分钟观察仅确认私密潮痕与近岸公开水况可被本人局部观察，未见明确变化，含义与来源仍为TBD；在无新证据且无明确传递事件前，继续原地自行观察最符合本人目标与承诺，风险最低。",
+        "intended_action": "在近岸礁影观察点安静持续观察私密潮痕与近岸公开水况的可见变化并自行记录，不向九九、羽族凤凰或任何其他角色传递",
+        "action_duration": "30分钟",
+        "knowledge_refs": [
+          "fact_00b9eae03ee214a9",
+          "fact_960c8a4bce4e0691",
+          "fact_b5ec33c23fc5b2ac",
+          "fact_c9c8ebeddc82c45c",
+          "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a",
+          "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+          "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+        ],
+        "mechanism_refs": [
+          "mech_scaffold_bounded_coastal_response",
+          "mech_scaffold_secret_fox_tide_mark"
+        ],
+        "resource_claims": [
+          "本人当下时间与注意力"
+        ],
+        "constraints": [
+          "只依据自己已知事实与亲自观察证据更新认知",
+          "在含义与来源未明且无明确传递事件前，不向任何角色传递私密标记相关信息"
+        ],
+        "contingencies": [
+          "若私密潮痕出现明显可见变化，则暂停观察并重新评估其性质与是否紧迫",
+          "若观察通道不可用或受阻，则如实记录受阻状态并原地等待下一轮判断"
+        ],
+        "expected_consequences": [
+          "未发生任何针对外部的信息传递",
+          "本人对私密潮痕是否有变化的判断得到更新或仍维持未知"
+        ],
+        "submitted_at": "2026-09-16T15:15:02.568625Z",
+        "digest": "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c"
+      }
+    ],
+    "arbitrations": [
+      {
+        "version": "world-arbitration-receipt.v2",
+        "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+        "chapter": 1,
+        "round": 1,
+        "story_time": {
+          "chapter": 1,
+          "start_day": 0.020833333333333332,
+          "end_day": 0.041666666666666664
+        },
+        "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+        "activation_digest": "sha256:8e079a5981d919b3595cdba03e7759bd5354744fbac3fac76a9a455a1ba355e9",
+        "proposal_digests": [
+          "sha256:0fab84a5b61d374323079f1b15fb51798ae709b7d1e78379677f0b9cfbfe1d50",
+          "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c",
+          "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328"
+        ],
+        "resolutions": [
+          {
+            "self_executions": [
+              {
+                "observation_results": [
+                  {
+                    "request_id": "obs_watch_water_2",
+                    "result": "available",
+                    "observed_at_day": 0.027777777777777776
+                  }
+                ],
+                "task_id": "task_watch_nearshore_2",
+                "status": "completed",
+                "start_day": 0.020833333333333332,
+                "end_day": 0.027777777777777776
+              },
+              {
+                "task_id": "task_log_watch_1",
+                "status": "completed",
+                "start_day": 0.027777777777777776,
+                "end_day": 0.03125
+              }
+            ],
+            "agent_id": "ca_28b35c0537fec56e",
+            "character": "螭吻·九九",
+            "proposal_digest": "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328",
+            "decision": "留在渔岛海洋度假区近岸守护点，完成第二轮近岸公开水况目视观察，并把已完成的首轮值守记入事件记录纸；不追逐未经证实的声望机会。",
+            "intended_action": "在近岸守护点对近岸公开水况进行第二轮实际目视观察，确认有无需要示警或处置的可见风险；同时将已完成的首轮值守（观察行为与当时局部可操作性）写成一份值守记录。全程不离开守护点，不凭传闻行动。",
+            "action_order": 1,
+            "outcome": "success",
+            "completion_state": "completed",
+            "immediate_result": "九九留在渔岛海洋度假区近岸守护点，用现场公开目视通道完成第二轮近岸水况观察，未发现需要示警或处置的可见风险；随后把首轮值守的观察行为与当时局部可操作性写入一张空白事件记录纸，全程未离开守护点，也未追索那条无来源的声望机会。",
+            "state_after": "九九仍在近岸守护点值守，纸面新增一段有来源与时间的值守记录；声望机会仍未采信、未被追逐。",
+            "post_state": {
+              "self_chronology_baseline": {
+                "version": "character-self-chronology:evaluation.v1",
+                "agent_id": "ca_28b35c0537fec56e",
+                "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+                "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+                "experience_count": 0,
+                "digest": "sha256:6f137b9bd57e7f8120f6c43fc30c4c5a6758c8e9d33c42601b47c4f1141d6556"
+              },
+              "operational_observations": [
+                {
+                  "id": "oper_a7241f6f19c1d016b2b681f79bc03f2427df29ac82e3e1b07c281f23325b57d2",
+                  "agent_id": "ca_28b35c0537fec56e",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_watch_nearshore_2",
+                  "request_id": "obs_watch_water_2",
+                  "resource_id": "res_1111222233334444",
+                  "resource_label": "近岸公开水况",
+                  "purpose": "确认近岸水域当前是否有需要示警或处置的可见风险",
+                  "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                  "result": "available",
+                  "observed_at_day": 0.027777777777777776,
+                  "source_proposal_digest": "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328",
+                  "source_experience_id": "self_1a58d95412207bce1ed389dd1b41f2beb3424891ebf4191b8f651587a825a12d"
+                },
+                {
+                  "id": "oper_aa2b36b4c81ea486e9179f0a3e9c227b1d2294df751ae700574243ee942b1471",
+                  "agent_id": "ca_28b35c0537fec56e",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_watch_nearshore_1",
+                  "request_id": "obs_watch_water_1",
+                  "resource_id": "res_1111222233334444",
+                  "resource_label": "近岸公开水况",
+                  "purpose": "确认近岸水域当前是否有需要示警或处置的可见风险",
+                  "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                  "result": "available",
+                  "observed_at_day": 0.006944444444444444,
+                  "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8",
+                  "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+                }
+              ],
+              "agent_id": "ca_28b35c0537fec56e",
+              "character": "螭吻·九九",
+              "location": "渔岛海洋度假区近岸守护点",
+              "resources": [
+                {
+                  "resource_id": "res_1111222233334444",
+                  "perceived_name": "近岸公开水况",
+                  "perceived_label": "近岸公开水况",
+                  "access": "none",
+                  "permissions": [
+                    "observe"
+                  ],
+                  "observation_channels": [
+                    {
+                      "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                      "visibility": "public",
+                      "label": "TEST_SCAFFOLD现场公开水况目视"
+                    }
+                  ],
+                  "perception": {
+                    "kind": "unknown",
+                    "as_of_chapter": 0
+                  }
+                },
+                {
+                  "resource_id": "res_2222333344445555",
+                  "perceived_name": "现场警示浮标",
+                  "perceived_label": "现场警示浮标",
+                  "perceived_unit": "件",
+                  "access": "shared",
+                  "perception": {
+                    "kind": "last_observed",
+                    "amount": 1,
+                    "as_of_chapter": 0,
+                    "evidence_refs": [
+                      "user_targeted_repair:authored_opening_resource:warning_buoy"
+                    ]
+                  },
+                  "evidence_refs": [
+                    "user_targeted_repair:authored_opening_resource:warning_buoy"
+                  ]
+                },
+                {
+                  "resource_id": "res_3333444455556666",
+                  "perceived_name": "空白事件记录纸",
+                  "perceived_label": "空白事件记录纸",
+                  "perceived_unit": "张",
+                  "access": "exclusive",
+                  "perception": {
+                    "kind": "estimated",
+                    "estimate_min": 5,
+                    "estimate_max": 5,
+                    "as_of_chapter": 1,
+                    "evidence_refs": [
+                      "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328",
+                      "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                    ]
+                  },
+                  "evidence_refs": [
+                    "user_targeted_repair:authored_opening_resource:blank_event_paper"
+                  ]
+                }
+              ],
+              "self_experiences": [
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 1,
+                    "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+                    "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+                    "evaluated_at_day": 0.020833333333333332,
+                    "ordinal": 1
+                  },
+                  "id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e",
+                  "chapter": 1,
+                  "task_id": "task_watch_nearshore_1",
+                  "kind": "work",
+                  "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_1111222233334444"
+                  ],
+                  "start_day": 0,
+                  "end_day": 0.006944444444444444,
+                  "progress_target": 10,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:ecf7fdc614d8b07478ddbd8bf9eddb3717e300a0eaf463d67d8d9094740a39e8"
+                },
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 2,
+                    "context_digest": "sha256:729959cf5d235ecd0f02260a62a5f25a34c6dfec849c9d25a09b864ee8ec60af",
+                    "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+                    "evaluated_at_day": 0.041666666666666664,
+                    "ordinal": 1
+                  },
+                  "id": "self_1a58d95412207bce1ed389dd1b41f2beb3424891ebf4191b8f651587a825a12d",
+                  "chapter": 1,
+                  "task_id": "task_watch_nearshore_2",
+                  "kind": "work",
+                  "action": "在近岸守护点对近岸公开水况进行第二轮实际目视观察，确认有无可见风险",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_1111222233334444"
+                  ],
+                  "start_day": 0.020833333333333332,
+                  "end_day": 0.027777777777777776,
+                  "progress_target": 10,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328"
+                },
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 2,
+                    "context_digest": "sha256:729959cf5d235ecd0f02260a62a5f25a34c6dfec849c9d25a09b864ee8ec60af",
+                    "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+                    "evaluated_at_day": 0.041666666666666664,
+                    "ordinal": 2
+                  },
+                  "id": "self_9cf847df0eb2853a8ed374a6ed2145788891f6680e3f436af5741e25400e230f",
+                  "chapter": 1,
+                  "task_id": "task_log_watch_1",
+                  "kind": "work",
+                  "action": "将已完成的首轮近岸值守观察与当时的局部可操作性记入空白事件记录纸",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_3333444455556666"
+                  ],
+                  "start_day": 0.027777777777777776,
+                  "end_day": 0.03125,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328"
+                }
+              ],
+              "task_progress": [
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "task_log_watch_1",
+                  "action": "将已完成的首轮近岸值守观察与当时的局部可操作性记入空白事件记录纸",
+                  "unit": "minute",
+                  "completed": 5.000000000000002,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_9cf847df0eb2853a8ed374a6ed2145788891f6680e3f436af5741e25400e230f"
+                },
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "task_watch_nearshore_1",
+                  "action": "在近岸守护点对近岸公开水况进行实际目视观察，确认有无可见风险",
+                  "unit": "minute",
+                  "target": 10,
+                  "completed": 10,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_22810698017a25d35b9b25c9fa72b09e7766dce8aa7b6401c01cd786e594af7e"
+                },
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "task_watch_nearshore_2",
+                  "action": "在近岸守护点对近岸公开水况进行第二轮实际目视观察，确认有无可见风险",
+                  "unit": "minute",
+                  "target": 10,
+                  "completed": 10,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_1a58d95412207bce1ed389dd1b41f2beb3424891ebf4191b8f651587a825a12d"
+                }
+              ]
+            },
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response"
+            ],
+            "butterfly_effects": [
+              {
+                "effect": "守护点持续有人在岗，近岸公开水况被连续两轮记录，无可见风险上升为示警。",
+                "transmission_path": "九九现场值守与记录，仅在场可见",
+                "arrival_chapter": 2,
+                "visibility": "visible",
+                "protagonist_impact": "保护义务获得履行证据，未经核实的声望机会仍未兑现压力"
+              }
+            ]
+          },
+          {
+            "self_executions": [
+              {
+                "observation_results": [
+                  {
+                    "request_id": "obs_coastal_water_1",
+                    "result": "available",
+                    "observed_at_day": 0.027777777777777776
+                  }
+                ],
+                "task_id": "observe_nearshore_water_safety",
+                "status": "completed",
+                "start_day": 0.020833333333333332,
+                "end_day": 0.027777777777777776
+              }
+            ],
+            "agent_id": "ca_dab3e91796825b05",
+            "character": "羽族凤凰",
+            "proposal_digest": "sha256:0fab84a5b61d374323079f1b15fb51798ae709b7d1e78379677f0b9cfbfe1d50",
+            "decision": "选择留在云缘观察位，对近岸公开水况做一次有边界的目视观察，先判断能否用可见证据排除明显危险，暂不下降接触。",
+            "intended_action": "在近岸上空云缘观察位原地停留，通过现场公开目视通道观察近岸公开水况的可见状况，据此记录可观察到的安全/风险迹象；不靠近水面、不登岸、不发出跨地点信号。",
+            "action_order": 2,
+            "outcome": "success",
+            "completion_state": "completed",
+            "immediate_result": "羽族凤凰留在近岸上空云缘观察位，用现场公开目视通道完成一次有边界的近岸水况观察，得到有限的可见状况信息；未下降、未登岸、未发出跨地点信号，与九九、九尾狐相关的身份与私密信息仍为 UNKNOWN。",
+            "state_after": "凤凰仍停留在云缘观察位，仅积累了本人亲见的有限水况信息，未与任何角色接触。",
+            "post_state": {
+              "self_chronology_baseline": {
+                "version": "character-self-chronology:evaluation.v1",
+                "agent_id": "ca_dab3e91796825b05",
+                "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+                "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+                "experience_count": 0,
+                "digest": "sha256:24b9e3b442b538059d864fd43b6bbe02143ce0b67f2007967eaaf58df9f1a56a"
+              },
+              "operational_observations": [
+                {
+                  "id": "oper_d370473503ace3e8ff43ac628ebd58c5ca3b1e0f2f4f26761d3d9a4b73d1bf19",
+                  "agent_id": "ca_dab3e91796825b05",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "observe_nearshore_water_safety",
+                  "request_id": "obs_coastal_water_1",
+                  "resource_id": "res_1111222233334444",
+                  "resource_label": "近岸公开水况",
+                  "purpose": "从当前观察位判断近岸水域是否存在可见风险，以评估环境是否安全",
+                  "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                  "result": "available",
+                  "observed_at_day": 0.027777777777777776,
+                  "source_proposal_digest": "sha256:0fab84a5b61d374323079f1b15fb51798ae709b7d1e78379677f0b9cfbfe1d50",
+                  "source_experience_id": "self_703d32ea5ef58163f76ae0bb8debb6042d7256fd419006aae0cc218c23278592"
+                }
+              ],
+              "agent_id": "ca_dab3e91796825b05",
+              "character": "羽族凤凰",
+              "location": "近岸上空云缘观察位",
+              "resources": [
+                {
+                  "resource_id": "res_1111222233334444",
+                  "perceived_name": "近岸公开水况",
+                  "perceived_label": "近岸公开水况",
+                  "access": "none",
+                  "permissions": [
+                    "observe"
+                  ],
+                  "observation_channels": [
+                    {
+                      "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                      "visibility": "public",
+                      "label": "TEST_SCAFFOLD现场公开水况目视"
+                    }
+                  ],
+                  "perception": {
+                    "kind": "unknown",
+                    "as_of_chapter": 0
+                  }
+                }
+              ],
+              "self_experiences": [
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 2,
+                    "context_digest": "sha256:729959cf5d235ecd0f02260a62a5f25a34c6dfec849c9d25a09b864ee8ec60af",
+                    "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+                    "evaluated_at_day": 0.041666666666666664,
+                    "ordinal": 1
+                  },
+                  "id": "self_703d32ea5ef58163f76ae0bb8debb6042d7256fd419006aae0cc218c23278592",
+                  "chapter": 1,
+                  "task_id": "observe_nearshore_water_safety",
+                  "kind": "work",
+                  "action": "在近岸上空云缘观察位，用现场公开目视通道观察近岸公开水况，记录可见的安全或风险迹象",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_1111222233334444"
+                  ],
+                  "start_day": 0.020833333333333332,
+                  "end_day": 0.027777777777777776,
+                  "progress_target": 10,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:0fab84a5b61d374323079f1b15fb51798ae709b7d1e78379677f0b9cfbfe1d50"
+                }
+              ],
+              "task_progress": [
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "observe_nearshore_water_safety",
+                  "action": "在近岸上空云缘观察位，用现场公开目视通道观察近岸公开水况，记录可见的安全或风险迹象",
+                  "unit": "minute",
+                  "target": 10,
+                  "completed": 10,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_703d32ea5ef58163f76ae0bb8debb6042d7256fd419006aae0cc218c23278592"
+                }
+              ]
+            },
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response"
+            ],
+            "butterfly_effects": [
+              {
+                "effect": "凤凰维持高位观察、无接触，其知识边界保持未升级，为后续可能的显式传递保留不确定空间。",
+                "transmission_path": "凤凰空中观察，现场无接收者",
+                "arrival_chapter": 2,
+                "visibility": "delayed",
+                "protagonist_impact": "陌生海岸风险判断仍大量未知，后续需新证据或他人传递"
+              }
+            ]
+          },
+          {
+            "self_executions": [
+              {
+                "observation_results": [
+                  {
+                    "request_id": "obs_private_tide_mark_2",
+                    "result": "available",
+                    "observed_at_day": 0.041666666666666664
+                  },
+                  {
+                    "request_id": "obs_public_water_2",
+                    "result": "available",
+                    "observed_at_day": 0.041666666666666664
+                  }
+                ],
+                "task_id": "task_fox_observe_tide_mark_2",
+                "status": "completed",
+                "start_day": 0.020833333333333332,
+                "end_day": 0.041666666666666664
+              }
+            ],
+            "agent_id": "ca_e908a88390ffb536",
+            "character": "九尾狐",
+            "proposal_digest": "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c",
+            "decision": "留在近岸礁影观察点，开始新一轮限时自我观察，继续检查私密潮痕与近岸公开水况的可见变化，结果只保留给自己，不向任何角色传递",
+            "intended_action": "在近岸礁影观察点安静持续观察私密潮痕与近岸公开水况的可见变化并自行记录，不向九九、羽族凤凰或任何其他角色传递",
+            "action_order": 3,
+            "outcome": "success",
+            "completion_state": "completed",
+            "immediate_result": "九尾狐在近岸礁影观察点完成一轮 30 分钟安静自我观察：私密潮痕与近岸公开水况均可被本人局部观察，未见明确变化，其性质、来源与行动价值仍未确认；全程未向九九、凤凰或任何其他角色传递任何信息。",
+            "state_after": "九尾狐仍在近岸礁影观察点，私密潮痕的观察结果只留在本人认知内，未发生任何故事内传递事件。",
+            "post_state": {
+              "self_chronology_baseline": {
+                "version": "character-self-chronology:evaluation.v1",
+                "agent_id": "ca_e908a88390ffb536",
+                "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+                "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+                "experience_count": 0,
+                "digest": "sha256:eed2cc3ec180f063d232e7365467944659c44a4532df973db0a8bf5465398c8b"
+              },
+              "operational_observations": [
+                {
+                  "id": "oper_1aafcc28b9fe446b8b9e445da561f7018fb254cb28e9a9fabcc8ab20f584795e",
+                  "agent_id": "ca_e908a88390ffb536",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_2",
+                  "request_id": "obs_private_tide_mark_2",
+                  "resource_id": "res_4444555566667777",
+                  "resource_label": "私密潮痕",
+                  "purpose": "确认私密潮痕是否有新的可见变化，以判断其性质与紧迫程度",
+                  "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                  "result": "available",
+                  "observed_at_day": 0.041666666666666664,
+                  "source_proposal_digest": "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c",
+                  "source_experience_id": "self_767e2ec4f022600185af32476d77ea249e7363f488585e6714cd81bfbcd06793"
+                },
+                {
+                  "id": "oper_7ad756b0f637ff161c33961a6e2bf5f7a6bb0522870c41af0f5be4233bebd41a",
+                  "agent_id": "ca_e908a88390ffb536",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_1",
+                  "request_id": "obs_private_tide_mark",
+                  "resource_id": "res_4444555566667777",
+                  "resource_label": "私密潮痕",
+                  "purpose": "确认私密潮痕是否有可见变化，以判断其性质与是否紧迫",
+                  "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                  "result": "available",
+                  "observed_at_day": 0.020833333333333332,
+                  "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+                  "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+                },
+                {
+                  "id": "oper_8d590ca03fcff6d2b3b42e9f6167d326742257ea8caa853f7659a4b5a765c058",
+                  "agent_id": "ca_e908a88390ffb536",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_1",
+                  "request_id": "obs_public_water",
+                  "resource_id": "res_1111222233334444",
+                  "resource_label": "近岸公开水况",
+                  "purpose": "确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+                  "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                  "result": "available",
+                  "observed_at_day": 0.020833333333333332,
+                  "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21",
+                  "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+                },
+                {
+                  "id": "oper_d4f0c4f9afc8cd43f5809d5a4aa2781e6c2c28936fc278ce7e016bbf9bf55803",
+                  "agent_id": "ca_e908a88390ffb536",
+                  "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_2",
+                  "request_id": "obs_public_water_2",
+                  "resource_id": "res_1111222233334444",
+                  "resource_label": "近岸公开水况",
+                  "purpose": "确认近岸公开水况是否有可见异常，判断其是否可能与私密潮痕相关",
+                  "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                  "result": "available",
+                  "observed_at_day": 0.041666666666666664,
+                  "source_proposal_digest": "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c",
+                  "source_experience_id": "self_767e2ec4f022600185af32476d77ea249e7363f488585e6714cd81bfbcd06793"
+                }
+              ],
+              "agent_id": "ca_e908a88390ffb536",
+              "character": "九尾狐",
+              "location": "近岸礁影观察点",
+              "resources": [
+                {
+                  "resource_id": "res_1111222233334444",
+                  "perceived_name": "近岸公开水况",
+                  "perceived_label": "近岸公开水况",
+                  "access": "none",
+                  "permissions": [
+                    "observe"
+                  ],
+                  "observation_channels": [
+                    {
+                      "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                      "visibility": "public",
+                      "label": "TEST_SCAFFOLD现场公开水况目视"
+                    }
+                  ],
+                  "perception": {
+                    "kind": "unknown",
+                    "as_of_chapter": 0
+                  }
+                },
+                {
+                  "resource_id": "res_4444555566667777",
+                  "perceived_name": "私密潮痕",
+                  "perceived_label": "私密潮痕",
+                  "access": "none",
+                  "permissions": [
+                    "observe"
+                  ],
+                  "observation_channels": [
+                    {
+                      "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                      "visibility": "private",
+                      "label": "TEST_SCAFFOLD九尾狐本人私密潮痕感知"
+                    }
+                  ],
+                  "perception": {
+                    "kind": "unknown",
+                    "as_of_chapter": 0
+                  },
+                  "evidence_refs": [
+                    "user_targeted_repair:authored_opening_resource:fox_tide_mark"
+                  ]
+                }
+              ],
+              "self_experiences": [
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 1,
+                    "context_digest": "sha256:3a078bbcadfe659c8e9fff451ca1336ad19964cdc9fb3dcd7137c22e8e400584",
+                    "stimulus_digest": "sha256:29b131daf325527fe76f58991f19e8f5bcc10595e1c37db6892fad764278cd28",
+                    "evaluated_at_day": 0.020833333333333332,
+                    "ordinal": 1
+                  },
+                  "id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_1",
+                  "kind": "work",
+                  "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_1111222233334444",
+                    "res_4444555566667777"
+                  ],
+                  "start_day": 0,
+                  "end_day": 0.020833333333333332,
+                  "progress_target": 30,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:e4b0986086f770cbc3e78898a5d9174a3dfc8a873509adb4c1c7359af4826f21"
+                },
+                {
+                  "evaluation": {
+                    "version": "character-self-chronology:evaluation.v1",
+                    "generation_id": "pg2_378bb2c691e5a07d2c2b8d02",
+                    "cycle": 2,
+                    "context_digest": "sha256:729959cf5d235ecd0f02260a62a5f25a34c6dfec849c9d25a09b864ee8ec60af",
+                    "stimulus_digest": "sha256:68b05e1bb8088c85fe12d2a61dc356111a16cc482e4832de91bf065e93d70767",
+                    "evaluated_at_day": 0.041666666666666664,
+                    "ordinal": 1
+                  },
+                  "id": "self_767e2ec4f022600185af32476d77ea249e7363f488585e6714cd81bfbcd06793",
+                  "chapter": 1,
+                  "task_id": "task_fox_observe_tide_mark_2",
+                  "kind": "work",
+                  "action": "在近岸礁影观察点安静持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                  "status": "completed",
+                  "resource_ids": [
+                    "res_1111222233334444",
+                    "res_4444555566667777"
+                  ],
+                  "start_day": 0.020833333333333332,
+                  "end_day": 0.041666666666666664,
+                  "progress_target": 30,
+                  "progress_unit": "minute",
+                  "source_proposal_digest": "sha256:6886735ea15000a240c74eb93048a6481530765c5e6bd73407d2b3fee6954a4c"
+                }
+              ],
+              "task_progress": [
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "task_fox_observe_tide_mark_1",
+                  "action": "持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                  "unit": "minute",
+                  "target": 30,
+                  "completed": 30,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_4f410555470f1a4766f63efa678a3f7060439d80bf27a214c8af50aba2e76974"
+                },
+                {
+                  "latest_attempt_status": "completed",
+                  "task_id": "task_fox_observe_tide_mark_2",
+                  "action": "在近岸礁影观察点安静持续观察并自行记录私密潮痕与近岸公开水况的可见变化，不向任何角色传递",
+                  "unit": "minute",
+                  "target": 30,
+                  "completed": 30,
+                  "state": "completed",
+                  "as_of_chapter": 1,
+                  "source_experience_id": "self_767e2ec4f022600185af32476d77ea249e7363f488585e6714cd81bfbcd06793"
+                }
+              ]
+            },
+            "mechanism_refs": [
+              "mech_scaffold_bounded_coastal_response",
+              "mech_scaffold_secret_fox_tide_mark"
+            ],
+            "butterfly_effects": [
+              {
+                "effect": "私密潮痕继续保持知识隔离，九九与凤凰对该标记仍为 UNKNOWN。",
+                "transmission_path": "无传递事件，隔离由 mech_scaffold_secret_fox_tide_mark 维持",
+                "arrival_chapter": 2,
+                "visibility": "hidden",
+                "protagonist_impact": "私密标记仍未被外部知晓，后续是否核实或传递完全取决于九尾狐"
+              }
+            ]
+          }
+        ],
+        "resource_settlements": [
+          {
+            "resource_id": "res_3333444455556666",
+            "before": 6,
+            "delta": -1,
+            "after": 5,
+            "evidence_refs": [
+              "sha256:9a8bae930fcfd9e3ca54459da6a2c257169312e5373aafcc3187f8e81f6f3328"
+            ],
+            "start_day": 0.027777777777777776,
+            "end_day": 0.03125
+          }
+        ],
+        "hard_contract_status": "feasible",
+        "protagonist_projection": {
+          "protagonist": "",
+          "observable_effects": null,
+          "hidden_pressures": null,
+          "available_options": null,
+          "chosen_decision": "",
+          "decision_reason": "",
+          "plan_constraints": null,
+          "causal_chain": null
+        },
+        "finalized": true,
+        "generated_at": "2026-09-16T15:16:13.449282Z",
+        "digest": "sha256:00366c5a9cc30e37d17291562d80fd0fc7cba94f53093870e4d2f473d8af818c"
+      }
+    ],
+    "memory_roots": [
+      "sha256:959c050009fb366bf631cd85959743449057cf037f9621cda0290bf6a73373db",
+      "sha256:d6553620cc09a103ec365ba56f194cda5f55d83113c3f8f99e6e72e71b1a651c",
+      "sha256:efcc2406d76a78a23e15dd5f0bc1922d506dfbda5bbca78a4044749d5d9a70ad"
+    ],
+    "protocol_digest": "sha256:39e448bdcda490caf755c64917e7bd4d4986d5945488e7d703b7d002e355d966",
+    "evidence_root": "sha256:7037323566251652d0deb3e45703f1853a0762d6c933c16c5240c410eba3bf16"
+  },
+  "round_source_digests": [
+    "sha256:ecd7ba2da3cd49ab8e80ad7e4f57392e5598edd41442b93a5a1b94a6552f41d6"
+  ],
+  "digest": "sha256:4ba97319692f14eeb57ad2e86537f194e4a368bd651ec6b201aad01afdbb2b59"
+}
