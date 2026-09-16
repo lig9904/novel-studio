@@ -1,0 +1,19 @@
+{
+  "schema": "jiujiu-before-simulation-snapshot.v1",
+  "classification": "TEST_SCAFFOLD",
+  "accepted_chapter": 0,
+  "character_count": 3,
+  "scaffold_chapter_count": 3,
+  "zero_init_ready": true,
+  "secret_in_jiujiu_initial_known_facts": false,
+  "secret_in_phoenix_initial_known_facts": false,
+  "secret_in_fox_initial_known_facts": true,
+  "phoenix_initial_known_facts": ["自己是凤凰", "自己与羽族有关"],
+  "promote_run": false,
+  "render_run": false,
+  "core_source_modified": false,
+  "configuration_sha256": "8f3f405419b8ef450d733f0a1f54d5c1f0aadbbf3fe24497ba8f9eed53e6e646",
+  "characters_sha256": "a062fdc31d24e56f2584009456ba00222a06a86e660e7e13a65252d74c63fc85",
+  "outline_sha256": "fb883c96f259ccd05842d90f36088f09aff28d78391c82a1b156a82784d1d55d",
+  "world_tick_sha256": "471f320192b25520d30c81fd57e53c127a31b5b903a558f95cc78e1a9f721c36"
+}

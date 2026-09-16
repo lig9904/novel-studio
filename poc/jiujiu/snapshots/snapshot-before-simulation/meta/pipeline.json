@@ -1,0 +1,96 @@
+{
+  "stages": [
+    "architect",
+    "outline-all",
+    "zero-init"
+  ],
+  "completed": [
+    "architect",
+    "outline-all",
+    "zero-init"
+  ],
+  "prompt": "# TEST_SCAFFOLD — 螭吻·九九 Phase 0 evaluation input\n\nThis is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.\n\nCreate the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.\n\n## Source boundaries\n\n- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.\n\n## 螭吻·九九 source Canon\n\n- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.\n\n## 九尾狐 source Canon\n\n- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.\n\n## 羽族凤凰 source Canon\n\n- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.\n\n## Three-chapter TEST_SCAFFOLD objective\n\nBuild only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.\n\n- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.\n\nThe pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.",
+  "input_digest": "sha256:1629544b31bb5ec06d3e141390e4cf9834a60a52abfe813e0247f85812740f74",
+  "run_identity": "sha256:08989a57b314df96f3494265c44b60204dda286cbba266e827e864cb139860ca",
+  "updated_at": "2026-09-16T14:19:34.242494+08:00",
+  "evidence": {
+    "architect": {
+      "stage": "architect",
+      "status": "verified",
+      "checked_at": "2026-09-16T14:19:34.200968+08:00",
+      "message": "foundation ready",
+      "artifacts": [
+        "premise.md",
+        "characters.json",
+        "world_rules.json",
+        "book_world.json",
+        "world_codex.json",
+        "meta/compass.json",
+        "layered_outline.json",
+        "meta/architect_readiness.json",
+        "meta/architect_readiness.md",
+        "meta/world_coherence_report.json",
+        "meta/world_coherence_report.md"
+      ],
+      "artifact_digests": {
+        "book_world.json": "sha256:c8c9e3fbe96f6df258f736e48f98234fcf72c6ec38808b6b61df086513ba252c",
+        "characters.json": "sha256:a062fdc31d24e56f2584009456ba00222a06a86e660e7e13a65252d74c63fc85",
+        "layered_outline.json": "sha256:68cb4d005730f1a8ec73533b299ad399d36bb7dadcc901f6c5a04e18d9ac4055",
+        "meta/architect_readiness.json": "sha256:1d14c5a9d8f0a88b8c1d19984ff1f3827b17d26498eeef749fa5ccf8d812cf3f",
+        "meta/architect_readiness.md": "sha256:ffb5f6428f4dc9b4940ab0afb1c625dfe61f2617d4bd1c08c0253db87a8c1b86",
+        "meta/compass.json": "sha256:4675351b663c046f2c9e88312a79fc7a8a114361183ed19c8d23e866c8cd8927",
+        "meta/world_coherence_report.json": "sha256:aa75885c28fc5517610aa3f1643d2483303685485642c4abacbb693bb9bfe700",
+        "meta/world_coherence_report.md": "sha256:bfa0e7ba96378c13aea007fc9d96dc612b0b7c10e481e7dde89f616fbc2b7745",
+        "premise.md": "sha256:76b6dbc8e40e62bee211a542cdbe198272372ace9fceb761ab3b6ea5d0ca4d34",
+        "world_codex.json": "sha256:9d8085ddd87a36d7720b955c3220b0cbdcfc290791f789d24ed0d567e431ee05",
+        "world_rules.json": "sha256:2be6b1b9428c62d3445b662f31983f7a58ac357d4d451e0c7307c4e4140af6c8"
+      }
+    },
+    "outline-all": {
+      "stage": "outline-all",
+      "status": "verified",
+      "checked_at": "2026-09-16T14:19:34.201734+08:00",
+      "message": "full-book outline contracts published and verified",
+      "artifacts": [
+        "layered_outline.json",
+        "layered_outline.md",
+        "outline.json",
+        "outline.md",
+        "meta/planning/outline_all_execution.json",
+        "meta/architect_readiness.json",
+        "meta/architect_readiness.md",
+        "meta/planning/outline_all_requirement.json",
+        "meta/planning/outline_all_operations/0003.intent.json",
+        "meta/planning/outline_all_operations/0003.receipt.json"
+      ],
+      "artifact_digests": {
+        "layered_outline.json": "sha256:68cb4d005730f1a8ec73533b299ad399d36bb7dadcc901f6c5a04e18d9ac4055",
+        "layered_outline.md": "sha256:6fa61ba403f7c36c710a4f25bb1bcd1bdef866e9297475c6f637605bfec21625",
+        "meta/architect_readiness.json": "sha256:1d14c5a9d8f0a88b8c1d19984ff1f3827b17d26498eeef749fa5ccf8d812cf3f",
+        "meta/architect_readiness.md": "sha256:ffb5f6428f4dc9b4940ab0afb1c625dfe61f2617d4bd1c08c0253db87a8c1b86",
+        "meta/planning/outline_all_execution.json": "sha256:9a8378d846abd8418b0416e33b36a7b6ca8b5029aa02ee9eda32be46e3a704e3",
+        "meta/planning/outline_all_operations/0003.intent.json": "sha256:0f0ebe03679942d5c714a4511546aa4a850ab3d9b8ad23df8ef1de547b61920e",
+        "meta/planning/outline_all_operations/0003.receipt.json": "sha256:c1fde282b8eafc29e8502d167d58ad9dca0a3352650027a2815599a15255d462",
+        "meta/planning/outline_all_requirement.json": "sha256:3aef1b9eb32e107b7edc53c6b4ce40b9dd63a12e288e68a43175314f76de424f",
+        "outline.json": "sha256:fb883c96f259ccd05842d90f36088f09aff28d78391c82a1b156a82784d1d55d",
+        "outline.md": "sha256:49c204bfc9d786bc5767b7d2a2af771950974a2f3c342d7a646561c6df0828ca"
+      }
+    },
+    "zero-init": {
+      "stage": "zero-init",
+      "status": "verified",
+      "checked_at": "2026-09-16T14:19:34.224867+08:00",
+      "message": "zero-init ready",
+      "artifacts": [
+        "meta/first_chapter_generation_readiness.json",
+        "meta/first_chapter_generation_readiness.md",
+        "meta/ch01_zero_init_plan.md"
+      ],
+      "artifact_digests": {
+        "meta/ch01_zero_init_plan.md": "sha256:8d699c0a3cd366c4465b8042442cdaae58b764d9c791899ecf9d4e083b51d7a0",
+        "meta/first_chapter_generation_readiness.json": "sha256:36017d66bc9f8595a8c9c6d1f34e33d7a390730ea7bcf5edeaddfe784c761302",
+        "meta/first_chapter_generation_readiness.md": "sha256:c19dd2dc06e74b28129f4bbe1deed678411d911cd64a18e2db6ebdda86832d23"
+      }
+    }
+  }
+}

@@ -1,0 +1,298 @@
+[pipeline] 已锁定弧式 sealed 流程：推演并封存当前弧 → 逐章渲染/逐章审核 → 再进入下一弧
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect → outline-all → zero-init
+
+========== 阶段：architect ==========
+[pipeline:architect] 新项目尚无本书 RAG 事实，先从创作合同与可用写法资料建立 foundation；后续阶段再验证事实索引
+[pipeline:architect] 启动 Architect 初始化 foundation
+2026/09/16 13:28:21 INFO 启动 module=boot provider=codex model=gpt-5.6-sol output=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 13:28:21 INFO 模型就绪 module=boot summary="default=codex/gpt-5.6-sol coordinator=codex/gpt-5.6-sol architect=codex/gpt-5.6-sol writer=codex/gpt-5.6-sol character=codex/gpt-5.6-sol world_arbiter=codex/gpt-5.6-sol drafter=codex/gpt-5.6-sol editor=codex/gpt-5.6-sol reviewer=codex/gpt-5.6-sol"
+2026/09/16 13:28:21 INFO 模型元数据已就绪 module=models count=214
+2026/09/16 13:28:21 INFO 上下文窗口 module=context role=coordinator model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 13:28:21 INFO 上下文窗口 module=context role=writer model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 13:28:21 INFO 上下文窗口 module=context role=drafter model=gpt-5.6-sol window=1050000 source=registry
+headless 启动: /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+[13:28:58] [SYSTEM] 开始创作
+[13:29:24] [DISPATCH] architect_long（执行 Pipeline Architect foundati...）
+[13:29:41] [TOOL] novel_context
+[13:29:41] [TOOL] novel_context
+[13:30:18] [TOOL] save_foundation[premise]
+[13:30:18] [TOOL] save_foundation[premise]
+[13:31:19] [TOOL] save_foundation[characters]
+[13:31:19] [TOOL] save_foundation[characters]
+[13:32:03] [TOOL] save_foundation[world_rules]
+[13:32:03] [TOOL] save_foundation[world_rules]
+[13:32:23] [TOOL] web_research
+✻ web_research
+[13:32:23] [TOOL] web_research
+[13:32:40] [TOOL] craft_recall
+
+
+✻ craft_recall
+[13:32:40] [TOOL] craft_recall
+[pipeline:watchdog] stage=architect chapter=0 已连续 5m15s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+[13:35:25] [TOOL] save_foundation
+[13:35:25] [TOOL] save_foundation
+[13:35:25] [ERROR] save_foundation 错误: "InputValidationError: save_foundation failed due to the following issue:\nThe required parameter `t...
+[13:38:35] [TOOL] save_foundation[world_codex]
+[13:38:35] [TOOL] save_foundation[world_codex]
+[13:38:35] [ERROR] save_foundation 错误: "parse world_codex JSON: json: unknown field \"description\"。此字段不在世界法典 schema 中，本次提交未保存、未合并草稿。不要删除领域...
+[13:40:53] [TOOL] save_foundation[world_codex]
+[13:40:53] [TOOL] save_foundation[world_codex]
+[13:40:53] [ERROR] save_foundation 错误: "world_codex 未通过操作合同校验: world coherence validation failed: world_codex.equipment_categories[0].const...
+[13:29:24] [DISPATCH] architect_long（执行 Pipeline Architect foundati...）
+[13:40:58] [ERROR] subagent 失败: "agent \"architect_long\" failed: Codex MCP isolation: configuration inventory canceled or timed out\ncontext deadline e...
+
+
+[13:41:23] [DISPATCH] architect_long（上一次 architect_long 在 9 turns/9...）
+[13:41:37] [TOOL] novel_context
+[13:41:37] [TOOL] novel_context
+[13:41:23] [DISPATCH] architect_long（上一次 architect_long 在 9 turns/9...）
+[13:41:42] [ERROR] subagent 失败: "agent \"architect_long\" failed: Codex MCP isolation: configuration inventory canceled or timed out\ncontext deadline e...
+[13:42:07] [DISPATCH] architect_long（前两次 architect_long 均因隔离环境 conf...）
+[13:42:18] [TOOL] novel_context
+[13:42:18] [TOOL] novel_context
+[13:43:56] [TOOL] save_foundation[book_world]
+[13:43:56] [TOOL] save_foundation[book_world]
+[13:47:23] [TOOL] save_foundation[world_codex]
+[13:47:23] [TOOL] save_foundation[world_codex]
+[13:47:23] [ERROR] save_foundation 错误: "parse world_codex JSON: json: unknown field \"id\"。此字段不在世界法典 schema 中，本次提交未保存、未合并草稿。不要删除领域信息来凑 sche...
+[13:42:07] [DISPATCH] architect_long（前两次 architect_long 均因隔离环境 conf...）
+[13:47:28] [ERROR] subagent 失败: "agent \"architect_long\" failed: Codex MCP isolation: configuration inventory canceled or timed out\ncontext deadline e...
+[13:47:44] [TOOL] novel_context
+[13:47:44] [TOOL] novel_context
+[13:48:11] [DISPATCH] architect_long（断点核对结果已由 coordinator 通过 novel_...）
+[13:50:43] [TOOL] save_foundation[world_codex]
+[13:50:43] [TOOL] save_foundation[world_codex]
+[13:50:43] [ERROR] save_foundation 错误: "parse world_codex JSON: json: unknown field \"ability_scopes\"。此字段不在世界法典 schema 中，本次提交未保存、未合并草稿。不要删...
+[13:52:21] [TOOL] save_foundation[world_codex]
+[13:52:21] [TOOL] save_foundation[world_codex]
+[13:52:21] [ERROR] save_foundation 错误: "world_codex 未通过操作合同校验: world coherence validation failed: world_codex.weapon_categories[0].tier_bin...
+[pipeline:watchdog] stage=architect chapter=0 已达 25m0s 诊断阈值；脱敏快照=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/.pipeline-runtime/novel-aa68d1555e5456e1/meta/runtime/pipeline_watchdog_diagnostics/08989a57b314df96f3494265c44b60204dda286cbba266e827e864cb139860ca-architect-ch0000-25m.json
+[13:53:57] [TOOL] save_foundation[world_codex]
+[13:53:57] [TOOL] save_foundation[world_codex]
+[13:54:27] [TOOL] save_foundation[update_compass]
+[13:54:27] [TOOL] save_foundation[update_compass]
+[13:55:30] [TOOL] save_foundation[layered_outline]
+[13:55:30] [TOOL] save_foundation[layered_outline]
+[headless] Architect foundation 已齐，按 pipeline 阶段暂停
+[13:55:30] [SYSTEM] 用户手动暂停当前创作
+[13:48:11] [DISPATCH] architect_long（断点核对结果已由 coordinator 通过 novel_...）
+/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/architect_readiness.md
+[pipeline:architect] Architect readiness 已落盘
+[pipeline] 阶段完成：architect
+
+========== 阶段：outline-all ==========
+[pipeline:outline-all] 已建立章零 generation simulation-20260916-055530160649
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 2 architect: outline-all direct Architect run: Codex MCP isolation: configuration inventory canceled or timed out
+context deadline exceeded
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect → outline-all → zero-init
+[pipeline] 已完成（将跳过）：architect
+[pipeline] 跳过已完成阶段：architect
+
+========== 阶段：outline-all ==========
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 13:57:05 INFO codex prompt 已压缩 module=codex runes_before=78285 runes_after=78283 budget=90000
+2026/09/16 13:57:09 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78283 structured=true attempt_timeout_ms=899999
+2026/09/16 13:58:24 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=78432 output_runes=3483
+2026/09/16 13:58:24 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=43539 output_tokens=3120 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 13:58:24 INFO codex prompt 已压缩 module=codex runes_before=82413 runes_after=82411 budget=90000
+2026/09/16 13:58:27 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=82411 structured=true attempt_timeout_ms=899999
+2026/09/16 13:59:17 INFO codex call finished module=codex call_id=2 kind=control status=ok elapsed_ms=53164 output_runes=3593
+2026/09/16 13:59:17 INFO codex call usage module=codex call_id=2 usage_source=reported input_tokens=45297 output_tokens=1805 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 13:59:17 INFO codex prompt 已压缩 module=codex runes_before=86651 runes_after=86649 budget=90000
+2026/09/16 13:59:20 INFO codex call started module=codex call_id=3 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=86649 structured=true attempt_timeout_ms=899999
+2026/09/16 14:00:10 INFO codex call finished module=codex call_id=3 kind=control status=ok elapsed_ms=52724 output_runes=3638
+2026/09/16 14:00:10 INFO codex call usage module=codex call_id=3 usage_source=reported input_tokens=47124 output_tokens=2281 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:00:10 INFO codex prompt 已压缩 module=codex runes_before=90934 runes_after=90000 budget=90000
+2026/09/16 14:00:13 INFO codex call started module=codex call_id=4 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 14:01:09 INFO codex call finished module=codex call_id=4 kind=control status=ok elapsed_ms=59155 output_runes=3692
+2026/09/16 14:01:09 INFO codex call usage module=codex call_id=4 usage_source=reported input_tokens=48802 output_tokens=2434 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 2 architect: outline-all direct Architect run: max turns (4) reached
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect → outline-all → zero-init
+[pipeline] 已完成（将跳过）：architect
+[pipeline] 跳过已完成阶段：architect
+
+========== 阶段：outline-all ==========
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:01:22 INFO codex prompt 已压缩 module=codex runes_before=78285 runes_after=78283 budget=90000
+2026/09/16 14:01:25 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78283 structured=true attempt_timeout_ms=899999
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 模型或 prompt 协议指纹已变化，重置阶段证据
+[pipeline] 阶段：architect → outline-all → zero-init
+
+========== 阶段：architect ==========
+[pipeline:architect] foundation 已齐，检查 Architect readiness
+[pipeline:architect] Architect readiness 已通过
+[pipeline] 阶段完成：architect
+
+========== 阶段：outline-all ==========
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:06 INFO codex prompt 已压缩 module=codex runes_before=78407 runes_after=78405 budget=90000
+2026/09/16 14:03:10 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78405 structured=true attempt_timeout_ms=899999
+2026/09/16 14:03:26 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=19580 output_runes=634
+2026/09/16 14:03:26 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=43683 output_tokens=348 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:26 INFO codex prompt 已压缩 module=codex runes_before=78285 runes_after=78283 budget=90000
+2026/09/16 14:03:29 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78283 structured=true attempt_timeout_ms=899999
+2026/09/16 14:03:36 WARN codex call finished module=codex call_id=2 kind=control status=error elapsed_ms=9561 err="exit status 1"
+2026/09/16 14:03:36 INFO codex call usage module=codex call_id=2 usage_source=unavailable input_tokens=0 output_tokens=0 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 2 architect: outline-all direct Architect run: codex exec 失败: exit status 1; structured: turn.failed message="Selected model is at capacity. Please try a different model."
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect → outline-all → zero-init
+[pipeline] 已完成（将跳过）：architect
+[pipeline] 跳过已完成阶段：architect
+
+========== 阶段：outline-all ==========
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:03:47 INFO codex prompt 已压缩 module=codex runes_before=78285 runes_after=78283 budget=90000
+2026/09/16 14:03:51 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78283 structured=true attempt_timeout_ms=899999
+2026/09/16 14:05:00 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=73181 output_runes=3414
+2026/09/16 14:05:00 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=43497 output_tokens=1940 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:05:00 INFO codex prompt 已压缩 module=codex runes_before=78280 runes_after=78278 budget=90000
+2026/09/16 14:05:04 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78278 structured=true attempt_timeout_ms=899999
+2026/09/16 14:06:43 INFO codex call finished module=codex call_id=2 kind=control status=ok elapsed_ms=103005 output_runes=5831
+2026/09/16 14:06:43 INFO codex call usage module=codex call_id=2 usage_source=reported input_tokens=43547 output_tokens=3858 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:06:43 INFO codex prompt 已压缩 module=codex runes_before=86403 runes_after=86401 budget=90000
+2026/09/16 14:06:46 INFO codex call started module=codex call_id=3 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=86401 structured=true attempt_timeout_ms=899999
+2026/09/16 14:08:25 INFO codex call finished module=codex call_id=3 kind=control status=ok elapsed_ms=101508 output_runes=6545
+2026/09/16 14:08:25 INFO codex call usage module=codex call_id=3 usage_source=reported input_tokens=47350 output_tokens=4344 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:08:25 INFO codex prompt 已压缩 module=codex runes_before=94142 runes_after=90000 budget=90000
+2026/09/16 14:08:29 INFO codex call started module=codex call_id=4 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+[pipeline:watchdog] stage=outline-all chapter=0 已连续 5m15s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+2026/09/16 14:09:39 INFO codex call finished module=codex call_id=4 kind=control status=ok elapsed_ms=73689 output_runes=5760
+2026/09/16 14:09:39 INFO codex call usage module=codex call_id=4 usage_source=reported input_tokens=50154 output_tokens=3298 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:09:39 INFO codex prompt 已压缩 module=codex runes_before=101104 runes_after=90000 budget=90000
+2026/09/16 14:09:42 INFO codex call started module=codex call_id=5 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 14:10:50 INFO codex call finished module=codex call_id=5 kind=control status=ok elapsed_ms=71542 output_runes=5849
+2026/09/16 14:10:50 INFO codex call usage module=codex call_id=5 usage_source=reported input_tokens=50541 output_tokens=3377 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 3 architect: outline-all direct Architect run: max turns (4) reached
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：architect → outline-all → zero-init
+[pipeline] 已完成（将跳过）：architect
+[pipeline] 跳过已完成阶段：architect
+
+========== 阶段：outline-all ==========
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:11:25 INFO codex prompt 已压缩 module=codex runes_before=78280 runes_after=78278 budget=90000
+2026/09/16 14:11:28 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=78278 structured=true attempt_timeout_ms=899999
+2026/09/16 14:13:39 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=134600 output_runes=6106
+2026/09/16 14:13:39 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=43547 output_tokens=4407 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:13:39 INFO codex prompt 已压缩 module=codex runes_before=85590 runes_after=85588 budget=90000
+2026/09/16 14:13:43 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=85588 structured=true attempt_timeout_ms=899999
+2026/09/16 14:14:52 INFO codex call finished module=codex call_id=2 kind=control status=ok elapsed_ms=72239 output_runes=6227
+2026/09/16 14:14:52 INFO codex call usage module=codex call_id=2 usage_source=reported input_tokens=47090 output_tokens=3443 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:14:52 INFO codex prompt 已压缩 module=codex runes_before=93013 runes_after=90000 budget=90000
+2026/09/16 14:14:55 INFO codex call started module=codex call_id=3 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 14:16:39 INFO codex call finished module=codex call_id=3 kind=control status=ok elapsed_ms=107268 output_runes=6964
+2026/09/16 14:16:39 INFO codex call usage module=codex call_id=3 usage_source=reported input_tokens=49944 output_tokens=4509 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+2026/09/16 14:16:39 INFO codex prompt 已压缩 module=codex runes_before=101755 runes_after=90000 budget=90000
+[pipeline:watchdog] stage=outline-all chapter=0 已连续 5m15s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+2026/09/16 14:16:43 INFO codex call started module=codex call_id=4 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 14:18:00 INFO codex call finished module=codex call_id=4 kind=control status=ok elapsed_ms=81455 output_runes=6874
+2026/09/16 14:18:00 INFO codex call usage module=codex call_id=4 usage_source=reported input_tokens=50517 output_tokens=3873 cached_input_tokens=9088 completed_turns=1 dropped_event_lines=0
+[pipeline] 阶段完成：outline-all
+
+========== 阶段：zero-init ==========
+[pipeline:zero-init] 执行 zero-init：meta/first_chapter_generation_readiness.json 不存在（尚未执行 zero-init）
+[zero-init] 已生成零章写前梳理：/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/ch01_zero_init_plan.md
+[zero-init] RAG 来源=24 chunks=176 index=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/rag/index_state.json
+/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel/meta/first_chapter_generation_readiness.md
+[pipeline:zero-init] 生成第 1 章前初始 world_tick
+2026/09/16 14:18:01 INFO 启动 module=boot provider=codex model=gpt-5.6-sol output=/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 14:18:01 INFO 模型就绪 module=boot summary="default=codex/gpt-5.6-sol world_arbiter=codex/gpt-5.6-sol drafter=codex/gpt-5.6-sol editor=codex/gpt-5.6-sol reviewer=codex/gpt-5.6-sol coordinator=codex/gpt-5.6-sol architect=codex/gpt-5.6-sol writer=codex/gpt-5.6-sol character=codex/gpt-5.6-sol"
+2026/09/16 14:18:01 INFO 模型元数据已就绪 module=models count=214
+2026/09/16 14:18:01 INFO 上下文窗口 module=context role=coordinator model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 14:18:01 INFO 上下文窗口 module=context role=writer model=gpt-5.6-sol window=1050000 source=registry
+2026/09/16 14:18:01 INFO 上下文窗口 module=context role=drafter model=gpt-5.6-sol window=1050000 source=registry
+headless 启动: /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/output/novel
+[14:18:01] [SYSTEM] 开始创作
+[14:18:25] [DISPATCH] architect_long（仅执行 Pipeline zero-init 初始 worl...）
+[14:19:34] [TOOL] save_world_tick
+✻ save_world_tick
+[14:19:34] [TOOL] save_world_tick
+[headless] 初始 world_tick 已齐，按 pipeline 阶段暂停
+[14:19:34] [SYSTEM] 用户手动暂停当前创作
+[14:18:25] [DISPATCH] architect_long（仅执行 Pipeline zero-init 初始 worl...）
+
+
+[pipeline:zero-init] 初始 world_tick 已就绪
+[pipeline] 阶段完成：zero-init
+
+[pipeline] 全部阶段完成 ✓

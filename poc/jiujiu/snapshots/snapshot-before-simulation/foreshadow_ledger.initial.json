@@ -1,0 +1,18 @@
+{
+  "chapter": 0,
+  "generated_at": "2026-09-16T14:18:01+08:00",
+  "scope": "zero_chapter_initial",
+  "seeds": [
+    {
+      "description": "TEST_SCAFFOLD：九九的实际选择将在第二章形成守护连续、职责空档、核验延迟或替代安排中的对应后果；九尾狐的传递决定与凤凰取得的亲见证据也分别进入独立裁决队列。",
+      "id": "ch01-opening-hook",
+      "payoff_horizon": "第2章以后按大纲和审阅回填推进。",
+      "planting_rule": "第一章只能埋可被现场证据承载的种子，不提前解释答案。",
+      "required_audit": "commit 后由 review 检查是否成为有效伏笔或只是装饰。",
+      "source_chapter": 0,
+      "status": "planned_seed",
+      "target_chapter": 1
+    }
+  ],
+  "version": 1
+}

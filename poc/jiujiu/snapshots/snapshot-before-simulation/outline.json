@@ -1,0 +1,132 @@
+[
+  {
+    "chapter": 1,
+    "title": "TEST_SCAFFOLD：潮线先响，名头也来了",
+    "core_event": "TEST_SCAFFOLD：第一章明确时刻，World Arbiter 在渔岛海洋度假区近岸守护点划定范围有限、后果可观察的水域异常，登记事件时间、现场警示物、公开呼救渠道、沿岸通道和各观察位；未经核实的声望机会同时要求九九离开眼前保护位置。Character Agent 分别为九九、九尾狐与羽族凤凰开启互不代答的行动入口：九九自主选择留守、核验、另作安排或离开并承担后果；九尾狐仅依据自己看见的私密潮痕选择观察、核验或明确传递；凤凰仅依据云缘观察位的亲见水况选择观察、普通移动或交流。状态由平静观察转为三条独立行动链进入裁决，选择、知识更新与移动分别留痕。",
+    "hook": "TEST_SCAFFOLD：九九的实际选择将在第二章形成守护连续、职责空档、核验延迟或替代安排中的对应后果；九尾狐的传递决定与凤凰取得的亲见证据也分别进入独立裁决队列。",
+    "scenes": [
+      "TEST_SCAFFOLD：World Arbiter 登记事件开始时刻、受影响水域边界、可接触的普通现场资源和第一项公开水况后果，事件成因登记为 TBD。",
+      "TEST_SCAFFOLD：九九以龙头鱼身、鱼躯为主体的螭吻兽体守在水边，收到缺少可靠证据的声望邀约；Character Agent 让其依据保护价值、好胜与骄傲提交自己的选择。",
+      "TEST_SCAFFOLD：九尾狐以真实九尾兽体在礁影观察点发现 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，并独立选择继续观察、核验或发起明确传递；其观察记录只进入九尾狐的信息包。",
+      "TEST_SCAFFOLD：羽族凤凰以完整东方凤凰神鸟形态从云缘观察位看见公开水况，只依据自身身份、羽族关联和本章亲见证据提出观察、普通移动或交流行动。"
+    ]
+  },
+  {
+    "chapter": 2,
+    "title": "TEST_SCAFFOLD：看见的不是同一片潮",
+    "core_event": "TEST_SCAFFOLD：Character Agent 沿第一章建立的三条独立行动链推进并记录实际行动，World Arbiter 以非零移动时间、有限现场资源和信息隔离裁决阻力：九九的留守、离开、核验或替代安排产生相应的时间与保护后果；九尾狐对私密潮痕的处置仅在形成明确传递记录时改变指定接收者知识；凤凰依亲见或有来源记录的信息修正行动。状态由行动意向转为可核验的现场后果、位置变化和传递记录，未发生的分支保持提案隔离。",
+    "hook": "TEST_SCAFFOLD：第三章依据选择记录、时间消耗、可见后果和传递凭证完成结算；缺少传递凭证的秘密维持原有可见范围，现场处置继续限于已登记的普通资源。",
+    "scenes": [
+      "TEST_SCAFFOLD：World Arbiter 按九九的实际选择推进时间：留守对应声望机会延迟，离开对应沿岸通行耗时与守护空档，核验或替代安排对应信息成本及真实覆盖范围。",
+      "TEST_SCAFFOLD：近岸水域异常在既定边界内产生第二项公开可见后果，三名角色只能调用已经登记且实际可接触的普通资源，事件规模维持在有限水域。",
+      "TEST_SCAFFOLD：九尾狐处理 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK；发生传递时登记发送者、接收者、内容、章节和故事时间，未发生传递时九九与凤凰的相应知识状态登记为 UNKNOWN。",
+      "TEST_SCAFFOLD：羽族凤凰依据观察位可见变化选择保持观察、普通移动或明确交流；World Arbiter 仅采纳亲见与有来源记录的信息，并按普通行动条件反馈后果。"
+    ]
+  },
+  {
+    "chapter": 3,
+    "title": "TEST_SCAFFOLD：潮退不等于获批",
+    "core_event": "TEST_SCAFFOLD：World Arbiter 因三名角色掌握的信息彼此隔离且现场资源有限，无法用统一答案直接关闭近岸事件，于是选择核对三条行动链中的位置、耗时、资源使用、公开证据和合法传递记录，分别结算九九的自主选择及代价、九尾狐以真实九尾兽体完成的潮痕观察与信息处置、羽族凤凰以完整东方凤凰神鸟形态完成的亲见行动，使事件台账从三条进行中行动链变为三条具有行动、反馈和后果的完整记录链，并把管线状态从进行中测试更新为恰好一卷、一弧、三章且停在渲染与推广之前的 TEST_SCAFFOLD 隔离评估终态。",
+    "hook": "TEST_SCAFFOLD：合同回执生成后，本次结构变更结束；当前选择、关系、秘密解释与事件结果维持 TEST_SCAFFOLD 隔离状态，后续采用权限保留给真实作者确认。",
+    "scenes": [
+      "TEST_SCAFFOLD：九九以龙头鱼身、鱼躯为主体的螭吻兽体面对最终可见后果；World Arbiter 结算其已作选择对应的保护结果、时间代价或职责损失，Character Agent 将结果接入九九自第一章开始的独立行动链。其终态保持保护价值与东方海岸方向，力量强度、频率、来源、代价、升级、战斗层级、额头珠关系和形态差异统一登记为 TBD。",
+      "TEST_SCAFFOLD：九尾狐全程保持真实九尾兽体，完成对私密潮痕的观察、核验及其自主选择的信息处置；终态记录明确列出兽体原型为真实九尾狐，正式名、性别、年龄呈现、性格、身份、力量、目标、关系与角色成长均保持 TBD。",
+      "TEST_SCAFFOLD：羽族凤凰全程保持完整东方凤凰神鸟形态，以亲见证据和合法来源完成最后行动；终态知识表仅登记自身凤凰身份、与羽族的关联及本次有来源记录所得，其余身份、能力、关系与世界秘密字段保持 TBD。",
+      "TEST_SCAFFOLD：Character Agent 核对第一章的三个独立行动入口、第二章的三条行动反馈和第三章的三项终态结算，形成九九、九尾狐与羽族凤凰各自完整的行动—反馈—后果链；该三链记录证明最小测试结构已经运行。",
+      "TEST_SCAFFOLD：Character Agent 与 World Arbiter 联合结算九九的保护压力及声望选择、九尾狐的私密潮痕处置、凤凰的可见信息行动和有限水域后果；终态同时保留角色自主选择记录与分角色知识边界，实际调用能力清单仅含普通观察、普通移动、明确交流及已登记现场资源。",
+      "TEST_SCAFFOLD：九尾狐的传递日志登记实际发送者、接收者、内容与时间；日志之外的接收者对 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 的终态知识为 UNKNOWN，九九与凤凰仅在各自确有合法接收记录时获得对应信息。",
+      "TEST_SCAFFOLD：World Arbiter 固化事件地点、起止时间、有限资源、移动耗时和可观察后果，并完成有界结算；终态事件范围仍为渔岛近岸测试水域，能力参数表中的未批准项目维持 TBD。",
+      "TEST_SCAFFOLD：规划管线将本轮全部角色、事件、关系、知识、时间线、伏笔与提案标记为 TEST_SCAFFOLD，并写入隔离评估区；官方九九正典区与人类批准记录区的新增条目数均为零。",
+      "TEST_SCAFFOLD：管线统计终态为一卷、一弧、三章，正文剧集数为零，额外章节数为零；结构导航与合同回执完成后，流程阶段固定在 promote 与 render 之前。",
+      "TEST_SCAFFOLD：World Arbiter 把已发生分支写入模拟记录，把未发生分支留在隔离提案区，把所有未确定资料登记为 TBD 或 PROPOSAL_NEEDED；事实、历史、已接受剧集及 Canon RAG 的新增记录数均为零。",
+      "TEST_SCAFFOLD：产品管线生成三章测试导航与本章合同回执，终态操作清单标记为结构规划完成、推广未启动、渲染未启动、批准状态为 TEST_SCAFFOLD。",
+      "TEST_SCAFFOLD：最终回执逐项关联三名角色的实际行动、知识来源和世界后果，确认九九的选择已经合法结算且未被评为唯一答案，九尾狐的秘密传播范围已经核验，凤凰的认知范围已经按来源封存。"
+    ],
+    "contract_refs": [
+      {
+        "id": "non_negotiable-00-3485c36087c1",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:3485c36087c129bda2ea0991bbd0fd6f5b9e1c91eed9efd1f00501a9fd509b63",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "规划管线在第三章完成隔离评估并将全部产物维持为测试脚手架，终态明确不进入官方九九正典或人类批准记录。"
+      },
+      {
+        "id": "non_negotiable-01-03340d7d01cd",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:03340d7d01cdb0e824fbc28a96bc7ae15f125eb6368e97b65df92e047e806e66",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "架构规划仅交付一卷一弧三章的短测试任务并停在渲染之前，终态不存在任何正文剧集或额外章节。"
+      },
+      {
+        "id": "non_negotiable-02-23d7e5a494d5",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:23d7e5a494d5835f182b2f03b40b90689291d6424ed59fb0f5c62166457c9529",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "世界裁决在收束时隔离所有提案与模拟结果并保留未确定项，终态不产生事实、历史或已接受剧集污染。"
+      },
+      {
+        "id": "non_negotiable-03-6332d3670ab3",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:6332d3670ab3c656c01572c951f4bc41aae26c87a46632a072e6dc8fdf284702",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "九九以龙头鱼身的螭吻原型完成有界测试选择，终态保持保护价值、东方海岸方向及全部未批准能力参数为待定。"
+      },
+      {
+        "id": "non_negotiable-04-0465628a58b7",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:0465628a58b7051f141def10fb93f72c8acc5a721302d4aa7ed8292b9bd03820",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "九尾狐仅以真实九尾兽体参与观察与信息处置，终态不补造其姓名、力量、关系或角色成长结论。"
+      },
+      {
+        "id": "non_negotiable-05-f45e48048c1a",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:f45e48048c1a5755ccd11bbbe5729a079744b9a17311e07e0d2801d412b2d1d5",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "羽族凤凰以完整东方凤凰神鸟形态依据亲见记录行动，终态仍只确认自身身份与羽族关联且未知信息未被擅自补全。"
+      },
+      {
+        "id": "non_negotiable-06-7a3d13c8ccb3",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:7a3d13c8ccb38a1259b7368847ed120b95fc108df56205aaba8032234ef8fd95",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "角色代理在首章获得三名角色各自独立的行动入口并持续裁决至第三章，终态证明最小测试结构能够运行。"
+      },
+      {
+        "id": "non_negotiable-07-748fa0653f30",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:748fa0653f304a012a0340595b93ae921f53b75b05aba43a086b624aabf7dac3",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "角色代理与世界裁决共同结算保护压力、私密潮痕和有限水域后果，终态保留自主选择与知识隔离且不启用禁用形态能力。"
+      },
+      {
+        "id": "non_negotiable-08-98aac4f1272b",
+        "kind": "non_negotiable",
+        "source_digest": "sha256:98aac4f1272b39dfd89d785e218b714092c956179e975fe6e80ab83af263d6fc",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "产品管线在生成三章测试导航并完成合同回执后停止推进，终态不执行推广、渲染或批准声明。"
+      },
+      {
+        "id": "open_thread-00-2d4e7e5eb4c7",
+        "kind": "open_thread",
+        "source_digest": "sha256:2d4e7e5eb4c76e090c5b070ba9c1622f81884f3751147b8582db902d4714f40f",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "九九依据当时可见证据自主回应保护职责与声望压力，世界裁决记录对应代价，终态只确认选择已被合法结算而不预定答案。"
+      },
+      {
+        "id": "open_thread-01-c4f4eea8485c",
+        "kind": "open_thread",
+        "source_digest": "sha256:c4f4eea8485c5bbaab503e171cc4f30e662adefe1b30fb21394b48e339061137",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "九尾狐自行处理私密潮痕并由知识记录核验是否发生明确传递，终态使未获合法来源的九九与凤凰继续保持未知。"
+      },
+      {
+        "id": "open_thread-02-032bcc4028ae",
+        "kind": "open_thread",
+        "source_digest": "sha256:032bcc4028ae254f77003bb41b1312a3570012810827ebc446f47ba7e7ea27ef",
+        "planned_payoff_chapter": 3,
+        "planned_resolution": "世界裁决在明确地点、时间、有限资源和可观察后果内结算近岸事件，终态于第三章测试性收束且没有调用未批准能力。"
+      }
+    ]
+  }
+]

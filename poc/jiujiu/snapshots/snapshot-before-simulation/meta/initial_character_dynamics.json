@@ -1,0 +1,333 @@
+{
+  "version": 1,
+  "scope": "zero_chapter",
+  "chapter": 1,
+  "generated_at": "2026-09-16T14:18:01+08:00",
+  "required_fields": [
+    "knowledge_ledger",
+    "decision_frame",
+    "relationship_contract",
+    "emotion_appraisal",
+    "arc_axis"
+  ],
+  "characters": [
+    {
+      "character": "螭吻·九九",
+      "current_goal": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+      "pressure": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力",
+      "relationship_forces": [
+        "与九尾狐的开局关系为 TBD，无已记录相识或秘密传递事件",
+        "与羽族凤凰的开局关系为 TBD，无已记录相识或信息传递事件"
+      ],
+      "private_boundary": "只依据自己已经知道、感知或收到的信息行动。",
+      "action_tendency": "好奇；好胜；骄傲；负责；主动探索；以保护为核心价值边界",
+      "likely_action": "TEST_SCAFFOLD：关注近岸公开可见的水域状况",
+      "state_delta_to_track": [
+        "goal",
+        "pressure",
+        "resource",
+        "relationship_contract",
+        "knowledge",
+        "emotion",
+        "arc_axis"
+      ],
+      "competence_stage": "作者明确给出的开局状态，尚无正文新增经历。",
+      "skill_limits": [
+        "只能使用自身已具备的能力、已知事实和实际可用资源；不能推定未注明的专长或他人知识。"
+      ],
+      "plausible_mistakes": [
+        "若将未经核实的推测当成事实，判断可能出错；开局未断言已发生此错误，也不要求角色必须犯错。"
+      ],
+      "correction_triggers": [
+        "只有角色实际感知或收到、且与原判断不符的新证据，才可触发修正；尚未发生修正。"
+      ],
+      "knowledge_ledger": {
+        "known_facts": [
+          "自己的正式名为螭吻·九九，简称九九",
+          "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+          "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+          "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+          "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+          "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD"
+        ],
+        "unknown_facts": [
+          "未实际感知或收到的信息仍属未知；没有凭空补全的事实。"
+        ],
+        "evidence_seen": [
+          "characters.json:initial_state.known_facts"
+        ],
+        "confidence": "authored_initial_state",
+        "forbidden_knowledge": [
+          "未来事件、未披露的他人秘密和未感知的作者态事实不能作为角色知识。"
+        ]
+      },
+      "decision_frame": {
+        "available_options": [
+          "在当前地点观察或核验可感知的信息",
+          "维持现状或暂缓承诺，等待实际刺激"
+        ],
+        "decision_rule": "根据当前目标、可用资源和实际知情范围自行选择；尚未作出的选择保持开放。",
+        "minimum_evidence_required": "观察到的事实或由角色实际收到的信息。"
+      },
+      "relationship_contract": [],
+      "emotion_appraisal": {
+        "trigger_event": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力",
+        "goal_impact": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+        "action_pressure": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力"
+      },
+      "arc_axis": {
+        "want": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+        "arc_stage": "authored_initial_state",
+        "pressure_test": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力"
+      }
+    },
+    {
+      "character": "九尾狐",
+      "current_goal": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+      "pressure": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认",
+      "relationship_forces": [
+        "与九九的开局关系为 TBD，无已记录秘密传递事件",
+        "与羽族凤凰的开局关系为 TBD，无已记录秘密传递事件"
+      ],
+      "private_boundary": "只依据自己已经知道、感知或收到的信息行动。",
+      "action_tendency": "TBD",
+      "likely_action": "TEST_SCAFFOLD：观察近岸礁面，不自动向任何角色传递私密信息",
+      "state_delta_to_track": [
+        "goal",
+        "pressure",
+        "resource",
+        "relationship_contract",
+        "knowledge",
+        "emotion",
+        "arc_axis"
+      ],
+      "competence_stage": "作者明确给出的开局状态，尚无正文新增经历。",
+      "skill_limits": [
+        "只能使用自身已具备的能力、已知事实和实际可用资源；不能推定未注明的专长或他人知识。"
+      ],
+      "plausible_mistakes": [
+        "若将未经核实的推测当成事实，判断可能出错；开局未断言已发生此错误，也不要求角色必须犯错。"
+      ],
+      "correction_triggers": [
+        "只有角色实际感知或收到、且与原判断不符的新证据，才可触发修正；尚未发生修正。"
+      ],
+      "knowledge_ledger": {
+        "known_facts": [
+          "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+          "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+          "该标记的含义、来源及是否应传递均为 TBD"
+        ],
+        "unknown_facts": [
+          "未实际感知或收到的信息仍属未知；没有凭空补全的事实。"
+        ],
+        "evidence_seen": [
+          "characters.json:initial_state.known_facts"
+        ],
+        "confidence": "authored_initial_state",
+        "forbidden_knowledge": [
+          "未来事件、未披露的他人秘密和未感知的作者态事实不能作为角色知识。"
+        ]
+      },
+      "decision_frame": {
+        "available_options": [
+          "在当前地点观察或核验可感知的信息",
+          "维持现状或暂缓承诺，等待实际刺激"
+        ],
+        "decision_rule": "根据当前目标、可用资源和实际知情范围自行选择；尚未作出的选择保持开放。",
+        "minimum_evidence_required": "观察到的事实或由角色实际收到的信息。"
+      },
+      "relationship_contract": [],
+      "emotion_appraisal": {
+        "trigger_event": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认",
+        "goal_impact": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+        "action_pressure": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认"
+      },
+      "arc_axis": {
+        "want": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+        "arc_stage": "authored_initial_state",
+        "pressure_test": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认"
+      }
+    },
+    {
+      "character": "羽族凤凰",
+      "current_goal": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+      "pressure": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少",
+      "relationship_forces": [
+        "与其他角色的关系均为 TBD，开局无已记录相识或信息传递事件"
+      ],
+      "private_boundary": "只依据自己已经知道、感知或收到的信息行动。",
+      "action_tendency": "TBD",
+      "likely_action": "TEST_SCAFFOLD：仅观察自身可见环境，不推断未知角色、传说或秘密",
+      "state_delta_to_track": [
+        "goal",
+        "pressure",
+        "resource",
+        "relationship_contract",
+        "knowledge",
+        "emotion",
+        "arc_axis"
+      ],
+      "competence_stage": "作者明确给出的开局状态，尚无正文新增经历。",
+      "skill_limits": [
+        "只能使用自身已具备的能力、已知事实和实际可用资源；不能推定未注明的专长或他人知识。"
+      ],
+      "plausible_mistakes": [
+        "若将未经核实的推测当成事实，判断可能出错；开局未断言已发生此错误，也不要求角色必须犯错。"
+      ],
+      "correction_triggers": [
+        "只有角色实际感知或收到、且与原判断不符的新证据，才可触发修正；尚未发生修正。"
+      ],
+      "knowledge_ledger": {
+        "known_facts": [
+          "自己是凤凰",
+          "自己与羽族有关"
+        ],
+        "unknown_facts": [
+          "未实际感知或收到的信息仍属未知；没有凭空补全的事实。"
+        ],
+        "evidence_seen": [
+          "characters.json:initial_state.known_facts"
+        ],
+        "confidence": "authored_initial_state",
+        "forbidden_knowledge": [
+          "未来事件、未披露的他人秘密和未感知的作者态事实不能作为角色知识。"
+        ]
+      },
+      "decision_frame": {
+        "available_options": [
+          "在当前地点观察或核验可感知的信息",
+          "维持现状或暂缓承诺，等待实际刺激"
+        ],
+        "decision_rule": "根据当前目标、可用资源和实际知情范围自行选择；尚未作出的选择保持开放。",
+        "minimum_evidence_required": "观察到的事实或由角色实际收到的信息。"
+      },
+      "relationship_contract": [],
+      "emotion_appraisal": {
+        "trigger_event": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少",
+        "goal_impact": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+        "action_pressure": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少"
+      },
+      "arc_axis": {
+        "want": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+        "arc_stage": "authored_initial_state",
+        "pressure_test": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少"
+      }
+    }
+  ],
+  "voice_logic": [
+    {
+      "character": "螭吻·九九",
+      "personality_source": "好奇、好胜、骄傲、负责、主动探索、以保护为核心价值边界",
+      "speech_principle": "说话只服务本人明确的当前目标和实际知情；声口从已声明特征及真实话语建立，不复制作者Description或未来Arc。",
+      "scene_objective": "螭吻·九九的开局目标是TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查，位置为渔岛海洋度假区近岸守护点；是否交谈、核验或暂缓由其实际选择决定，完成后才记录本章结果。",
+      "hidden_subtext": "螭吻·九九当前明确的压力是TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力。若实际选择不直说某项内容，再据本人已知事实及现场行动解释；不预定隐瞒动机、未来转折或他人秘密。",
+      "knowledge_boundary": "只说自己能从角色卡、现场证据和已授权关系里推出来的话。",
+      "relationship_stance": "螭吻·九九仅以作者初态确认的关系为基线：与九尾狐的开局关系为 TBD，无已记录相识或秘密传递事件；与羽族凤凰的开局关系为 TBD，无已记录相识或信息传递事件；同处、通信、信任或承诺变化均须由实际行动成立。",
+      "diction_and_rhythm": "措辞与节奏由实际交流、明确特征和当前压力决定；未给定声口时不从作者秘密或未来角色弧线推导。",
+      "sentence_length": "平稳时中短句核验事实；受惊、撒谎、被逼问时允许断句、改口和半句停住。",
+      "punctuation_style": "问号只用于真实核验或失控反应；避免连续反问、整齐顿号清单和每句都句号斩断。",
+      "line_break_style": "只有选择前犹豫、物件反馈、关系冷场或情绪压不住时单独断行。",
+      "subtext_strategy": "把恐惧、索取、隐瞒和试探藏进条件、费用、时间、称呼和动作里，不直接自我剖白。",
+      "silence_or_action_beat": "关键节点至少用一次沉默、手部动作、视线偏移或物件细节代替解释。",
+      "voice_contrast": "与同场角色用词、反应速度和信息处理习惯拉开；不要所有人都像同一个冷静旁白。",
+      "action_beat_policy": "对白前后必须有动作拍、物件反应或关系后果承接。",
+      "dialogue_functions": [
+        "推进冲突",
+        "暴露知识边界",
+        "交换或隐藏信息",
+        "改变关系状态"
+      ],
+      "typical_moves": [
+        "追问证据",
+        "回避未授权秘密",
+        "用具体条件换承诺"
+      ],
+      "forbidden_moves": [
+        "突然懂完整规则",
+        "替作者解释设定",
+        "无证据相信陌生信息",
+        "只用金句收束情绪"
+      ],
+      "dialogue_test": [
+        "删掉说话人后仍能看出场景目标和知识边界",
+        "每句对白至少改变信息、关系或压力之一"
+      ]
+    },
+    {
+      "character": "九尾狐",
+      "personality_source": "TBD",
+      "speech_principle": "说话只服务本人明确的当前目标和实际知情；声口从已声明特征及真实话语建立，不复制作者Description或未来Arc。",
+      "scene_objective": "九尾狐的开局目标是TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记，位置为近岸礁影观察点；是否交谈、核验或暂缓由其实际选择决定，完成后才记录本章结果。",
+      "hidden_subtext": "九尾狐当前明确的压力是TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认。若实际选择不直说某项内容，再据本人已知事实及现场行动解释；不预定隐瞒动机、未来转折或他人秘密。",
+      "knowledge_boundary": "只说自己能从角色卡、现场证据和已授权关系里推出来的话。",
+      "relationship_stance": "九尾狐仅以作者初态确认的关系为基线：与九九的开局关系为 TBD，无已记录秘密传递事件；与羽族凤凰的开局关系为 TBD，无已记录秘密传递事件；同处、通信、信任或承诺变化均须由实际行动成立。",
+      "diction_and_rhythm": "措辞与节奏由实际交流、明确特征和当前压力决定；未给定声口时不从作者秘密或未来角色弧线推导。",
+      "sentence_length": "平稳时中短句核验事实；受惊、撒谎、被逼问时允许断句、改口和半句停住。",
+      "punctuation_style": "问号只用于真实核验或失控反应；避免连续反问、整齐顿号清单和每句都句号斩断。",
+      "line_break_style": "只有选择前犹豫、物件反馈、关系冷场或情绪压不住时单独断行。",
+      "subtext_strategy": "把恐惧、索取、隐瞒和试探藏进条件、费用、时间、称呼和动作里，不直接自我剖白。",
+      "silence_or_action_beat": "关键节点至少用一次沉默、手部动作、视线偏移或物件细节代替解释。",
+      "voice_contrast": "与同场角色用词、反应速度和信息处理习惯拉开；不要所有人都像同一个冷静旁白。",
+      "action_beat_policy": "对白前后必须有动作拍、物件反应或关系后果承接。",
+      "dialogue_functions": [
+        "推进冲突",
+        "暴露知识边界",
+        "交换或隐藏信息",
+        "改变关系状态"
+      ],
+      "typical_moves": [
+        "追问证据",
+        "回避未授权秘密",
+        "用具体条件换承诺"
+      ],
+      "forbidden_moves": [
+        "突然懂完整规则",
+        "替作者解释设定",
+        "无证据相信陌生信息",
+        "只用金句收束情绪"
+      ],
+      "dialogue_test": [
+        "删掉说话人后仍能看出场景目标和知识边界",
+        "每句对白至少改变信息、关系或压力之一"
+      ]
+    },
+    {
+      "character": "羽族凤凰",
+      "personality_source": "TBD",
+      "speech_principle": "说话只服务本人明确的当前目标和实际知情；声口从已声明特征及真实话语建立，不复制作者Description或未来Arc。",
+      "scene_objective": "羽族凤凰的开局目标是TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全，位置为近岸上空云缘观察位；是否交谈、核验或暂缓由其实际选择决定，完成后才记录本章结果。",
+      "hidden_subtext": "羽族凤凰当前明确的压力是TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少。若实际选择不直说某项内容，再据本人已知事实及现场行动解释；不预定隐瞒动机、未来转折或他人秘密。",
+      "knowledge_boundary": "只说自己能从角色卡、现场证据和已授权关系里推出来的话。",
+      "relationship_stance": "羽族凤凰仅以作者初态确认的关系为基线：与其他角色的关系均为 TBD，开局无已记录相识或信息传递事件；同处、通信、信任或承诺变化均须由实际行动成立。",
+      "diction_and_rhythm": "措辞与节奏由实际交流、明确特征和当前压力决定；未给定声口时不从作者秘密或未来角色弧线推导。",
+      "sentence_length": "平稳时中短句核验事实；受惊、撒谎、被逼问时允许断句、改口和半句停住。",
+      "punctuation_style": "问号只用于真实核验或失控反应；避免连续反问、整齐顿号清单和每句都句号斩断。",
+      "line_break_style": "只有选择前犹豫、物件反馈、关系冷场或情绪压不住时单独断行。",
+      "subtext_strategy": "把恐惧、索取、隐瞒和试探藏进条件、费用、时间、称呼和动作里，不直接自我剖白。",
+      "silence_or_action_beat": "关键节点至少用一次沉默、手部动作、视线偏移或物件细节代替解释。",
+      "voice_contrast": "与同场角色用词、反应速度和信息处理习惯拉开；不要所有人都像同一个冷静旁白。",
+      "action_beat_policy": "对白前后必须有动作拍、物件反应或关系后果承接。",
+      "dialogue_functions": [
+        "推进冲突",
+        "暴露知识边界",
+        "交换或隐藏信息",
+        "改变关系状态"
+      ],
+      "typical_moves": [
+        "追问证据",
+        "回避未授权秘密",
+        "用具体条件换承诺"
+      ],
+      "forbidden_moves": [
+        "突然懂完整规则",
+        "替作者解释设定",
+        "无证据相信陌生信息",
+        "只用金句收束情绪"
+      ],
+      "dialogue_test": [
+        "删掉说话人后仍能看出场景目标和知识边界",
+        "每句对白至少改变信息、关系或压力之一"
+      ]
+    }
+  ]
+}

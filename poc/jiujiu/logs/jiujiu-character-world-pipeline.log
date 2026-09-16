@@ -1,0 +1,12 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：preplan → rehearse-arc → project-all → seal
+
+========== 阶段：preplan ==========
+[pipeline:preplan] 全书 3 个稳定章位已从正史第 0 章重新建立非正史骨架；下一步只物化 V1A1（第1-3章），整弧计划封存后再逐章渲染/逐章审核
+[pipeline] 阶段完成：preplan
+
+========== 阶段：rehearse-arc ==========
+pipeline: 阶段 rehearse-arc 失败（修复后重跑 --pipeline 即从此阶段继续）: rehearsal capability profile requires an exact supported physical character producer
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
