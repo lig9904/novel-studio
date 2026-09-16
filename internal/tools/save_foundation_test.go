@@ -52,6 +52,44 @@ func TestSaveFoundationRejectsBareRebaseMarkerForOutlineReplacement(t *testing.T
 	}
 }
 
+func TestSaveFoundationRequiresNamedCharacterViewsToBeScoped(t *testing.T) {
+	st := store.NewStore(t.TempDir())
+	if err := st.Init(); err != nil {
+		t.Fatal(err)
+	}
+	if err := st.Characters.Save([]domain.Character{{Name: "羽族凤凰", Role: "重要配角"}, {Name: "螭吻·九九", Aliases: []string{"九九"}, Role: "主角"}}); err != nil {
+		t.Fatal(err)
+	}
+	tool := NewSaveFoundationTool(st)
+	args := func(content any) []byte {
+		raw, err := json.Marshal(map[string]any{"type": "world_rules", "scale": "long", "content": content})
+		if err != nil {
+			t.Fatal(err)
+		}
+		return raw
+	}
+	global := []map[string]any{{
+		"category": "身份", "rule": "作者态身份", "boundary": "不得串知", "visibility": "formal",
+		"enforcement_scope": "GLOBAL", "visibility_scope": "PUBLIC", "character_view": "羽族凤凰知道九九是螭吻。",
+	}}
+	if _, err := tool.Execute(context.Background(), args(global)); err == nil || !strings.Contains(err.Error(), "visibility_scope=CHARACTER_SCOPED") {
+		t.Fatalf("named global view was accepted: %v", err)
+	}
+	scoped := []map[string]any{{
+		"category": "身份", "rule": "作者态身份", "boundary": "不得串知", "visibility": "formal",
+		"enforcement_scope": "CHARACTER_SCOPED", "enforcement_character_ids": []string{"羽族凤凰"},
+		"visibility_scope": "CHARACTER_SCOPED", "character_ids": []string{"羽族凤凰"},
+		"character_view": "你是凤凰，只知道自己与羽族有关。",
+	}}
+	if _, err := tool.Execute(context.Background(), args(scoped)); err != nil {
+		t.Fatalf("valid scoped views rejected: %v", err)
+	}
+	loaded, err := st.World.LoadWorldRules()
+	if err != nil || len(loaded) != 1 || domain.EffectiveWorldRuleVisibilityScope(loaded[0]) != domain.WorldRuleVisibilityCharacterScoped || domain.EffectiveWorldRuleEnforcementScope(loaded[0]) != domain.WorldRuleEnforcementCharacterScoped {
+		t.Fatalf("scoped view did not persist: %+v %v", loaded, err)
+	}
+}
+
 func TestSaveFoundationStillBlocksWritingOutlineReplacementWithoutRebaseAuthority(t *testing.T) {
 	dir := t.TempDir()
 	s := store.NewStore(dir)

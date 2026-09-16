@@ -18,6 +18,77 @@ const (
 	WorldCoherenceSeverityWarning = "warning"
 )
 
+func validateWorldRuleCharacterView(rule WorldRule, require bool) (string, error) {
+	validateIDs := func(ids []string, field string) error {
+		if len(ids) == 0 || len(ids) > 16 {
+			return fmt.Errorf("%s requires 1..16 character identifiers", field)
+		}
+		seen := map[string]bool{}
+		for _, id := range ids {
+			key := worldRuleAudienceKey(id)
+			if key == "" || len(key) > 256 || seen[key] {
+				return fmt.Errorf("%s requires unique bounded character identifiers", field)
+			}
+			seen[key] = true
+		}
+		return nil
+	}
+	switch EffectiveWorldRuleEnforcementScope(rule) {
+	case WorldRuleEnforcementGlobal:
+		if len(rule.EnforcementCharacterIDs) != 0 {
+			return "world_rules.enforcement_scope.invalid", fmt.Errorf("GLOBAL enforcement cannot carry enforcement_character_ids")
+		}
+	case WorldRuleEnforcementCharacterScoped:
+		if strings.TrimSpace(rule.EnforcementScope) == "" {
+			return "world_rules.enforcement_scope.invalid", fmt.Errorf("CHARACTER_SCOPED enforcement must be explicit")
+		}
+		if err := validateIDs(rule.EnforcementCharacterIDs, "enforcement_character_ids"); err != nil {
+			return "world_rules.enforcement_scope.invalid", err
+		}
+	default:
+		return "world_rules.enforcement_scope.invalid", fmt.Errorf("unsupported enforcement_scope %q", rule.EnforcementScope)
+	}
+
+	// Historical secret rules may retain ignored legacy CharacterView bytes.
+	if WorldRuleVisibility(rule) == "secret" && strings.TrimSpace(rule.VisibilityScope) == "" && len(rule.CharacterIDs) == 0 {
+		return "", nil
+	}
+	scope := EffectiveWorldRuleVisibilityScope(rule)
+	explicitScope := strings.TrimSpace(rule.VisibilityScope) != ""
+	switch scope {
+	case WorldRuleVisibilityPublic:
+		if strings.TrimSpace(rule.CharacterView) == "" || len(rule.CharacterIDs) != 0 {
+			return "world_rules.character_view.invalid", fmt.Errorf("PUBLIC visibility requires one character_view and no character_ids")
+		}
+	case WorldRuleVisibilityCharacterScoped:
+		if !explicitScope || strings.TrimSpace(rule.CharacterView) == "" {
+			return "world_rules.character_view.invalid", fmt.Errorf("CHARACTER_SCOPED visibility requires explicit scope and one character_view")
+		}
+		if err := validateIDs(rule.CharacterIDs, "character_ids"); err != nil {
+			return "world_rules.character_view.invalid", err
+		}
+	case WorldRuleVisibilityAuthorOnly:
+		if strings.TrimSpace(rule.CharacterView) != "" || len(rule.CharacterIDs) != 0 {
+			return "world_rules.character_view.invalid", fmt.Errorf("AUTHOR_ONLY visibility cannot publish character_view or character_ids")
+		}
+		if require && WorldRuleVisibility(rule) != "secret" && (!explicitScope || strings.ToUpper(strings.TrimSpace(rule.VisibilityScope)) != WorldRuleVisibilityAuthorOnly) {
+			return "world_rules.character_view.empty", fmt.Errorf("non-secret rule requires PUBLIC/CHARACTER_SCOPED visibility or explicit AUTHOR_ONLY")
+		}
+	default:
+		return "world_rules.character_view.invalid", fmt.Errorf("unsupported visibility_scope %q", rule.VisibilityScope)
+	}
+	return "", nil
+}
+
+func ValidateWorldRuleCharacterViews(rules []WorldRule, require bool) error {
+	for i, rule := range rules {
+		if _, err := validateWorldRuleCharacterView(rule, require); err != nil {
+			return fmt.Errorf("world_rules[%d]: %w", i, err)
+		}
+	}
+	return nil
+}
+
 // WorldCoherenceFinding 是可稳定排序、可被 CLI/Dashboard 消费的世界问题。
 // Subject 使用 JSON 风格路径，避免把整份设定重复塞进错误文本。
 type WorldCoherenceFinding struct {
@@ -130,9 +201,10 @@ func AuditWorldCoherence(rules []WorldRule, codex *WorldCodex, world *BookWorld)
 		if strings.TrimSpace(rule.Boundary) == "" {
 			add("world_rules.boundary.empty", operationalSeverity(strictOperational), subject+".boundary", "规则必须写明不可突破的边界")
 		}
-		if strictCharacterViews && WorldRuleVisibility(rule) != "secret" && strings.TrimSpace(rule.CharacterView) == "" {
-			add("world_rules.character_view.empty", WorldCoherenceSeverityError, subject+".character_view",
-				"角色视图 v1 的非 secret 规则必须提供独立公开文本；不能回退到含作者事实的 rule/boundary")
+		if strictCharacterViews || strings.TrimSpace(rule.EnforcementScope) != "" || strings.TrimSpace(rule.VisibilityScope) != "" || len(rule.EnforcementCharacterIDs) != 0 || len(rule.CharacterIDs) != 0 {
+			if code, err := validateWorldRuleCharacterView(rule, strictCharacterViews); err != nil {
+				add(code, WorldCoherenceSeverityError, subject+".character_view", err.Error())
+			}
 		}
 		key := strings.TrimSpace(rule.Category) + "\x00" + strings.TrimSpace(rule.Rule)
 		if key != "\x00" {

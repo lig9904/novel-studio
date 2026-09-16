@@ -55,4 +55,16 @@ V3 要求 `max_activation_cycles` 大于 1，可配置范围为 2–64；`max_co
 
 新资源可用 `permissions` 明确拆分 `observe/use/possess/control/claim`；观察不再隐含拥有、控制、认领、进入或使用。`observation_channels` 把机制绑定到具体角色和具体资源：`public` 可授权非所有者观察；`private` 只暴露安全标签和机制 ID，作者态秘密仍只留给 World Arbiter。旧数据省略 permissions 时，`access != none` 仅为兼容而继续推导 observe/use。
 
+## 世界规则裁决范围与角色可见性
+
+`world_rules` 将执行范围与知识投放分开：
+
+- `enforcement_scope=GLOBAL/CHARACTER_SCOPED` 决定 World Arbiter 对谁执行规则；后者使用 `enforcement_character_ids`。
+- `visibility_scope=PUBLIC/CHARACTER_SCOPED/AUTHOR_ONLY` 决定 Character Observation 是否收到 `character_view`；scoped 使用 `character_ids`。
+- character ID 可写正式名、别名或已注册 AgentID。
+- PUBLIC view 不得点名已登记角色；身份、本人能力和专属知识必须 scoped。
+- AUTHOR_ONLY 规则仍供 Arbiter 裁决，但不会因此进入角色脑中。
+
+省略新字段的历史规则保持兼容：执行范围按 GLOBAL；非空旧 `character_view` 按 PUBLIC。严格新 foundation 中，没有视图的非 secret 规则必须显式声明 AUTHOR_ONLY，避免把遗漏误当成授权。
+
 截至 2026-09-13，V3 仍在进行真实三章小说验收，尚未宣称端到端生产成功。代码测试和无模型验证通过不能替代真实正文、审核与接受回执形成的完整闭环。

@@ -940,8 +940,18 @@ func buildWorldStimulusDraft(st *store.Store, generationID string, chapter int, 
 		return packet, fmt.Errorf("load world rules for character agents: %w", err)
 	}
 	if len(rules) > 0 {
+		characters, loadErr := st.Characters.Load()
+		if loadErr != nil {
+			return packet, fmt.Errorf("load characters for global rule audience audit: %w", loadErr)
+		}
 		for _, rule := range rules {
 			text := strings.TrimSpace(rule.Rule + "；边界：" + rule.Boundary)
+			if strings.TrimSpace(rule.EnforcementScope) != "" {
+				text += "；enforcement_scope=" + domain.EffectiveWorldRuleEnforcementScope(rule)
+				if len(rule.EnforcementCharacterIDs) > 0 {
+					text += "；enforcement_character_ids=" + strings.Join(rule.EnforcementCharacterIDs, "、")
+				}
+			}
 			packet.HardContracts = append(packet.HardContracts, text)
 			// Visibility describes an authored rule, not permission to reveal
 			// its entire narrative contract. Only the explicit character-facing
@@ -949,7 +959,10 @@ func buildWorldStimulusDraft(st *store.Store, generationID string, chapter int, 
 			// original exclusively in the Arbiter's hard contracts.
 			view := strings.TrimSpace(rule.CharacterView)
 			visibility, public := characterViewVisibility(rule.Visibility)
-			if view != "" && public {
+			if domain.EffectiveWorldRuleVisibilityScope(rule) == domain.WorldRuleVisibilityPublic && view != "" && public {
+				if identity := domain.GlobalWorldRuleViewNamedIdentity(view, characters); identity != "" {
+					return packet, fmt.Errorf("global world-rule character_view names character %q; use visibility_scope=CHARACTER_SCOPED with character_ids to avoid cross-character knowledge injection", identity)
+				}
 				packet.PublicFacts = append(packet.PublicFacts, newCharacterAgentFact(characterWorldRuleViewFactKind, view, "world_rules.json", visibility))
 			}
 		}
@@ -1169,6 +1182,19 @@ func buildCharacterObservationDraft(st *store.Store, generationID string, chapte
 	for _, fact := range stimulus.PublicFacts {
 		if fact.Kind == characterWorldRuleViewFactKind && (fact.Visibility == "formal" || fact.Visibility == "informal") {
 			observation.PublicRules = append(observation.PublicRules, fact)
+		}
+	}
+	rules, err := st.World.LoadWorldRules()
+	if err != nil {
+		return observation, fmt.Errorf("load scoped world rules for character observation: %w", err)
+	}
+	for _, rule := range rules {
+		visibility, public := characterViewVisibility(rule.Visibility)
+		if !public {
+			continue
+		}
+		if domain.EffectiveWorldRuleVisibilityScope(rule) == domain.WorldRuleVisibilityCharacterScoped && domain.WorldRuleVisibleToCharacter(rule, profile.Record.AgentID, profile.Character.Name, profile.Character.Aliases) {
+			observation.PublicRules = append(observation.PublicRules, newCharacterAgentFact(characterWorldRuleViewFactKind, strings.TrimSpace(rule.CharacterView), "world_rules.json#scoped", visibility))
 		}
 	}
 	for _, mechanism := range stimulus.Mechanisms {

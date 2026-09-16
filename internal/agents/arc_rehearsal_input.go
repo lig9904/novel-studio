@@ -238,8 +238,11 @@ func BuildArcRehearsalInput(st *store.Store, binding domain.ArcRehearsalInput, c
 			}
 		}
 		for _, rule := range input.WorldRules {
-			if view := strings.TrimSpace(rule.CharacterView); view != "" && domain.WorldRuleVisibility(rule) != "secret" {
+			if view := strings.TrimSpace(rule.CharacterView); domain.EffectiveWorldRuleVisibilityScope(rule) == domain.WorldRuleVisibilityPublic && view != "" && domain.WorldRuleVisibility(rule) != "secret" {
 				o.PublicRules = append(o.PublicRules, newCharacterAgentFact("world_rule_view", view, "world_rules.json", domain.WorldRuleVisibility(rule)))
+			}
+			if domain.WorldRuleVisibility(rule) != "secret" && domain.EffectiveWorldRuleVisibilityScope(rule) == domain.WorldRuleVisibilityCharacterScoped && domain.WorldRuleVisibleToCharacter(rule, record.AgentID, character.Name, character.Aliases) {
+				o.PublicRules = append(o.PublicRules, newCharacterAgentFact("world_rule_view", strings.TrimSpace(rule.CharacterView), "world_rules.json#scoped", domain.WorldRuleVisibility(rule)))
 			}
 		}
 		if input.WorldCodex != nil {

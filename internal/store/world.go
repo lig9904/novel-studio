@@ -647,6 +647,21 @@ func renderWorldRules(rules []domain.WorldRule) string {
 			if r.Boundary != "" {
 				fmt.Fprintf(&b, "  - 边界：%s\n", r.Boundary)
 			}
+			fmt.Fprintf(&b, "  - 裁决范围：%s", domain.EffectiveWorldRuleEnforcementScope(r))
+			if len(r.EnforcementCharacterIDs) > 0 {
+				fmt.Fprintf(&b, "（%s）", strings.Join(r.EnforcementCharacterIDs, "、"))
+			}
+			b.WriteString("\n")
+			switch domain.EffectiveWorldRuleVisibilityScope(r) {
+			case domain.WorldRuleVisibilityPublic:
+				if r.CharacterView != "" {
+					fmt.Fprintf(&b, "  - 全角色视图：%s\n", r.CharacterView)
+				}
+			case domain.WorldRuleVisibilityCharacterScoped:
+				fmt.Fprintf(&b, "  - 指定角色视图（%s）：%s\n", strings.Join(r.CharacterIDs, "、"), r.CharacterView)
+			case domain.WorldRuleVisibilityAuthorOnly:
+				fmt.Fprintln(&b, "  - 角色视图：仅作者态")
+			}
 		}
 		b.WriteString("\n")
 	}

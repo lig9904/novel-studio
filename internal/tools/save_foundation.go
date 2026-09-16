@@ -104,7 +104,7 @@ func (t *SaveFoundationTool) Schema() map[string]any {
 		// 模型无从修复。放行到 Execute 由 normalizeFoundationContent 给出
 		// 可执行的修复提示（压缩篇幅重发），错误信息可控。
 		schema.Property("content", map[string]any{
-			"description": "内容（必填）。premise 传 Markdown 字符串；其他类型直接传 JSON 数组或对象即可，也兼容传 JSON 字符串。update_compass 的 estimated_scale 若供 outline-all 消费，必须同时包含 x-y卷与x-y章的显式数字范围，其中 x-y章 必须是全书总章数范围（严禁把“每弧/每卷 8-16 章”这类单元预算写成全书章数范围；如需注明可写“每弧8-16章”，但全书总章数必须另有独立的 x-y章 范围）；固定单卷12章也写成1-1卷、12-12章。layered_outline 若供 outline-all 消费，各弧章位必须非空、连续且不重叠，跨度以作者篇幅预算和实际因果承载量为准，不规定统一的每弧章数下限。expand_arc 时传章节数组。characters 每项可带 psych 定量心理画像（big_five 五维 0-1 / attachment 依恋 / values 价值观 / moral_foundations / cognitive_biases / abilities / dna 显隐突三组事实）。world_rules 每条可带 visibility（formal 显规则 / informal 潜规则 / secret 隐秘规则）与 source（朝廷/江湖/家族/门派）。world_rules 的 character_view 是独立的角色可见规则字符串。world_codex 新建自动启用 character_view_version=1；formal/informal mechanisms 必须另带 character_view 对象 {name,actor_scope,trigger,preconditions,inputs,costs,effects,failure_modes,observability,timing}，name/trigger/timing 为字符串，其余为字符串数组。角色视图仅写普遍适用的程序、条件、资源规律，不含本案秘密、未来揭示或硬合同结局；secret 留在作者态供 Arbiter。unknown field 会拒绝保存，专属设备/证据流程信息写入 sections[].content/rules。world_codex v2 必须包含 mechanisms（visibility、触发、前置、输入、代价、结果、失败模式、可观测性、时间、section_refs）与 counterfactual_tests；每条机制都要被探针引用。book_world v2 的每个 faction 必须带有限 resources 和 clock（{segments, progress, consequence, pace}），多个势力至少有一条 relation；route.from/to 必须命中 place id/name，主要路线必须有 travel_days>0 和 risk；place.factions 与 relation.target 必须命中势力 id/name/aliases。book_world 顶层形状严格固定：protagonist_position 是字符串；vision_pillars 是对象 {color_palette:[], signature_elements:[], lighting:\"\", signature_scenes:[]}；world_pillars 是对象 {economic:{base,controlled_by,tension}, cultural:{base,controlled_by,tension}, political:{base,controlled_by,tension}, historical:{base,controlled_by,tension}}；两个 pillars 均不得传数组。" + publicCharacterOperationHint + foundationShapeHint("characters"),
+			"description": "内容（必填）。premise 传 Markdown 字符串；其他类型直接传 JSON 数组或对象即可，也兼容传 JSON 字符串。update_compass 的 estimated_scale 若供 outline-all 消费，必须同时包含 x-y卷与x-y章的显式数字范围，其中 x-y章 必须是全书总章数范围（严禁把“每弧/每卷 8-16 章”这类单元预算写成全书章数范围；如需注明可写“每弧8-16章”，但全书总章数必须另有独立的 x-y章 范围）；固定单卷12章也写成1-1卷、12-12章。layered_outline 若供 outline-all 消费，各弧章位必须非空、连续且不重叠，跨度以作者篇幅预算和实际因果承载量为准，不规定统一的每弧章数下限。expand_arc 时传章节数组。characters 每项可带 psych 定量心理画像（big_five 五维 0-1 / attachment 依恋 / values 价值观 / moral_foundations / cognitive_biases / abilities / dna 显隐突三组事实）。world_rules 分开声明 enforcement_scope=GLOBAL/CHARACTER_SCOPED 与 visibility_scope=PUBLIC/CHARACTER_SCOPED/AUTHOR_ONLY；两个 CHARACTER_SCOPED 分别使用 enforcement_character_ids 与 character_ids，角色标识可为正式名、别名或已注册AgentID；PUBLIC/CHARACTER_SCOPED visibility 使用一个character_view，AUTHOR_ONLY不带视图。world_codex 新建自动启用 character_view_version=1；formal/informal mechanisms 必须另带 character_view 对象 {name,actor_scope,trigger,preconditions,inputs,costs,effects,failure_modes,observability,timing}，name/trigger/timing 为字符串，其余为字符串数组。角色视图仅写获授权角色可知的程序、条件、资源规律，不含本案秘密、未来揭示或硬合同结局；secret 留在作者态供 Arbiter。unknown field 会拒绝保存，专属设备/证据流程信息写入 sections[].content/rules。world_codex v2 必须包含 mechanisms（visibility、触发、前置、输入、代价、结果、失败模式、可观测性、时间、section_refs）与 counterfactual_tests；每条机制都要被探针引用。book_world v2 的每个 faction 必须带有限 resources 和 clock（{segments, progress, consequence, pace}），多个势力至少有一条 relation；route.from/to 必须命中 place id/name，主要路线必须有 travel_days>0 和 risk；place.factions 与 relation.target 必须命中势力 id/name/aliases。book_world 顶层形状严格固定：protagonist_position 是字符串；vision_pillars 是对象 {color_palette:[], signature_elements:[], lighting:\"\", signature_scenes:[]}；world_pillars 是对象 {economic:{base,controlled_by,tension}, cultural:{base,controlled_by,tension}, political:{base,controlled_by,tension}, historical:{base,controlled_by,tension}}；两个 pillars 均不得传数组。" + publicCharacterOperationHint + foundationShapeHint("characters"),
 		}),
 		schema.Property("scale", schema.Enum("规划级别", "short", "mid", "long")),
 		schema.Property("volume", schema.Int("目标卷序号（expand_arc / revise_arc / outline-all append_volume / volume_codex 时必传）")),
@@ -296,6 +296,41 @@ func (t *SaveFoundationTool) Execute(ctx context.Context, args json.RawMessage) 
 		var rules []domain.WorldRule
 		if err := decode("world_rules", &rules); err != nil {
 			return nil, err
+		}
+		if err := domain.ValidateWorldRuleCharacterViews(rules, false); err != nil {
+			return nil, fmt.Errorf("world_rules character-view contract: %w: %w", err, errs.ErrToolArgs)
+		}
+		characters, err := t.store.Characters.Load()
+		if err != nil {
+			return nil, fmt.Errorf("load characters for world-rule audience audit: %w", err)
+		}
+		identityKey := func(value string) string { return strings.ToLower(strings.Join(strings.Fields(value), " ")) }
+		knownCharacters := map[string]bool{}
+		for _, character := range characters {
+			knownCharacters[identityKey(character.Name)] = true
+			for _, alias := range character.Aliases {
+				knownCharacters[identityKey(alias)] = true
+			}
+		}
+		if registry, loadErr := t.store.CharacterAgents.LoadRegistry(); loadErr != nil {
+			return nil, fmt.Errorf("load character registry for world-rule audience audit: %w", loadErr)
+		} else if registry != nil {
+			for _, record := range registry.Entries {
+				knownCharacters[identityKey(record.AgentID)] = true
+			}
+		}
+		for i, rule := range rules {
+			for _, id := range append(append([]string(nil), rule.EnforcementCharacterIDs...), rule.CharacterIDs...) {
+				if !knownCharacters[identityKey(id)] {
+					return nil, fmt.Errorf("world_rules[%d] scoped character identifier %q is not a character name, alias, or registered AgentID: %w", i, id, errs.ErrToolArgs)
+				}
+			}
+			if domain.EffectiveWorldRuleVisibilityScope(rule) != domain.WorldRuleVisibilityPublic {
+				continue
+			}
+			if identity := domain.GlobalWorldRuleViewNamedIdentity(rule.CharacterView, characters); identity != "" {
+				return nil, fmt.Errorf("world_rules[%d].character_view names character %q; use visibility_scope=CHARACTER_SCOPED and character_ids: %w", i, identity, errs.ErrToolArgs)
+			}
 		}
 		if err := t.store.World.SaveWorldRules(rules); err != nil {
 			return nil, fmt.Errorf("save world_rules: %w: %w", errs.ErrStoreWrite, err)
@@ -973,7 +1008,7 @@ func normalizeCodexListField(raw json.RawMessage, idKey string) (json.RawMessage
 	return out, true
 }
 
-const publicCharacterOperationHint = "\n公开操作条件：作者已经定义、适用于该角色且应公开的必要工时、数值门槛、次数和前置条件，必须完整写入 world_rules.character_view 或机制 character_view 的 costs/timing/preconditions；不能用“占实际工时”替代执行所需的既有值；保留单位、适用条件、每次或累计口径及最低/预计/通常的原有强度。公开操作参数不等于未观测实例数量或秘密，不复制作者真相、隐藏余额、未来结局或他人意图。不得为了补齐视图新造固定工时、扩大规则或把估计改成硬上限。保存前复用已有 counterfactual_tests，自检角色仅凭其实际可见资料能否提出合法行动；缺少应公开条件应在原字段补齐，秘密条件则保留其实际可观测途径，不新增调用或字段。"
+const publicCharacterOperationHint = "\n角色操作条件：作者已经定义、适用于该角色且应投放的必要工时、数值门槛、次数和前置条件，必须完整写入 world_rules 的 PUBLIC/CHARACTER_SCOPED 视图或机制 character_view 的 costs/timing/preconditions；不能用“占实际工时”替代执行所需的既有值。PUBLIC 视图不得点名任何已登记角色；角色身份、本人能力或专属知识必须使用 visibility_scope=CHARACTER_SCOPED 与 character_ids。规则约束对象单独使用 enforcement_scope/enforcement_character_ids，不能因World Arbiter需要执行就把作者态规则塞进角色观察。角色操作参数不等于未观测实例数量或秘密，不复制作者真相、隐藏余额、未来结局或他人意图。不得为了补齐视图新造固定工时、扩大规则或把估计改成硬上限。保存前复用已有 counterfactual_tests，自检每个角色仅凭其实际可见资料能否提出合法行动。"
 
 // foundationShapeHint 给结构复杂、模型高频猜错的类型返回一份紧凑结构模板，
 // 附在解析/校验错误后，让模型一次重试就能对齐，而不是每轮收敛一个字段。
@@ -986,7 +1021,7 @@ func foundationShapeHint(typeName string) string {
 			"readable_facts=[{id,text}]仅为该资源/文书形成时实际写下的原始内容，不根据当前余额、作者动机或未来StateAfter补旧文书。封袋外清单与袋内原件用不同resource_id，各自facts独立，读取不递归容器。access_requires_any是既有WorldCodex机制id数组；受限原件初始access=none，实际执行解封/许可机制或从已获权者正常交接后才可读。角色获得名称/承诺不等于获得持有权或内容。未知来源和数量保持null/空；新建重要角色的目标、压力、位置不得取自未来arc/core_event。"
 	}
 	if typeName == "world_rules" {
-		return "\nworld_rules 每条为 {category,rule,boundary,visibility,character_view?}；character_view 是独立字符串，只写普遍适用的程序、条件和资源规律，不含本案秘密、未来揭示或硬合同结局；secret 不投放给角色。" + publicCharacterOperationHint
+		return "\nworld_rules 每条为 {category,rule,boundary,visibility,enforcement_scope?,enforcement_character_ids?,visibility_scope?,character_ids?,character_view?}。enforcement_scope省略时兼容GLOBAL；CHARACTER_SCOPED必须列1..16个enforcement_character_ids。visibility_scope=PUBLIC时填character_view且不得带character_ids；CHARACTER_SCOPED时填character_view并列1..16个character_ids；AUTHOR_ONLY不填view/id。旧数据省略visibility_scope且有character_view时仍按PUBLIC；非secret无视图只有显式AUTHOR_ONLY才合法。secret永不投放。" + publicCharacterOperationHint
 	}
 	if typeName != "world_codex" {
 		return ""

@@ -3,6 +3,7 @@ package domain
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 // Novel 小说元信息。
@@ -210,6 +211,76 @@ type WorldRule struct {
 	// CharacterView 是作者明确授权给角色的公开规则文本。Rule/Boundary/Source
 	// 仍为作者态，可能含终局或秘密事实，不能用作角色视图缺失时的回退。
 	CharacterView string `json:"character_view,omitempty"`
+	// EnforcementScope controls who the Arbiter applies the authored rule to;
+	// VisibilityScope independently controls who receives CharacterView.
+	// CharacterIDs may use a formal character name, alias, or registered agent ID.
+	EnforcementScope        string   `json:"enforcement_scope,omitempty"`
+	EnforcementCharacterIDs []string `json:"enforcement_character_ids,omitempty"`
+	VisibilityScope         string   `json:"visibility_scope,omitempty"`
+	CharacterIDs            []string `json:"character_ids,omitempty"`
+}
+
+const (
+	WorldRuleEnforcementGlobal          = "GLOBAL"
+	WorldRuleEnforcementCharacterScoped = "CHARACTER_SCOPED"
+	WorldRuleVisibilityPublic           = "PUBLIC"
+	WorldRuleVisibilityCharacterScoped  = "CHARACTER_SCOPED"
+	WorldRuleVisibilityAuthorOnly       = "AUTHOR_ONLY"
+)
+
+func EffectiveWorldRuleEnforcementScope(rule WorldRule) string {
+	if scope := strings.ToUpper(strings.TrimSpace(rule.EnforcementScope)); scope != "" {
+		return scope
+	}
+	return WorldRuleEnforcementGlobal
+}
+
+func EffectiveWorldRuleVisibilityScope(rule WorldRule) string {
+	if scope := strings.ToUpper(strings.TrimSpace(rule.VisibilityScope)); scope != "" {
+		return scope
+	}
+	if strings.TrimSpace(rule.CharacterView) != "" {
+		return WorldRuleVisibilityPublic
+	}
+	return WorldRuleVisibilityAuthorOnly
+}
+
+func worldRuleAudienceKey(value string) string {
+	return strings.ToLower(strings.Join(strings.Fields(value), " "))
+}
+
+func WorldRuleVisibleToCharacter(rule WorldRule, agentID, character string, aliases []string) bool {
+	switch EffectiveWorldRuleVisibilityScope(rule) {
+	case WorldRuleVisibilityPublic:
+		return true
+	case WorldRuleVisibilityAuthorOnly:
+		return false
+	case WorldRuleVisibilityCharacterScoped:
+		identities := map[string]bool{worldRuleAudienceKey(agentID): true, worldRuleAudienceKey(character): true}
+		for _, alias := range aliases {
+			if key := worldRuleAudienceKey(alias); key != "" {
+				identities[key] = true
+			}
+		}
+		for _, id := range rule.CharacterIDs {
+			if identities[worldRuleAudienceKey(id)] {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func GlobalWorldRuleViewNamedIdentity(view string, characters []Character) string {
+	for _, character := range characters {
+		for _, identity := range append([]string{character.Name}, character.Aliases...) {
+			identity = strings.TrimSpace(identity)
+			if len([]rune(identity)) >= 2 && strings.Contains(view, identity) {
+				return identity
+			}
+		}
+	}
+	return ""
 }
 
 // WorldRuleVisibility 归一化可见性：空值归 formal。

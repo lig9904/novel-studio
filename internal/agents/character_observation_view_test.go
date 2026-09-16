@@ -152,3 +152,73 @@ func TestCharacterObservationConsumesOnlyExplicitWorldViews(t *testing.T) {
 		t.Fatal("public mechanism views share mutable slices across character observations or Arbiter source")
 	}
 }
+
+func TestScopedWorldRuleViewsDoNotCrossCharacters(t *testing.T) {
+	st := store.NewStore(t.TempDir())
+	characters := []domain.Character{
+		{Name: "螭吻·九九", Aliases: []string{"九九"}, Role: "主角", Tier: "core"},
+		{Name: "羽族凤凰", Role: "重要配角", Tier: "important"},
+	}
+	if err := st.Characters.Save(characters); err != nil {
+		t.Fatal(err)
+	}
+	rules := []domain.WorldRule{
+		{Category: "证据", Rule: "未知不升级", Boundary: "无来源仍未知", Visibility: "formal", EnforcementScope: domain.WorldRuleEnforcementGlobal, VisibilityScope: domain.WorldRuleVisibilityPublic, CharacterView: "没有来源与时间的消息仍是 UNKNOWN。"},
+		{Category: "兽体", Rule: "作者态保存九九兽体", Boundary: "不得串知", Visibility: "formal", EnforcementScope: domain.WorldRuleEnforcementCharacterScoped, EnforcementCharacterIDs: []string{"九九"}, VisibilityScope: domain.WorldRuleVisibilityCharacterScoped, CharacterIDs: []string{"九九"}, CharacterView: "你的兽体是以鱼躯为主体的龙头鱼身螭吻。"},
+		{Category: "兽体", Rule: "作者态保存凤凰兽体", Boundary: "不得串知", Visibility: "formal", EnforcementScope: domain.WorldRuleEnforcementCharacterScoped, EnforcementCharacterIDs: []string{"ca_phoenix"}, VisibilityScope: domain.WorldRuleVisibilityCharacterScoped, CharacterIDs: []string{"羽族凤凰"}, CharacterView: "你是完整的东方凤凰神鸟，并且只知道自己与羽族有关。"},
+		{Category: "作者结局", Rule: "第三章作者答案", Boundary: "角色不可见", Visibility: "formal", EnforcementScope: domain.WorldRuleEnforcementGlobal, VisibilityScope: domain.WorldRuleVisibilityAuthorOnly},
+	}
+	if err := st.World.SaveWorldRules(rules); err != nil {
+		t.Fatal(err)
+	}
+	stimulus, err := buildWorldStimulus(st, "pg2_scoped_rules", 1, ProjectedArcBoundary{}, domain.ProjectedPlanningContextV2{}, nil, "now")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(stimulus.PublicFacts) != 1 || stimulus.PublicFacts[0].Text != rules[0].CharacterView {
+		t.Fatalf("scoped/author-only rules entered global stimulus: %+v", stimulus.PublicFacts)
+	}
+	hardContracts := strings.Join(stimulus.HardContracts, "\n")
+	if !strings.Contains(hardContracts, "enforcement_scope=CHARACTER_SCOPED") || !strings.Contains(hardContracts, "enforcement_character_ids=九九") || !strings.Contains(hardContracts, "enforcement_character_ids=ca_phoenix") {
+		t.Fatalf("Arbiter contract lost independent enforcement scope: %s", hardContracts)
+	}
+	build := func(character domain.Character, agentID string) domain.CharacterObservationPacket {
+		t.Helper()
+		observation, err := buildCharacterObservation(st, stimulus.GenerationID, 1, characterAgentProfile{Character: character, Record: domain.CharacterAgentRecord{AgentID: agentID, Character: character.Name}}, stimulus, domain.ProjectedPlanningContextV2{}, "now")
+		if err != nil {
+			t.Fatal(err)
+		}
+		return observation
+	}
+	jiujiu := build(characters[0], "ca_jiujiu")
+	phoenix := build(characters[1], "ca_phoenix")
+	jiujiuRaw, _ := json.Marshal(jiujiu.PublicRules)
+	phoenixRaw, _ := json.Marshal(phoenix.PublicRules)
+	if !strings.Contains(string(jiujiuRaw), "龙头鱼身螭吻") || strings.Contains(string(jiujiuRaw), "只知道自己与羽族有关") {
+		t.Fatalf("Jiujiu scoped view crossed audiences: %s", jiujiuRaw)
+	}
+	for _, forbidden := range []string{"九九", "九尾狐", "泼水节", "私密潮痕", "龙头鱼身螭吻", "第三章作者答案"} {
+		if strings.Contains(string(phoenixRaw), forbidden) {
+			t.Fatalf("Phoenix received forbidden scoped/author fact %q: %s", forbidden, phoenixRaw)
+		}
+	}
+	if !strings.Contains(string(phoenixRaw), "自己与羽族有关") || !strings.Contains(string(phoenixRaw), "UNKNOWN") {
+		t.Fatalf("Phoenix lost its own scoped/global safe views: %s", phoenixRaw)
+	}
+	if strings.Contains(string(phoenixRaw), "enforcement_scope") || strings.Contains(string(phoenixRaw), "enforcement_character_ids") {
+		t.Fatalf("Arbiter enforcement metadata entered Phoenix knowledge: %s", phoenixRaw)
+	}
+}
+
+func TestGlobalWorldRuleViewCannotNameRegisteredCharacter(t *testing.T) {
+	st := store.NewStore(t.TempDir())
+	if err := st.Characters.Save([]domain.Character{{Name: "羽族凤凰", Role: "重要配角"}}); err != nil {
+		t.Fatal(err)
+	}
+	if err := st.World.SaveWorldRules([]domain.WorldRule{{Category: "身份", Rule: "作者态", Boundary: "不得泄漏", Visibility: "formal", CharacterView: "羽族凤凰知道另一角色的身份"}}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := buildWorldStimulus(st, "pg2_global_name_reject", 1, ProjectedArcBoundary{}, domain.ProjectedPlanningContextV2{}, nil, "now"); err == nil || !strings.Contains(err.Error(), "visibility_scope=CHARACTER_SCOPED") {
+		t.Fatalf("named global view was not rejected before observation construction: %v", err)
+	}
+}

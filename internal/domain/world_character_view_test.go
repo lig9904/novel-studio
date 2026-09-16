@@ -77,6 +77,37 @@ func TestWorldCharacterViewProtocolRequiresExplicitPublicViews(t *testing.T) {
 	}
 }
 
+func TestWorldRuleScopedAndAuthorOnlyViewsAreExplicitlyValidated(t *testing.T) {
+	rules, codex, world := coherentWorldFixture()
+	codex.CharacterViewVersion = CurrentWorldCharacterViewVersion
+	codex.Mechanisms[0].CharacterView = completeCharacterMechanismView()
+	rules[0].EnforcementScope = WorldRuleEnforcementCharacterScoped
+	rules[0].EnforcementCharacterIDs = []string{"甲"}
+	rules[0].VisibilityScope = WorldRuleVisibilityCharacterScoped
+	rules[0].CharacterIDs = []string{"甲"}
+	rules[0].CharacterView = "只有甲可见的核验边界。"
+	report := AuditWorldCoherence(rules, &codex, &world)
+	if !report.Ready {
+		t.Fatalf("valid scoped view rejected: %+v", report.Findings)
+	}
+	rules[0].EnforcementScope = WorldRuleEnforcementGlobal
+	rules[0].EnforcementCharacterIDs = nil
+	rules[0].VisibilityScope = WorldRuleVisibilityAuthorOnly
+	rules[0].CharacterIDs = nil
+	rules[0].CharacterView = ""
+	report = AuditWorldCoherence(rules, &codex, &world)
+	if !report.Ready {
+		t.Fatalf("explicit author-only rule rejected: %+v", report.Findings)
+	}
+	rules[0].VisibilityScope = WorldRuleVisibilityCharacterScoped
+	rules[0].CharacterIDs = []string{"甲", "甲"}
+	rules[0].CharacterView = "重复投放"
+	report = AuditWorldCoherence(rules, &codex, &world)
+	if report.Ready || !hasCharacterViewFinding(report, "world_rules.character_view.invalid") {
+		t.Fatalf("ambiguous duplicate scoped audience accepted: %+v", report.Findings)
+	}
+}
+
 func TestWorldCharacterViewRejectsIncompleteMechanismFields(t *testing.T) {
 	for _, field := range []string{"name", "trigger", "timing", "actor_scope", "preconditions", "inputs", "costs", "effects", "failure_modes", "observability"} {
 		t.Run(field, func(t *testing.T) {
