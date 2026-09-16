@@ -1,0 +1,64 @@
+{
+  "stages": [
+    "zero-init",
+    "preplan",
+    "rehearse-arc"
+  ],
+  "completed": [
+    "zero-init",
+    "preplan"
+  ],
+  "prompt": "# TEST_SCAFFOLD — 螭吻·九九 Phase 0 evaluation input\n\nThis is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.\n\nPipeline compatibility requirement: this project must use the Architect long/layered-outline path and persist `layered_outline`; a flat short outline alone is insufficient because the authorized next stage is `outline-all`. This is an execution-format requirement only and does not authorize more than exactly one volume, one arc, and three short TEST_SCAFFOLD chapters.\n\n## Phase 0 Resume gate correction — hard TEST_SCAFFOLD contract\n\nThe reputation opportunity is an environmental pressure only:\n\n- `reputation_opportunity.status = UNVERIFIED`\n- `sender = UNKNOWN / unavailable`\n- `credential = NONE`\n\nNo selected path may require locating, contacting, questioning, or receiving a reply from a sender. No selected path may require obtaining, reading, or creating a credential, document, evidence item, `readable_facts`, or new material about this opportunity. Do not create a messenger, passerby actor, sender actor, organization, credential resource, historic evidence, or readable document.\n\n九九 may autonomously refuse, defer, ask for evidence, propose an alternative, accept risk, leave and bear consequences, or choose any other action consistent with its current state. Asking for evidence is only a possible future Character Agent action. If selected at runtime, valid World Simulation outcomes include no sender found, no credential available, verification failure, deferral, refusal, continued investigation, accepted risk, or an alternative plan. None is an Architect prerequisite.\n\nThe three-chapter selected conditional path must remain executable even when the opportunity is never verified. Do not place “核查口信来源与凭据” or any equivalent operation in `core_event`, required scene progression, hook dependency, next-chapter material promise, selected causal path, or required material dependency. Do not state that the result of asking for evidence determines what material appears next chapter.\n\nFor Arc Rehearsal semantics, the unavailable sender and absent credential belong only in `unresolved_items` as an explicit non-blocking condition. They must not appear as a selected-path `material_check`. Preserve Character Autonomy by leaving the actual choice to the real Character Agent.\n\nCreate the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.\n\n## Source boundaries\n\n- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.\n\n## 螭吻·九九 source Canon\n\n- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.\n\n## 九尾狐 source Canon\n\n- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.\n\n## 羽族凤凰 source Canon\n\n- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.\n\n## Three-chapter TEST_SCAFFOLD objective\n\nBuild only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.\n\n- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.\n\nThe physical TEST_SCAFFOLD foundation supplies stable resource IDs. Use the public-water resource for qualitative operational observation, the warning buoy only for its actual supported measurement/use, the fox tide-mark resource only inside 九尾狐's private observation package, and blank paper only as material for records. Do not treat an ordinary object as an artifact before a valid artifact write creates a version.\n\nWorld State evidence is the original World Arbiter receipt plus the pipeline's source/time/resource consequences. `fac_test_scaffold_boundary` is not a character actor and must never be asked to sign, read, stamp, or execute an in-world action. TEST_SCAFFOLD labeling and external snapshot sealing are Host-level audit operations, not story events. The unverified prestige prompt does not need a background reply; inability to contact an absent sender must remain a legitimate constraint on 九九's autonomous decision.\n\nThe pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.",
+  "input_digest": "sha256:3b0f35ce3a35b70770b3c01cc20a8ea587c77d88811c56e2082f66291d0b0ae1",
+  "run_identity": "sha256:08989a57b314df96f3494265c44b60204dda286cbba266e827e864cb139860ca",
+  "updated_at": "2026-09-16T20:28:34.342887+08:00",
+  "evidence": {
+    "preplan": {
+      "stage": "preplan",
+      "status": "verified",
+      "checked_at": "2026-09-16T20:18:22.715359+08:00",
+      "message": "coarse skeleton ready; staged projected chapters=3",
+      "artifacts": [
+        "meta/planning/chapters/000001.json",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000001.projected.json",
+        "meta/planning/chapters/000002.json",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000002.projected.json",
+        "meta/planning/chapters/000003.json",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000003.projected.json",
+        "meta/planning/volumes/001.json",
+        "meta/planning/preplan_receipt.json",
+        "meta/planning/book_causal_skeleton.json"
+      ],
+      "artifact_digests": {
+        "meta/planning/book_causal_skeleton.json": "sha256:544037a370bbe5e89fd160eeea37b25897493836eb81f00ce922bb2b43cd9112",
+        "meta/planning/chapters/000001.json": "sha256:8fb1e19806ef02fe064c3f1fb1a29a4bd90c7717530e1440e2a390ab7e4b52b8",
+        "meta/planning/chapters/000002.json": "sha256:d789e98cbe1e69490666a37eca4157aeb5495f736f33e3877bd70b3412a1e48b",
+        "meta/planning/chapters/000003.json": "sha256:b678523d99953d09d0da274f12ffd6b78732a5332deb0c8cdf84dd65653fd2e1",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000001.projected.json": "sha256:83a22b84712ac8491b6cb1d4c88f53912a5a8ff6b819be9362cae21b74f51e77",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000002.projected.json": "sha256:87454296c4685b3dd57c99bb4678b7b71c4816d4b2dfc08c40949a3a72aa17de",
+        "meta/planning/generations/002a0f4e3cb8942b/chapters/000003.projected.json": "sha256:ede6d542d88674b86701a09d97072de26f86b1a73cd2b72b4fb346ec31ac5d6b",
+        "meta/planning/preplan_receipt.json": "sha256:04e84c5da8ce5415ccb010fcffc32f246fed3bba63d1222042d78dc6055c5cd9",
+        "meta/planning/volumes/001.json": "sha256:851380fdf3f820abc4c7f12aa5b5389a5a450f1488f4b120fcfd0a08e46ffd83"
+      },
+      "checkpoints": [
+        "projected-state:7bae4de109665e9dfc67c1d0728fd0cf7f5f38646bcd963cc88499c59fbdf3d0"
+      ]
+    },
+    "zero-init": {
+      "stage": "zero-init",
+      "status": "verified",
+      "checked_at": "2026-09-16T20:18:22.587365+08:00",
+      "message": "zero-init ready",
+      "artifacts": [
+        "meta/first_chapter_generation_readiness.json",
+        "meta/first_chapter_generation_readiness.md",
+        "meta/ch01_zero_init_plan.md"
+      ],
+      "artifact_digests": {
+        "meta/ch01_zero_init_plan.md": "sha256:731190a60d04f05aa8f3fc662ca977681a189f780e5ef4955a269ab552bf8e43",
+        "meta/first_chapter_generation_readiness.json": "sha256:f8287ef12fdafd4badcd8814efdf2d5432cfb5c1e199cbc7d29601243b58fa07",
+        "meta/first_chapter_generation_readiness.md": "sha256:e6549ea2097bc5ef4f1ccadc6a6f666163efc376ccfd79bdd24d35535b301742"
+      }
+    }
+  }
+}

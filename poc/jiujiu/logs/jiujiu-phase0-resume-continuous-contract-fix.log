@@ -1,0 +1,74 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：outline-all
+
+========== 阶段：outline-all ==========
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 19:47:57 INFO codex prompt 已压缩 module=codex runes_before=81859 runes_after=81857 budget=90000
+2026/09/16 19:48:01 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=81857 structured=true attempt_timeout_ms=899999
+2026/09/16 19:48:13 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=16077 output_runes=485
+2026/09/16 19:48:13 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=46681 output_tokens=295 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 19:48:14 INFO codex prompt 已压缩 module=codex runes_before=81737 runes_after=81735 budget=90000
+2026/09/16 19:48:17 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=81735 structured=true attempt_timeout_ms=899999
+2026/09/16 19:49:50 INFO codex call finished module=codex call_id=2 kind=control status=ok elapsed_ms=96386 output_runes=7228
+2026/09/16 19:49:50 INFO codex call usage module=codex call_id=2 usage_source=reported input_tokens=46709 output_tokens=3717 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:49:50 INFO codex prompt 已压缩 module=codex runes_before=92288 runes_after=90000 budget=90000
+2026/09/16 19:49:53 INFO codex call started module=codex call_id=3 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 19:51:11 INFO codex call finished module=codex call_id=3 kind=control status=ok elapsed_ms=80494 output_runes=6419
+2026/09/16 19:51:11 INFO codex call usage module=codex call_id=3 usage_source=reported input_tokens=49825 output_tokens=3934 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:51:11 INFO codex prompt 已压缩 module=codex runes_before=99612 runes_after=90000 budget=90000
+2026/09/16 19:51:14 INFO codex call started module=codex call_id=4 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+[pipeline:watchdog] stage=outline-all chapter=0 已连续 5m0s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+2026/09/16 19:52:57 INFO codex call finished module=codex call_id=4 kind=control status=ok elapsed_ms=106730 output_runes=6471
+2026/09/16 19:52:57 INFO codex call usage module=codex call_id=4 usage_source=reported input_tokens=50489 output_tokens=4613 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:52:57 INFO codex prompt 已压缩 module=codex runes_before=106318 runes_after=90000 budget=90000
+2026/09/16 19:53:01 INFO codex call started module=codex call_id=5 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 19:55:46 INFO codex call finished module=codex call_id=5 kind=control status=ok elapsed_ms=168703 output_runes=6411
+2026/09/16 19:55:46 INFO codex call usage module=codex call_id=5 usage_source=reported input_tokens=51130 output_tokens=6497 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 2 architect: outline-all direct Architect run: max turns (4) reached
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：outline-all
+
+========== 阶段：outline-all ==========
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 19:55:58 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 19:55:58 INFO codex prompt 已压缩 module=codex runes_before=81737 runes_after=81735 budget=90000
+2026/09/16 19:56:03 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=81735 structured=true attempt_timeout_ms=899999
+2026/09/16 19:57:25 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=87206 output_runes=7337
+2026/09/16 19:57:25 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=46709 output_tokens=3885 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:57:25 INFO codex prompt 已压缩 module=codex runes_before=92397 runes_after=90000 budget=90000
+2026/09/16 19:57:29 INFO codex call started module=codex call_id=2 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 19:58:31 INFO codex call finished module=codex call_id=2 kind=control status=ok elapsed_ms=65949 output_runes=6496
+2026/09/16 19:58:31 INFO codex call usage module=codex call_id=2 usage_source=reported input_tokens=49796 output_tokens=2967 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:58:31 INFO codex prompt 已压缩 module=codex runes_before=99938 runes_after=90000 budget=90000
+2026/09/16 19:58:36 INFO codex call started module=codex call_id=3 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+2026/09/16 19:59:59 INFO codex call finished module=codex call_id=3 kind=control status=ok elapsed_ms=88168 output_runes=6646
+2026/09/16 19:59:59 INFO codex call usage module=codex call_id=3 usage_source=reported input_tokens=49290 output_tokens=4136 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 19:59:59 INFO codex prompt 已压缩 module=codex runes_before=106977 runes_after=90000 budget=90000
+2026/09/16 20:00:03 INFO codex call started module=codex call_id=4 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=90000 structured=true attempt_timeout_ms=899999
+[pipeline:watchdog] stage=outline-all chapter=0 已连续 5m0s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+2026/09/16 20:01:06 INFO codex call finished module=codex call_id=4 kind=control status=ok elapsed_ms=66887 output_runes=6655
+2026/09/16 20:01:06 INFO codex call usage module=codex call_id=4 usage_source=reported input_tokens=51201 output_tokens=3118 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+pipeline: 阶段 outline-all 失败（修复后重跑 --pipeline 即从此阶段继续）: outline-all operation 2 architect: outline-all direct Architect run: max turns (4) reached
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）

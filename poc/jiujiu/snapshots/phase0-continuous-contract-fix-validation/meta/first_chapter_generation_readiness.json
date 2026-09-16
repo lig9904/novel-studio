@@ -1,0 +1,39 @@
+{
+  "ready": true,
+  "schema_version": 8,
+  "generator_version": "dev",
+  "warnings": [
+    "initial_character_dynamics 仍是零章模板（≥2 个角色 speech_principle/current_goal 完全相同），Architect 需在正式 plan 前特化角色声口与目标",
+    "initial_character_dynamics.diction_and_rhythm 同质化（≥3 个角色完全相同），需在 zero-init 特化人物目标/潜台词/关系姿态/语气节奏",
+    "prewrite_storycraft_plan.emotional_logic 情绪复合项同质化（≥3 个角色完全相同），需回到 Architect/zero-init 特化情绪强度与动机",
+    "drafts/01.zero_init.plan.causal_simulation.emotional_logic 情绪复合项同质化（≥3 个角色完全相同），需回到 Architect/zero-init 特化情绪强度与动机"
+  ],
+  "story_time": {
+    "validated": true,
+    "source": "outline_all",
+    "target_chapters": 3,
+    "duration_days_min": 6,
+    "duration_days_max": 6,
+    "nominal_days_per_chapter": 2,
+    "core_digest": "sha256:2bb0530c1a8a5354bf6127495e079cd92b6ee11d3ea5e12255b4a01730cafa8c",
+    "schedule_digest": "sha256:0768f278a2eb2f82e40f81e552d123758066098122ad9e18d90842d2d3ce8848",
+    "calendar_synced": true
+  },
+  "rag": {
+    "enabled": true,
+    "index_path": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-resume-layered-run/output/novel/meta/rag/index_state.json",
+    "files": 24,
+    "chunks": 184
+  },
+  "generated_at": "2026-09-16T20:15:47+08:00",
+  "path": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-resume-layered-run/output/novel/meta/first_chapter_generation_readiness.md",
+  "foundation_dependencies": {
+    "characters.json": "sha256:849b45dbd2c06102e9596b82265211f3a41ab93916adf68501a33db7fe8c158e",
+    "layered_outline.json": "sha256:7347a55896dd59fa4b84b80d7810bce1fe20c2300dca40aa5085b77b3acd0a4a",
+    "meta/user_rules.json": "sha256:ab14e28a7c15a01f60c4c3e0d9906867340d77b7a242cf2181a6285354de4b8d",
+    "meta/world_coherence_report.json": "sha256:e4bec77c0d65fb157ae98cd6fe09437ea11371942917d5188402a5ebf53c6f70",
+    "premise.md": "sha256:14505d1933a7c05978bd0c08e941a6b649d8876aee34f6197434abf6b681ad39",
+    "world_codex.json": "sha256:8a8e3a67a25703f3112105123a56099fbcb0fbffc1713177079f5607e792ef05",
+    "world_rules.json": "sha256:571fc4e812634f8ab6a73e02112c59dc7e4d77ad0866ec7a244ed7c94753148c"
+  }
+}

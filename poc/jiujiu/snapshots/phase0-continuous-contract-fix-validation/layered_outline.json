@@ -1,0 +1,249 @@
+[
+  {
+    "index": 1,
+    "title": "第一卷 · 渔岛潮汛（TEST_SCAFFOLD）",
+    "theme": "TEST_SCAFFOLD：守在水边与被人看见能否同时兼得；所有选择与结果均保持临时、非官方 Canon",
+    "arcs": [
+      {
+        "index": 1,
+        "title": "弧一 · 水线三影（TEST_SCAFFOLD）",
+        "goal": "TEST_SCAFFOLD：在三章内以有界近岸水情异动激活九九、九尾狐与羽族凤凰；保留九九对未经验证声望机会的自主选择空间并让其承担可观测后果，收束水情事件，同时维持狐潮痕的私有知识边界及凤凰的最小知识边界。声望机会始终为非阻塞环境压力，不要求寻找发信人、取得凭据或生成任何相关材料；所有未批准信息继续保持 TBD。",
+        "chapters": [
+          {
+            "chapter": 0,
+            "title": "水线先动了（TEST_SCAFFOLD）",
+            "core_event": "TEST_SCAFFOLD：行动者九九在西侧礁岸值守点面对近岸涌势异常、警示浮标状态变化与心中重新浮起的未验证声望压力，由 Character Agent 在留守观察、接近浮标取得其实际支持的读数、或采取符合当前状态的其他行动之间自主选择；World Arbiter 只按它实际所在地点和实际观测裁定结果。与此同时，真九尾狐在西侧潮间带私下复看自己的潮痕，完整凤凰神鸟在东侧步道尽头观察陌生水岸。阻力来自变化中的潮线、跨地点距离与彼此未知；章末状态变为三者均已进入同一场水情事件，但各自只获得亲见范围内的信息，未自动获知对方身份或私有知识。",
+            "hook": "浮标警示与水线涌势继续变化，下一章必须在潮线进一步压缩活动空间前，根据三者各自实际位置处理眼前水情；这一后果不依赖声望机会得到验证。",
+            "scenes": [
+              "TEST_SCAFFOLD：西侧礁岸值守点，九九先以公共水域资源作水色、涌势、水线位置与异响的定性观察；若它实际前往近岸浮标水线，才可读取警示浮标支持的刻度与警示灯信息。",
+              "TEST_SCAFFOLD：西侧潮间带，九尾狐独自复看 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，变化中的潮线威胁它继续观察；本场只进入九尾狐的私有观察包，不向九九或凤凰展示潮痕内容。",
+              "TEST_SCAFFOLD：东侧步道尽头临水空地，凤凰以完整凤凰神鸟兽体停在止步线内，从水面动静与远处生灵的可见动作判断是否靠近；它仍只确定自己是凤凰且与羽族有关。",
+              "TEST_SCAFFOLD：三者隔着水湾首次互相进入视野，任何身份判断、交流或移动都必须由实际行动与来源事件产生，不能用模型推断补足。"
+            ]
+          },
+          {
+            "chapter": 0,
+            "title": "三个都看见了，却不是同一件事（TEST_SCAFFOLD）",
+            "core_event": "TEST_SCAFFOLD：近岸水情在同一日下午进入更紧迫的阶段。九九面对守护位置、浮标读数与未验证声望压力之间的注意力冲突，由 Character Agent 自主决定继续留守、短程取得读数、暂缓声望选择或提出其他可执行办法；九尾狐决定是否为保住私有观察位置而移动，凤凰决定是否沿步道接近但不越过水边限制。阻力是潮间带退路收窄、浮标水线涌流增强以及三者无法共享视角；状态变化为水情处置窗口缩短，三者的位置和彼此知识只按实际行动更新，声望机会仍不是处置水情的前置材料。",
+            "hook": "水情将在下一章的有界潮汐窗口内达到必须结算的节点；九九届时必须依据自身实际状态作出选择，留守、离开、推迟或替代方案都会产生可观测后果。",
+            "scenes": [
+              "TEST_SCAFFOLD：九九根据上一章真实取得的定性观察和可能存在的浮标读数判断近岸风险；没有到场读数时，不得拿旧读数或体感冒充浮标当前数值。",
+              "TEST_SCAFFOLD：九尾狐在逐渐被水切断的潮间带路径上选择自己的落脚处，它可以继续观察、后退或采取其他符合自身状态的行动，但不被迫公开狐潮痕。",
+              "TEST_SCAFFOLD：凤凰若沿东侧步道向西侧移动，必须承担既有路线耗时、节前围挡和人流延误；它只能从亲见动作认识陌生生灵，不能由外形自动知道九九、九尾狐或地方传说。",
+              "TEST_SCAFFOLD：三者在水线两侧形成一次可记录的错位接触：各自针对自己看见的问题行动，同场不等于共享信息，任何当面表达只有实际发生后才成为知识来源。"
+            ]
+          },
+          {
+            "chapter": 0,
+            "title": "轮到九九自己选（TEST_SCAFFOLD）",
+            "core_event": "TEST_SCAFFOLD：在近岸水情的最终有界潮汐窗口内，九九由 Character Agent 依当前地点、已知事实、守护承诺与性格自主选择追逐、留守、推迟、拒绝、提出替代方案、接受风险或其他一致行动；World Arbiter 按其实际选择结算值守是否出现空窗、它取得或放弃了什么，以及水边承受的可观测后果。九九只能使用亲见水域状态与警示浮标实际支持的读数处置事件，水情随后按地点、时间、资源和行动后果完成结算。九尾狐与凤凰各自按真实行动结束本次接触。世界裁决者逐条核对三章已经记录的亲见、当面转述与可读来源，把九九、九尾狐、凤凰的章末知识表分别更新为这些来源实际承载的内容；将狐潮痕登记在九尾狐私有观察表，将九九与凤凰对应条目标记为 UNKNOWN，并把其余没有记录来源的条目标记为 UNKNOWN，章末形成私有观察归属原观察者的终态。",
+            "hook": "水情退去后，结尾保留九九实际选择造成的可见结果——持续在场、值守空窗、延后的行动或其他已裁定代价——作为这次 TEST_SCAFFOLD 的终态，不承诺下一章材料，也不把未验证声望机会升级为事实。",
+            "scenes": [
+              "TEST_SCAFFOLD：在西侧礁岸值守点、近岸浮标水线或九九实际到达的位置，World Arbiter 依据它的在场状态、公共水域定性观察和浮标合法读数，结清本次水情的范围、持续时间与现实后果。",
+              "TEST_SCAFFOLD：九九在守护责任与未验证声望压力之间作出真实选择；场景记录它采取的行动和直接代价，不替 Character Agent 预设留下或离开的答案。",
+              "TEST_SCAFFOLD：九尾狐完成最后一次私有观察；世界裁决者核对三章来源事件后，将狐潮痕写入九尾狐的私有知识终态，并将九九与凤凰关于狐潮痕的知识栏固定为 UNKNOWN，使该私有观察继续归属九尾狐。",
+              "TEST_SCAFFOLD：世界裁决者按三章中已经记录的亲见、当面转述与可读来源逐项更新三者知识表：凤凰的终态包含自身凤凰身份、与羽族有关及实际来源承载的有限信息；羽族性质和未获来源的其他条目落为 UNKNOWN 或 TBD。",
+              "TEST_SCAFFOLD：世界裁决者完成来源台账结算，将地方开海传说登记为未形成九九身世或能力证据的传闻条目，并把九九与该传说的关联维持为 TBD。"
+            ],
+            "contract_refs": [
+              {
+                "id": "open_thread-00-99b3bcea5cd1",
+                "kind": "open_thread",
+                "source_digest": "sha256:99b3bcea5cd12201639f9060d3615eac8cfc8a3a7079a91c557b994ec076576e",
+                "evidence_mode": "payoff",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "世界裁决者在第3章核对全部已记录来源事件；未发生明确传递时，狐潮痕终态仍仅九尾狐可知，九九与凤凰保持未知。"
+              },
+              {
+                "id": "open_thread-01-bbf568d8e57b",
+                "kind": "open_thread",
+                "source_digest": "sha256:bbf568d8e57be66e61f76238e6b538b83008c6b31278b95090b4ce02bc303020",
+                "evidence_mode": "payoff",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "九九在第3章依自身状态作出追、留或替代选择并承担可观测后果；机会终态仍为未验证、发信人不可用且无凭据。"
+              },
+              {
+                "id": "open_thread-02-454b1b981e08",
+                "kind": "open_thread",
+                "source_digest": "sha256:454b1b981e08500e387bcfed5a9fee2132289a9dbf86b8a0cb7ddc945a788acd",
+                "evidence_mode": "payoff",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "九九依据在场水域观察与浮标支持的读数采取行动，世界裁决者在第3章结清地点、时间、资源和后果，使本次有界水情异动结束。"
+              },
+              {
+                "id": "open_thread-03-2f2b2de24108",
+                "kind": "open_thread",
+                "source_digest": "sha256:2f2b2de24108422fc0f590e0e04370aafce633f84404aea1d5bfbfbbab3733d6",
+                "evidence_mode": "payoff",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "世界裁决者在第3章只按已记录的亲见、转述或可读来源更新三者知识；无来源的信息终态继续为未知，私有观察不串流。"
+              },
+              {
+                "id": "open_thread-04-6405a1906d61",
+                "kind": "open_thread",
+                "source_digest": "sha256:6405a1906d619829784b346abcf1b48d7112dd41bf1f32a5f0e185e6b6dd7a58",
+                "evidence_mode": "payoff",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "世界裁决者在第3章依据三章已记录的来源事件完成边界裁定：凤凰仅确认自身凤凰身份及与羽族有关，羽族性质未被披露；开海传说没有形成九九身世证据，不能证明二者有关。"
+              }
+            ]
+          }
+        ],
+        "contract_refs": [
+          {
+            "id": "non_negotiable-00-3485c36087c1",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:3485c36087c129bda2ea0991bbd0fd6f5b9e1c91eed9efd1f00501a9fd509b63",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-01-139705b110f5",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:139705b110f5724bd1c63e7c8415ddc74bf27cec14a63025ed713fc80ad9d892",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-02-28c70552c318",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:28c70552c3183349bcbcdc40b14b7acdd96111ad75d2f08407dc4d94fae0b3a5",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-03-b24628cc9085",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:b24628cc90859a3b51e1ad92600c1e36e925674bf52abd02ffb0dee115c127c9",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-04-ec08c42f00d8",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:ec08c42f00d8b4773caffb4f534e09c546ee16d40a9bf56df0fc7f88a6dc97e3",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-05-f84568d414ed",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:f84568d414edf60e787199770ef1f914c3108da9684c8be4405cbdfa7dccf787",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-06-2974d902bc6a",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:2974d902bc6a274fa72419bd402b284f18f64d6f84f52d3a45976251ff2d9701",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-07-335e3a1af6fb",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:335e3a1af6fb47fab641fc187e234e05a4f0cea90f959481a9b10bb27977cb05",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-08-03340d7d01cd",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:03340d7d01cdb0e824fbc28a96bc7ae15f125eb6368e97b65df92e047e806e66",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-09-23d7e5a494d5",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:23d7e5a494d5835f182b2f03b40b90689291d6424ed59fb0f5c62166457c9529",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-10-6332d3670ab3",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:6332d3670ab3c656c01572c951f4bc41aae26c87a46632a072e6dc8fdf284702",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-11-0465628a58b7",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:0465628a58b7051f141def10fb93f72c8acc5a721302d4aa7ed8292b9bd03820",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-12-f45e48048c1a",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:f45e48048c1a5755ccd11bbbe5729a079744b9a17311e07e0d2801d412b2d1d5",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-13-748fa0653f30",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:748fa0653f304a012a0340595b93ae921f53b75b05aba43a086b624aabf7dac3",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-14-fae0e6d181cb",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:fae0e6d181cb493d3a5e28f08df6670a876b818f11fd0080a3b0d797a603b271",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "non_negotiable-15-310588d2d524",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:310588d2d5245499080b265878a0920c21774c5f4cdfcae69bde3366d8ff5adb",
+            "evidence_mode": "continuous",
+            "planned_payoff_chapter": 0
+          },
+          {
+            "id": "open_thread-00-99b3bcea5cd1",
+            "kind": "open_thread",
+            "source_digest": "sha256:99b3bcea5cd12201639f9060d3615eac8cfc8a3a7079a91c557b994ec076576e",
+            "evidence_mode": "payoff",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "世界裁决者在第3章核对全部已记录来源事件；未发生明确传递时，狐潮痕终态仍仅九尾狐可知，九九与凤凰保持未知。"
+          },
+          {
+            "id": "open_thread-01-bbf568d8e57b",
+            "kind": "open_thread",
+            "source_digest": "sha256:bbf568d8e57be66e61f76238e6b538b83008c6b31278b95090b4ce02bc303020",
+            "evidence_mode": "payoff",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "九九在第3章依自身状态作出追、留或替代选择并承担可观测后果；机会终态仍为未验证、发信人不可用且无凭据。"
+          },
+          {
+            "id": "open_thread-02-454b1b981e08",
+            "kind": "open_thread",
+            "source_digest": "sha256:454b1b981e08500e387bcfed5a9fee2132289a9dbf86b8a0cb7ddc945a788acd",
+            "evidence_mode": "payoff",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "九九依据在场水域观察与浮标支持的读数采取行动，世界裁决者在第3章结清地点、时间、资源和后果，使本次有界水情异动结束。"
+          },
+          {
+            "id": "open_thread-03-2f2b2de24108",
+            "kind": "open_thread",
+            "source_digest": "sha256:2f2b2de24108422fc0f590e0e04370aafce633f84404aea1d5bfbfbbab3733d6",
+            "evidence_mode": "payoff",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "世界裁决者在第3章只按已记录的亲见、转述或可读来源更新三者知识；无来源的信息终态继续为未知，私有观察不串流。"
+          },
+          {
+            "id": "open_thread-04-6405a1906d61",
+            "kind": "open_thread",
+            "source_digest": "sha256:6405a1906d619829784b346abcf1b48d7112dd41bf1f32a5f0e185e6b6dd7a58",
+            "evidence_mode": "payoff",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "世界裁决者在第3章依据三章已记录的来源事件完成边界裁定：凤凰仅确认自身凤凰身份及与羽族有关，羽族性质未被披露；开海传说没有形成九九身世证据，不能证明二者有关。"
+          }
+        ]
+      }
+    ]
+  }
+]

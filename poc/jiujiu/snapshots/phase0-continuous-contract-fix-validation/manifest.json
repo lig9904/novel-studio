@@ -1,0 +1,21 @@
+{
+  "schema": "jiujiu-phase0-snapshot.v1",
+  "kind": "phase0-continuous-contract-fix-validation",
+  "baseline": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "core_fix_commit": "f6d611b",
+  "upstream_pr": "https://github.com/Xiaoyangy/novel-studio/pull/6",
+  "outline_all_status": "complete",
+  "outline_all_completed_action_count": 3,
+  "final_layered_digest": "sha256:0c95cd026388666bf184b9039efa6cbb00a0552eeee2ecbad8a1337875eb9876",
+  "continuous_contract_count": 16,
+  "payoff_contract_count": 5,
+  "zero_init": "pass",
+  "preplan": "pass",
+  "rehearsal_report_digest": "sha256:12888ad3c625ebf136547994bf822b73f882d4699882d165bbebb1c28a4269c4",
+  "ready_for_detail": false,
+  "character_agent_executed": false,
+  "promote_executed": false,
+  "render_executed": false,
+  "accepted_canon_mutated": false
+}
+
