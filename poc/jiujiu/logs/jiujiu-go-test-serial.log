@@ -1,0 +1,38 @@
+ok  	github.com/chenhongyang/novel-studio/assets	0.854s
+ok  	github.com/chenhongyang/novel-studio/cmd/novel-studio	109.708s
+ok  	github.com/chenhongyang/novel-studio/internal/agents	84.918s
+ok  	github.com/chenhongyang/novel-studio/internal/agents/ctxpack	0.844s
+ok  	github.com/chenhongyang/novel-studio/internal/aigc	0.484s
+?   	github.com/chenhongyang/novel-studio/internal/aitrace	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/bootstrap	0.563s
+ok  	github.com/chenhongyang/novel-studio/internal/diag	0.913s
+ok  	github.com/chenhongyang/novel-studio/internal/domain	7.316s
+ok  	github.com/chenhongyang/novel-studio/internal/editor/rules	0.502s
+ok  	github.com/chenhongyang/novel-studio/internal/entry/headless	0.874s
+?   	github.com/chenhongyang/novel-studio/internal/entry/startup	[no test files]
+?   	github.com/chenhongyang/novel-studio/internal/errs	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/eval	0.885s
+ok  	github.com/chenhongyang/novel-studio/internal/host	3.684s
+ok  	github.com/chenhongyang/novel-studio/internal/host/flow	1.151s
+ok  	github.com/chenhongyang/novel-studio/internal/host/reminder	1.516s
+ok  	github.com/chenhongyang/novel-studio/internal/host/sim	0.611s
+ok  	github.com/chenhongyang/novel-studio/internal/llmcodex	23.708s
+?   	github.com/chenhongyang/novel-studio/internal/logger	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/modelinput	0.516s
+ok  	github.com/chenhongyang/novel-studio/internal/models	0.573s
+ok  	github.com/chenhongyang/novel-studio/internal/notify	0.797s
+ok  	github.com/chenhongyang/novel-studio/internal/rag	4.224s
+ok  	github.com/chenhongyang/novel-studio/internal/reviewreport	0.569s
+ok  	github.com/chenhongyang/novel-studio/internal/rules	0.715s
+ok  	github.com/chenhongyang/novel-studio/internal/store	71.285s
+ok  	github.com/chenhongyang/novel-studio/internal/stylestat	1.321s
+ok  	github.com/chenhongyang/novel-studio/internal/testutil	0.571s
+ok  	github.com/chenhongyang/novel-studio/internal/tools	56.606s
+ok  	github.com/chenhongyang/novel-studio/internal/userrules	2.858s
+?   	github.com/chenhongyang/novel-studio/internal/utils	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/version	0.612s
+?   	github.com/chenhongyang/novel-studio/internal/writer/prompts	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/writer/sampler	0.545s
+?   	github.com/chenhongyang/novel-studio/quality/audit	[no test files]
+ok  	github.com/chenhongyang/novel-studio/services/dashboard	0.606s
+ok  	github.com/chenhongyang/novel-studio/skills	0.586s

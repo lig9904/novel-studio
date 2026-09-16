@@ -1,0 +1,7 @@
+=== RUN   TestRunCodexProseUnwrapsSingleFieldSchema
+2026/09/16 11:55:32 INFO codex call started module=codex call_id=1 kind=prose model=gpt-5.6-sol reasoning=ultra prompt_runes=5 structured=true attempt_timeout_ms=899999
+2026/09/16 11:55:32 INFO codex call finished module=codex call_id=1 kind=prose status=ok elapsed_ms=501 output_runes=28
+2026/09/16 11:55:32 INFO codex call usage module=codex call_id=1 usage_source=estimated input_tokens=5 output_tokens=28 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+--- PASS: TestRunCodexProseUnwrapsSingleFieldSchema (0.50s)
+PASS
+ok  	github.com/chenhongyang/novel-studio/internal/llmcodex	1.823s

@@ -1,0 +1,7 @@
+[dashboard-python]
+.....................................................
+----------------------------------------------------------------------
+Ran 53 tests in 0.862s
+
+OK
+python3 -m unittest discover -s services/dashboard -p 'test_*.py'  0.18s user 0.24s system 43% cpu 0.981 total

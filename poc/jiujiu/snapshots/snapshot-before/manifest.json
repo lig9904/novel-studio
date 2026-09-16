@@ -1,0 +1,16 @@
+{
+  "schema": "jiujiu-phase0-snapshot.v1",
+  "kind": "before",
+  "captured_at": "2026-09-16T12:36:00+08:00",
+  "baseline_commit": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "branch": "poc/jiujiu-phase0",
+  "tag": "audit-baseline-2026-09",
+  "origin": "https://github.com/lig9904/novel-studio.git",
+  "upstream": "https://github.com/Xiaoyangy/novel-studio.git",
+  "existing_novel_run": false,
+  "accepted_canon_state_present": false,
+  "candidate_state_present": false,
+  "pending_state_present": false,
+  "core_source_modified": false,
+  "input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a"
+}

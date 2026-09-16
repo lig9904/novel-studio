@@ -1,0 +1,7 @@
+=== RUN   TestArcRehearsalExactTransportUsesConfiguredBudgetWithoutClipping
+2026/09/16 11:55:34 INFO codex call started module=codex call_id=1 kind=control model=test-rehearsal reasoning=xhigh prompt_runes=127400 structured=true attempt_timeout_ms=899999
+2026/09/16 11:55:34 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=745 output_runes=81
+2026/09/16 11:55:34 INFO codex call usage module=codex call_id=1 usage_source=estimated input_tokens=127400 output_tokens=81 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+--- PASS: TestArcRehearsalExactTransportUsesConfiguredBudgetWithoutClipping (0.75s)
+PASS
+ok  	github.com/chenhongyang/novel-studio/internal/agents	1.397s

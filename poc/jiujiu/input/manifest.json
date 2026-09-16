@@ -1,0 +1,9 @@
+{
+  "schema": "jiujiu-phase0-input-manifest.v1",
+  "captured_at": "2026-09-16T12:36:00+08:00",
+  "source_path": "/Users/lg-mac/Downloads/jiujiu-poc-input.md",
+  "workspace_path": "poc/jiujiu/input/jiujiu-poc-input.md",
+  "sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a",
+  "source_and_workspace_match": true,
+  "modified_by_codex": false
+}

@@ -1,0 +1,131 @@
+#0 building with "colima" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 762B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:3.24.1
+#2 DONE 5.6s
+
+#3 [internal] load metadata for docker.io/library/golang:1.27.1-alpine3.24
+#3 DONE 5.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 325B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/4] FROM docker.io/library/alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#5 resolve docker.io/library/alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b done
+#5 DONE 0.0s
+
+#6 [builder 1/7] FROM docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125
+#6 resolve docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125 done
+#6 DONE 0.1s
+
+#7 [internal] load build context
+#7 transferring context: 28.23MB 0.2s done
+#7 DONE 0.2s
+
+#6 [builder 1/7] FROM docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125
+#6 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 0B / 32B 0.3s
+#6 sha256:3c2ad27b9e6eeaee9bc05b206bf08e4b7aa383e8b308fbcd6c36646863a772de 0B / 127B 0.2s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 0B / 67.65MB 0.2s
+#6 sha256:1d58b4aaf30ffd01b790483d1e9d2e288621e0b56bc3b43dfc9ca8b30c3256bb 0B / 247.51kB 0.2s
+#6 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.4s done
+#6 sha256:3c2ad27b9e6eeaee9bc05b206bf08e4b7aa383e8b308fbcd6c36646863a772de 127B / 127B 1.3s done
+#6 sha256:1d58b4aaf30ffd01b790483d1e9d2e288621e0b56bc3b43dfc9ca8b30c3256bb 247.51kB / 247.51kB 1.5s done
+#6 extracting sha256:1d58b4aaf30ffd01b790483d1e9d2e288621e0b56bc3b43dfc9ca8b30c3256bb 0.0s done
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 4.19MB / 67.65MB 2.4s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 8.39MB / 67.65MB 4.4s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 12.58MB / 67.65MB 6.5s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 16.78MB / 67.65MB 6.9s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 20.97MB / 67.65MB 9.0s
+#6 ...
+
+#8 [stage-1 2/4] RUN apk add --no-cache     ca-certificates     python3     tzdata
+#8 1.497 ( 1/19) Installing ca-certificates (20260611-r0)
+#8 1.637 ( 2/19) Installing libexpat (2.8.4-r0)
+#8 1.757 ( 3/19) Installing libbz2 (1.0.8-r6)
+#8 1.865 ( 4/19) Installing libffi (3.5.2-r1)
+#8 1.970 ( 5/19) Installing gdbm (1.26-r0)
+#8 2.076 ( 6/19) Installing xz-libs (5.8.4-r0)
+#8 2.326 ( 7/19) Installing libgcc (15.2.0-r5)
+#8 2.585 ( 8/19) Installing libstdc++ (15.2.0-r5)
+#8 2.983 ( 9/19) Installing mpdecimal (4.0.1-r0)
+#8 3.107 (10/19) Installing ncurses-terminfo-base (6.6_p20260516-r0)
+#8 3.271 (11/19) Installing libncursesw (6.6_p20260516-r0)
+#8 3.543 (12/19) Installing libpanelw (6.6_p20260516-r0)
+#8 3.778 (13/19) Installing readline (8.3.3-r1)
+#8 4.073 (14/19) Installing sqlite-libs (3.53.4-r0)
+#8 4.802 (15/19) Installing python3 (3.14.7-r1)
+#8 9.843 (16/19) Installing python3-pycache-pyc0 (3.14.7-r1)
+#8 ...
+
+#6 [builder 1/7] FROM docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 25.17MB / 67.65MB 11.1s
+#6 ...
+
+#8 [stage-1 2/4] RUN apk add --no-cache     ca-certificates     python3     tzdata
+#8 12.76 (17/19) Installing pyc (3.14.7-r1)
+#8 12.76 (18/19) Installing python3-pyc (3.14.7-r1)
+#8 12.76 (19/19) Installing tzdata (2026d-r0)
+#8 13.06 Executing busybox-1.37.0-r31.trigger
+#8 13.07 Executing ca-certificates-20260611-r0.trigger
+#8 13.08 OK: 51.1 MiB in 35 packages
+#8 DONE 13.1s
+
+#9 [stage-1 3/4] WORKDIR /workspace
+#9 DONE 0.0s
+
+#6 [builder 1/7] FROM docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 29.36MB / 67.65MB 13.2s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 33.55MB / 67.65MB 15.0s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 38.80MB / 67.65MB 15.6s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 42.99MB / 67.65MB 16.7s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 47.19MB / 67.65MB 17.9s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 51.38MB / 67.65MB 18.9s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 55.57MB / 67.65MB 20.1s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 59.77MB / 67.65MB 21.0s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 63.96MB / 67.65MB 22.4s
+#6 sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 67.65MB / 67.65MB 23.3s done
+#6 extracting sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d
+#6 extracting sha256:125215c6056cfe0a165d14de8a72a3546ec1167a4468ebcd93c0f403469ef15d 1.2s done
+#6 DONE 24.6s
+
+#6 [builder 1/7] FROM docker.io/library/golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125
+#6 extracting sha256:3c2ad27b9e6eeaee9bc05b206bf08e4b7aa383e8b308fbcd6c36646863a772de done
+#6 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+#6 DONE 24.6s
+
+#10 [builder 2/7] WORKDIR /src
+#10 DONE 0.2s
+
+#11 [builder 3/7] COPY go.mod go.sum ./
+#11 DONE 0.0s
+
+#12 [builder 4/7] COPY third_party/litellm/go.mod ./third_party/litellm/go.mod
+#12 DONE 0.0s
+
+#13 [builder 5/7] RUN go mod download
+#13 DONE 3.9s
+
+#14 [builder 6/7] COPY . .
+#14 DONE 0.1s
+
+#15 [builder 7/7] RUN GOOS=linux GOARCH=arm64     go build -trimpath -ldflags="-s -w"     -o /out/novel-studio     ./cmd/novel-studio
+#15 DONE 18.1s
+
+#16 [stage-1 4/4] COPY --from=builder /out/novel-studio /usr/local/bin/novel-studio
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 1.0s done
+#17 exporting manifest sha256:78c37b493f6a90d0c289b8bd4b2c7c71396fe91352df2429374b67e320706890 done
+#17 exporting config sha256:2ef86ec167157fc24372e0864676242286046bccf5b649c8105e2065c6ff0a3f done
+#17 exporting attestation manifest sha256:843e3009ca8ac84b891bed238a82e2da1f1e9b61f12f6d28662924ed73caab2f 0.0s done
+#17 exporting manifest list sha256:a9b0b804ad98718c5ba2c770349e349d0527a75df861bdaef5e9cd041a634890 0.0s done
+#17 naming to docker.io/library/novel-studio:jiujiu-phase0 done
+#17 unpacking to docker.io/library/novel-studio:jiujiu-phase0
+#17 unpacking to docker.io/library/novel-studio:jiujiu-phase0 0.3s done
+#17 DONE 1.3s

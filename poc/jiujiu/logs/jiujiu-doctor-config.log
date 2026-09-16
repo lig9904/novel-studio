@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "version": "dev",
+  "platform": "darwin/arm64",
+  "checks": [
+    {
+      "name": "platform",
+      "status": "pass",
+      "detail": "darwin/arm64"
+    },
+    {
+      "name": "version",
+      "status": "pass",
+      "detail": "dev (commit unknown)"
+    },
+    {
+      "name": "workspace",
+      "status": "pass",
+      "detail": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu"
+    },
+    {
+      "name": "config",
+      "status": "pass",
+      "detail": "provider=codex model=gpt-5.6-sol"
+    },
+    {
+      "name": "dashboard",
+      "status": "pass",
+      "detail": "Python 3.9; embedded assets 5809f3db98f75e6f"
+    },
+    {
+      "name": "qdrant",
+      "status": "skip",
+      "detail": "optional vector store is disabled"
+    },
+    {
+      "name": "source-build",
+      "status": "pass",
+      "detail": "Go 1.26.5 (/opt/homebrew/Cellar/go/1.26.5/libexec/bin/go)"
+    }
+  ]
+}

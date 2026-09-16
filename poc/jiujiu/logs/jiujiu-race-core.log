@@ -1,0 +1,4 @@
+[race-sensitive-packages]
+ok  	github.com/chenhongyang/novel-studio/internal/tools	234.435s
+ok  	github.com/chenhongyang/novel-studio/services/dashboard	1.618s
+go test -race -count=1 -timeout=10m ./internal/tools ./services/dashboard  215.55s user 14.16s system 94% cpu 4:03.46 total

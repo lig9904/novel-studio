@@ -1,0 +1,71 @@
+{
+  "provider": "codex",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "providers": {
+    "codex": {
+      "type": "codex-cli",
+      "models": ["gpt-5.6-sol"]
+    }
+  },
+  "roles": {
+    "coordinator": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    },
+    "architect": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    },
+    "writer": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "character": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "world_arbiter": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    },
+    "drafter": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "editor": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    },
+    "reviewer": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    }
+  },
+  "character_agents": {
+    "protocol": "v1",
+    "scope": "active_core",
+    "activation": "event_driven",
+    "max_concurrency": 4,
+    "max_revision_rounds": 1
+  },
+  "rag": {
+    "embedding": {
+      "enabled": false
+    },
+    "qdrant": {
+      "enabled": false
+    }
+  },
+  "notify": {
+    "enabled": false
+  }
+}

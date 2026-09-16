@@ -1,0 +1,29 @@
+ok  	github.com/voocel/litellm	2.473s
+?   	github.com/voocel/litellm/examples/anthropic	[no test files]
+?   	github.com/voocel/litellm/examples/bedrock	[no test files]
+?   	github.com/voocel/litellm/examples/deepseek	[no test files]
+?   	github.com/voocel/litellm/examples/gemini	[no test files]
+?   	github.com/voocel/litellm/examples/glm	[no test files]
+?   	github.com/voocel/litellm/examples/grok	[no test files]
+?   	github.com/voocel/litellm/examples/internal/exampleutil	[no test files]
+?   	github.com/voocel/litellm/examples/minimax	[no test files]
+?   	github.com/voocel/litellm/examples/ollama	[no test files]
+?   	github.com/voocel/litellm/examples/openai	[no test files]
+?   	github.com/voocel/litellm/examples/openrouter	[no test files]
+?   	github.com/voocel/litellm/examples/qwen	[no test files]
+?   	github.com/voocel/litellm/internal/testgolden	[no test files]
+ok  	github.com/voocel/litellm/pricing	2.991s
+ok  	github.com/voocel/litellm/provider/anthropic	3.582s
+ok  	github.com/voocel/litellm/provider/bedrock	4.077s
+ok  	github.com/voocel/litellm/provider/compat	5.917s
+ok  	github.com/voocel/litellm/provider/deepseek	7.520s
+ok  	github.com/voocel/litellm/provider/gemini	4.886s
+ok  	github.com/voocel/litellm/provider/glm	10.083s
+ok  	github.com/voocel/litellm/provider/grok	6.601s
+ok  	github.com/voocel/litellm/provider/mimo	5.403s
+ok  	github.com/voocel/litellm/provider/minimax	10.839s
+ok  	github.com/voocel/litellm/provider/ollama	9.179s
+ok  	github.com/voocel/litellm/provider/openai	11.685s
+ok  	github.com/voocel/litellm/provider/openrouter	11.150s
+ok  	github.com/voocel/litellm/provider/qwen	9.932s
+ok  	github.com/voocel/litellm/retry	9.914s

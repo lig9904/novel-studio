@@ -1,0 +1,2 @@
+[race-sharding-contracts]
+scripts/test-agents-race-shard-test.sh: line 42: mapfile: command not found

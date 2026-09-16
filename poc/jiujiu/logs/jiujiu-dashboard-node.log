@@ -1,0 +1,34 @@
+[dashboard-node]
+✔ broadcast separates unknown values from zero and keeps cost provenance (21.90125ms)
+✔ broadcast never treats cycles or formal plans as accepted prose (0.192333ms)
+✔ broadcast does not animate or describe stopped characters as actively deciding (5.604333ms)
+✔ broadcast escapes hostile names and identifiers without rendering private fields (0.235292ms)
+✔ broadcast polling never overlaps refreshes within one active generation (0.972166ms)
+✔ stopping cancels polling and ignores a late success or error (0.251458ms)
+✔ a previous book reply and finally cannot release or overwrite the new request (0.1765ms)
+✔ a failed current request reports once and retries through the scheduled timer (0.151958ms)
+✔ planning shows accepted chapters, actual shadow target/cycle and formal bundles independently (1.701541ms)
+✔ planning fallback does not invent a cycle or promote heartbeat to business progress (0.3345ms)
+✔ arc rehearsal keeps its stage token and never renders formal chapter progress (0.43075ms)
+✔ current character planning is labeled as projected and escapes source identity (0.351625ms)
+✔ character costs distinguish reported, estimated, unpriced and sleeping usage (1.171292ms)
+✔ partially priced role and arbiter aggregates never present a complete total (1.067417ms)
+✔ small positive character prices are never rounded to free (0.230167ms)
+✔ terminal failures need attention but are not counted as running (0.387ms)
+✔ pipeline failures expose escaped details in the runtime panel (0.363083ms)
+✔ backend failure state is not overwritten by a later metadata timestamp (0.326083ms)
+✔ polling does not duplicate an in-flight detail request (0.572875ms)
+✔ late responses cannot render into a different tab (0.289ms)
+✔ switching books discards old overview errors (0.273667ms)
+✔ closing the drawer cancels its request and ignores late success (0.261042ms)
+✔ failed current request releases polling for a retry (0.255333ms)
+✔ background tabs stop polling and refresh when visible again (3.30725ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71.931625
+node --test services/dashboard/test_client.js   0.12s user 0.03s system 123% cpu 0.117 total

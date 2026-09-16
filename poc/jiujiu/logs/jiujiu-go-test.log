@@ -1,0 +1,250 @@
+go: downloading github.com/voocel/agentcore v1.7.8
+ok  	github.com/chenhongyang/novel-studio/assets	1.908s
+ok  	github.com/chenhongyang/novel-studio/cmd/novel-studio	176.866s
+--- FAIL: TestArcRehearsalExactTransportUsesConfiguredBudgetWithoutClipping (5.02s)
+    arc_rehearsal_budget_test.go:51: Codex MCP isolation: configuration inventory canceled or timed out
+        context deadline exceeded
+[pipeline:rehearse-arc:world_arbiter] 提交校验未通过："\"json: unknown field \\\"capability_requirements\\\"\""
+[pipeline:rehearse-arc:world_arbiter] 提交校验未通过："\"json: unknown field \\\"capability_requirements\\\"\""
+2026/09/16 11:54:08 INFO arbiter diagnostic single-turn cap enabled module=character_tool_diagnostics
+FAIL
+FAIL	github.com/chenhongyang/novel-studio/internal/agents	132.241s
+ok  	github.com/chenhongyang/novel-studio/internal/agents/ctxpack	2.466s
+ok  	github.com/chenhongyang/novel-studio/internal/aigc	1.110s
+?   	github.com/chenhongyang/novel-studio/internal/aitrace	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/bootstrap	2.619s
+ok  	github.com/chenhongyang/novel-studio/internal/diag	5.047s
+ok  	github.com/chenhongyang/novel-studio/internal/domain	16.990s
+ok  	github.com/chenhongyang/novel-studio/internal/editor/rules	8.733s
+ok  	github.com/chenhongyang/novel-studio/internal/entry/headless	9.390s
+?   	github.com/chenhongyang/novel-studio/internal/entry/startup	[no test files]
+?   	github.com/chenhongyang/novel-studio/internal/errs	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/eval	4.767s
+ok  	github.com/chenhongyang/novel-studio/internal/host	9.128s
+ok  	github.com/chenhongyang/novel-studio/internal/host/flow	11.373s
+ok  	github.com/chenhongyang/novel-studio/internal/host/reminder	11.188s
+ok  	github.com/chenhongyang/novel-studio/internal/host/sim	8.731s
+--- FAIL: TestRunCodexProseUnwrapsSingleFieldSchema (5.01s)
+    codex_test.go:83: Codex MCP isolation: configuration inventory canceled or timed out
+        context deadline exceeded
+2026/09/16 11:52:22 INFO codex prompt 已压缩 module=codex runes_before=3352 runes_after=3350 budget=48000
+2026/09/16 11:52:27 INFO codex call started module=codex call_id=2 kind=prose model=gpt-5.6-sol reasoning=high prompt_runes=3350 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:27 INFO codex call finished module=codex call_id=2 kind=prose status=ok elapsed_ms=4657 output_runes=30
+2026/09/16 11:52:27 INFO codex call usage module=codex call_id=2 usage_source=estimated input_tokens=3350 output_tokens=30 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:27 INFO codex prompt 已压缩 module=codex runes_before=3352 runes_after=3350 budget=48000
+2026/09/16 11:52:28 INFO codex call started module=codex call_id=3 kind=prose model=gpt-5.6-sol reasoning=high prompt_runes=3350 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:28 INFO codex call finished module=codex call_id=3 kind=prose status=ok elapsed_ms=1206 output_runes=28
+2026/09/16 11:52:28 INFO codex call usage module=codex call_id=3 usage_source=estimated input_tokens=3350 output_tokens=28 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:28 INFO codex prompt 已压缩 module=codex runes_before=3352 runes_after=3350 budget=48000
+2026/09/16 11:52:31 INFO codex call started module=codex call_id=4 kind=prose model=gpt-5.6-sol reasoning=high prompt_runes=3350 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:31 INFO codex call finished module=codex call_id=4 kind=prose status=ok elapsed_ms=3132 output_runes=12
+2026/09/16 11:52:31 INFO codex call usage module=codex call_id=4 usage_source=estimated input_tokens=3350 output_tokens=12 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3353 runes_after=3351 budget=48000
+2026/09/16 11:52:31 INFO codex call started module=codex call_id=5 kind=prose model=gpt-5.6-sol reasoning=high prompt_runes=3351 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:31 INFO codex call finished module=codex call_id=5 kind=prose status=ok elapsed_ms=107 output_runes=14
+2026/09/16 11:52:31 INFO codex call usage module=codex call_id=5 usage_source=estimated input_tokens=3351 output_tokens=14 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3352 runes_after=3350 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=799 runes_after=797 budget=90000
+2026/09/16 11:52:31 INFO codex call started module=codex call_id=6 kind=control model=gpt-5.6-sol reasoning=high prompt_runes=797 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:31 INFO codex call finished module=codex call_id=6 kind=control status=ok elapsed_ms=110 output_runes=133
+2026/09/16 11:52:31 INFO codex call usage module=codex call_id=6 usage_source=estimated input_tokens=797 output_tokens=133 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2186 runes_after=2184 budget=48000
+2026/09/16 11:52:31 INFO codex call started module=codex call_id=7 kind=prose model=gpt-5.6-sol reasoning=high prompt_runes=2184 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:31 INFO codex call finished module=codex call_id=7 kind=prose status=ok elapsed_ms=34 output_runes=30
+2026/09/16 11:52:31 INFO codex call usage module=codex call_id=7 usage_source=estimated input_tokens=2184 output_tokens=30 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:31 INFO 正文已用独立 prose schema 重渲染（规避 arguments_json 的 AI 味） module=codex tool=draft_chapter prose_runes=16 cache_hit=false elapsed_ms=38
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=622 runes_after=620 budget=90000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=45632 runes_after=45630 budget=90000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3380 runes_after=3378 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3380 runes_after=3378 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=50562 runes_after=48000 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2182 runes_after=2180 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2181 runes_after=2179 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=26165 runes_after=26163 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2445 runes_after=2443 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3537 runes_after=3535 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2699 runes_after=2697 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3790 runes_after=3788 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=3134 runes_after=3132 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2532 runes_after=2530 budget=48000
+2026/09/16 11:52:31 INFO codex prompt 已压缩 module=codex runes_before=2667 runes_after=2665 budget=48000
+2026/09/16 11:52:32 INFO codex prompt 已压缩 module=codex runes_before=45598 runes_after=45596 budget=90000
+2026/09/16 11:52:32 INFO codex prompt 已压缩 module=codex runes_before=45598 runes_after=45596 budget=90000
+2026/09/16 11:52:32 INFO codex call started module=codex call_id=8 kind=control model=gpt-6-astra reasoning=xhigh prompt_runes=6056 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:32 INFO codex call finished module=codex call_id=8 kind=control status=ok elapsed_ms=779 output_runes=12
+2026/09/16 11:52:32 INFO codex call usage module=codex call_id=8 usage_source=estimated input_tokens=6056 output_tokens=12 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:33 INFO codex call started module=codex call_id=9 kind=control model=gpt-6-astra reasoning=xhigh prompt_runes=132909 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:33 INFO codex call finished module=codex call_id=9 kind=control status=ok elapsed_ms=451 output_runes=75
+2026/09/16 11:52:33 INFO codex call usage module=codex call_id=9 usage_source=reported input_tokens=1234 output_tokens=56 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:33 INFO codex prompt 已压缩 module=codex runes_before=45593 runes_after=45591 budget=90000
+2026/09/16 11:52:33 INFO codex prompt 已压缩 module=codex runes_before=98048 runes_after=90000 budget=90000
+2026/09/16 11:52:33 INFO codex call started module=codex call_id=10 kind=control model=gpt-6-astra reasoning=high prompt_runes=61 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:33 INFO codex call finished module=codex call_id=10 kind=control status=ok elapsed_ms=476 output_runes=5
+2026/09/16 11:52:33 INFO codex call usage module=codex call_id=10 usage_source=estimated input_tokens=61 output_tokens=5 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:34 INFO codex call started module=codex call_id=11 kind=control model=gpt-6-astra reasoning=high prompt_runes=60 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:34 INFO codex call finished module=codex call_id=11 kind=control status=ok elapsed_ms=485 output_runes=2
+2026/09/16 11:52:34 INFO codex call usage module=codex call_id=11 usage_source=estimated input_tokens=60 output_tokens=2 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:34 INFO codex call started module=codex call_id=12 kind=control model=gpt-6-astra reasoning=high prompt_runes=60 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:34 INFO codex call finished module=codex call_id=12 kind=control status=ok elapsed_ms=18 output_runes=2
+2026/09/16 11:52:34 INFO codex call usage module=codex call_id=12 usage_source=estimated input_tokens=60 output_tokens=2 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=22 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=18 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=25 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=23 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=24 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=21 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=20 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call started module=codex call_id=19 kind=prose model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=23 kind=prose status=ok elapsed_ms=753 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=23 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=25 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=25 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=18 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=18 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=22 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=22 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=20 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=20 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=21 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=21 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=19 kind=prose status=ok elapsed_ms=758 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=19 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:37 INFO codex call finished module=codex call_id=24 kind=prose status=ok elapsed_ms=762 output_runes=6
+2026/09/16 11:52:37 INFO codex call usage module=codex call_id=24 usage_source=estimated input_tokens=6 output_tokens=6 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:38 INFO codex call started module=codex call_id=26 kind=control model=gpt-6-astra reasoning=high prompt_runes=79 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:38 WARN codex call finished module=codex call_id=26 kind=control status=error elapsed_ms=899 err="exit status 1"
+2026/09/16 11:52:38 INFO codex call usage module=codex call_id=26 usage_source=reported input_tokens=1200 output_tokens=50 cached_input_tokens=900 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:40 INFO codex call started module=codex call_id=27 kind=control model=gpt-6-astra reasoning=high prompt_runes=79 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:40 WARN codex call finished module=codex call_id=27 kind=control status=error elapsed_ms=1768 err="exit status 1"
+2026/09/16 11:52:40 INFO codex call usage module=codex call_id=27 usage_source=reported input_tokens=1200 output_tokens=50 cached_input_tokens=900 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:41 INFO codex call started module=codex call_id=28 kind=control model=gpt-6-astra reasoning=high prompt_runes=69 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:41 INFO codex call finished module=codex call_id=28 kind=control status=ok elapsed_ms=454 output_runes=8
+2026/09/16 11:52:41 INFO codex call usage module=codex call_id=28 usage_source=reported input_tokens=100 output_tokens=20 cached_input_tokens=60 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:41 INFO codex call started module=codex call_id=29 kind=control model=gpt-6-astra reasoning=high prompt_runes=64 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:41 WARN codex call finished module=codex call_id=29 kind=control status=error elapsed_ms=462 err="exit status 1"
+2026/09/16 11:52:41 INFO codex call usage module=codex call_id=29 usage_source=reported input_tokens=9 output_tokens=1 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:41 INFO codex call started module=codex call_id=30 kind=control model=gpt-6-astra reasoning=high prompt_runes=75 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:41 WARN codex call finished module=codex call_id=30 kind=control status=error elapsed_ms=445 err="exit status 1"
+2026/09/16 11:52:41 INFO codex call usage module=codex call_id=30 usage_source=unavailable input_tokens=0 output_tokens=0 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:42 INFO codex call started module=codex call_id=31 kind=control model=gpt-6-astra reasoning=high prompt_runes=77 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:42 WARN codex call finished module=codex call_id=31 kind=control status=canceled elapsed_ms=460 err="signal: killed"
+2026/09/16 11:52:42 INFO codex call usage module=codex call_id=31 usage_source=reported input_tokens=50 output_tokens=5 cached_input_tokens=20 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:42 INFO codex call started module=codex call_id=32 kind=control model=gpt-6-astra reasoning=high prompt_runes=77 structured=false attempt_timeout_ms=805
+2026/09/16 11:52:43 WARN codex call finished module=codex call_id=32 kind=control status=timeout elapsed_ms=1001 err="signal: killed"
+2026/09/16 11:52:43 INFO codex call usage module=codex call_id=32 usage_source=reported input_tokens=50 output_tokens=5 cached_input_tokens=20 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:43 INFO codex call started module=codex call_id=33 kind=control model=gpt-6-astra reasoning=high prompt_runes=60 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:43 INFO codex call finished module=codex call_id=33 kind=control status=ok elapsed_ms=476 output_runes=7
+2026/09/16 11:52:43 INFO codex call usage module=codex call_id=33 usage_source=reported input_tokens=1200 output_tokens=50 cached_input_tokens=900 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:43 INFO codex prompt 已压缩 module=codex runes_before=841 runes_after=839 budget=90000
+2026/09/16 11:52:44 INFO codex call started module=codex call_id=34 kind=control model=gpt-6-astra reasoning=high prompt_runes=839 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:44 INFO codex call finished module=codex call_id=34 kind=control status=ok elapsed_ms=446 output_runes=135
+2026/09/16 11:52:44 INFO codex call usage module=codex call_id=34 usage_source=reported input_tokens=100 output_tokens=10 cached_input_tokens=50 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=2424 runes_after=2422 budget=48000
+2026/09/16 11:52:44 INFO codex call started module=codex call_id=35 kind=prose model=gpt-6-astra reasoning=high prompt_runes=2422 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:44 INFO codex call finished module=codex call_id=35 kind=prose status=ok elapsed_ms=32 output_runes=13
+2026/09/16 11:52:44 INFO codex call usage module=codex call_id=35 usage_source=reported input_tokens=200 output_tokens=20 cached_input_tokens=100 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=2424 runes_after=2422 budget=48000
+2026/09/16 11:52:44 INFO codex call started module=codex call_id=36 kind=prose model=gpt-6-astra reasoning=high prompt_runes=2627 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:44 INFO codex call finished module=codex call_id=36 kind=prose status=ok elapsed_ms=17 output_runes=40
+2026/09/16 11:52:44 INFO codex call usage module=codex call_id=36 usage_source=reported input_tokens=300 output_tokens=30 cached_input_tokens=150 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:44 INFO 正文触发一次有界字数纠偏 module=codex tool=draft_chapter before_runes=1 after_runes=28 min=10 max=100 repair_err=<nil> elapsed_ms=20
+2026/09/16 11:52:44 INFO 正文已用独立 prose schema 重渲染（规避 arguments_json 的 AI 味） module=codex tool=draft_chapter prose_runes=28 cache_hit=false elapsed_ms=65
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=782 runes_after=780 budget=90000
+2026/09/16 11:52:44 INFO codex call started module=codex call_id=37 kind=control model=gpt-6-astra reasoning=high prompt_runes=780 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:44 INFO codex call finished module=codex call_id=37 kind=control status=ok elapsed_ms=466 output_runes=135
+2026/09/16 11:52:44 INFO codex call usage module=codex call_id=37 usage_source=reported input_tokens=100 output_tokens=10 cached_input_tokens=70 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=2169 runes_after=2167 budget=48000
+2026/09/16 11:52:44 INFO codex call started module=codex call_id=38 kind=prose model=gpt-6-astra reasoning=high prompt_runes=2167 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:44 INFO codex call finished module=codex call_id=38 kind=prose status=ok elapsed_ms=20 output_runes=36
+2026/09/16 11:52:44 INFO codex call usage module=codex call_id=38 usage_source=estimated input_tokens=2167 output_tokens=36 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+2026/09/16 11:52:44 INFO 正文已用独立 prose schema 重渲染（规避 arguments_json 的 AI 味） module=codex tool=draft_chapter prose_runes=24 cache_hit=false elapsed_ms=21
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=2169 runes_after=2167 budget=48000
+2026/09/16 11:52:44 INFO codex prompt 已压缩 module=codex runes_before=2169 runes_after=2167 budget=48000
+2026/09/16 11:52:45 INFO codex prompt 已压缩 module=codex runes_before=2169 runes_after=2167 budget=48000
+2026/09/16 11:52:45 INFO 正文已用独立 prose schema 重渲染（规避 arguments_json 的 AI 味） module=codex tool=draft_chapter prose_runes=22 cache_hit=true elapsed_ms=0
+2026/09/16 11:52:45 INFO codex prompt 已压缩 module=codex runes_before=2172 runes_after=2170 budget=48000
+2026/09/16 11:52:45 INFO codex prompt 已压缩 module=codex runes_before=785 runes_after=783 budget=90000
+2026/09/16 11:52:45 INFO codex call started module=codex call_id=39 kind=control model=gpt-6-astra reasoning=high prompt_runes=783 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:45 INFO codex call finished module=codex call_id=39 kind=control status=ok elapsed_ms=553 output_runes=135
+2026/09/16 11:52:45 INFO codex call usage module=codex call_id=39 usage_source=reported input_tokens=100 output_tokens=10 cached_input_tokens=60 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:45 INFO codex prompt 已压缩 module=codex runes_before=2172 runes_after=2170 budget=48000
+2026/09/16 11:52:45 INFO 正文已用独立 prose schema 重渲染（规避 arguments_json 的 AI 味） module=codex tool=draft_chapter prose_runes=22 cache_hit=true elapsed_ms=0
+2026/09/16 11:52:45 INFO codex prompt 已压缩 module=codex runes_before=3352 runes_after=3350 budget=48000
+2026/09/16 11:52:46 INFO codex call started module=codex call_id=40 kind=prose model=gpt-6-astra reasoning=high prompt_runes=3350 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:46 INFO codex call finished module=codex call_id=40 kind=prose status=ok elapsed_ms=699 output_runes=27
+2026/09/16 11:52:46 INFO codex call usage module=codex call_id=40 usage_source=reported input_tokens=444 output_tokens=22 cached_input_tokens=333 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=44 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=46 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=50 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=42 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=47 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=43 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=52 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=41 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=48 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=45 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=49 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call started module=codex call_id=51 kind=control model=gpt-6-astra reasoning=high prompt_runes=67 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=49 kind=control status=ok elapsed_ms=1389 output_runes=4
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=44 kind=control status=ok elapsed_ms=1390 output_runes=4
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=45 kind=control status=ok elapsed_ms=1390 output_runes=4
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=46 kind=control status=ok elapsed_ms=1390 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=44 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=46 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=49 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=45 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=42 kind=control status=ok elapsed_ms=1391 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=42 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=48 kind=control status=ok elapsed_ms=1397 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=48 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=41 kind=control status=ok elapsed_ms=1397 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=41 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=50 kind=control status=ok elapsed_ms=1397 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=50 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=52 kind=control status=ok elapsed_ms=1397 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=52 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=43 kind=control status=ok elapsed_ms=1398 output_runes=4
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=51 kind=control status=ok elapsed_ms=1397 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=43 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=51 usage_source=reported input_tokens=101 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:47 INFO codex call finished module=codex call_id=47 kind=control status=ok elapsed_ms=1398 output_runes=4
+2026/09/16 11:52:47 INFO codex call usage module=codex call_id=47 usage_source=reported input_tokens=202 output_tokens=2 cached_input_tokens=1 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:49 INFO codex call started module=codex call_id=53 kind=control model=gpt-6-astra reasoning=high prompt_runes=13 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:49 WARN codex call finished module=codex call_id=53 kind=control status=error elapsed_ms=1347 err="exit status 9"
+2026/09/16 11:52:49 INFO codex call usage module=codex call_id=53 usage_source=reported input_tokens=200 output_tokens=30 cached_input_tokens=150 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:49 INFO codex call started module=codex call_id=54 kind=control model=gpt-6-astra reasoning=high prompt_runes=6 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:49 INFO codex call finished module=codex call_id=54 kind=control status=ok elapsed_ms=13 output_runes=4
+2026/09/16 11:52:49 INFO codex call usage module=codex call_id=54 usage_source=reported input_tokens=200 output_tokens=30 cached_input_tokens=150 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:49 INFO codex prompt 已压缩 module=codex runes_before=782 runes_after=780 budget=90000
+2026/09/16 11:52:49 INFO codex call started module=codex call_id=55 kind=control model=gpt-6-astra reasoning=high prompt_runes=780 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:49 INFO codex call finished module=codex call_id=55 kind=control status=ok elapsed_ms=510 output_runes=135
+2026/09/16 11:52:49 INFO codex call usage module=codex call_id=55 usage_source=reported input_tokens=150000 output_tokens=10 cached_input_tokens=100000 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:49 INFO codex prompt 已压缩 module=codex runes_before=2169 runes_after=2167 budget=48000
+2026/09/16 11:52:49 INFO codex call started module=codex call_id=56 kind=prose model=gpt-6-astra reasoning=high prompt_runes=2167 structured=true attempt_timeout_ms=899999
+2026/09/16 11:52:49 WARN codex call finished module=codex call_id=56 kind=prose status=error elapsed_ms=18 err="exit status 9"
+2026/09/16 11:52:49 INFO codex call usage module=codex call_id=56 usage_source=reported input_tokens=150000 output_tokens=20 cached_input_tokens=100000 completed_turns=1 dropped_event_lines=0
+2026/09/16 11:52:50 INFO codex call started module=codex call_id=57 kind=control model=gpt-6-astra reasoning=high prompt_runes=66 structured=false attempt_timeout_ms=899999
+2026/09/16 11:52:50 WARN codex call finished module=codex call_id=57 kind=control status=error elapsed_ms=447 err="exit status 9"
+2026/09/16 11:52:50 INFO codex call usage module=codex call_id=57 usage_source=unavailable input_tokens=0 output_tokens=0 cached_input_tokens=0 completed_turns=0 dropped_event_lines=0
+FAIL
+FAIL	github.com/chenhongyang/novel-studio/internal/llmcodex	42.128s
+?   	github.com/chenhongyang/novel-studio/internal/logger	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/modelinput	8.677s
+ok  	github.com/chenhongyang/novel-studio/internal/models	9.078s
+ok  	github.com/chenhongyang/novel-studio/internal/notify	7.816s
+ok  	github.com/chenhongyang/novel-studio/internal/rag	11.496s
+ok  	github.com/chenhongyang/novel-studio/internal/reviewreport	5.350s
+ok  	github.com/chenhongyang/novel-studio/internal/rules	7.332s
+ok  	github.com/chenhongyang/novel-studio/internal/store	138.434s
+ok  	github.com/chenhongyang/novel-studio/internal/stylestat	7.562s
+ok  	github.com/chenhongyang/novel-studio/internal/testutil	6.269s
+ok  	github.com/chenhongyang/novel-studio/internal/tools	128.530s
+ok  	github.com/chenhongyang/novel-studio/internal/userrules	7.341s
+?   	github.com/chenhongyang/novel-studio/internal/utils	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/version	7.244s
+?   	github.com/chenhongyang/novel-studio/internal/writer/prompts	[no test files]
+ok  	github.com/chenhongyang/novel-studio/internal/writer/sampler	6.880s
+?   	github.com/chenhongyang/novel-studio/quality/audit	[no test files]
+ok  	github.com/chenhongyang/novel-studio/services/dashboard	5.974s
+ok  	github.com/chenhongyang/novel-studio/skills	5.906s
+FAIL
