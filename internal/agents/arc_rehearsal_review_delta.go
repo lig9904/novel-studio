@@ -69,7 +69,11 @@ func (t *submitArcRehearsalTool) compileReviewDelta(raw json.RawMessage) (domain
 	if previousErr != nil {
 		return zero, previousErr
 	}
-	if t.input.ProtocolDigest != current && t.input.ProtocolDigest != previous {
+	previousScoped, scopedErr := arcRehearsalScopedRequirednessProtocolDigestV1()
+	if scopedErr != nil {
+		return zero, scopedErr
+	}
+	if t.input.ProtocolDigest != current && t.input.ProtocolDigest != previousScoped && t.input.ProtocolDigest != previous {
 		return zero, fmt.Errorf("review delta does not match its input protocol")
 	}
 	verified, err := domain.FinalizeArcRehearsalDraft(t.input, *t.draft)

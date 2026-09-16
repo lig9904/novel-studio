@@ -33,7 +33,25 @@ const arcRehearsalReviewPrompt = "\n你是复核者：独立检查Architect草�
 const arcRehearsalRequirednessPromptV1 = `
 每项material_check必须声明requiredness：required表示当前选定条件路径运行必需，missing/unclear会阻断ready_for_detail；optional表示未选择的可选分支或不影响当前路径的补充核查，missing/unclear保留但不阻断；proposed表示尚未成为Canon、只可作为未来提案的材料或机制，missing/unclear不阻断且不得解释成人工批准或既成事实。不能把真实必需前提降成optional/proposed来绕过门禁；软纲偏好的额外读数、背景回复、未选择传递分支和Host层脚手架元操作若不属于当前角色执行路径，应如实归类而不是假装available。`
 
+const arcRehearsalStageApplicabilityPromptV1 = `
+阶段适用性：character_observations中的current_goal、pressure和本人已知事实是Host冻结的合法开局刺激；若测试合同明确某压力没有发送者、凭据或世界实体，角色仍可对该已知压力自主回应，不得反向新增“有来源邀约”、发送者、文书或material_check来证明它。只有角色实际选择通信后，才按真实接收者与渠道裁决其结果。
+hard_contract可能约束后续render/deliver，而rehearse-arc只判断详细推演能否保留合法履约路径。明确停在render前不等于字数、正文质量或交付格式合同不可行；当前不执行的下游合同应评为conditional/plausible并说明由下游专用门禁验证。只有在不执行未来阶段也已使任何合法履约路径永久排除时，才用infeasible_prediction。ready_for_detail只授权独立角色推演，不声称下游合同已经兑现。`
+
 func ArcRehearsalProtocolDigest() (string, error) {
+	previous, err := arcRehearsalScopedRequirednessProtocolDigestV1()
+	if err != nil {
+		return "", err
+	}
+	digest, err := domain.DeterministicPlanningHash(struct {
+		Policy, Previous, ApplicabilityPrompt string
+	}{"arc-rehearsal-stage-applicability.v1", previous, arcRehearsalStageApplicabilityPromptV1})
+	if err != nil {
+		return "", err
+	}
+	return "sha256:" + strings.TrimPrefix(digest, "sha256:"), nil
+}
+
+func arcRehearsalScopedRequirednessProtocolDigestV1() (string, error) {
 	previous, err := arcRehearsalReviewDeltaProtocolDigestV1()
 	if err != nil {
 		return "", err
@@ -104,7 +122,11 @@ func RunArcRehearsal(ctx context.Context, cfg bootstrap.Config, models *bootstra
 	if err != nil {
 		return nil, err
 	}
-	if input.ProtocolDigest != protocol && input.ProtocolDigest != previousProtocol && input.ProtocolDigest != legacyProtocol {
+	previousScoped, err := arcRehearsalScopedRequirednessProtocolDigestV1()
+	if err != nil {
+		return nil, err
+	}
+	if input.ProtocolDigest != protocol && input.ProtocolDigest != previousScoped && input.ProtocolDigest != previousProtocol && input.ProtocolDigest != legacyProtocol {
 		return nil, fmt.Errorf("rehearsal execution policy changed; rebuild a new input without rewriting historical reports")
 	}
 	capabilities, err := ArcRehearsalExecutionCapabilities(cfg)
@@ -234,21 +256,29 @@ func runArcRehearsalStage(ctx context.Context, cfg bootstrap.Config, models *boo
 		return domain.ArcRehearsalBody{}, call, err
 	}
 	currentInput := input.ProtocolDigest == current
-	if currentInput {
+	previousScoped, err := arcRehearsalScopedRequirednessProtocolDigestV1()
+	if err != nil {
+		return domain.ArcRehearsalBody{}, call, err
+	}
+	requirednessInput := currentInput || input.ProtocolDigest == previousScoped
+	if requirednessInput {
 		prompt += arcRehearsalRequirednessPromptV1
+	}
+	if currentInput {
+		prompt += arcRehearsalStageApplicabilityPromptV1
 	}
 	if role == "world_arbiter" {
 		previous, err := arcRehearsalReviewDeltaProtocolDigestV1()
 		if err != nil {
 			return domain.ArcRehearsalBody{}, call, err
 		}
-		if input.ProtocolDigest == current || input.ProtocolDigest == previous {
+		if currentInput || input.ProtocolDigest == previousScoped || input.ProtocolDigest == previous {
 			prompt += arcRehearsalReviewDeltaPrompt
 		} else {
 			prompt += arcRehearsalReviewPrompt
 		}
 	}
-	tool := &submitArcRehearsalTool{input: input, requiredness: currentInput}
+	tool := &submitArcRehearsalTool{input: input, requiredness: requirednessInput}
 	if role == "world_arbiter" {
 		if draft == nil {
 			return domain.ArcRehearsalBody{}, call, fmt.Errorf("rehearsal review requires its host-bound draft")
@@ -258,7 +288,7 @@ func runArcRehearsalStage(ctx context.Context, cfg bootstrap.Config, models *boo
 		if err != nil {
 			return domain.ArcRehearsalBody{}, call, err
 		}
-		tool.deltaReview = currentInput || input.ProtocolDigest == previous
+		tool.deltaReview = currentInput || input.ProtocolDigest == previousScoped || input.ProtocolDigest == previous
 	}
 	inputMessage, err := modelinput.NewExactAgentPacketMessage(modelinput.KindArcRehearsal, string(payload))
 	if err != nil {
