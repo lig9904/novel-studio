@@ -2,6 +2,8 @@
 
 This is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.
 
+Pipeline compatibility requirement: this project must use the Architect long/layered-outline path and persist `layered_outline`; a flat short outline alone is insufficient because the authorized next stage is `outline-all`. This is an execution-format requirement only and does not authorize more than exactly one volume, one arc, and three short TEST_SCAFFOLD chapters.
+
 ## Phase 0 Resume gate correction — hard TEST_SCAFFOLD contract
 
 The reputation opportunity is an environmental pressure only:

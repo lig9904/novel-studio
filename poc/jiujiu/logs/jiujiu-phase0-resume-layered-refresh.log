@@ -1,0 +1,8 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：architect
+
+========== 阶段：architect ==========
+pipeline: 阶段 architect 失败（修复后重跑 --pipeline 即从此阶段继续）: 读取 Architect 开篇产物 layered_outline.json 失败: open /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-resume-fresh-run/output/novel/layered_outline.json: no such file or directory
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1

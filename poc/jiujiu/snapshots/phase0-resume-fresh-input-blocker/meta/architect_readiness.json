@@ -1,0 +1,28 @@
+{
+  "ready": true,
+  "schema_version": 2,
+  "generator_version": "dev",
+  "warnings": [
+    "brainstorm.md 缺失或为空：Architect 应以头脑风暴交接为依据初始化 foundation",
+    "characters.json 少于 5 人：长篇项目建议补足主角朋友、女主闺蜜/朋友和阶段性对手",
+    "core/important 角色少于 5 人：长篇互动和配角助攻空间会偏窄"
+  ],
+  "stats": {
+    "book_world_connected_components": 1,
+    "book_world_faction_clocks": 2,
+    "book_world_factions": 2,
+    "book_world_places": 5,
+    "book_world_routes": 5,
+    "characters": 3,
+    "layered_total_chapters": 3,
+    "outline_chapters": 3,
+    "volumes": 1,
+    "world_codex_sections": 16,
+    "world_counterfactual_tests": 6,
+    "world_mechanisms": 5,
+    "world_rules": 10
+  },
+  "world_coherence_digest": "sha256:14b7ad4380ae705506b1f45dd8dceb0b2c9cf34168be49aef1ac6b181455ebe7",
+  "generated_at": "2026-09-16T17:28:48+08:00",
+  "path": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-resume-layered-run/output/novel/meta/architect_readiness.md"
+}

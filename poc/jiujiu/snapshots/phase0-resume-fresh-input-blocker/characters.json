@@ -1,0 +1,268 @@
+[
+  {
+    "name": "螭吻·九九",
+    "aliases": [
+      "九九",
+      "螭吻"
+    ],
+    "role": "主角",
+    "description": "龙生九子之末的螭吻。兽体硬结构为龙首 + 鱼身，鱼躯干为主体；喜水，有灭火之性。已批准性格：好奇、争强好胜、骄傲、负责；主动驱动力为主动探索，核心价值边界为守护。争强好胜与骄傲会让它炫耀、越界、否认、过度试探、误判，并产生真实后果。它自己认领了渔岛海洋度假区近岸西侧那片水线的守护职责，虽无名分却当真。力量强度/频率/来源/代价/升级/战力层级/额珠关系/形态差异均 TBD，本 TEST_SCAFFOLD 不启用任何能力数值。真九九、机甲九九、凌墨须保持彼此不同，本脚手架只实例化兽体九九。",
+    "arc": "TEST_SCAFFOLD 三章弧线（不预设结局，选择权归 Character Agent）：前期——它把守水当作理所当然，同时对那道来源不明的口信起了心，嘴上说不在意；中期——水情异动与两个陌生生灵同时进入它的水线，骄傲让它既想出手显本事，又怕承认自己确实在意那点名声，于是用'这里离不开我'来掩盖'我想被看见'；后期——当'守在水边'与'被看见'不能兼得时，它必须自己选一个方向并向自己解释一次'守住'是什么意思，无论选哪边都有一个可观测的代价。长篇跨卷弧线 TBD，未获批准前不预写。",
+    "traits": [
+      "好奇",
+      "争强好胜",
+      "骄傲",
+      "负责",
+      "主动探索",
+      "嘴硬",
+      "护着自己认领的地盘"
+    ],
+    "tier": "core",
+    "psych": {
+      "big_five": {
+        "openness": 0.82,
+        "conscientiousness": 0.62,
+        "extraversion": 0.68,
+        "agreeableness": 0.5,
+        "neuroticism": 0.38
+      },
+      "attachment": {
+        "style": "dismissive-avoidant"
+      },
+      "dna": {
+        "exposed": [
+          "兽体为龙首 + 鱼身，鱼躯干为主体（已批准）",
+          "喜水并有灭火之性（已批准）",
+          "好奇、争强好胜、骄傲、负责（已批准）"
+        ],
+        "hidden": [
+          "它其实很想被看见——越是被问到，越会用'这里离不开我'挡回去"
+        ],
+        "latent": [
+          "TEST_SCAFFOLD：额珠关系、力量来源与更高层级的可能性均为 TBD，本脚手架不启用"
+        ]
+      }
+    },
+    "initial_state": {
+      "time": "TEST_SCAFFOLD 第 1 章开局当日下午",
+      "location": "西侧礁岸值守点",
+      "current_goal": "在近岸水情异动期间守住自己认领的那片水边",
+      "current_action": "沿岸巡看水线，盯住那座警示浮标的刻度与警示灯",
+      "pressure": "一道来源不明、无人可核的口信要它离开岗位去追'外面更大的名声'，而水情异动还没退",
+      "known_facts": [
+        "它自己是螭吻·九九，龙生九子之末，兽体为龙首鱼身",
+        "它喜水，对火有抑制之性",
+        "它自己认领了渔岛近岸西侧水线的守护职责，没有成文名分",
+        "泼水节是渔岛的节庆，以水、祝福、互动、泼水祝福为核心；更深层的神话含义它并不知道",
+        "当地居民传讲'独角龙一夜开海口'的故事；这传说真伪未定，它与这传说的关联也未被证实",
+        "近来有一道口信浮到它面前：外面有更大的名声等着它——来源不明、无人可核（UNVERIFIED / 发信人不可用 / 无凭据）",
+        "近岸水线近日不稳，警示浮标的状态与平日不同"
+      ],
+      "resources": [],
+      "resource_balances": [
+        {
+          "resource_id": "res_9f2c4a17be6d0385",
+          "perceived_name": "我认领的这片水",
+          "perceived_unit": "处",
+          "name": "渔岛近岸公共水域（西侧水线·守护域）",
+          "unit": "处",
+          "actual_amount": 1,
+          "access": "shared",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 1,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "开局前巡看水线（故事时间 T0）"
+            ]
+          },
+          "evidence_refs": [
+            "开局前巡看水线（故事时间 T0）"
+          ]
+        },
+        {
+          "resource_id": "res_3b8e5d0a72c4916f",
+          "perceived_name": "那座浮标",
+          "perceived_unit": "座",
+          "name": "警示浮标（近岸水线·刻度与警示灯）",
+          "unit": "座",
+          "actual_amount": 1,
+          "access": "shared",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 1,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "开局前巡看水线时读到的浮标刻度（故事时间 T0）"
+            ]
+          },
+          "evidence_refs": [
+            "开局前巡看水线时读到的浮标刻度（故事时间 T0）"
+          ]
+        },
+        {
+          "resource_id": "res_c61f0a4d8e3527b9",
+          "perceived_name": "一沓空纸",
+          "perceived_unit": "张",
+          "name": "空白纸张（值守点记录材料）",
+          "unit": "张",
+          "actual_amount": 4,
+          "access": "shared",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 4,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "值守点清点（故事时间 T0）"
+            ]
+          },
+          "evidence_refs": [
+            "值守点清点（故事时间 T0）"
+          ]
+        }
+      ],
+      "relationships": [
+        "与渔岛海洋度假区运营方：它替对方看着水线，双方未成文约定，互不拘束",
+        "与九尾狐：UNKNOWN，尚无任何认知（第 1 章可能出现第一次相遇）",
+        "与羽族凤凰：UNKNOWN，尚无任何认知（第 1 章可能出现第一次相遇）"
+      ],
+      "commitments": [
+        "守住近岸西侧这片水线（自认领，未成文）",
+        "水位读数不许报错（它给自己立的规矩）"
+      ]
+    }
+  },
+  {
+    "name": "九尾狐",
+    "role": "重要配角（知识边界探针：私有观测者）",
+    "description": "真九尾狐兽体——普通狐、单尾狐、狐耳人形均不能替代。正式名、性别、年龄呈现、性格、身份、能力、Want、Need、Misbelief、Secret、目标、关系、弧线均 TBD；本脚手架只实例化它作为'私有观测者'的最小存在：它在渔岛近岸潮间带留有一处只有自己能看见、能读的潮痕（TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK），并守着它不解释。它是否为九九或凤凰所认知，取决于故事内是否记录下明确的传递事件。正式名未获批准前保持 TBD，不以任何别名或占位文本替代。",
+    "arc": "TEST_SCAFFOLD 三章弧线（不预设结局）：前期——它按自己的节奏出现在水线附近，把自己的痕迹留着不动，也不解释；中期——它与九九同时察觉对方在看同一片水，谁都不肯先说自己在看什么；后期——它是否把自己的潮痕说出去、是否继续留在潮间带，由它自己的判断决定，规划只负责保留这一格不共享。长篇弧线 TBD。",
+    "traits": [
+      "谨慎",
+      "不肯先开口",
+      "护着自己的痕迹"
+    ],
+    "tier": "important",
+    "psych": {
+      "big_five": {
+        "openness": 0.6,
+        "conscientiousness": 0.7,
+        "extraversion": 0.3,
+        "agreeableness": 0.45,
+        "neuroticism": 0.5
+      },
+      "attachment": {
+        "style": "fearful-avoidant"
+      },
+      "dna": {
+        "exposed": [
+          "真九尾狐兽体（已批准）"
+        ],
+        "hidden": [
+          "TEST_SCAFFOLD 占位：Secret 内容未批准，暂以'不解释'的行为表现承载"
+        ],
+        "latent": [
+          "TEST_SCAFFOLD：正式名、性别、身份、Want/Need/Misbelief 均为 TBD，未获批准前不得补全"
+        ]
+      }
+    },
+    "initial_state": {
+      "time": "TEST_SCAFFOLD 第 1 章开局当日下午",
+      "location": "西侧潮间带",
+      "current_goal": "继续按自己的方式待在潮间带，保住并不断复看自己那处潮痕",
+      "current_action": "在潮线附近盯着水情变化，悄悄确认潮痕还在、读数有没有变",
+      "pressure": "近岸水情异动正在改变潮线，可能冲刷掉那处潮痕；同一片水边开始出现别的生灵",
+      "known_facts": [
+        "它自己是九尾狐兽体，九尾俱在",
+        "它在渔岛近岸潮间带留有一处只有自己能看见、能读的潮痕（TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK）",
+        "近期水情异动在改变潮线与潮痕的状态",
+        "渔岛正在准备泼水节，岸边人来人往变多",
+        "它听见岸边有人念叨过'独角龙一夜开海口'这类闲话，真假它不在意"
+      ],
+      "resources": [],
+      "resource_balances": [
+        {
+          "resource_id": "res_5d7a2c90e4b3168f",
+          "perceived_name": "我的潮痕",
+          "perceived_unit": "处",
+          "name": "狐潮痕（TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK）",
+          "unit": "处",
+          "actual_amount": 1,
+          "access": "exclusive",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 1,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "开局前在潮间带的私密查看（故事时间 T0）"
+            ]
+          },
+          "evidence_refs": [
+            "开局前在潮间带的私密查看（故事时间 T0）"
+          ]
+        }
+      ],
+      "relationships": [
+        "与螭吻·九九：UNKNOWN，尚无任何认知（第 1 章可能出现第一次相遇）",
+        "与羽族凤凰：UNKNOWN，尚无任何认知"
+      ],
+      "commitments": [
+        "不主动解释自己那处潮痕",
+        "不离开潮间带到人群里去"
+      ]
+    }
+  },
+  {
+    "name": "凤凰",
+    "aliases": [
+      "羽族凤凰"
+    ],
+    "role": "重要配角（知识边界探针：最小知识初始化）",
+    "description": "羽族凤凰。原型是凤凰，不是青鸾；兽体必须是真实完整的凤凰神鸟形态——带翅人类女性、天使、西方有翼人形、狮鹫、普通鸟均不构成凤凰兽体。属东方神话/奇幻体系；与羽族的关联已批准，但羽族性质 TBD。人形视觉探索可用白/金/浅蓝、东方凤冠与纹样、长尾羽、东方云宫——仅为视觉方向。变形、性别、名、年龄、状态、性格、Want、Need、目标、Misbelief、Secret、火/重生/治愈/不死能力、关系、CP、世界秘密均 TBD；本脚手架不为其发明任何火/重生/治愈/不死能力，也不赋予任何未批准的力量等级。正式名未获批准前保持 TBD，不以任何别名或占位文本替代。",
+    "arc": "TEST_SCAFFOLD 三章弧线（不预设结局）：前期——它落在这片对岸的水边，只知道自己是凤凰、与羽族有关联，其余一律 UNKNOWN，因此它对水线保持距离、观察多于行动；中期——它看见水边另有生灵在彼此试探，自己也不确定该不该靠近，任何结识都必须通过故事内可记录的来源事件；后期——它是否介入、是否开口、是否离开，取决于它自己的判断。长篇弧线 TBD，未获批准前不预写。",
+    "traits": [
+      "初来乍到",
+      "观察多于开口",
+      "对陌生信号保持距离"
+    ],
+    "tier": "important",
+    "psych": {
+      "big_five": {
+        "openness": 0.65,
+        "conscientiousness": 0.55,
+        "extraversion": 0.4,
+        "agreeableness": 0.6,
+        "neuroticism": 0.35
+      },
+      "attachment": {
+        "style": "secure"
+      },
+      "dna": {
+        "exposed": [
+          "完整凤凰神鸟兽体（已批准）",
+          "与羽族有关联（已批准，性质 TBD）"
+        ],
+        "latent": [
+          "TEST_SCAFFOLD：变形、性别、名、年龄、状态、Secret、关系与 CP 均为 TBD，未获批准前不得补全"
+        ]
+      }
+    },
+    "initial_state": {
+      "time": "TEST_SCAFFOLD 第 1 章开局当日下午",
+      "location": "度假区东侧步道尽头临水空地",
+      "current_goal": "先弄清自己落在什么地方、这里有没有同类",
+      "current_action": "在临水空地停驻观察，留意水情动静与岸边人来人往，但不接近水线",
+      "pressure": "对这片水陆一无所知，唯一确定的事只有自己的身份；水边的动静让它不敢贸然靠近",
+      "known_facts": [
+        "它自己是一只凤凰（真实完整的凤凰神鸟兽体）",
+        "它与羽族有关联（羽族性质未知）"
+      ],
+      "resources": [],
+      "relationships": [
+        "与螭吻·九九：UNKNOWN（第 1 章可能出现第一次相遇，但不知其身份）",
+        "与九尾狐：UNKNOWN"
+      ],
+      "commitments": []
+    }
+  }
+]

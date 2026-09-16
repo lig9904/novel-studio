@@ -29,3 +29,9 @@ Still prohibited: core-source changes, official Canon additions, fake sender/cre
 6. project-all and Character Agent: NOT RUN.
 
 The supported pipeline offers no post-operation-3 repair stage. Continuing requires a core product fix or manual live-state mutation; both are outside Phase 0 authorization. Final decision remains NO-GO.
+
+## Additional corrected-input continuation
+
+A later isolated attempt froze the Gate correction in the original TEST_SCAFFOLD author source rather than applying it as operation 0. Architect readiness passed after removing one shared placeholder alias that had merged 九尾狐 and 凤凰 into the same AgentID.
+
+The corrected author contracts then survived through outline-all operations 1 and 2. DeepSeek Flash failed to converge on operation 3 `expand_arc` twice within the direct Architect four-turn limit, so outline-all did not publish and the Rehearsal Gate was not reached. See `phase0-resume-fresh-input-blocker.md`. This does not change the Phase 0 decision.

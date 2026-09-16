@@ -37,3 +37,5 @@ P0 is the outline-repair publication defect blocking the legal Rehearsal Gate pa
 - Accepted Canon changed: NO.
 
 Next: **WAITING FOR HUMAN REVIEW**.
+
+Post-stop continuation evidence: a fresh corrected-input route passed Architect readiness but stopped at DeepSeek Flash outline-all operation 3 after two bounded four-turn convergence failures. No later Gate or Character Agent evidence exists; the NO-GO decision is unchanged.

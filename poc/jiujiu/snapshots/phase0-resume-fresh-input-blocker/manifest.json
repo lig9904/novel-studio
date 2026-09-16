@@ -1,0 +1,19 @@
+{
+  "schema": "jiujiu-phase0-snapshot.v1",
+  "kind": "phase0-resume-fresh-input-blocker",
+  "baseline": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "model": "deepseek/deepseek-flash",
+  "official_input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a",
+  "architect_readiness": true,
+  "outline_all_status": "building",
+  "completed_action_count": 2,
+  "pending_action": "expand_arc",
+  "pending_operation": 3,
+  "operation_3_receipt_exists": false,
+  "rehearsal_executed": false,
+  "character_agent_executed": false,
+  "promote_executed": false,
+  "render_executed": false,
+  "accepted_canon_mutated": false,
+  "core_source_modified": false
+}

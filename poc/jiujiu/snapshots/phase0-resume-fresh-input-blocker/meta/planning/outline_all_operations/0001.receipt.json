@@ -1,0 +1,21 @@
+{
+  "version": "outline-all-operation-receipt.v1",
+  "attempt_id": "oa-7f90c4deeaaad146",
+  "action": {
+    "type": "plan_structure",
+    "operation": 1,
+    "expected_chapter_span": 0,
+    "before_layered_digest": "sha256:f00fa3ead309cada99afa1f341374fa41707e43cbc75d3a0485ee149d5091170"
+  },
+  "intent_digest": "sha256:7d6ac73b348d777a25f0e3ddec6d78005ec0099255407058e6db6a58a3a40343",
+  "before_layered_digest": "sha256:f00fa3ead309cada99afa1f341374fa41707e43cbc75d3a0485ee149d5091170",
+  "after_layered_digest": "sha256:0d5ddae309c7f0f75bf15ecde0c4704c437376a5810db0973d811be57dc765e0",
+  "derived_flat_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "model_identity_digest": "sha256:e7b939824d0e199cfacb1cc9b182fdc9a5620104936b72dd36e0ac88321313a6",
+  "prompt_protocol_digest": "sha256:c1cf3be540a654bc4da06415f6d8ef57a2660cfa6d922d8488fb007cfc6007ba",
+  "context_root": "sha256:9783562b9a4841eacae5afc891bcbffce09ea658588acb74c2a42aa4379c15ee",
+  "visible_context_digest": "sha256:5e3e7f0a0e3d179e7215f9cd2fd5646974188216fd1626a159908919065ebc62",
+  "visible_context_bytes": 103870,
+  "completed_at": "2026-09-16T09:29:05.199362Z",
+  "receipt_digest": "sha256:9761a7a93bc12c754caacbbca11c71f692d1149d1f5c6a25b78f5b8a2e7f8cc5"
+}
