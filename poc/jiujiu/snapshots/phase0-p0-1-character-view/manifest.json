@@ -1,0 +1,21 @@
+{
+  "schema": "jiujiu-phase0-p0-1-evidence.v1",
+  "classification": "TEST_SCAFFOLD",
+  "accepted_canon": false,
+  "human_approved": false,
+  "source": {
+    "world_rules_sha256": "24c805e25ea2d4ebedb6428e46360b9ef1322809f3de568b3c03726798b2f515",
+    "characters_sha256": "550855b614dee391a31ba061fcb46ca73c99f2b33a53e2ceb4024a92e677d5ad"
+  },
+  "observation": {
+    "file": "phoenix-observation.json",
+    "sha256": "4c78c5c359d5998073f3db8b2c0eee85929b43cafb3f6bea48ae9412d70490c1",
+    "version": "character-observation-packet.v2",
+    "character": "羽族凤凰",
+    "agent_id": "ca_dab3e91796825b05"
+  },
+  "result": "PASS",
+  "readiness_modified": false,
+  "proposal_isolation_modified": false,
+  "phase1_entered": false
+}

@@ -1,0 +1,84 @@
+[
+  {
+    "category": "测试资产边界",
+    "rule": "TEST_SCAFFOLD：本轮生成的世界、角色、关系、时间线、伏笔与规划内容仅为评估脚手架，不是官方九九 Canon、人类批准、FACT、HISTORY 或 ACCEPTED EPISODE。",
+    "boundary": "只可用于恰好一卷、一弧、三章的规划与后续隔离测试；未知信息保持 TBD 或 PROPOSAL_NEEDED，不得进入官方 Accepted Character State、Knowledge、Relationship、Timeline、Foreshadow、World State 或 Canon RAG。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落1、2、4、14",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "PUBLIC",
+    "character_view": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。"
+  },
+  {
+    "category": "神兽形态边界",
+    "rule": "螭吻·九九的兽体必须以鱼躯为主体、呈龙头鱼身；九尾狐兽体必须是真正的九尾狐；羽族凤凰兽体必须是真实完整的东方凤凰神鸟。",
+    "boundary": "九九不得变为麒麟、普通四足龙、西方龙、仅蛇形东方龙、陆生兽或机械载具；九尾狐不得由普通狐狸、单尾狐或狐耳人形替代；凤凰不得写成青鸾、带翅人类、天使、西方翼人、狮鹫或普通鸟。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落6、8、10、13",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "CHARACTER_SCOPED",
+    "character_ids": ["九九", "九尾狐", "羽族凤凰"],
+    "character_view": "你自己的兽体只能按你开局已知且获批准的既定原型理解；不得用开局未批准的替代形态补全自己或其他角色。"
+  },
+  {
+    "category": "能力边界",
+    "rule": "九九喜水并具有灭火属性；其力量强度、频率、来源、代价、升级、战斗层级、额头珠关系与形态差异均为 TBD。凤凰的火焰、重生、治疗、永生等力量均为 TBD；九尾狐力量为 TBD。",
+    "boundary": "不得为测试便利补造力量等级、施放参数、能力来源或凤凰未批准能力；没有已批准机制时，角色行动只能依赖普通观察、移动、交流和明确可用的现场资源。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落6、8、10、13",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "PUBLIC",
+    "character_view": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。"
+  },
+  {
+    "category": "知识更新",
+    "rule": "角色知识只能由其开局已知事实，或有记录的来源事件、证据、章节和故事时间更新；模型推断不足以把 UNKNOWN 升级为 KNOWN。",
+    "boundary": "不得把他人私密秘密、未批准未来剧情、Arc Rehearsal 结果、分支候选或规划者全知信息投放给未知情角色；读取公开环境不等于获知遮蔽信息。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落4、10、13",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "PUBLIC",
+    "character_view": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。"
+  },
+  {
+    "category": "角色自主性",
+    "rule": "TEST_SCAFFOLD：柔性剧情压力可以邀请九九放弃眼前水边保护职责并追逐未经证实的声望机会，但角色决定必须由其当前知识、价值、压力与可用信息推演产生。",
+    "boundary": "不得预定九九接受或拒绝；必须保留拒绝、另选方案、索取信息、或服从并承担真实后果的合法空间。规划只能提供压力和可观察条件，不能替角色作答。",
+    "visibility": "informal",
+    "source": "作者来源 startup_prompt 段落13",
+    "enforcement_scope": "CHARACTER_SCOPED",
+    "enforcement_character_ids": ["九九"],
+    "visibility_scope": "CHARACTER_SCOPED",
+    "character_ids": ["九九"],
+    "character_view": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。"
+  },
+  {
+    "category": "有限海岸事件",
+    "rule": "TEST_SCAFFOLD：世界状态测试只能使用边界明确的沿海水域事件，并明确地点、时间、现场可用资源及可观察后果。",
+    "boundary": "事件不得无限扩张为世界灾难，不得靠未批准神力自动解决；角色不在场、不可见或尚未传播的信息不能直接进入其决策包。具体事件成因与最终结果为 PROPOSAL_NEEDED，须由后续角色推演与世界裁决确定。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落13",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "PUBLIC",
+    "character_view": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。"
+  },
+  {
+    "category": "私密潮痕",
+    "rule": "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 是 TEST_SCAFFOLD 私密观察，仅九尾狐在开局可观察。其含义、来源、真伪与作用均为 TBD。",
+    "boundary": "在发生并记录明确的故事内传递事件之前，九九与羽族凤凰不得获得该标记或由其推导的信息；规划者不得以旁白、巧合、共享视野或模型推断绕过隔离。",
+    "visibility": "secret",
+    "source": "作者来源 startup_prompt 段落13",
+    "enforcement_scope": "CHARACTER_SCOPED",
+    "enforcement_character_ids": ["九尾狐"],
+    "visibility_scope": "AUTHOR_ONLY"
+  },
+  {
+    "category": "来源事实与名称",
+    "rule": "九九正式名为螭吻·九九、简称九九，原型为龙之九子中的螭吻；其与渔岛海洋度假区和‘独角龙一夜开海口’传说有关，具体整合方式为 TBD。正确节庆名称是泼水节，水、祝福、互动和喷水祝福是已知基础概念。真九九、机甲九九、凌墨彼此不同。凤凰仅开局已知自身凤凰身份及与羽族的关联。",
+    "boundary": "不得把关联自动补成具体历史、关系或力量机制；不得把泼水节误写为扣水节；不得合并真九九、机甲九九与凌墨。凤凰对九九、螭吻身份、九九能力、独角龙传说、泼水节、真实渔岛、九尾狐及重大世界秘密均从 UNKNOWN 开始。",
+    "visibility": "formal",
+    "source": "作者来源 startup_prompt 段落6、10",
+    "enforcement_scope": "GLOBAL",
+    "visibility_scope": "AUTHOR_ONLY"
+  }
+]
