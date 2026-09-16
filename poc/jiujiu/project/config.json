@@ -1,6 +1,6 @@
 {
   "provider": "deepseek",
-  "model": "deepseek-v4-pro",
+  "model": "deepseek-flash",
   "reasoning_effort": "high",
   "providers": {
     "codex": {
@@ -10,49 +10,49 @@
     "deepseek": {
       "api_key_env": "DEEPSEEK_API_KEY",
       "base_url": "https://api.deepseek.com",
-      "models": ["deepseek-v4-pro"]
+      "models": ["deepseek-v4-pro", "deepseek-flash"]
     }
   },
   "roles": {
     "coordinator": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "high"
     },
     "architect": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "high",
       "max_turns": 20
     },
     "writer": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "medium"
     },
     "character": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "medium"
     },
     "world_arbiter": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "high"
     },
     "drafter": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "medium"
     },
     "editor": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "high"
     },
     "reviewer": {
       "provider": "deepseek",
-      "model": "deepseek-v4-pro",
+      "model": "deepseek-flash",
       "reasoning_effort": "high"
     }
   },
@@ -64,6 +64,9 @@
     "max_concurrency": 4,
     "max_revision_rounds": 1,
     "max_activation_cycles": 4
+  },
+  "context_windows": {
+    "deepseek-flash": 1048576
   },
   "rag": {
     "embedding": {

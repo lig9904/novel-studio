@@ -1,0 +1,23 @@
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段列表已变化，重置进度（保留已有创作指令）
+[pipeline] 阶段：preplan → rehearse-arc → project-all → seal
+
+========== 阶段：preplan ==========
+[pipeline:preplan] 全书 3 个稳定章位已从正史第 0 章重新建立非正史骨架；下一步只物化 V1A1（第1-3章），整弧计划封存后再逐章渲染/逐章审核
+[pipeline] 阶段完成：preplan
+
+========== 阶段：rehearse-arc ==========
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-v4-pro
+2026/09/16 14:51:35 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-v4-pro
+[pipeline:project-all:usage] 既有账本仍含计量缺口；恢复后的成本及预算继续使用已知小计。
+[pipeline:rehearse-arc] 整弧 1..3：Architect 条件预演 → World Arbiter 复核；不写正文或正史
+[pipeline:watchdog] stage=rehearse-arc chapter=0 已连续 5m15s 无持久进展；进程心跳仍存活，等待后续脱敏诊断快照
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"tool argument validation failed: submit_arc_rehearsal received malformed JSON arguments: invalid character '}' after array element\\nraw args: {\\\"summary\\\": \\\"在保留全部硬合同与角色自主选择空间的条件下，给出一条由现有 world_state 来源支持、可重排软纲但不依赖不存在实体的条件性完整路径：第一章三名角色按隔离知识激活并完成各自初始观察；第二章九九在留守保护与查证未证实声望之间自主选择（所选条件路径假设其留守兼顾并把查证记为纸面未决），九尾狐假设不发起私密潮痕传递；第三章九九完成近岸记录、九尾狐确认不传递、凤凰只凭公开亲见证据判断，边界维护单元核验三张事件记录纸并封存为 TEST_SCAFFOLD，管线停在 promote/render 之前。该路径把软纲中“裁决者写第三张纸”改为由持有空白纸的九九填写、仲裁者只做读取核验；全部硬合同不依赖任何不存在的规程、许可或新人物。关键资料缺口为：声望提示来源无 actor、边界维护单元非正式 actor、"
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"material_checks[0].capability_requirements[0] key=\\\"jj_observe_buoy\\\" kind=\\\"operational_observation\\\": operational_observation requires one existing qualitative non-document resource and public mechanism; it cannot certify quantities or overall safety\""
+[pipeline:rehearse-arc:architect] 提交校验未通过："\"material_checks[0]: material resource \\\"res_2222333344445555\\\" lacks an executable dependency\\nmaterial_checks[6].capability_requirements[0] key=\\\"fox_observe_mark\\\" kind=\\\"self_work\\\": capability references a non-public or undefined mechanism \\\"mech_scaffold_secret_fox_tide_mark\\\"\\nEach available material_check must cover every resource_ref in its own capability_requirements.resource_refs or valid first artifact_write.material_inputs, as appropriate to the actual operation; depends_on alone does not cover"
