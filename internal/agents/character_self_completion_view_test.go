@@ -36,7 +36,7 @@ func TestSelfCompletionViewProducerPreservesBothHistoricalIdentities(t *testing.
 			t.Fatal("frozen marker inventory selected another producer")
 		}
 	}
-	if len(seen) != 6 {
+	if len(seen) != 7 {
 		t.Fatal("lost executable historical producer")
 	}
 }

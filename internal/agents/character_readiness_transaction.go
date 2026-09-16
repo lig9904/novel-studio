@@ -53,7 +53,15 @@ func runVerifiedCharacterChapterReadiness(ctx context.Context, cfg bootstrap.Con
 		return empty, nil, err
 	}
 	thinking, _ := ResolveThinkingForModel(snapshot.Model, roleThinking(cfg, "writer"))
-	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, true)
+	contextValue, err := st.LoadCharacterReadinessContext(session.GenerationID, session.Chapter)
+	if err != nil {
+		return empty, nil, err
+	}
+	if contextValue == nil {
+		return empty, nil, fmt.Errorf("transactional readiness lacks its frozen chapter context")
+	}
+	softOutcome := contextValue.Version == domain.CharacterReadinessReviewPolicyV2
+	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, true, softOutcome)
 	if err != nil {
 		return empty, nil, err
 	}

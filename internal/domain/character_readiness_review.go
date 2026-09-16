@@ -7,7 +7,17 @@ import (
 )
 
 const CharacterReadinessReviewPolicy = "chapter-readiness:arbitrated-events.v1"
+const CharacterReadinessReviewPolicyV2 = "chapter-readiness:soft-event-outcome.v2"
 const CharacterReadinessReviewedVersion = "character-chapter-readiness.v2"
+const CharacterReadinessReviewedVersionV3 = "character-chapter-readiness.v3"
+
+const (
+	CharacterSoftEventOccurred        = "OCCURRED"
+	CharacterSoftEventRejected        = "REJECTED_WITH_CONSEQUENCE"
+	CharacterSoftEventSuperseded      = "SUPERSEDED_BY_ACTUAL_CHOICE"
+	CharacterSoftEventPending         = "DEFERRED"
+	CharacterSoftEventHardUnsatisfied = "HARD_CONTRACT_UNSATISFIED"
+)
 
 // This is a frozen host planning context, not a character observation. The
 // session binds its digest before the first cycle, so a later outline edit
@@ -31,7 +41,7 @@ func FinalizeCharacterReadinessContext(value CharacterReadinessContext) (Charact
 	if value.Version == "" {
 		value.Version = CharacterReadinessReviewPolicy
 	}
-	if value.Version != CharacterReadinessReviewPolicy || !strings.HasPrefix(value.GenerationID, PlanningGenerationIDPrefix) || value.Chapter < 1 || value.ArcLastChapter < value.Chapter || value.BookLastChapter < value.ArcLastChapter || value.SoftOutline.Chapter != value.Chapter || strings.TrimSpace(value.POVCharacter) == "" || value.TargetWords < 0 {
+	if (value.Version != CharacterReadinessReviewPolicy && value.Version != CharacterReadinessReviewPolicyV2) || !strings.HasPrefix(value.GenerationID, PlanningGenerationIDPrefix) || value.Chapter < 1 || value.ArcLastChapter < value.Chapter || value.BookLastChapter < value.ArcLastChapter || value.SoftOutline.Chapter != value.Chapter || strings.TrimSpace(value.POVCharacter) == "" || value.TargetWords < 0 {
 		return value, fmt.Errorf("chapter readiness context has invalid identity/boundaries")
 	}
 	if value.ProjectionContextDigest != "" {
@@ -58,6 +68,7 @@ type CharacterReadinessAction struct {
 	Character       string `json:"character"`
 	ProposalDigest  string `json:"proposal_digest"`
 	Decision        string `json:"decision"`
+	DecisionReason  string `json:"decision_reason,omitempty"`
 	IntendedAction  string `json:"intended_action"`
 	Outcome         string `json:"outcome"`
 	CompletionState string `json:"completion_state"`
@@ -69,6 +80,8 @@ type CharacterReadinessCycleView struct {
 	Index                 int                        `json:"index"`
 	CycleDigest           string                     `json:"cycle_digest"`
 	ArbitrationDigest     string                     `json:"arbitration_digest"`
+	BeforePhysicalRoot    string                     `json:"before_physical_root,omitempty"`
+	AfterPhysicalRoot     string                     `json:"after_physical_root,omitempty"`
 	StoryTime             *StoryTimeChapterSchedule  `json:"story_time"`
 	Actions               []CharacterReadinessAction `json:"actions"`
 	HardContractStatus    string                     `json:"hard_contract_status"`
@@ -107,9 +120,17 @@ func BuildCharacterReadinessTrace(cycles []CharacterActivationCycle) (CharacterR
 			return trace, fmt.Errorf("readiness cycle chain is incomplete")
 		}
 		receipt := cycle.Evidence.Arbitrations[len(cycle.Evidence.Arbitrations)-1]
-		view := CharacterReadinessCycleView{Index: cycle.Index, CycleDigest: cycle.Digest, ArbitrationDigest: receipt.Digest, StoryTime: receipt.StoryTime, HardContractStatus: receipt.HardContractStatus, HardContractConflicts: receipt.HardContractConflicts}
+		view := CharacterReadinessCycleView{Index: cycle.Index, CycleDigest: cycle.Digest, ArbitrationDigest: receipt.Digest, BeforePhysicalRoot: cycle.BeforePhysicalRoot, AfterPhysicalRoot: cycle.AfterPhysicalRoot, StoryTime: receipt.StoryTime, HardContractStatus: receipt.HardContractStatus, HardContractConflicts: receipt.HardContractConflicts}
+		proposals := map[string]CharacterDecisionProposal{}
+		for _, proposal := range LatestCharacterCycleProposals(cycle.Evidence) {
+			proposals[proposal.Digest] = proposal
+		}
 		for _, resolution := range receipt.Resolutions {
-			view.Actions = append(view.Actions, CharacterReadinessAction{resolution.AgentID, resolution.Character, resolution.ProposalDigest, resolution.Decision, resolution.IntendedAction, resolution.Outcome, resolution.CompletionState, resolution.ImmediateResult, resolution.StateAfter})
+			proposal, ok := proposals[resolution.ProposalDigest]
+			if !ok || proposal.AgentID != resolution.AgentID {
+				return trace, fmt.Errorf("readiness action lacks its exact proposal reason")
+			}
+			view.Actions = append(view.Actions, CharacterReadinessAction{resolution.AgentID, resolution.Character, resolution.ProposalDigest, resolution.Decision, proposal.DecisionReason, resolution.IntendedAction, resolution.Outcome, resolution.CompletionState, resolution.ImmediateResult, resolution.StateAfter})
 		}
 		trace.Cycles = append(trace.Cycles, view)
 	}
@@ -151,6 +172,16 @@ type CharacterReadinessVerdict struct {
 	Reason         string                            `json:"reason"`
 	EvidenceRefs   []string                          `json:"evidence_refs"`
 	ContractChecks []CharacterReadinessContractCheck `json:"contract_checks"`
+	SoftEvent      *CharacterReadinessSoftEvent      `json:"soft_event,omitempty"`
+}
+
+type CharacterReadinessSoftEvent struct {
+	Outcome          string   `json:"outcome"`
+	ActorRef         string   `json:"actor_ref,omitempty"`
+	ProposalRef      string   `json:"proposal_ref,omitempty"`
+	CharacterReason  string   `json:"character_reason,omitempty"`
+	WorldConsequence string   `json:"world_consequence,omitempty"`
+	EvidenceRefs     []string `json:"evidence_refs"`
 }
 
 type CharacterReadinessReviewInput struct {
@@ -193,12 +224,32 @@ func NewCharacterReadinessReviewInput(context CharacterReadinessContext, session
 	if err != nil {
 		return input, err
 	}
+	if context.Version != CharacterReadinessReviewPolicyV2 {
+		stripCharacterReadinessV2Trace(&trace)
+	}
 	if err := validatePlanningV2Digest("readiness protocol", reviewProtocol); err != nil {
 		return input, err
 	}
-	input = CharacterReadinessReviewInput{Policy: CharacterReadinessReviewPolicy, ReviewProtocol: reviewProtocol, SessionDigest: session.Digest, Context: context, Trace: trace, RemainingCycles: session.MaxCycles - len(cycles)}
+	policy := CharacterReadinessReviewPolicy
+	if context.Version == CharacterReadinessReviewPolicyV2 {
+		policy = CharacterReadinessReviewPolicyV2
+	}
+	input = CharacterReadinessReviewInput{Policy: policy, ReviewProtocol: reviewProtocol, SessionDigest: session.Digest, Context: context, Trace: trace, RemainingCycles: session.MaxCycles - len(cycles)}
 	input.Requirements, err = characterReadinessRequirements(context)
 	return input, err
+}
+
+func stripCharacterReadinessV2Trace(trace *CharacterReadinessTrace) {
+	if trace == nil {
+		return
+	}
+	for i := range trace.Cycles {
+		trace.Cycles[i].BeforePhysicalRoot = ""
+		trace.Cycles[i].AfterPhysicalRoot = ""
+		for j := range trace.Cycles[i].Actions {
+			trace.Cycles[i].Actions[j].DecisionReason = ""
+		}
+	}
 }
 
 func characterReadinessRequirements(context CharacterReadinessContext) ([]CharacterReadinessRequirement, error) {
@@ -220,7 +271,7 @@ func characterReadinessRequirements(context CharacterReadinessContext) ([]Charac
 }
 
 func CharacterReadinessReviewInputDigest(input CharacterReadinessReviewInput) (string, error) {
-	if input.Policy != CharacterReadinessReviewPolicy || len(input.Trace.Cycles) == 0 {
+	if (input.Policy != CharacterReadinessReviewPolicy && input.Policy != CharacterReadinessReviewPolicyV2) || len(input.Trace.Cycles) == 0 || (input.Policy == CharacterReadinessReviewPolicyV2) != (input.Context.Version == CharacterReadinessReviewPolicyV2) {
 		return "", fmt.Errorf("invalid readiness review input")
 	}
 	context, err := FinalizeCharacterReadinessContext(input.Context)
@@ -248,7 +299,22 @@ func CharacterReadinessReviewInputDigest(input CharacterReadinessReviewInput) (s
 		if cycle.Index != i+1 || cycle.StoryTime == nil || cycle.StoryTime.Chapter != input.Context.Chapter {
 			return "", fmt.Errorf("readiness trace has invalid cycle identity/time")
 		}
-		for _, digest := range []string{cycle.CycleDigest, cycle.ArbitrationDigest} {
+		digests := []string{cycle.CycleDigest, cycle.ArbitrationDigest}
+		if input.Policy == CharacterReadinessReviewPolicyV2 {
+			digests = append(digests, cycle.BeforePhysicalRoot, cycle.AfterPhysicalRoot)
+		} else if cycle.BeforePhysicalRoot != "" || cycle.AfterPhysicalRoot != "" {
+			return "", fmt.Errorf("legacy readiness trace cannot contain soft-event source roots")
+		}
+		for _, action := range cycle.Actions {
+			if input.Policy == CharacterReadinessReviewPolicyV2 {
+				if strings.TrimSpace(action.DecisionReason) == "" {
+					return "", fmt.Errorf("soft-event readiness requires the character's exact decision reason")
+				}
+			} else if action.DecisionReason != "" {
+				return "", fmt.Errorf("legacy readiness trace cannot contain soft-event decision reasons")
+			}
+		}
+		for _, digest := range digests {
 			if err := validatePlanningV2Digest("readiness cycle source", digest); err != nil {
 				return "", err
 			}
@@ -268,6 +334,10 @@ func FinalizeCharacterReadinessReview(input CharacterReadinessReviewInput, verdi
 	for _, cycle := range input.Trace.Cycles {
 		allowed[cycle.CycleDigest], allowed[cycle.ArbitrationDigest] = true, true
 		actual[cycle.CycleDigest], actual[cycle.ArbitrationDigest] = true, true
+		if input.Policy == CharacterReadinessReviewPolicyV2 {
+			allowed[cycle.BeforePhysicalRoot], allowed[cycle.AfterPhysicalRoot] = true, true
+			actual[cycle.BeforePhysicalRoot], actual[cycle.AfterPhysicalRoot] = true, true
+		}
 		for _, action := range cycle.Actions {
 			allowed[action.ProposalDigest] = true
 		}
@@ -335,8 +405,100 @@ func FinalizeCharacterReadinessReview(input CharacterReadinessReviewInput, verdi
 	if verdict.Decision != "hard_conflict" && len(impossible) > 0 {
 		return result, fmt.Errorf("impossible hard contracts require hard_conflict")
 	}
-	result = CharacterChapterReadiness{Version: CharacterReadinessReviewedVersion, GenerationID: input.Context.GenerationID, Chapter: input.Context.Chapter, CycleDigest: last.CycleDigest, ReviewProtocol: input.ReviewProtocol, InputDigest: inputDigest, Decision: verdict.Decision, Reason: verdict.Reason, EvidenceRefs: verdict.EvidenceRefs, ContractChecks: verdict.ContractChecks, UnresolvedHardContracts: impossible}
+	version := CharacterReadinessReviewedVersion
+	if input.Policy == CharacterReadinessReviewPolicyV2 {
+		if err := validateCharacterReadinessSoftEvent(input, verdict, impossible); err != nil {
+			return result, err
+		}
+		version = CharacterReadinessReviewedVersionV3
+	} else if verdict.SoftEvent != nil {
+		return result, fmt.Errorf("legacy readiness verdict cannot classify a soft event")
+	}
+	result = CharacterChapterReadiness{Version: version, GenerationID: input.Context.GenerationID, Chapter: input.Context.Chapter, CycleDigest: last.CycleDigest, ReviewProtocol: input.ReviewProtocol, InputDigest: inputDigest, Decision: verdict.Decision, Reason: verdict.Reason, EvidenceRefs: verdict.EvidenceRefs, ContractChecks: verdict.ContractChecks, SoftEvent: verdict.SoftEvent, UnresolvedHardContracts: impossible}
 	return FinalizeCharacterChapterReadiness(result)
+}
+
+func validateCharacterReadinessSoftEvent(input CharacterReadinessReviewInput, verdict CharacterReadinessVerdict, impossible []string) error {
+	soft := verdict.SoftEvent
+	if soft == nil {
+		return fmt.Errorf("soft-event readiness verdict requires an explicit outcome")
+	}
+	validateSoftRefs := func(refs []string) error {
+		if len(refs) == 0 || len(refs) > 12 {
+			return fmt.Errorf("soft-event outcome must cite 1-12 exact evidence references")
+		}
+		allowed := map[string]bool{input.Trace.FinalPhysicalRoot: true}
+		for _, cycle := range input.Trace.Cycles {
+			allowed[cycle.CycleDigest], allowed[cycle.ArbitrationDigest] = true, true
+			allowed[cycle.BeforePhysicalRoot], allowed[cycle.AfterPhysicalRoot] = true, true
+			for _, action := range cycle.Actions {
+				allowed[action.ProposalDigest] = true
+			}
+		}
+		for _, ref := range refs {
+			if !allowed[ref] {
+				return fmt.Errorf("soft-event outcome cites evidence outside its exact input")
+			}
+		}
+		return nil
+	}
+	if err := validateSoftRefs(soft.EvidenceRefs); err != nil {
+		return err
+	}
+	closing := soft.Outcome == CharacterSoftEventOccurred || soft.Outcome == CharacterSoftEventRejected || soft.Outcome == CharacterSoftEventSuperseded
+	if closing {
+		if verdict.Decision != "ready_for_plan" || strings.TrimSpace(soft.ActorRef) == "" || strings.TrimSpace(soft.ProposalRef) == "" || strings.TrimSpace(soft.CharacterReason) == "" || strings.TrimSpace(soft.WorldConsequence) == "" {
+			return fmt.Errorf("closed soft event requires ready_for_plan and exact actor/proposal/reason/consequence")
+		}
+		var action *CharacterReadinessAction
+		var cycle *CharacterReadinessCycleView
+		for i := range input.Trace.Cycles {
+			for j := range input.Trace.Cycles[i].Actions {
+				candidate := &input.Trace.Cycles[i].Actions[j]
+				if candidate.ProposalDigest == soft.ProposalRef {
+					if action != nil {
+						return fmt.Errorf("soft-event proposal reference is ambiguous")
+					}
+					action, cycle = candidate, &input.Trace.Cycles[i]
+				}
+			}
+		}
+		if action == nil || soft.ActorRef != action.AgentID || strings.TrimSpace(soft.CharacterReason) != strings.TrimSpace(action.DecisionReason) {
+			return fmt.Errorf("soft-event actor/reason is not the exact selected character action")
+		}
+		consequence := strings.TrimSpace(soft.WorldConsequence)
+		if consequence != strings.TrimSpace(action.ImmediateResult) && consequence != strings.TrimSpace(action.StateAfter) {
+			return fmt.Errorf("soft-event consequence is not an exact arbitrated result")
+		}
+		proposalCited, actualCited := false, false
+		for _, ref := range soft.EvidenceRefs {
+			proposalCited = proposalCited || ref == soft.ProposalRef
+			actualCited = actualCited || ref == cycle.CycleDigest || ref == cycle.ArbitrationDigest
+		}
+		if !proposalCited || !actualCited {
+			return fmt.Errorf("soft-event closure must cite its proposal and same-cycle actual result")
+		}
+		if cycle.StoryTime == nil || (cycle.StoryTime.EndDay <= cycle.StoryTime.StartDay && cycle.BeforePhysicalRoot == cycle.AfterPhysicalRoot) {
+			return fmt.Errorf("soft-event closure requires an observable world/character/relationship/knowledge consequence")
+		}
+		return nil
+	}
+	if soft.ActorRef != "" || soft.ProposalRef != "" || soft.CharacterReason != "" || soft.WorldConsequence != "" {
+		return fmt.Errorf("non-closing soft-event outcome cannot invent an actor action or consequence")
+	}
+	switch soft.Outcome {
+	case CharacterSoftEventPending:
+		if verdict.Decision != "continue" || len(impossible) != 0 {
+			return fmt.Errorf("DEFERRED requires continue without an impossible hard contract")
+		}
+	case CharacterSoftEventHardUnsatisfied:
+		if verdict.Decision != "hard_conflict" || len(impossible) == 0 {
+			return fmt.Errorf("HARD_CONTRACT_UNSATISFIED requires a proven impossible hard contract")
+		}
+	default:
+		return fmt.Errorf("unsupported soft-event readiness outcome")
+	}
+	return nil
 }
 
 func ValidateCharacterReadinessReviewAudit(audit CharacterReadinessReviewAudit) error {
@@ -349,7 +511,7 @@ func ValidateCharacterReadinessReviewAudit(audit CharacterReadinessReviewAudit) 
 			return fmt.Errorf("readiness model view differs from its canonical input")
 		}
 	}
-	want, err := FinalizeCharacterReadinessReview(audit.Input, CharacterReadinessVerdict{audit.Receipt.Decision, audit.Receipt.Reason, audit.Receipt.EvidenceRefs, audit.Receipt.ContractChecks})
+	want, err := FinalizeCharacterReadinessReview(audit.Input, CharacterReadinessVerdict{Decision: audit.Receipt.Decision, Reason: audit.Receipt.Reason, EvidenceRefs: audit.Receipt.EvidenceRefs, ContractChecks: audit.Receipt.ContractChecks, SoftEvent: audit.Receipt.SoftEvent})
 	if err != nil {
 		return err
 	}

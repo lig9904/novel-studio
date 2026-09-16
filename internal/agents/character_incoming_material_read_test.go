@@ -20,7 +20,7 @@ func incomingReadItemsProperties(t *testing.T, value map[string]any, field strin
 
 func TestIncomingMaterialReadProducerKeepsHistoricalWireBoundaries(t *testing.T) {
 	incoming := characterActivationProtocolV3IncomingReadDigest()
-	current := characterActivationProtocolV3ScopedObservationDigest()
+	current := characterActivationProtocolV3SoftEventReadinessDigest()
 	if incoming == "" || current == "" || incoming == characterActivationProtocolV3Digest() || current == incoming || characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicyV3) != current {
 		t.Fatal("new default must bind a distinct executable producer")
 	}

@@ -106,6 +106,45 @@ func TestReadinessModelCodecKeepsRequirementsOnceAndPreservesCanonicalFacts(t *t
 	}
 }
 
+func TestSoftEventReadinessModelCodecUsesV2AliasesAndRoundTrips(t *testing.T) {
+	input, verdict := softEventReadinessFixture(t)
+	codec, err := domain.NewCharacterReadinessModelCodecV1(input)
+	if err != nil {
+		t.Fatal(err)
+	}
+	view := codec.ModelView()
+	if view.ViewPolicy != domain.CharacterReadinessModelViewPolicyV2 || view.SchemaPolicy != domain.CharacterReadinessGroupedSchemaPolicyV2 || view.SourcePolicy != domain.CharacterReadinessReviewPolicyV2 {
+		t.Fatal("soft-event readiness did not select its explicit v2 model contract")
+	}
+	rawView, _ := json.Marshal(view)
+	for _, digest := range []string{input.Trace.Cycles[0].BeforePhysicalRoot, input.Trace.Cycles[0].AfterPhysicalRoot, input.Trace.Cycles[0].Actions[0].ProposalDigest} {
+		if strings.Contains(string(rawView), digest) {
+			t.Fatal("v2 model view leaked a canonical evidence digest instead of a local alias")
+		}
+	}
+	grouped, err := codec.EncodeVerdict(verdict)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if grouped.SoftEvent == nil || grouped.SoftEvent.ProposalRef == "" || !strings.HasPrefix(grouped.SoftEvent.ProposalRef, "e") {
+		t.Fatal("soft-event proposal did not use the bound local evidence alias")
+	}
+	raw, _ := json.Marshal(grouped)
+	receipt, err := codec.FinalizeGrouped(codec.Binding(), raw)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if receipt.SoftEvent == nil || !reflect.DeepEqual(receipt.SoftEvent, verdict.SoftEvent) {
+		t.Fatal("soft-event grouped verdict did not round-trip to canonical evidence")
+	}
+	schema, _ := json.Marshal(domain.CharacterReadinessGroupedVerdictSchemaV2())
+	for _, want := range []string{"soft_event", domain.CharacterSoftEventRejected, domain.CharacterSoftEventSuperseded, domain.CharacterSoftEventHardUnsatisfied} {
+		if !strings.Contains(string(schema), want) {
+			t.Fatalf("v2 readiness schema lacks %s", want)
+		}
+	}
+}
+
 func TestReadinessModelCodecBindingAndCopiesCannotReinterpretAliases(t *testing.T) {
 	input, verdict, codec := readinessCodecFixture(t)
 	grouped, err := codec.EncodeVerdict(verdict)

@@ -73,6 +73,15 @@ func (s *Store) validateReadinessAuditTrace(root string, audit domain.CharacterR
 	if err != nil {
 		return err
 	}
+	if audit.Input.Policy != domain.CharacterReadinessReviewPolicyV2 {
+		for i := range trace.Cycles {
+			trace.Cycles[i].BeforePhysicalRoot = ""
+			trace.Cycles[i].AfterPhysicalRoot = ""
+			for j := range trace.Cycles[i].Actions {
+				trace.Cycles[i].Actions[j].DecisionReason = ""
+			}
+		}
+	}
 	left, _ := json.Marshal(trace)
 	right, _ := json.Marshal(audit.Input.Trace)
 	if string(left) != string(right) {

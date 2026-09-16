@@ -12,7 +12,7 @@ import (
 func CharacterActivationProducerCandidates(policy string) []string {
 	current := characterActivationProtocolForPolicy(policy)
 	if policy == domain.CharacterActivationCyclePolicyV3 {
-		return []string{current, characterActivationProtocolV3IncomingReadDigest(), characterActivationProtocolV3Digest(), characterActivationProtocolV3CompletionDigest(), characterActivationProtocolV3HistoryDigest(), characterActivationProtocolV3LegacyDigest()}
+		return []string{current, characterActivationProtocolV3ScopedObservationDigest(), characterActivationProtocolV3IncomingReadDigest(), characterActivationProtocolV3Digest(), characterActivationProtocolV3CompletionDigest(), characterActivationProtocolV3HistoryDigest(), characterActivationProtocolV3LegacyDigest()}
 	}
 	return []string{current}
 }
@@ -35,6 +35,9 @@ func characterActivationProtocolForStimulus(stimulus domain.WorldStimulusPacket)
 		return ""
 	}
 	if policy == domain.CharacterActivationCyclePolicyV3 {
+		if domain.HasCharacterSoftEventReadinessPolicyV1(stimulus.Sources) && !domain.HasCharacterScopedObservationPolicyV1(stimulus.Sources) {
+			return ""
+		}
 		if domain.HasCharacterScopedObservationPolicyV1(stimulus.Sources) && !domain.HasCharacterIncomingMaterialReadPolicyV1(stimulus.Sources) {
 			return ""
 		}
@@ -56,6 +59,9 @@ func characterActivationProtocolForStimulus(stimulus domain.WorldStimulusPacket)
 		if !domain.HasCharacterScopedObservationPolicyV1(stimulus.Sources) {
 			return characterActivationProtocolV3IncomingReadDigest()
 		}
+		if !domain.HasCharacterSoftEventReadinessPolicyV1(stimulus.Sources) {
+			return characterActivationProtocolV3ScopedObservationDigest()
+		}
 	}
 	return characterActivationProtocolForPolicy(policy)
 }
@@ -74,6 +80,8 @@ func characterActivationV3PoliciesForProducer(producer string) []string {
 		return characterActivationV3IncomingReadPolicies()
 	case characterActivationProtocolV3ScopedObservationDigest():
 		return characterActivationV3ScopedObservationPolicies()
+	case characterActivationProtocolV3SoftEventReadinessDigest():
+		return characterActivationV3SoftEventReadinessPolicies()
 	}
 	return nil
 }

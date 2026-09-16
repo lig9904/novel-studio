@@ -3,6 +3,9 @@ package domain
 import "fmt"
 
 func validateGenerationContinuationHistoryPredecessor(previous, current ProjectedChapterBundle) error {
+	if HasCharacterSoftEventReadinessPolicyV1(previous.ChapterWorldSimulation.Sources) != HasCharacterSoftEventReadinessPolicyV1(current.ChapterWorldSimulation.Sources) {
+		return fmt.Errorf("generation soft-event readiness policy cannot change between chapters")
+	}
 	if HasCharacterScopedObservationPolicyV1(previous.ChapterWorldSimulation.Sources) != HasCharacterScopedObservationPolicyV1(current.ChapterWorldSimulation.Sources) {
 		return fmt.Errorf("generation scoped observation policy cannot change between chapters")
 	}
@@ -82,6 +85,10 @@ func validateGenerationActivationPolicySources(policy string, bundle ProjectedCh
 	wantSurfaces := HasCharacterSurfaceInspectionPolicyV1(bundle.ChapterWorldSimulation.Sources)
 	wantIncomingRead := HasCharacterIncomingMaterialReadPolicyV1(bundle.ChapterWorldSimulation.Sources)
 	wantScopedObservation := HasCharacterScopedObservationPolicyV1(bundle.ChapterWorldSimulation.Sources)
+	wantSoftEventReadiness := HasCharacterSoftEventReadinessPolicyV1(bundle.ChapterWorldSimulation.Sources)
+	if wantSoftEventReadiness && !wantScopedObservation {
+		return fmt.Errorf("soft-event readiness requires the latest scoped-observation v3 generation")
+	}
 	if wantScopedObservation && (!wantV3 || !wantIncomingRead) {
 		return fmt.Errorf("scoped observation channels require the latest v3 generation")
 	}
@@ -101,6 +108,9 @@ func validateGenerationActivationPolicySources(policy string, bundle ProjectedCh
 		return fmt.Errorf("timed resource observations require a v3 generation")
 	}
 	check := func(label string, sources []string) error {
+		if HasCharacterSoftEventReadinessPolicyV1(sources) != wantSoftEventReadiness {
+			return fmt.Errorf("generation soft-event readiness policy differs from %s", label)
+		}
 		if HasCharacterScopedObservationPolicyV1(sources) != wantScopedObservation {
 			return fmt.Errorf("generation scoped observation policy differs from %s", label)
 		}

@@ -31,7 +31,7 @@ func BuildCharacterReadinessTraceFromSteps(steps []VerifiedCharacterActivationSt
 		if err != nil || clock == nil || clock.Chapter != cycle.Chapter || clock.StartDay != cycle.StartDay || clock.EndDay != cycle.EndDay {
 			return trace, fmt.Errorf("readiness verified step has inconsistent actual time")
 		}
-		view := CharacterReadinessCycleView{Index: cycle.Index, CycleDigest: step.GlobalRoot(), ArbitrationDigest: receipt.Digest,
+		view := CharacterReadinessCycleView{Index: cycle.Index, CycleDigest: step.GlobalRoot(), ArbitrationDigest: receipt.Digest, BeforePhysicalRoot: cycle.BeforePhysicalRoot, AfterPhysicalRoot: cycle.AfterPhysicalRoot,
 			StoryTime: clock, HardContractStatus: receipt.HardContractStatus, HardContractConflicts: append([]string(nil), receipt.HardContractConflicts...)}
 		proposals := map[string]CharacterDecisionProposal{}
 		for _, proposal := range step.EffectiveProposals() {
@@ -46,7 +46,7 @@ func BuildCharacterReadinessTraceFromSteps(steps []VerifiedCharacterActivationSt
 				return trace, fmt.Errorf("readiness action is not bound to its verified fresh or original continued intent")
 			}
 			delete(proposals, resolution.AgentID)
-			view.Actions = append(view.Actions, CharacterReadinessAction{resolution.AgentID, resolution.Character, proposal.Digest, proposal.Decision, proposal.IntendedAction,
+			view.Actions = append(view.Actions, CharacterReadinessAction{resolution.AgentID, resolution.Character, proposal.Digest, proposal.Decision, proposal.DecisionReason, proposal.IntendedAction,
 				resolution.Outcome, resolution.CompletionState, resolution.ImmediateResult, resolution.StateAfter})
 		}
 		if len(proposals) != 0 {
@@ -104,6 +104,9 @@ func NewCharacterReadinessReviewInputFromSteps(context CharacterReadinessContext
 	if err != nil {
 		return input, err
 	}
+	if context.Version != CharacterReadinessReviewPolicyV2 {
+		stripCharacterReadinessV2Trace(&trace)
+	}
 	if err := validatePlanningV2Digest("readiness protocol", reviewProtocol); err != nil {
 		return input, err
 	}
@@ -111,7 +114,11 @@ func NewCharacterReadinessReviewInputFromSteps(context CharacterReadinessContext
 	if err != nil {
 		return input, err
 	}
-	input = CharacterReadinessReviewInput{Policy: CharacterReadinessReviewPolicy, ReviewProtocol: reviewProtocol, SessionDigest: session.Digest,
+	policy := CharacterReadinessReviewPolicy
+	if context.Version == CharacterReadinessReviewPolicyV2 {
+		policy = CharacterReadinessReviewPolicyV2
+	}
+	input = CharacterReadinessReviewInput{Policy: policy, ReviewProtocol: reviewProtocol, SessionDigest: session.Digest,
 		Context: context, Trace: trace, RemainingCycles: session.MaxCycles - len(steps)}
 	input.Requirements, err = characterReadinessRequirements(context)
 	return input, err

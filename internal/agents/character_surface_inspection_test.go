@@ -48,7 +48,7 @@ func TestSurfaceInspectionProducerPreservesThreeHistoricalIdentities(t *testing.
 			}
 		}
 	}
-	if len(seen) != 6 {
+	if len(seen) != 7 {
 		t.Fatal("missing historical executable producer")
 	}
 	for _, old := range [][]string{characterActivationV3LegacyPolicies(), characterActivationV3HistoryPolicies()} {

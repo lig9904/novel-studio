@@ -170,3 +170,28 @@ func TestChapterReadinessBudgetFailureNeverStartsModel(t *testing.T) {
 		t.Fatalf("readiness ignored its host budget: %v", err)
 	}
 }
+
+func TestSoftEventReadinessProtocolIsExplicitAndFrozen(t *testing.T) {
+	model := &readinessProbeModel{}
+	snapshot := bootstrap.ModelSnapshot{Provider: "test", Name: "soft-event-readiness", Model: model}
+	legacy, err := characterReadinessReviewProtocol(snapshot, agentcore.ThinkingMinimal, true, false)
+	if err != nil {
+		t.Fatal(err)
+	}
+	current, err := characterReadinessReviewProtocol(snapshot, agentcore.ThinkingMinimal, true, true)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if legacy == current || current == "" || characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicyV3) != characterActivationProtocolV3SoftEventReadinessDigest() {
+		t.Fatal("soft-event readiness did not acquire a distinct frozen protocol")
+	}
+	policies := characterActivationV3SoftEventReadinessPolicies()
+	if !domain.HasCharacterSoftEventReadinessPolicyV1(policies) || characterActivationProtocolForStimulus(domain.WorldStimulusPacket{Sources: policies}) != characterActivationProtocolV3SoftEventReadinessDigest() {
+		t.Fatal("soft-event readiness marker does not select its exact producer")
+	}
+	legacySchema, _ := json.Marshal((&submitCharacterReadinessTool{}).Schema())
+	currentSchema, _ := json.Marshal((&submitCharacterReadinessTool{softOutcome: true}).Schema())
+	if strings.Contains(string(legacySchema), "soft_event") || !strings.Contains(string(currentSchema), "soft_event") || !strings.Contains(string(currentSchema), domain.CharacterSoftEventRejected) {
+		t.Fatal("soft-event schema crossed the legacy boundary or omitted the five-state contract")
+	}
+}

@@ -9,6 +9,8 @@ import (
 
 const CharacterReadinessModelViewPolicyV1 = "readiness-model-view.requirements-once-aliases.v1"
 const CharacterReadinessGroupedSchemaPolicyV1 = "readiness-grouped-verdict.status-ordered-evidence.v1"
+const CharacterReadinessModelViewPolicyV2 = "readiness-model-view.soft-event-evidence-aliases.v2"
+const CharacterReadinessGroupedSchemaPolicyV2 = "readiness-grouped-verdict.soft-event-outcome.v2"
 
 // Binding is Host-only call/audit metadata. Models do not choose or echo these
 // fields. A tool constructor must retain the binding belonging to its immutable
@@ -49,10 +51,20 @@ type CharacterReadinessContractGroupV1 struct {
 // Only these fields are model-authored. There is no inherited/default status,
 // input selector, protocol selector, or model-authored binding metadata.
 type CharacterReadinessGroupedVerdictV1 struct {
-	Decision       string                              `json:"decision"`
-	Reason         string                              `json:"reason"`
-	EvidenceRefs   []string                            `json:"evidence_refs"`
-	ContractGroups []CharacterReadinessContractGroupV1 `json:"contract_groups"`
+	Decision       string                                `json:"decision"`
+	Reason         string                                `json:"reason"`
+	EvidenceRefs   []string                              `json:"evidence_refs"`
+	ContractGroups []CharacterReadinessContractGroupV1   `json:"contract_groups"`
+	SoftEvent      *CharacterReadinessGroupedSoftEventV2 `json:"soft_event,omitempty"`
+}
+
+type CharacterReadinessGroupedSoftEventV2 struct {
+	Outcome          string   `json:"outcome"`
+	ActorRef         string   `json:"actor_ref,omitempty"`
+	ProposalRef      string   `json:"proposal_ref,omitempty"`
+	CharacterReason  string   `json:"character_reason,omitempty"`
+	WorldConsequence string   `json:"world_consequence,omitempty"`
+	EvidenceRefs     []string `json:"evidence_refs"`
 }
 
 type CharacterReadinessModelCodecV1 struct {
@@ -78,7 +90,11 @@ func NewCharacterReadinessModelCodecV1(input CharacterReadinessReviewInput) (*Ch
 	if err := json.Unmarshal(raw, &c.input); err != nil {
 		return nil, err
 	}
-	c.view = CharacterReadinessModelViewV1{ViewPolicy: CharacterReadinessModelViewPolicyV1, SchemaPolicy: CharacterReadinessGroupedSchemaPolicyV1, SourcePolicy: input.Policy, RemainingCycles: input.RemainingCycles, Requirements: []CharacterReadinessModelRequirementV1{}}
+	viewPolicy, schemaPolicy := CharacterReadinessModelViewPolicyV1, CharacterReadinessGroupedSchemaPolicyV1
+	if input.Policy == CharacterReadinessReviewPolicyV2 {
+		viewPolicy, schemaPolicy = CharacterReadinessModelViewPolicyV2, CharacterReadinessGroupedSchemaPolicyV2
+	}
+	c.view = CharacterReadinessModelViewV1{ViewPolicy: viewPolicy, SchemaPolicy: schemaPolicy, SourcePolicy: input.Policy, RemainingCycles: input.RemainingCycles, Requirements: []CharacterReadinessModelRequirementV1{}}
 	for i, requirement := range c.input.Requirements {
 		if requirement.ID == "" || c.aliasesByContract[requirement.ID] != "" {
 			return nil, fmt.Errorf("readiness model view requires distinct canonical contract IDs")
@@ -134,6 +150,14 @@ func NewCharacterReadinessModelCodecV1(input CharacterReadinessReviewInput) (*Ch
 		if err := c.projectEvidenceField(cycle, "arbitration_digest", "arbitration_ref"); err != nil {
 			return nil, err
 		}
+		if input.Policy == CharacterReadinessReviewPolicyV2 {
+			if err := c.projectEvidenceField(cycle, "before_physical_root", "before_state_ref"); err != nil {
+				return nil, err
+			}
+			if err := c.projectEvidenceField(cycle, "after_physical_root", "after_state_ref"); err != nil {
+				return nil, err
+			}
+		}
 		var actions []map[string]json.RawMessage
 		if err := json.Unmarshal(cycle["actions"], &actions); err != nil {
 			return nil, err
@@ -153,7 +177,7 @@ func NewCharacterReadinessModelCodecV1(input CharacterReadinessReviewInput) (*Ch
 	if err != nil {
 		return nil, err
 	}
-	c.binding = CharacterReadinessModelBindingV1{CharacterReadinessModelViewPolicyV1, CharacterReadinessGroupedSchemaPolicyV1, inputDigest, viewDigest}
+	c.binding = CharacterReadinessModelBindingV1{viewPolicy, schemaPolicy, inputDigest, viewDigest}
 	return c, nil
 }
 
@@ -226,6 +250,27 @@ func (c *CharacterReadinessModelCodecV1) ExpandVerdict(binding CharacterReadines
 		return verdict, err
 	}
 	verdict = CharacterReadinessVerdict{Decision: grouped.Decision, Reason: grouped.Reason, EvidenceRefs: refs, ContractChecks: []CharacterReadinessContractCheck{}}
+	if c.input.Policy == CharacterReadinessReviewPolicyV2 {
+		if grouped.SoftEvent == nil {
+			return verdict, fmt.Errorf("soft-event readiness requires an explicit grouped outcome")
+		}
+		softRefs, err := c.expandRefs(grouped.SoftEvent.EvidenceRefs)
+		if err != nil {
+			return verdict, err
+		}
+		proposalRef := ""
+		if grouped.SoftEvent.ProposalRef != "" {
+			var exists bool
+			proposalRef, exists = c.evidenceByAlias[grouped.SoftEvent.ProposalRef]
+			if !exists {
+				return verdict, fmt.Errorf("soft-event outcome references an unknown proposal alias")
+			}
+		}
+		verdict.SoftEvent = &CharacterReadinessSoftEvent{Outcome: grouped.SoftEvent.Outcome, ActorRef: grouped.SoftEvent.ActorRef, ProposalRef: proposalRef,
+			CharacterReason: grouped.SoftEvent.CharacterReason, WorldConsequence: grouped.SoftEvent.WorldConsequence, EvidenceRefs: softRefs}
+	} else if grouped.SoftEvent != nil {
+		return verdict, fmt.Errorf("legacy grouped readiness cannot classify a soft event")
+	}
 	checks := make(map[string]CharacterReadinessContractCheck, len(c.input.Requirements))
 	for _, group := range grouped.ContractGroups {
 		if len(group.ContractAliases) == 0 {
@@ -298,6 +343,11 @@ func (c *CharacterReadinessModelCodecV1) EncodeVerdict(verdict CharacterReadines
 		return result
 	}
 	grouped = CharacterReadinessGroupedVerdictV1{Decision: verdict.Decision, Reason: verdict.Reason, EvidenceRefs: aliases(verdict.EvidenceRefs), ContractGroups: []CharacterReadinessContractGroupV1{}}
+	if verdict.SoftEvent != nil {
+		grouped.SoftEvent = &CharacterReadinessGroupedSoftEventV2{Outcome: verdict.SoftEvent.Outcome, ActorRef: verdict.SoftEvent.ActorRef,
+			ProposalRef: c.aliasesByEvidence[verdict.SoftEvent.ProposalRef], CharacterReason: verdict.SoftEvent.CharacterReason,
+			WorldConsequence: verdict.SoftEvent.WorldConsequence, EvidenceRefs: aliases(verdict.SoftEvent.EvidenceRefs)}
+	}
 	groups := map[string]int{}
 	for _, check := range verdict.ContractChecks {
 		key, _ := json.Marshal(struct {
@@ -335,4 +385,24 @@ func CharacterReadinessGroupedVerdictSchemaV1() map[string]any {
 			"contract_aliases": map[string]any{"type": "array", "minItems": 1, "uniqueItems": true, "items": alias("c")},
 		}}},
 	}}
+}
+
+func CharacterReadinessGroupedVerdictSchemaV2() map[string]any {
+	root := CharacterReadinessGroupedVerdictSchemaV1()
+	props := root["properties"].(map[string]any)
+	alias := func(prefix string) map[string]any {
+		return map[string]any{"type": "string", "pattern": "^" + prefix + "[0-9]{3,}$"}
+	}
+	refs := func() map[string]any {
+		return map[string]any{"type": "array", "minItems": 1, "maxItems": 12, "items": alias("e"), "description": "必须引用同一输入中的实际证据；闭合结果须同时引用proposal和同周期cycle/arbitration"}
+	}
+	props["soft_event"] = map[string]any{"type": "object", "additionalProperties": false,
+		"required": []string{"outcome", "evidence_refs"},
+		"properties": map[string]any{
+			"outcome":   map[string]any{"type": "string", "enum": []string{CharacterSoftEventOccurred, CharacterSoftEventRejected, CharacterSoftEventSuperseded, CharacterSoftEventPending, CharacterSoftEventHardUnsatisfied}},
+			"actor_ref": map[string]any{"type": "string"}, "proposal_ref": map[string]any{"type": "string"},
+			"character_reason": map[string]any{"type": "string"}, "world_consequence": map[string]any{"type": "string"}, "evidence_refs": refs(),
+		}}
+	root["required"] = append(root["required"].([]string), "soft_event")
+	return root
 }

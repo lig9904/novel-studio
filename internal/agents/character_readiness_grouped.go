@@ -39,7 +39,11 @@ func (*submitGroupedCharacterReadinessTool) Description() string {
 }
 func (*submitGroupedCharacterReadinessTool) ReadOnly(json.RawMessage) bool        { return false }
 func (*submitGroupedCharacterReadinessTool) ConcurrencySafe(json.RawMessage) bool { return false }
-func (*submitGroupedCharacterReadinessTool) Schema() map[string]any {
+
+func (t *submitGroupedCharacterReadinessTool) Schema() map[string]any {
+	if t != nil && t.input.Policy == domain.CharacterReadinessReviewPolicyV2 {
+		return domain.CharacterReadinessGroupedVerdictSchemaV2()
+	}
 	return domain.CharacterReadinessGroupedVerdictSchemaV1()
 }
 func (t *submitGroupedCharacterReadinessTool) Execute(_ context.Context, raw json.RawMessage) (json.RawMessage, error) {

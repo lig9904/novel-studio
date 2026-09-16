@@ -56,6 +56,7 @@ type CharacterChapterReadiness struct {
 	InputDigest             string                            `json:"input_digest,omitempty"`
 	EvidenceRefs            []string                          `json:"evidence_refs,omitempty"`
 	ContractChecks          []CharacterReadinessContractCheck `json:"contract_checks,omitempty"`
+	SoftEvent               *CharacterReadinessSoftEvent       `json:"soft_event,omitempty"`
 	Decision                string                            `json:"decision"` // continue / ready_for_plan / hard_conflict
 	Reason                  string                            `json:"reason"`
 	UnresolvedHardContracts []string                          `json:"unresolved_hard_contracts,omitempty"`
@@ -215,17 +216,20 @@ func FinalizeCharacterChapterReadiness(readiness CharacterChapterReadiness) (Cha
 	if readiness.Version == "" {
 		readiness.Version = "character-chapter-readiness.v1"
 	}
-	if (readiness.Version != "character-chapter-readiness.v1" && readiness.Version != CharacterReadinessReviewedVersion) || !strings.HasPrefix(readiness.GenerationID, PlanningGenerationIDPrefix) || readiness.Chapter <= 0 {
+	if (readiness.Version != "character-chapter-readiness.v1" && readiness.Version != CharacterReadinessReviewedVersion && readiness.Version != CharacterReadinessReviewedVersionV3) || !strings.HasPrefix(readiness.GenerationID, PlanningGenerationIDPrefix) || readiness.Chapter <= 0 {
 		return readiness, fmt.Errorf("chapter readiness identity is incomplete")
 	}
-	if readiness.Version == CharacterReadinessReviewedVersion {
+	if readiness.Version == CharacterReadinessReviewedVersion || readiness.Version == CharacterReadinessReviewedVersionV3 {
 		if err := validatePlanningV2Digest("readiness input_digest", readiness.InputDigest); err != nil {
 			return readiness, err
 		}
 		if len(readiness.EvidenceRefs) == 0 {
 			return readiness, fmt.Errorf("reviewed readiness must cite its exact evidence")
 		}
-	} else if readiness.InputDigest != "" || len(readiness.EvidenceRefs)+len(readiness.ContractChecks) > 0 {
+		if readiness.Version == CharacterReadinessReviewedVersionV3 && readiness.SoftEvent == nil {
+			return readiness, fmt.Errorf("soft-event readiness receipt requires its classified outcome")
+		}
+	} else if readiness.InputDigest != "" || len(readiness.EvidenceRefs)+len(readiness.ContractChecks) > 0 || readiness.SoftEvent != nil {
 		return readiness, fmt.Errorf("legacy readiness cannot mix reviewed receipt fields")
 	}
 	for key, value := range map[string]string{"cycle_digest": readiness.CycleDigest, "review_protocol": readiness.ReviewProtocol} {

@@ -25,8 +25,9 @@ decision取ready_for_plan表示可开始规划本章；continue表示尚需进�
 reason给出简短的结果/缺口说明；evidence_refs只原样引用输入的cycle_digest、arbitration_digest、final_physical_root或proposal_digest，每项至少有一个实际裁决/状态引用。提案单独不能证明事件发生。contract_checks必须覆盖每一项required_checks，不能省略不利项。`
 
 type submitCharacterReadinessTool struct {
-	store *store.Store
-	input domain.CharacterReadinessReviewInput
+	store       *store.Store
+	input       domain.CharacterReadinessReviewInput
+	softOutcome bool
 }
 
 func (*submitCharacterReadinessTool) Name() string { return "submit_chapter_readiness" }
@@ -35,9 +36,9 @@ func (*submitCharacterReadinessTool) Description() string {
 }
 func (*submitCharacterReadinessTool) ReadOnly(json.RawMessage) bool        { return false }
 func (*submitCharacterReadinessTool) ConcurrencySafe(json.RawMessage) bool { return false }
-func (*submitCharacterReadinessTool) Schema() map[string]any {
+func (t *submitCharacterReadinessTool) Schema() map[string]any {
 	refs := schema.Array("原样引用实际周期/裁决/状态证据摘要；不能只引用提案", schema.String("evidence digest"))
-	return schema.Object(
+	properties := []schema.Prop{
 		schema.Property("decision", schema.Enum("本章状态", "continue", "ready_for_plan", "hard_conflict")).Required(),
 		schema.Property("reason", schema.String("简短的实际结果或缺口说明，不输出思维链，最多1000字")).Required(),
 		schema.Property("evidence_refs", refs).Required(),
@@ -46,7 +47,18 @@ func (*submitCharacterReadinessTool) Schema() map[string]any {
 			schema.Property("status", schema.Enum("依据实际证据的合同状态", "satisfied", "preserved", "pending", "impossible")).Required(),
 			schema.Property("evidence_refs", refs).Required(),
 		))).Required(),
-	)
+	}
+	if t != nil && t.softOutcome {
+		properties = append(properties, schema.Property("soft_event", schema.Object(
+			schema.Property("outcome", schema.Enum("软事件实际结果", domain.CharacterSoftEventOccurred, domain.CharacterSoftEventRejected, domain.CharacterSoftEventSuperseded, domain.CharacterSoftEventPending, domain.CharacterSoftEventHardUnsatisfied)).Required(),
+			schema.Property("actor_ref", schema.String("闭合结果逐字填写实际agent_id；DEFERRED/硬冲突省略")),
+			schema.Property("proposal_ref", schema.String("闭合结果逐字填写实际proposal_digest；其他结果省略")),
+			schema.Property("character_reason", schema.String("闭合结果逐字复制decision_reason；其他结果省略")),
+			schema.Property("world_consequence", schema.String("闭合结果逐字复制immediate_result或state_after；其他结果省略")),
+			schema.Property("evidence_refs", refs).Required(),
+		)).Required())
+	}
+	return schema.Object(properties...)
 }
 
 func (t *submitCharacterReadinessTool) Execute(_ context.Context, raw json.RawMessage) (json.RawMessage, error) {
@@ -72,20 +84,33 @@ func (t *submitCharacterReadinessTool) Execute(_ context.Context, raw json.RawMe
 	return json.Marshal(map[string]any{"submitted": true, "chapter": receipt.Chapter, "cycle_digest": receipt.CycleDigest, "readiness_digest": receipt.Digest, "decision": receipt.Decision})
 }
 
-func characterReadinessReviewProtocol(snapshot bootstrap.ModelSnapshot, thinking agentcore.ThinkingLevel, grouped ...bool) (string, error) {
-	tool := &submitCharacterReadinessTool{}
+func characterReadinessReviewProtocol(snapshot bootstrap.ModelSnapshot, thinking agentcore.ThinkingLevel, options ...bool) (string, error) {
+	grouped, softOutcome := len(options) > 0 && options[0], len(options) > 1 && options[1]
+	tool := &submitCharacterReadinessTool{softOutcome: softOutcome}
+	prompt, policy := characterReadinessPrompt, domain.CharacterReadinessReviewPolicy
+	if softOutcome {
+		prompt += characterSoftEventReadinessPromptV1
+		policy = domain.CharacterReadinessReviewPolicyV2
+	}
 	digest, err := domain.DeterministicPlanningHash(struct {
 		Policy, Transport, Prompt, Provider, Model, Thinking string
 		Schema                                               map[string]any
-	}{domain.CharacterReadinessReviewPolicy, modelinput.ExactAgentPacketPolicy, characterReadinessPrompt, snapshot.Provider, snapshot.Name, string(thinking), tool.Schema()})
+	}{policy, modelinput.ExactAgentPacketPolicy, prompt, snapshot.Provider, snapshot.Name, string(thinking), tool.Schema()})
 	if err != nil {
 		return "", err
 	}
-	if len(grouped) > 0 && grouped[0] {
+	if grouped {
+		viewPolicy, schemaPolicy := domain.CharacterReadinessModelViewPolicyV1, domain.CharacterReadinessGroupedSchemaPolicyV1
+		groupPrompt, groupedSchema := characterGroupedReadinessPrompt, domain.CharacterReadinessGroupedVerdictSchemaV1()
+		if softOutcome {
+			viewPolicy, schemaPolicy = domain.CharacterReadinessModelViewPolicyV2, domain.CharacterReadinessGroupedSchemaPolicyV2
+			groupPrompt += characterSoftEventReadinessPromptV1
+			groupedSchema = domain.CharacterReadinessGroupedVerdictSchemaV2()
+		}
 		digest, err = domain.DeterministicPlanningHash(struct {
 			Base, ViewPolicy, SchemaPolicy, Prompt string
 			Schema                                 map[string]any
-		}{digest, domain.CharacterReadinessModelViewPolicyV1, domain.CharacterReadinessGroupedSchemaPolicyV1, characterGroupedReadinessPrompt, domain.CharacterReadinessGroupedVerdictSchemaV1()})
+		}{digest, viewPolicy, schemaPolicy, groupPrompt, groupedSchema})
 		if err != nil {
 			return "", err
 		}
@@ -110,6 +135,9 @@ func buildCharacterReadinessContext(st *store.Store, generation string, chapter 
 		return value, fmt.Errorf("readiness chapter outline is missing")
 	}
 	value = domain.CharacterReadinessContext{GenerationID: generation, Chapter: chapter, POVCharacter: protagonist, ArcLastChapter: boundary.LastChapter, BookLastChapter: boundary.BookLastChapter, SoftOutline: *outline, HardContracts: append([]string(nil), stimulus.HardContracts...)}
+	if domain.HasCharacterSoftEventReadinessPolicyV1(stimulus.Sources) {
+		value.Version = domain.CharacterReadinessReviewPolicyV2
+	}
 	if projected.Version != "" {
 		if err := domain.ValidateProjectedPlanningContextV2(projected); err != nil {
 			return value, err
@@ -177,7 +205,8 @@ func runCharacterChapterReadiness(ctx context.Context, cfg bootstrap.Config, st 
 	}
 	thinking, _ := ResolveThinkingForModel(snapshot.Model, roleThinking(cfg, "writer"))
 	grouped := domain.HasCharacterSelfChronologyPolicyV1(cycle.Evidence.Stimulus.Sources)
-	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, grouped)
+	softOutcome := contextValue.Version == domain.CharacterReadinessReviewPolicyV2
+	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, grouped, softOutcome)
 	if err != nil {
 		return empty, err
 	}
@@ -214,14 +243,21 @@ func runCharacterReadinessInput(ctx context.Context, cfg bootstrap.Config, st *s
 	if err != nil {
 		return empty, err
 	}
-	var tool agentcore.Tool = &submitCharacterReadinessTool{store: st, input: input}
+	softOutcome := input.Policy == domain.CharacterReadinessReviewPolicyV2
+	var tool agentcore.Tool = &submitCharacterReadinessTool{store: st, input: input, softOutcome: softOutcome}
 	prompt := characterReadinessPrompt
+	if softOutcome {
+		prompt += characterSoftEventReadinessPromptV1
+	}
 	if grouped {
 		groupTool, err := newSubmitGroupedCharacterReadinessTool(st, input)
 		if err != nil {
 			return empty, err
 		}
 		tool, prompt = groupTool, characterGroupedReadinessPrompt
+		if softOutcome {
+			prompt += characterSoftEventReadinessPromptV1
+		}
 		if commit != nil {
 			groupTool.persist = commit.Save
 		}
