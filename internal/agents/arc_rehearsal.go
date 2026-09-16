@@ -30,7 +30,26 @@ requires_readable=true的resource_refs只引用实际读取的既有文书或已
 
 const arcRehearsalReviewPrompt = "\n你是复核者：独立检查Architect草案，不因已有草案便同意。保留每个material_checks.operation及读取依赖，可新增遗漏操作。资料缺口未解决时明确missing/unclear，不伪造可行性或把预测不通当实际世界冲突。"
 
+const arcRehearsalRequirednessPromptV1 = `
+每项material_check必须声明requiredness：required表示当前选定条件路径运行必需，missing/unclear会阻断ready_for_detail；optional表示未选择的可选分支或不影响当前路径的补充核查，missing/unclear保留但不阻断；proposed表示尚未成为Canon、只可作为未来提案的材料或机制，missing/unclear不阻断且不得解释成人工批准或既成事实。不能把真实必需前提降成optional/proposed来绕过门禁；软纲偏好的额外读数、背景回复、未选择传递分支和Host层脚手架元操作若不属于当前角色执行路径，应如实归类而不是假装available。`
+
 func ArcRehearsalProtocolDigest() (string, error) {
+	previous, err := arcRehearsalReviewDeltaProtocolDigestV1()
+	if err != nil {
+		return "", err
+	}
+	digest, err := domain.DeterministicPlanningHash(struct {
+		Policy, Previous, ScopedPrompt, RequirednessPrompt, Capabilities string
+		ArchitectSchema, ReviewSchema                                    map[string]any
+	}{"arc-rehearsal-scoped-observation-requiredness.v1", previous, arcRehearsalScopedObservationPromptV1, arcRehearsalRequirednessPromptV1, domain.ArcRehearsalCapabilityPolicyV3,
+		(&submitArcRehearsalTool{requiredness: true}).Schema(), arcRehearsalReviewDeltaSchemaForRequiredness(true)})
+	if err != nil {
+		return "", err
+	}
+	return "sha256:" + strings.TrimPrefix(digest, "sha256:"), nil
+}
+
+func arcRehearsalReviewDeltaProtocolDigestV1() (string, error) {
 	legacy, err := LegacyArcRehearsalProtocolDigest()
 	if err != nil {
 		return "", err
@@ -81,7 +100,11 @@ func RunArcRehearsal(ctx context.Context, cfg bootstrap.Config, models *bootstra
 	if err != nil {
 		return nil, err
 	}
-	if input.ProtocolDigest != protocol && input.ProtocolDigest != legacyProtocol {
+	previousProtocol, err := arcRehearsalReviewDeltaProtocolDigestV1()
+	if err != nil {
+		return nil, err
+	}
+	if input.ProtocolDigest != protocol && input.ProtocolDigest != previousProtocol && input.ProtocolDigest != legacyProtocol {
 		return nil, fmt.Errorf("rehearsal execution policy changed; rebuild a new input without rewriting historical reports")
 	}
 	capabilities, err := ArcRehearsalExecutionCapabilities(cfg)
@@ -203,28 +226,39 @@ func runArcRehearsalStage(ctx context.Context, cfg bootstrap.Config, models *boo
 		return domain.ArcRehearsalBody{}, call, err
 	}
 	prompt := arcRehearsalPrompt + arcRehearsalCapabilityPromptV1 + arcRehearsalSurfaceCapabilityPromptV1
+	if input.ExecutionCapabilities != nil && input.ExecutionCapabilities.Policy == domain.ArcRehearsalCapabilityPolicyV3 {
+		prompt += arcRehearsalScopedObservationPromptV1
+	}
+	current, err := ArcRehearsalProtocolDigest()
+	if err != nil {
+		return domain.ArcRehearsalBody{}, call, err
+	}
+	currentInput := input.ProtocolDigest == current
+	if currentInput {
+		prompt += arcRehearsalRequirednessPromptV1
+	}
 	if role == "world_arbiter" {
-		current, err := ArcRehearsalProtocolDigest()
+		previous, err := arcRehearsalReviewDeltaProtocolDigestV1()
 		if err != nil {
 			return domain.ArcRehearsalBody{}, call, err
 		}
-		if input.ProtocolDigest == current {
+		if input.ProtocolDigest == current || input.ProtocolDigest == previous {
 			prompt += arcRehearsalReviewDeltaPrompt
 		} else {
 			prompt += arcRehearsalReviewPrompt
 		}
 	}
-	tool := &submitArcRehearsalTool{input: input}
+	tool := &submitArcRehearsalTool{input: input, requiredness: currentInput}
 	if role == "world_arbiter" {
 		if draft == nil {
 			return domain.ArcRehearsalBody{}, call, fmt.Errorf("rehearsal review requires its host-bound draft")
 		}
 		tool.draft = draft
-		current, err := ArcRehearsalProtocolDigest()
+		previous, err := arcRehearsalReviewDeltaProtocolDigestV1()
 		if err != nil {
 			return domain.ArcRehearsalBody{}, call, err
 		}
-		tool.deltaReview = input.ProtocolDigest == current
+		tool.deltaReview = currentInput || input.ProtocolDigest == previous
 	}
 	inputMessage, err := modelinput.NewExactAgentPacketMessage(modelinput.KindArcRehearsal, string(payload))
 	if err != nil {

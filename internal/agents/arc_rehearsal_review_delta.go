@@ -21,6 +21,7 @@ type arcRehearsalMaterialReview struct {
 	RequiresReadable                 bool                                         `json:"requires_readable"`
 	ResourceRefs                     []string                                     `json:"resource_refs"`
 	Status                           string                                       `json:"status"`
+	Requiredness                     string                                       `json:"requiredness,omitempty"`
 	Explanation                      string                                       `json:"explanation"`
 	AdditionalCapabilityRequirements []domain.ArcRehearsalCapabilityRequirementV1 `json:"additional_capability_requirements"`
 }
@@ -35,7 +36,11 @@ type arcRehearsalReviewDelta struct {
 }
 
 func arcRehearsalReviewDeltaSchema() map[string]any {
-	legacy := (&submitArcRehearsalTool{}).Schema()
+	return arcRehearsalReviewDeltaSchemaForRequiredness(false)
+}
+
+func arcRehearsalReviewDeltaSchemaForRequiredness(requiredness bool) map[string]any {
+	legacy := (&submitArcRehearsalTool{requiredness: requiredness}).Schema()
 	material := legacy["properties"].(map[string]any)["material_checks"].(map[string]any)["items"].(map[string]any)
 	properties := material["properties"].(map[string]any)
 	additional := properties["capability_requirements"].(map[string]any)
@@ -60,7 +65,11 @@ func (t *submitArcRehearsalTool) compileReviewDelta(raw json.RawMessage) (domain
 	if err != nil {
 		return zero, err
 	}
-	if t.input.ProtocolDigest != current {
+	previous, previousErr := arcRehearsalReviewDeltaProtocolDigestV1()
+	if previousErr != nil {
+		return zero, previousErr
+	}
+	if t.input.ProtocolDigest != current && t.input.ProtocolDigest != previous {
 		return zero, fmt.Errorf("review delta does not match its input protocol")
 	}
 	verified, err := domain.FinalizeArcRehearsalDraft(t.input, *t.draft)
@@ -90,7 +99,11 @@ func (t *submitArcRehearsalTool) compileReviewDelta(raw json.RawMessage) (domain
 		return zero, err
 	}
 	for _, review := range reviews {
-		for _, name := range []string{"operation", "requires_readable", "resource_refs", "status", "explanation", "additional_capability_requirements"} {
+		requiredFields := []string{"operation", "requires_readable", "resource_refs", "status", "explanation", "additional_capability_requirements"}
+		if t.requiredness {
+			requiredFields = append(requiredFields, "requiredness")
+		}
+		for _, name := range requiredFields {
 			value, ok := review[name]
 			if !ok || (name == "additional_capability_requirements" && bytes.Equal(bytes.TrimSpace(value), []byte("null"))) {
 				return zero, fmt.Errorf("review delta material requires explicit %s", name)
@@ -131,7 +144,7 @@ func (t *submitArcRehearsalTool) compileReviewDelta(raw json.RawMessage) (domain
 			keys[r.Key] = true
 		}
 		requirements = append(requirements, review.AdditionalCapabilityRequirements...)
-		body.MaterialChecks = append(body.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: review.Operation, RequiresReadable: review.RequiresReadable, ResourceRefs: review.ResourceRefs, Status: review.Status, Explanation: review.Explanation, CapabilityRequirements: requirements})
+		body.MaterialChecks = append(body.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: review.Operation, RequiresReadable: review.RequiresReadable, ResourceRefs: review.ResourceRefs, Status: review.Status, Requiredness: review.Requiredness, Explanation: review.Explanation, CapabilityRequirements: requirements})
 	}
 	merged, err := json.Marshal(body)
 	if err != nil {

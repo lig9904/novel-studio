@@ -19,7 +19,7 @@ import (
 func rehearsalReviewDeltaForTest(body domain.ArcRehearsalBody) arcRehearsalReviewDelta {
 	d := arcRehearsalReviewDelta{Summary: body.Summary, Chapters: body.Chapters, CharacterConflicts: body.CharacterConflicts, ContractChecks: body.ContractChecks, UnresolvedItems: body.UnresolvedItems}
 	for _, m := range body.MaterialChecks {
-		d.MaterialChecks = append(d.MaterialChecks, arcRehearsalMaterialReview{Operation: m.Operation, RequiresReadable: m.RequiresReadable, ResourceRefs: m.ResourceRefs, Status: m.Status, Explanation: m.Explanation, AdditionalCapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{}})
+		d.MaterialChecks = append(d.MaterialChecks, arcRehearsalMaterialReview{Operation: m.Operation, RequiresReadable: m.RequiresReadable, ResourceRefs: m.ResourceRefs, Status: m.Status, Requiredness: m.Requiredness, Explanation: m.Explanation, AdditionalCapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{}})
 	}
 	return d
 }
@@ -106,7 +106,7 @@ func TestArcRehearsalReviewDeltaInheritsAndAddsWithoutMutatingDraft(t *testing.T
 	delta.MaterialChecks[1].RequiresReadable = true
 	delta.MaterialChecks[1].ResourceRefs = []string{"res_1111111111111111"}
 	delta.MaterialChecks[1].AdditionalCapabilityRequirements = []domain.ArcRehearsalCapabilityRequirementV1{read}
-	inserted := arcRehearsalMaterialReview{Operation: "inserted_local_work", Status: "available", Explanation: "在合法依赖之后插入，不限末尾", AdditionalCapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{{Key: "extra_self_work", Kind: "self_work", ActorRef: actor, DependsOn: []string{draft.Body.MaterialChecks[0].CapabilityRequirements[0].Key}}}}
+	inserted := arcRehearsalMaterialReview{Operation: "inserted_local_work", Status: "available", Requiredness: "required", Explanation: "在合法依赖之后插入，不限末尾", AdditionalCapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{{Key: "extra_self_work", Kind: "self_work", ActorRef: actor, DependsOn: []string{draft.Body.MaterialChecks[0].CapabilityRequirements[0].Key}}}}
 	delta.MaterialChecks = append(delta.MaterialChecks[:1], append([]arcRehearsalMaterialReview{inserted}, delta.MaterialChecks[1:]...)...)
 	raw, err := json.Marshal(delta)
 	selectionMust(t, err)
@@ -118,7 +118,7 @@ func TestArcRehearsalReviewDeltaInheritsAndAddsWithoutMutatingDraft(t *testing.T
 	want.MaterialChecks[1].RequiresReadable = true
 	want.MaterialChecks[1].ResourceRefs = []string{"res_1111111111111111"}
 	want.MaterialChecks[1].CapabilityRequirements = append(want.MaterialChecks[1].CapabilityRequirements, read)
-	newMaterial := domain.ArcRehearsalMaterialCheck{Operation: inserted.Operation, Status: inserted.Status, Explanation: inserted.Explanation, CapabilityRequirements: inserted.AdditionalCapabilityRequirements}
+	newMaterial := domain.ArcRehearsalMaterialCheck{Operation: inserted.Operation, Status: inserted.Status, Requiredness: inserted.Requiredness, Explanation: inserted.Explanation, CapabilityRequirements: inserted.AdditionalCapabilityRequirements}
 	want.MaterialChecks = append(want.MaterialChecks[:1], append([]domain.ArcRehearsalMaterialCheck{newMaterial}, want.MaterialChecks[1:]...)...)
 	actual, err := json.Marshal(tool.body)
 	selectionMust(t, err)

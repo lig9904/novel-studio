@@ -20,7 +20,22 @@ const (
 	ResourceSemanticsQuantitative  = "quantitative"
 	ResourceSemanticsQualitative   = "qualitative"
 	ResourceSemanticsEnvironmental = "environmental"
+
+	ResourcePermissionObserve = "observe"
+	ResourcePermissionUse     = "use"
+	ResourcePermissionPossess = "possess"
+	ResourcePermissionControl = "control"
+	ResourcePermissionClaim   = "claim"
 )
+
+// CharacterResourceObservationChannelV1 is an actor-scoped, resource-scoped
+// capability reference. Label is the only private description exposed to the
+// character; the author-side mechanism remains in the world stimulus.
+type CharacterResourceObservationChannelV1 struct {
+	MechanismRef string `json:"mechanism_ref"`
+	Visibility   string `json:"visibility"` // public / private
+	Label        string `json:"label"`
+}
 
 type WorldResourceBalanceV2 struct {
 	Artifact            *CharacterWorkArtifactV1 `json:"artifact,omitempty"`
@@ -45,14 +60,16 @@ type ResourcePerceptionV2 struct {
 }
 
 type CharacterResourceHoldingV2 struct {
-	ResourceID     string                        `json:"resource_id"`
-	PerceivedName  string                        `json:"perceived_name,omitempty"`
-	PerceivedLabel string                        `json:"perceived_label,omitempty"`
-	PerceivedUnit  string                        `json:"perceived_unit,omitempty"`
-	Access         string                        `json:"access"`
-	Perception     ResourcePerceptionV2          `json:"perception"`
-	EvidenceRefs   []string                      `json:"evidence_refs,omitempty"`
-	KnownPlacement *CharacterResourcePlacementV2 `json:"known_placement,omitempty"`
+	ResourceID          string                                  `json:"resource_id"`
+	PerceivedName       string                                  `json:"perceived_name,omitempty"`
+	PerceivedLabel      string                                  `json:"perceived_label,omitempty"`
+	PerceivedUnit       string                                  `json:"perceived_unit,omitempty"`
+	Access              string                                  `json:"access"`
+	Permissions         []string                                `json:"permissions,omitempty"`
+	ObservationChannels []CharacterResourceObservationChannelV1 `json:"observation_channels,omitempty"`
+	Perception          ResourcePerceptionV2                    `json:"perception"`
+	EvidenceRefs        []string                                `json:"evidence_refs,omitempty"`
+	KnownPlacement      *CharacterResourcePlacementV2           `json:"known_placement,omitempty"`
 }
 
 type CharacterPhysicalStateV2 struct {
@@ -77,32 +94,36 @@ type WorldPhysicalStateV2 struct {
 // This is deliberately a separate type: observations cannot serialize actual
 // world balances by copying an arbiter-only catalog entry.
 type CharacterResourceViewV2 struct {
-	InspectableSurfaces []string                      `json:"inspectable_surfaces,omitempty"`
-	ResourceID          string                        `json:"resource_id"`
-	Name                string                        `json:"name"`
-	Semantics           string                        `json:"semantics,omitempty"`
-	Unit                string                        `json:"unit"`
-	Access              string                        `json:"access"`
-	Perception          ResourcePerceptionV2          `json:"perception"`
-	EvidenceRefs        []string                      `json:"evidence_refs,omitempty"`
-	KnownPlacement      *CharacterResourcePlacementV2 `json:"known_placement,omitempty"`
+	InspectableSurfaces []string                                `json:"inspectable_surfaces,omitempty"`
+	ResourceID          string                                  `json:"resource_id"`
+	Name                string                                  `json:"name"`
+	Semantics           string                                  `json:"semantics,omitempty"`
+	Unit                string                                  `json:"unit"`
+	Access              string                                  `json:"access"`
+	Permissions         []string                                `json:"permissions,omitempty"`
+	ObservationChannels []CharacterResourceObservationChannelV1 `json:"observation_channels,omitempty"`
+	Perception          ResourcePerceptionV2                    `json:"perception"`
+	EvidenceRefs        []string                                `json:"evidence_refs,omitempty"`
+	KnownPlacement      *CharacterResourcePlacementV2           `json:"known_placement,omitempty"`
 }
 
 type InitialCharacterResourceV2 struct {
-	InspectableSurfaces []string                 `json:"inspectable_surfaces,omitempty"`
-	ResourceID          string                   `json:"resource_id"`
-	PerceivedName       string                   `json:"perceived_name,omitempty"`
-	PerceivedLabel      string                   `json:"perceived_label,omitempty"`
-	PerceivedUnit       string                   `json:"perceived_unit,omitempty"`
-	Name                string                   `json:"name"`
-	Semantics           string                   `json:"semantics,omitempty"`
-	Unit                string                   `json:"unit"`
-	ActualAmount        *float64                 `json:"actual_amount"`
-	ReadableFacts       []ResourceReadableFactV2 `json:"readable_facts,omitempty"`
-	AccessRequiresAny   []string                 `json:"access_requires_any,omitempty"`
-	Access              string                   `json:"access"`
-	Perception          ResourcePerceptionV2     `json:"perception"`
-	EvidenceRefs        []string                 `json:"evidence_refs,omitempty"`
+	InspectableSurfaces []string                                `json:"inspectable_surfaces,omitempty"`
+	ResourceID          string                                  `json:"resource_id"`
+	PerceivedName       string                                  `json:"perceived_name,omitempty"`
+	PerceivedLabel      string                                  `json:"perceived_label,omitempty"`
+	PerceivedUnit       string                                  `json:"perceived_unit,omitempty"`
+	Name                string                                  `json:"name"`
+	Semantics           string                                  `json:"semantics,omitempty"`
+	Unit                string                                  `json:"unit"`
+	ActualAmount        *float64                                `json:"actual_amount"`
+	ReadableFacts       []ResourceReadableFactV2                `json:"readable_facts,omitempty"`
+	AccessRequiresAny   []string                                `json:"access_requires_any,omitempty"`
+	Access              string                                  `json:"access"`
+	Permissions         []string                                `json:"permissions,omitempty"`
+	ObservationChannels []CharacterResourceObservationChannelV1 `json:"observation_channels,omitempty"`
+	Perception          ResourcePerceptionV2                    `json:"perception"`
+	EvidenceRefs        []string                                `json:"evidence_refs,omitempty"`
 }
 
 type ResourceSettlementV2 struct {
@@ -146,6 +167,87 @@ func WorldResourceSemanticsV2(resource WorldResourceBalanceV2) string {
 		return ResourceSemanticsQuantitative
 	}
 	return ResourceSemanticsQualitative
+}
+
+// CharacterResourceHasPermissionV1 keeps omitted legacy permissions readable:
+// historical accessible holdings allowed observation and use. Once an explicit
+// list is present it is authoritative, so observation no longer implies use,
+// possession, control or claim.
+func CharacterResourceHasPermissionV1(access string, permissions []string, permission string) bool {
+	if len(permissions) == 0 {
+		return access != "none" && (permission == ResourcePermissionObserve || permission == ResourcePermissionUse)
+	}
+	for _, candidate := range permissions {
+		if candidate == permission {
+			return true
+		}
+	}
+	return false
+}
+
+func validateCharacterResourcePermissionsV1(access string, permissions []string, channels []CharacterResourceObservationChannelV1) error {
+	if len(permissions) > 5 || len(normalizeV2Strings(permissions)) != len(permissions) {
+		return fmt.Errorf("physical state v2: resource permissions must be unique explicit capabilities")
+	}
+	allowed := map[string]bool{
+		ResourcePermissionObserve: true, ResourcePermissionUse: true, ResourcePermissionPossess: true,
+		ResourcePermissionControl: true, ResourcePermissionClaim: true,
+	}
+	for _, permission := range permissions {
+		if !allowed[permission] {
+			return fmt.Errorf("physical state v2: invalid resource permission %q", permission)
+		}
+	}
+	if len(channels) > 8 || len(channels) > 0 && (len(permissions) == 0 || !CharacterResourceHasPermissionV1(access, permissions, ResourcePermissionObserve)) {
+		return fmt.Errorf("physical state v2: observation channels require explicit observe permission")
+	}
+	seen := map[string]bool{}
+	for _, channel := range channels {
+		if !physicalIdentityV2(channel.MechanismRef) || seen[channel.MechanismRef] || (channel.Visibility != "public" && channel.Visibility != "private") || strings.TrimSpace(channel.Label) == "" {
+			return fmt.Errorf("physical state v2: observation channel identity, visibility or label is invalid")
+		}
+		if err := validateCharacterPerceivedLabelV2(channel.Label); err != nil {
+			return err
+		}
+		seen[channel.MechanismRef] = true
+	}
+	return nil
+}
+
+func characterResourceObservationMechanismAllowedV1(access string, permissions []string, channels []CharacterResourceObservationChannelV1, mechanism CodexMechanism) bool {
+	if !CharacterResourceHasPermissionV1(access, permissions, ResourcePermissionObserve) {
+		return false
+	}
+	public := CodexMechanismVisibility(mechanism) != "secret"
+	if len(channels) == 0 {
+		return public
+	}
+	for _, channel := range channels {
+		if channel.MechanismRef != mechanism.ID {
+			continue
+		}
+		return channel.Visibility == "public" && public || channel.Visibility == "private" && CodexMechanismVisibility(mechanism) == "secret"
+	}
+	return false
+}
+
+func CharacterResourceViewAllowsObservationMechanismV1(view CharacterResourceViewV2, mechanism CodexMechanism) bool {
+	return characterResourceObservationMechanismAllowedV1(view.Access, view.Permissions, view.ObservationChannels, mechanism)
+}
+
+func CharacterResourceViewReferencesObservationMechanismV1(view CharacterResourceViewV2, mechanismRef string) bool {
+	if !CharacterResourceHasPermissionV1(view.Access, view.Permissions, ResourcePermissionObserve) {
+		return false
+	}
+	if len(view.ObservationChannels) == 0 {
+		return true
+	}
+	for _, channel := range view.ObservationChannels {
+		if channel.MechanismRef == mechanismRef {
+			return true
+		}
+	}
+	return false
 }
 
 type ResourceMeasurementV2 struct {
@@ -292,6 +394,9 @@ func validateResourceHoldingV2(holding CharacterResourceHoldingV2) error {
 	default:
 		return fmt.Errorf("physical state v2: invalid resource access %q", holding.Access)
 	}
+	if err := validateCharacterResourcePermissionsV1(holding.Access, holding.Permissions, holding.ObservationChannels); err != nil {
+		return err
+	}
 	if perceptionHasNumberV2(holding.Perception) && strings.TrimSpace(holding.PerceivedUnit) == "" {
 		return fmt.Errorf("numeric resource perception requires an explicitly perceived unit")
 	}
@@ -372,6 +477,15 @@ func FinalizeWorldPhysicalStateV2(state WorldPhysicalStateV2) (WorldPhysicalStat
 			}
 			actor.Resources[j].EvidenceRefs = normalizeV2Strings(actor.Resources[j].EvidenceRefs)
 			actor.Resources[j].Perception.EvidenceRefs = normalizeV2Strings(actor.Resources[j].Perception.EvidenceRefs)
+			if len(actor.Resources[j].Permissions) > 0 {
+				actor.Resources[j].Permissions = normalizeV2Strings(actor.Resources[j].Permissions)
+			}
+			sort.Slice(actor.Resources[j].ObservationChannels, func(a, b int) bool {
+				return actor.Resources[j].ObservationChannels[a].MechanismRef < actor.Resources[j].ObservationChannels[b].MechanismRef
+			})
+			for k := range actor.Resources[j].ObservationChannels {
+				actor.Resources[j].ObservationChannels[k].Label = strings.TrimSpace(actor.Resources[j].ObservationChannels[k].Label)
+			}
 		}
 	}
 	for i := range out.Resources {
@@ -436,7 +550,7 @@ func BuildWorldPhysicalStateFromInitialV2(characters []Character, registry Chara
 				catalog[balance.ResourceID] = balance
 				state.Resources = append(state.Resources, balance)
 			}
-			actor.Resources = append(actor.Resources, CharacterResourceHoldingV2{ResourceID: initial.ResourceID, PerceivedName: initial.PerceivedName, PerceivedLabel: initial.PerceivedLabel, PerceivedUnit: initial.PerceivedUnit, Access: initial.Access, Perception: initial.Perception, EvidenceRefs: initial.EvidenceRefs})
+			actor.Resources = append(actor.Resources, CharacterResourceHoldingV2{ResourceID: initial.ResourceID, PerceivedName: initial.PerceivedName, PerceivedLabel: initial.PerceivedLabel, PerceivedUnit: initial.PerceivedUnit, Access: initial.Access, Permissions: initial.Permissions, ObservationChannels: initial.ObservationChannels, Perception: initial.Perception, EvidenceRefs: initial.EvidenceRefs})
 		}
 		state.Actors = append(state.Actors, actor)
 	}

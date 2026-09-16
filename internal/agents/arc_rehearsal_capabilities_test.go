@@ -40,9 +40,20 @@ func rehearsalCapabilityFixture(t *testing.T) (*store.Store, domain.ArcRehearsal
 
 func rehearsalCapabilityBody(input domain.ArcRehearsalInput) domain.ArcRehearsalBody {
 	b := arcRehearsalTestBody(input, false)
-	a, recipient := input.CharacterObservations[0].AgentID, input.CharacterObservations[1].AgentID
+	a, recipient := "", ""
+	for _, observation := range input.CharacterObservations {
+		ownsDevice := false
+		for _, view := range observation.ResourceViews {
+			ownsDevice = ownsDevice || view.ResourceID == rehearsalDeviceID
+		}
+		if ownsDevice {
+			a = observation.AgentID
+		} else {
+			recipient = observation.AgentID
+		}
+	}
 	add := func(r domain.ArcRehearsalCapabilityRequirementV1, read bool) {
-		b.MaterialChecks = append(b.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: r.Key, RequiresReadable: read, Status: "available", Explanation: "仅确认现有协议有入口；后续选择、实际权限、工时、资料和结果仍须真实成立", CapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{r}})
+		b.MaterialChecks = append(b.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: r.Key, RequiresReadable: read, Status: "available", Requiredness: "required", Explanation: "仅确认现有协议有入口；后续选择、实际权限、工时、资料和结果仍须真实成立", CapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{r}})
 	}
 	add(domain.ArcRehearsalCapabilityRequirementV1{Key: "fuel_measure", Kind: "resource_measurement", ActorRef: a, ResourceRefs: []string{rehearsalFuelID}, MechanismRefs: []string{"M_SAIL"}}, false)
 	add(domain.ArcRehearsalCapabilityRequirementV1{Key: "power_check", Kind: "operational_observation", ActorRef: a, ResourceRefs: []string{rehearsalDeviceID}, MechanismRefs: []string{"M_SAIL"}}, false)
@@ -66,6 +77,12 @@ func rehearsalCapabilityClone(t *testing.T, body domain.ArcRehearsalBody) domain
 func TestArcRehearsalCapabilitiesRejectBeforeSubmission(t *testing.T) {
 	st, input, _ := rehearsalCapabilityFixture(t)
 	baseline := rehearsalCapabilityBody(input)
+	otherActor := ""
+	for _, observation := range input.CharacterObservations {
+		if observation.AgentID != baseline.MaterialChecks[4].CapabilityRequirements[0].ActorRef {
+			otherActor = observation.AgentID
+		}
+	}
 	before := arcRehearsalSourceFiles(t, st.Dir())
 	for name, change := range map[string]func(*domain.ArcRehearsalBody){
 		"water-no-resource-or-capability": func(b *domain.ArcRehearsalBody) {
@@ -110,7 +127,7 @@ func TestArcRehearsalCapabilitiesRejectBeforeSubmission(t *testing.T) {
 			b.MaterialChecks[7].CapabilityRequirements[0].ArtifactRef = "draft_note"
 		},
 		"rewrite-other-author": func(b *domain.ArcRehearsalBody) {
-			b.MaterialChecks[4].CapabilityRequirements[0].ActorRef = input.CharacterObservations[1].AgentID
+			b.MaterialChecks[4].CapabilityRequirements[0].ActorRef = otherActor
 		},
 		"rewrite-reallocates": func(b *domain.ArcRehearsalBody) {
 			b.MaterialChecks[4].CapabilityRequirements[0].MaterialInputs = []domain.CharacterWorkMaterialInputV1{{ResourceID: rehearsalPaperID, Amount: 1}}
@@ -188,13 +205,87 @@ func TestArcRehearsalCapabilitiesRealSubmitStoreRoundTrip(t *testing.T) {
 		}
 	}
 	missing := arcRehearsalTestBody(input, false)
-	missing.MaterialChecks = append(missing.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: "背景水位检查", Status: "missing", Explanation: "有水位尺文字，但没有执行资源/背景适配器", CapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{{Key: "water", Kind: "unsupported", ActorRef: "背景船员"}}})
+	missing.MaterialChecks = append(missing.MaterialChecks, domain.ArcRehearsalMaterialCheck{Operation: "背景水位检查", Status: "missing", Requiredness: "required", Explanation: "有水位尺文字，但没有执行资源/背景适配器", CapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{{Key: "water", Kind: "unsupported", ActorRef: "背景船员"}}})
 	d, err := domain.FinalizeArcRehearsalDraft(input, domain.ArcRehearsalDraft{Body: missing, Call: call("architect", "m1")})
 	selectionMust(t, err)
 	r, err := domain.FinalizeArcRehearsalReport(input, d, domain.ArcRehearsalReport{Body: missing, Call: call("world_arbiter", "m2")})
 	selectionMust(t, err)
 	if r.ReadyForDetail {
 		t.Fatal("honest capability gap became detail authorization")
+	}
+	optional := rehearsalCapabilityClone(t, missing)
+	optional.MaterialChecks[len(optional.MaterialChecks)-1].Requiredness = "optional"
+	od, err := domain.FinalizeArcRehearsalDraft(input, domain.ArcRehearsalDraft{Body: optional, Call: call("architect", "o1")})
+	selectionMust(t, err)
+	or, err := domain.FinalizeArcRehearsalReport(input, od, domain.ArcRehearsalReport{Body: optional, Call: call("world_arbiter", "o2")})
+	selectionMust(t, err)
+	if !or.ReadyForDetail {
+		t.Fatal("optional unknown blocked readiness")
+	}
+	required := rehearsalCapabilityClone(t, body)
+	required.MaterialChecks[0].Requiredness = "required"
+	rd, err := domain.FinalizeArcRehearsalDraft(input, domain.ArcRehearsalDraft{Body: required, Call: call("architect", "r1")})
+	selectionMust(t, err)
+	downgraded := rehearsalCapabilityClone(t, required)
+	downgraded.MaterialChecks[0].Requiredness = "optional"
+	if _, err := domain.FinalizeArcRehearsalReport(input, rd, domain.ArcRehearsalReport{Body: downgraded, Call: call("world_arbiter", "r2")}); err == nil {
+		t.Fatal("review downgraded a required dependency")
+	}
+}
+
+func TestArcRehearsalScopedPrivateObservationIsActorAndResourceBound(t *testing.T) {
+	_, input, _ := rehearsalCapabilityFixture(t)
+	if input.ExecutionCapabilities == nil || input.ExecutionCapabilities.Policy != domain.ArcRehearsalCapabilityPolicyV3 {
+		t.Fatalf("fixture did not select scoped capability profile: %+v", input.ExecutionCapabilities)
+	}
+	actorID := ""
+	for _, observation := range input.CharacterObservations {
+		for _, view := range observation.ResourceViews {
+			if view.ResourceID == rehearsalDeviceID {
+				actorID = observation.AgentID
+			}
+		}
+	}
+	for i := range input.WorldState.Actors {
+		if input.WorldState.Actors[i].AgentID != actorID {
+			continue
+		}
+		for j := range input.WorldState.Actors[i].Resources {
+			holding := &input.WorldState.Actors[i].Resources[j]
+			if holding.ResourceID == rehearsalDeviceID {
+				holding.Access = "none"
+				holding.Permissions = []string{domain.ResourcePermissionObserve}
+				holding.ObservationChannels = []domain.CharacterResourceObservationChannelV1{{MechanismRef: "M_PRIVATE", Visibility: "private", Label: "本人私密设备感知"}}
+			}
+		}
+	}
+	input.WorldCodex.Mechanisms = append(input.WorldCodex.Mechanisms, domain.CodexMechanism{ID: "M_PRIVATE", Name: "作者态私密机制", Visibility: "secret"})
+	state, err := domain.FinalizeWorldPhysicalStateV2(*input.WorldState)
+	selectionMust(t, err)
+	input.WorldState = &state
+	for i := range input.CharacterObservations {
+		o := &input.CharacterObservations[i]
+		o.ResourceViews, err = domain.BuildCharacterResourceViewsForSourcesV2(state, o.AgentID, o.Sources)
+		selectionMust(t, err)
+		*o, err = domain.FinalizeCharacterObservationPacket(*o)
+		selectionMust(t, err)
+	}
+	input.InputDigest = ""
+	input, err = domain.FinalizeArcRehearsalInput(input)
+	selectionMust(t, err)
+	body := rehearsalCapabilityBody(input)
+	body.MaterialChecks[2].CapabilityRequirements[0].MechanismRefs = []string{"M_PRIVATE"}
+	if err := domain.ValidateArcRehearsalBody(input, body); err != nil {
+		t.Fatalf("private scoped rehearsal observation rejected: %v", err)
+	}
+	other := rehearsalCapabilityClone(t, body)
+	for _, observation := range input.CharacterObservations {
+		if observation.AgentID != actorID {
+			other.MaterialChecks[2].CapabilityRequirements[0].ActorRef = observation.AgentID
+		}
+	}
+	if err := domain.ValidateArcRehearsalBody(input, other); err == nil || !strings.Contains(err.Error(), "explicit observe permission") {
+		t.Fatalf("private channel crossed actors: %v", err)
 	}
 }
 

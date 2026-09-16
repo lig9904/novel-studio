@@ -58,16 +58,33 @@ func operationalRequestResourceV1(resource WorldResourceBalanceV2, surface strin
 // The original builder deliberately remains unchanged for frozen producers.
 func BuildCharacterResourceViewsForSourcesV2(state WorldPhysicalStateV2, agentID string, sources []string) ([]CharacterResourceViewV2, error) {
 	views, err := BuildCharacterResourceViewsV2(state, agentID)
-	if err != nil || !HasCharacterSurfaceInspectionPolicyV1(sources) {
+	if err != nil || (!HasCharacterSurfaceInspectionPolicyV1(sources) && !HasCharacterScopedObservationPolicyV1(sources)) {
 		return views, err
+	}
+	state, err = FinalizeWorldPhysicalStateV2(state)
+	if err != nil {
+		return nil, err
 	}
 	catalog := map[string]WorldResourceBalanceV2{}
 	for _, resource := range state.Resources {
 		catalog[resource.ResourceID] = resource
 	}
+	holdings := map[string]CharacterResourceHoldingV2{}
+	for _, actor := range state.Actors {
+		if actor.AgentID == agentID {
+			for _, holding := range actor.Resources {
+				holdings[holding.ResourceID] = holding
+			}
+		}
+	}
 	for i := range views {
-		if views[i].Access != "none" && views[i].Perception.Kind != "unaware" {
+		if HasCharacterSurfaceInspectionPolicyV1(sources) && views[i].Access != "none" && views[i].Perception.Kind != "unaware" {
 			views[i].InspectableSurfaces = append([]string(nil), catalog[views[i].ResourceID].InspectableSurfaces...)
+		}
+		if HasCharacterScopedObservationPolicyV1(sources) {
+			holding := holdings[views[i].ResourceID]
+			views[i].Permissions = append([]string(nil), holding.Permissions...)
+			views[i].ObservationChannels = append([]CharacterResourceObservationChannelV1(nil), holding.ObservationChannels...)
 		}
 	}
 	return views, nil

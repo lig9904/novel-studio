@@ -66,6 +66,9 @@ func prepareCharacterArbitrationRequest(inputs characterAgentChapterInputs, prop
 		if domain.HasCharacterIncomingMaterialReadPolicyV1(inputs.Stimulus.Sources) {
 			arbiterPrompt += worldArbiterIncomingMaterialReadPromptV1
 		}
+		if domain.HasCharacterScopedObservationPolicyV1(inputs.Stimulus.Sources) {
+			arbiterPrompt += worldArbiterScopedObservationPromptV1
+		}
 	}
 	if inputs.CycleSession != nil {
 		arbiterPrompt += worldArbiterActivationProjectionPromptV1

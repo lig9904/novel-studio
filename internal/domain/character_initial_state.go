@@ -59,7 +59,7 @@ func ValidateCharacterInitialState(character Character) error {
 		if err := validateWorldResourceBalanceV2(WorldResourceBalanceV2{ResourceID: initial.ResourceID, Name: initial.Name, Semantics: initial.Semantics, Unit: initial.Unit, ActualAmount: initial.ActualAmount, ReadableFacts: initial.ReadableFacts, InspectableSurfaces: initial.InspectableSurfaces}); err != nil {
 			return err
 		}
-		if err := validateResourceHoldingV2(CharacterResourceHoldingV2{ResourceID: initial.ResourceID, PerceivedName: initial.PerceivedName, PerceivedUnit: initial.PerceivedUnit, Access: initial.Access, Perception: initial.Perception}); err != nil {
+		if err := validateResourceHoldingV2(CharacterResourceHoldingV2{ResourceID: initial.ResourceID, PerceivedName: initial.PerceivedName, PerceivedUnit: initial.PerceivedUnit, Access: initial.Access, Permissions: initial.Permissions, ObservationChannels: initial.ObservationChannels, Perception: initial.Perception}); err != nil {
 			return err
 		}
 	}

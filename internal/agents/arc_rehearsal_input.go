@@ -207,8 +207,11 @@ func BuildArcRehearsalInput(st *store.Store, binding domain.ArcRehearsalInput, c
 			return input, fmt.Errorf("rehearsal character lacks accepted physical state: %s", character.Name)
 		}
 		var observationSources []string
-		if input.ExecutionCapabilities.Policy == domain.ArcRehearsalCapabilityPolicyV2 {
+		if input.ExecutionCapabilities.Policy == domain.ArcRehearsalCapabilityPolicyV2 || input.ExecutionCapabilities.Policy == domain.ArcRehearsalCapabilityPolicyV3 {
 			observationSources = []string{domain.CharacterSurfaceInspectionPolicyV1}
+		}
+		if input.ExecutionCapabilities.Policy == domain.ArcRehearsalCapabilityPolicyV3 {
+			observationSources = append(observationSources, domain.CharacterScopedObservationPolicyV1)
 		}
 		views, err := domain.BuildCharacterResourceViewsForSourcesV2(*input.WorldState, record.AgentID, observationSources)
 		if err != nil {
@@ -270,6 +273,9 @@ func ArcRehearsalExecutionCapabilities(cfg bootstrap.Config) (domain.ArcRehearsa
 		return domain.ArcRehearsalExecutionCapabilitiesV1{}, fmt.Errorf("rehearsal execution selection is not a valid activation configuration")
 	}
 	if policy == domain.CharacterActivationCyclePolicyV3 && domain.HasCharacterSurfaceInspectionPolicyV1(characterActivationV3PoliciesForProducer(producer)) {
+		if domain.HasCharacterScopedObservationPolicyV1(characterActivationV3PoliciesForProducer(producer)) {
+			return domain.BuildArcRehearsalExecutionCapabilitiesV3(cfg.CharacterAgentsProtocolVersion(), policy, producer)
+		}
 		return domain.BuildArcRehearsalExecutionCapabilitiesV2(cfg.CharacterAgentsProtocolVersion(), policy, producer)
 	}
 	return domain.BuildArcRehearsalExecutionCapabilitiesV1(cfg.CharacterAgentsProtocolVersion(), policy, producer)

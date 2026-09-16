@@ -3,6 +3,9 @@ package domain
 import "fmt"
 
 func validateGenerationContinuationHistoryPredecessor(previous, current ProjectedChapterBundle) error {
+	if HasCharacterScopedObservationPolicyV1(previous.ChapterWorldSimulation.Sources) != HasCharacterScopedObservationPolicyV1(current.ChapterWorldSimulation.Sources) {
+		return fmt.Errorf("generation scoped observation policy cannot change between chapters")
+	}
 	if HasCharacterSurfaceInspectionPolicyV1(previous.ChapterWorldSimulation.Sources) != HasCharacterSurfaceInspectionPolicyV1(current.ChapterWorldSimulation.Sources) {
 		return fmt.Errorf("generation surface inspection policy cannot change between chapters")
 	}
@@ -78,6 +81,10 @@ func validateGenerationActivationPolicySources(policy string, bundle ProjectedCh
 	wantCompletions := HasCharacterSelfCompletionViewPolicyV1(bundle.ChapterWorldSimulation.Sources)
 	wantSurfaces := HasCharacterSurfaceInspectionPolicyV1(bundle.ChapterWorldSimulation.Sources)
 	wantIncomingRead := HasCharacterIncomingMaterialReadPolicyV1(bundle.ChapterWorldSimulation.Sources)
+	wantScopedObservation := HasCharacterScopedObservationPolicyV1(bundle.ChapterWorldSimulation.Sources)
+	if wantScopedObservation && (!wantV3 || !wantIncomingRead) {
+		return fmt.Errorf("scoped observation channels require the latest v3 generation")
+	}
 	if wantIncomingRead && !wantV3 {
 		return fmt.Errorf("incoming material reading requires a v3 generation")
 	}
@@ -94,6 +101,9 @@ func validateGenerationActivationPolicySources(policy string, bundle ProjectedCh
 		return fmt.Errorf("timed resource observations require a v3 generation")
 	}
 	check := func(label string, sources []string) error {
+		if HasCharacterScopedObservationPolicyV1(sources) != wantScopedObservation {
+			return fmt.Errorf("generation scoped observation policy differs from %s", label)
+		}
 		if HasCharacterIncomingMaterialReadPolicyV1(sources) != wantIncomingRead {
 			return fmt.Errorf("generation incoming material read policy differs from %s", label)
 		}

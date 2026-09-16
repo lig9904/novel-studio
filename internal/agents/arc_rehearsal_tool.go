@@ -12,10 +12,11 @@ import (
 )
 
 type submitArcRehearsalTool struct {
-	input       domain.ArcRehearsalInput
-	draft       *domain.ArcRehearsalDraft // Host-only; never decoded from submission.
-	deltaReview bool                      // Host-selected from the exact input protocol; never a wire field.
-	body        *domain.ArcRehearsalBody
+	input        domain.ArcRehearsalInput
+	draft        *domain.ArcRehearsalDraft // Host-only; never decoded from submission.
+	deltaReview  bool                      // Host-selected from the exact input protocol; never a wire field.
+	requiredness bool                      // Host-selected current protocol; historical schemas remain exact.
+	body         *domain.ArcRehearsalBody
 }
 
 func (*submitArcRehearsalTool) Name() string { return "submit_arc_rehearsal" }
@@ -53,6 +54,10 @@ func (t *submitArcRehearsalTool) Schema() map[string]any {
 		schema.Property("status", schema.Enum("资料可用性，不默认创建", "available", "missing", "unclear", "not_required")).Required(),
 		schema.Property("explanation", schema.String("来源、可读事实与真实缺口")).Required(),
 	)
+	if t.requiredness {
+		material["properties"].(map[string]any)["requiredness"] = schema.Enum("对当前选定条件路径的必要性；required未知会阻断，optional/proposed未知不阻断且不成为Canon", "required", "optional", "proposed")
+		material["required"] = append(material["required"].([]string), "requiredness")
+	}
 	dependency := schema.Object(
 		schema.Property("key", schema.String("全报告唯一声明键；不是resource_id，后续depends_on按此引用")).Required(),
 		schema.Property("kind", schema.Enum("执行API类型；须列于input.execution_capabilities.action_kinds；self_work/resource_use不产生新观察或许可", "resource_read", "resource_measurement", "operational_observation", "surface_inspection", "communication", "resource_delivery", "resource_use", "self_work", "artifact_write", "artifact_read", "artifact_sign", "unsupported")).Required(),

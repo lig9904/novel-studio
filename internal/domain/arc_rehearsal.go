@@ -60,7 +60,8 @@ type ArcRehearsalMaterialCheck struct {
 	Operation              string                                `json:"operation"`
 	RequiresReadable       bool                                  `json:"requires_readable"`
 	ResourceRefs           []string                              `json:"resource_refs"`
-	Status                 string                                `json:"status"` // available / missing / unclear / not_required
+	Status                 string                                `json:"status"`                 // available / missing / unclear / not_required
+	Requiredness           string                                `json:"requiredness,omitempty"` // required / optional / proposed; empty is historical required
 	Explanation            string                                `json:"explanation"`
 }
 
@@ -239,6 +240,11 @@ func ValidateArcRehearsalBody(input ArcRehearsalInput, body ArcRehearsalBody) er
 		default:
 			return fmt.Errorf("invalid rehearsal material status")
 		}
+		switch m.Requiredness {
+		case "", "required", "optional", "proposed":
+		default:
+			return fmt.Errorf("invalid rehearsal material requiredness")
+		}
 		if m.RequiresReadable && (m.Status == "not_required" || (input.ExecutionCapabilities == nil && m.Status == "available" && len(m.ResourceRefs) == 0)) {
 			return fmt.Errorf("read-dependent operation cannot claim availability without an existing readable resource")
 		}
@@ -316,7 +322,8 @@ func FinalizeArcRehearsalReport(input ArcRehearsalInput, draft ArcRehearsalDraft
 		}
 	}
 	for _, check := range report.Body.MaterialChecks {
-		if check.Status == "missing" || check.Status == "unclear" {
+		required := check.Requiredness == "" || check.Requiredness == "required"
+		if required && (check.Status == "missing" || check.Status == "unclear") {
 			report.ReadyForDetail = false
 		}
 	}
@@ -358,6 +365,9 @@ func ValidateArcRehearsalReviewBody(input ArcRehearsalInput, draft, review ArcRe
 				}
 				if input.ExecutionCapabilities != nil && prior.Status != "not_required" && current.Status == "not_required" {
 					return fmt.Errorf("review cannot discard a selected material dependency")
+				}
+				if (prior.Requiredness == "" || prior.Requiredness == "required") && current.Requiredness != "" && current.Requiredness != "required" {
+					return fmt.Errorf("review cannot downgrade a required material dependency")
 				}
 			}
 		}

@@ -27,11 +27,11 @@ func TestPipelineArcRehearsalCapabilitiesUseActualConfigAcrossBoundaries(t *test
 	}
 	defaultInput, err := buildPipelineArcRehearsalInput(st)
 	publicationArtifactMust(t, err)
-	// A surface-enabled producer adds only its policy marker to this fixture,
+	// The newest producer adds only its surface/scoped policy markers to this fixture,
 	// which has no inspectable resources; all character knowledge stays exact.
 	observations := append([]domain.CharacterObservationPacket(nil), input.CharacterObservations...)
 	for i := range observations {
-		if len(observations[i].Sources) != 0 && !reflect.DeepEqual(observations[i].Sources, []string{domain.CharacterSurfaceInspectionPolicyV1}) {
+		if len(observations[i].Sources) != 0 && !reflect.DeepEqual(observations[i].Sources, []string{domain.CharacterScopedObservationPolicyV1, domain.CharacterSurfaceInspectionPolicyV1}) {
 			t.Fatal("rehearsal added unrelated observation sources")
 		}
 		observations[i].Sources, observations[i].Digest = nil, ""

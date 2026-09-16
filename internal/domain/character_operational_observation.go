@@ -136,7 +136,7 @@ func ValidateCharacterOperationalObservationIntentV1(proposal CharacterDecisionP
 			if request.Surface != "" && (!HasCharacterSurfaceInspectionPolicyV1(observation.Sources) || !physicalContainsRefV2(view.InspectableSurfaces, request.Surface)) {
 				return fmt.Errorf("surface inspection requires the explicit policy and the exact visible inspectable facet")
 			}
-			if seen[request.RequestID] || !visible || view.Access == "none" || view.Perception.Kind == "unaware" || (request.Surface == "" && (view.Unit != "" || perceptionHasNumberV2(view.Perception))) || !public || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
+			if seen[request.RequestID] || !visible || !CharacterResourceViewReferencesObservationMechanismV1(view, request.MechanismRef) || view.Perception.Kind == "unaware" || (request.Surface == "" && (view.Unit != "" || perceptionHasNumberV2(view.Perception))) || !public || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
 				return fmt.Errorf("operational observation requires a unique known accessible nonquantitative resource and invoked public mechanism")
 			}
 			seen[request.RequestID] = true
@@ -191,7 +191,7 @@ func ValidateCharacterOperationalObservationSourcesV1(proposal CharacterDecision
 			if request.Surface != "" && !HasCharacterSurfaceInspectionPolicyV1(stimulus.Sources) {
 				return fmt.Errorf("surface inspection requires its explicit frozen policy")
 			}
-			if seen[request.RequestID] || !known || !operationalRequestResourceV1(resource, request.Surface) || !visible || holding.Access == "none" || holding.Perception.Kind == "unaware" || !public || CodexMechanismVisibility(mechanism) == "secret" || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
+			if seen[request.RequestID] || !known || !operationalRequestResourceV1(resource, request.Surface) || !visible || holding.Perception.Kind == "unaware" || !public || !characterResourceObservationMechanismAllowedV1(holding.Access, holding.Permissions, holding.ObservationChannels, mechanism) || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
 				// Only repeat identifiers supplied by this owner. Do not reveal
 				// which hidden resource property failed or any readable facts.
 				return fmt.Errorf("operational request %q for resource %q is not supported by this observation API; submit an owner-chosen task without this request or use the dedicated reading/measurement protocol when applicable", request.RequestID, request.ResourceID)
@@ -338,7 +338,7 @@ func applyCharacterOperationalObservationsV1(receipt WorldArbitrationReceipt, st
 				resource, known := catalog[request.ResourceID]
 				holding, visible := oldHoldings[request.ResourceID]
 				mechanism, public := mechanisms[request.MechanismRef]
-				if owners[request.RequestID] != "" || !known || !visible || holding.Access == "none" || holding.Perception.Kind == "unaware" || !public || CodexMechanismVisibility(mechanism) == "secret" || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
+				if owners[request.RequestID] != "" || !known || !visible || holding.Perception.Kind == "unaware" || !public || !characterResourceObservationMechanismAllowedV1(holding.Access, holding.Permissions, holding.ObservationChannels, mechanism) || !physicalContainsRefV2(proposal.MechanismRefs, request.MechanismRef) {
 					return fmt.Errorf("operational request is not a unique known accessible qualitative resource/public mechanism")
 				}
 				if request.Surface != "" && !operationalRequestResourceV1(resource, request.Surface) {

@@ -28,7 +28,7 @@ func surfaceRehearsalFixture(t *testing.T) (*store.Store, domain.ArcRehearsalInp
 	selectionMust(t, st.Characters.Save(characters))
 	input, err := BuildArcRehearsalInput(st, binding, cfg)
 	selectionMust(t, err)
-	if input.ExecutionCapabilities.Policy != domain.ArcRehearsalCapabilityPolicyV2 || !slices.Contains(input.ExecutionCapabilities.ActionKinds, "surface_inspection") {
+	if input.ExecutionCapabilities.Policy != domain.ArcRehearsalCapabilityPolicyV3 || !slices.Contains(input.ExecutionCapabilities.ActionKinds, "surface_inspection") {
 		t.Fatal("current surface producer did not bind a new rehearsal profile")
 	}
 	return st, input, cfg
@@ -38,7 +38,7 @@ func surfaceRehearsalBody(input domain.ArcRehearsalInput) domain.ArcRehearsalBod
 	b := arcRehearsalTestBody(input, false)
 	for _, surface := range []string{"container_exterior", "seal_exterior"} {
 		b.MaterialChecks = append(b.MaterialChecks, domain.ArcRehearsalMaterialCheck{
-			Operation: surface, Status: "available", Explanation: "只验证同一现有对象有外表面检查入口，不声明当前状态或内部内容",
+			Operation: surface, Status: "available", Requiredness: "required", Explanation: "只验证同一现有对象有外表面检查入口，不声明当前状态或内部内容",
 			ResourceRefs:           []string{rehearsalSurfaceResourceID},
 			CapabilityRequirements: []domain.ArcRehearsalCapabilityRequirementV1{{Key: surface, Kind: "surface_inspection", ActorRef: input.CharacterObservations[0].AgentID, ResourceRefs: []string{rehearsalSurfaceResourceID}, MechanismRefs: []string{"M_SAIL"}, Surface: surface}},
 		})
@@ -156,11 +156,20 @@ func TestSurfaceRehearsalProfilePreservesEveryHistoricalProducer(t *testing.T) {
 		selected.CharacterAgents.FrozenActivationProducer = producer
 		profile, err := ArcRehearsalExecutionCapabilities(selected)
 		selectionMust(t, err)
-		if producer == characterActivationProtocolV3Digest() || producer == characterActivationProtocolV3IncomingReadDigest() {
-			if profile.Policy != domain.ArcRehearsalCapabilityPolicyV2 || !slices.Contains(profile.ActionKinds, "surface_inspection") {
+		policies := characterActivationV3PoliciesForProducer(producer)
+		if domain.HasCharacterSurfaceInspectionPolicyV1(policies) {
+			wantPolicy := domain.ArcRehearsalCapabilityPolicyV2
+			if domain.HasCharacterScopedObservationPolicyV1(policies) {
+				wantPolicy = domain.ArcRehearsalCapabilityPolicyV3
+			}
+			if profile.Policy != wantPolicy || !slices.Contains(profile.ActionKinds, "surface_inspection") {
 				t.Fatal("new producer lost its explicit surface capability")
 			}
-			want, err := domain.BuildArcRehearsalExecutionCapabilitiesV2(domain.CharacterAgentDecisionProtocolV2Version, domain.CharacterActivationCyclePolicyV3, producer)
+			build := domain.BuildArcRehearsalExecutionCapabilitiesV2
+			if wantPolicy == domain.ArcRehearsalCapabilityPolicyV3 {
+				build = domain.BuildArcRehearsalExecutionCapabilitiesV3
+			}
+			want, err := build(domain.CharacterAgentDecisionProtocolV2Version, domain.CharacterActivationCyclePolicyV3, producer)
 			selectionMust(t, err)
 			if !reflect.DeepEqual(profile, want) {
 				t.Fatal("surface-capable producer changed its exact capability profile")

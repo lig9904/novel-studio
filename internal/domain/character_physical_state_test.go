@@ -432,6 +432,64 @@ func TestInitialEnvironmentalResourcePropagatesToCharacterView(t *testing.T) {
 	}
 }
 
+func TestScopedObservationChannelsSeparateObservationFromOwnershipAndSecrets(t *testing.T) {
+	privateID := "res_00000000000000a1"
+	publicID := "res_00000000000000a2"
+	state := WorldPhysicalStateV2{Version: WorldPhysicalStateV2Version,
+		Resources: []WorldResourceBalanceV2{
+			{ResourceID: privateID, Name: "作者态私密痕迹", Semantics: ResourceSemanticsQualitative},
+			{ResourceID: publicID, Name: "公共海面", Semantics: ResourceSemanticsEnvironmental},
+		},
+		Actors: []CharacterPhysicalStateV2{
+			{AgentID: "ca_private", Character: "私密观察者", Location: "礁石", Resources: []CharacterResourceHoldingV2{{ResourceID: privateID, PerceivedLabel: "私密痕迹", Access: "none", Permissions: []string{ResourcePermissionObserve}, ObservationChannels: []CharacterResourceObservationChannelV1{{MechanismRef: "secret_sense", Visibility: "private", Label: "本人私密感知"}}, Perception: ResourcePerceptionV2{Kind: "unknown"}}}},
+			{AgentID: "ca_public", Character: "公共观察者", Location: "岸边", Resources: []CharacterResourceHoldingV2{{ResourceID: publicID, PerceivedLabel: "公共海面", Access: "none", Permissions: []string{ResourcePermissionObserve}, ObservationChannels: []CharacterResourceObservationChannelV1{{MechanismRef: "public_sight", Visibility: "public", Label: "现场目视"}}, Perception: ResourcePerceptionV2{Kind: "unknown"}}}},
+		},
+	}
+	state, err := FinalizeWorldPhysicalStateV2(state)
+	if err != nil {
+		t.Fatal(err)
+	}
+	legacy, err := BuildCharacterResourceViewsForSourcesV2(state, "ca_private", nil)
+	if err != nil || len(legacy) != 1 || len(legacy[0].Permissions) != 0 || len(legacy[0].ObservationChannels) != 0 {
+		t.Fatalf("legacy view changed: %+v %v", legacy, err)
+	}
+	sources := []string{CharacterSelfExperiencePolicyV2, CharacterOperationalAvailabilityPolicyV1, CharacterScopedObservationPolicyV1}
+	privateViews, err := BuildCharacterResourceViewsForSourcesV2(state, "ca_private", sources)
+	if err != nil || len(privateViews) != 1 || !CharacterResourceHasPermissionV1(privateViews[0].Access, privateViews[0].Permissions, ResourcePermissionObserve) || CharacterResourceHasPermissionV1(privateViews[0].Access, privateViews[0].Permissions, ResourcePermissionUse) {
+		t.Fatalf("private observe-only view invalid: %+v %v", privateViews, err)
+	}
+	publicViews, err := BuildCharacterResourceViewsForSourcesV2(state, "ca_public", sources)
+	if err != nil || len(publicViews) != 1 || publicViews[0].Access != "none" {
+		t.Fatalf("public non-owner view invalid: %+v %v", publicViews, err)
+	}
+	secret := CodexMechanism{ID: "secret_sense", Name: "作者态秘密机制", Visibility: "secret"}
+	public := CodexMechanism{ID: "public_sight", Name: "公开目视", Visibility: "formal", CharacterView: &CharacterMechanismView{Name: "现场目视"}}
+	if !CharacterResourceViewAllowsObservationMechanismV1(privateViews[0], secret) || CharacterResourceViewAllowsObservationMechanismV1(privateViews[0], public) || !CharacterResourceViewAllowsObservationMechanismV1(publicViews[0], public) || CharacterResourceViewAllowsObservationMechanismV1(publicViews[0], secret) {
+		t.Fatal("scoped observation channel crossed actor/resource visibility")
+	}
+	stimulus, err := FinalizeWorldStimulusPacket(WorldStimulusPacket{Version: WorldStimulusPacketV2Version, GenerationID: "scoped_observation", Chapter: 1, PhysicalState: &state, Mechanisms: []CodexMechanism{secret, public}, Sources: sources})
+	if err != nil || stimulus.Digest == "" {
+		t.Fatalf("valid scoped stimulus rejected: %v", err)
+	}
+	privateObservation, err := FinalizeCharacterObservationPacket(CharacterObservationPacket{Version: CharacterObservationV2Version, GenerationID: stimulus.GenerationID, Chapter: 1, Round: 1, AgentID: "ca_private", Character: "私密观察者", Location: "礁石", CurrentGoal: "观察", Pressure: "未知", ResourceViews: privateViews, Sources: sources, KnownFacts: []CharacterAgentFact{{ID: "private_clue", Kind: "known", Text: "本人可观察该痕迹", Visibility: "private"}}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, ok := privateObservation.AllowedMechanismIDs()["secret_sense"]; !ok {
+		t.Fatal("private mechanism was not exposed to its exact owner")
+	}
+	if _, ok := privateObservation.AllowedMechanismIDs()["public_sight"]; ok {
+		t.Fatal("unbound public mechanism bypassed the resource channel allowlist")
+	}
+	proposal := CharacterDecisionProposal{GenerationID: stimulus.GenerationID, Chapter: 1, AgentID: "ca_private", Character: "私密观察者", MechanismRefs: []string{"secret_sense"}, SelfTasks: []CharacterSelfTaskV2{{TaskID: "observe_private", Kind: "work", Action: "观察痕迹", KnowledgeRefs: []string{"private_clue"}, ObservationRequests: []CharacterOperationalObservationRequestV1{{RequestID: "observe_private_mark", ResourceID: privateID, Purpose: "判断本人所见局部痕迹", MechanismRef: "secret_sense", KnowledgeRefs: []string{"private_clue"}}}}}}
+	if err := ValidateCharacterOperationalObservationIntentV1(proposal, privateObservation); err != nil {
+		t.Fatalf("owner-scoped private observation intent rejected: %v", err)
+	}
+	if err := ValidateCharacterOperationalObservationSourcesV1(proposal, stimulus); err != nil {
+		t.Fatalf("owner-scoped private observation source rejected: %v", err)
+	}
+}
+
 func TestPhysicalStateV2NameOnlyDeliveryDoesNotGrantContentsOrAmount(t *testing.T) {
 	f := newPhysicalProtocolFixture(t)
 	f.stimulus.PhysicalState.Actors[1].Resources[1].PerceivedName = ""

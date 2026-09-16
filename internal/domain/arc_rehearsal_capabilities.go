@@ -12,6 +12,7 @@ import (
 
 const ArcRehearsalCapabilityPolicyV1 = "arc-rehearsal-execution-capabilities.v1"
 const ArcRehearsalCapabilityPolicyV2 = "arc-rehearsal-execution-capabilities.v2"
+const ArcRehearsalCapabilityPolicyV3 = "arc-rehearsal-execution-capabilities.v3"
 
 // Host-built API inventory, not evidence that an operation has happened. The
 // existing WorldState is the sole resource/actor inventory. No background actor
@@ -83,6 +84,19 @@ func BuildArcRehearsalExecutionCapabilitiesV2(protocol, policy, producer string)
 	return p, nil
 }
 
+// V3 opts only the newest frozen producer into actor-scoped public/private
+// observation channels and separated observe/use/ownership permissions.
+func BuildArcRehearsalExecutionCapabilitiesV3(protocol, policy, producer string) (ArcRehearsalExecutionCapabilitiesV1, error) {
+	p, err := BuildArcRehearsalExecutionCapabilitiesV2(protocol, policy, producer)
+	if err != nil {
+		return p, err
+	}
+	p.Policy = ArcRehearsalCapabilityPolicyV3
+	p.ResourceKinds = append(p.ResourceKinds, "existing_actor_scoped_observation_resource")
+	slices.Sort(p.ResourceKinds)
+	return p, nil
+}
+
 func validateArcRehearsalExecutionCapabilitiesV1(p *ArcRehearsalExecutionCapabilitiesV1) error {
 	if p == nil { // Historical bytes retain the historical validation path.
 		return nil
@@ -90,6 +104,8 @@ func validateArcRehearsalExecutionCapabilitiesV1(p *ArcRehearsalExecutionCapabil
 	build := BuildArcRehearsalExecutionCapabilitiesV1
 	if p.Policy == ArcRehearsalCapabilityPolicyV2 {
 		build = BuildArcRehearsalExecutionCapabilitiesV2
+	} else if p.Policy == ArcRehearsalCapabilityPolicyV3 {
+		build = BuildArcRehearsalExecutionCapabilitiesV3
 	}
 	want, err := build(p.CharacterProtocol, p.ActivationPolicy, p.ProducerDigest)
 	if err != nil || !samePhysicalValueV2(want, *p) {
@@ -164,11 +180,15 @@ func validateArcRehearsalCapabilitiesV1(input ArcRehearsalInput, body ArcRehears
 		}
 		executors[o.AgentID] = true
 	}
-	mechanisms := map[string]bool{}
+	mechanisms := map[string]CodexMechanism{}
 	if input.WorldCodex != nil {
 		for _, m := range input.WorldCodex.Mechanisms {
-			mechanisms[m.ID] = CodexMechanismVisibility(m) != "secret" && m.CharacterView != nil
+			mechanisms[m.ID] = m
 		}
+	}
+	observations := map[string]CharacterObservationPacket{}
+	for _, observation := range input.CharacterObservations {
+		observations[observation.AgentID] = observation
 	}
 	type priorRequirement struct {
 		value     ArcRehearsalCapabilityRequirementV1
@@ -194,7 +214,7 @@ func validateArcRehearsalCapabilitiesV1(input ArcRehearsalInput, body ArcRehears
 		readDependency := false
 		for j, r := range m.CapabilityRequirements {
 			requirementIndex, diagnosticRequirement = j, r
-			if r.Surface != "" && (input.ExecutionCapabilities.Policy != ArcRehearsalCapabilityPolicyV2 || r.Kind != "surface_inspection" || !IsCharacterInspectableSurfaceV1(r.Surface)) {
+			if r.Surface != "" && ((input.ExecutionCapabilities.Policy != ArcRehearsalCapabilityPolicyV2 && input.ExecutionCapabilities.Policy != ArcRehearsalCapabilityPolicyV3) || r.Kind != "surface_inspection" || !IsCharacterInspectableSurfaceV1(r.Surface)) {
 				return fmt.Errorf("surface requires the surface-enabled profile and an explicit exterior inspection, not contents, quantities or permission")
 			}
 			if !rehearsalCapabilityKeyV1(r.Key) || prior[r.Key].value.Key != "" || len(prior) >= 128 || len(r.DependsOn) > 16 || len(r.ResourceRefs) > 16 || len(r.MechanismRefs) > 16 || len(r.MaterialInputs) > 16 {
@@ -221,7 +241,9 @@ func validateArcRehearsalCapabilitiesV1(input ArcRehearsalInput, body ArcRehears
 				covered[id] = true
 			}
 			for _, id := range r.MechanismRefs {
-				if !mechanisms[id] {
+				mechanism, exists := mechanisms[id]
+				public := exists && CodexMechanismVisibility(mechanism) != "secret" && mechanism.CharacterView != nil
+				if !exists || (!public && (input.ExecutionCapabilities.Policy != ArcRehearsalCapabilityPolicyV3 || r.Kind != "operational_observation")) {
 					return fmt.Errorf("capability references a non-public or undefined mechanism %q", id)
 				}
 			}
@@ -273,6 +295,19 @@ func validateArcRehearsalCapabilitiesV1(input ArcRehearsalInput, body ArcRehears
 			case "operational_observation":
 				if !single || !operationalResourceV1(resource) || len(r.MechanismRefs) == 0 {
 					return fmt.Errorf("operational_observation requires one existing qualitative non-document resource and public mechanism; it cannot certify quantities or overall safety")
+				}
+				if input.ExecutionCapabilities.Policy == ArcRehearsalCapabilityPolicyV3 {
+					observation, ok := observations[r.ActorRef]
+					var view CharacterResourceViewV2
+					for _, candidate := range observation.ResourceViews {
+						if candidate.ResourceID == resource.ResourceID {
+							view = candidate
+						}
+					}
+					mechanism := mechanisms[r.MechanismRefs[0]]
+					if !ok || len(r.MechanismRefs) != 1 || view.ResourceID == "" || !CharacterResourceViewAllowsObservationMechanismV1(view, mechanism) {
+						return fmt.Errorf("operational_observation requires the actor's explicit observe permission and matching public/private resource channel")
+					}
 				}
 			case "resource_use":
 				if len(r.ResourceRefs) == 0 {

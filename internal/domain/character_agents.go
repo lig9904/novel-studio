@@ -451,6 +451,9 @@ func FinalizeWorldStimulusPacket(p WorldStimulusPacket) (WorldStimulusPacket, er
 	if err := validateSurfaceInspectionStimulusV1(p); err != nil {
 		return p, err
 	}
+	if err := validateCharacterScopedObservationStimulusV1(p); err != nil {
+		return p, err
+	}
 	if err := validateIncomingMaterialReadPolicyV1(p); err != nil {
 		return p, err
 	}
@@ -606,6 +609,15 @@ func (p CharacterObservationPacket) AllowedMechanismIDs() map[string]struct{} {
 			out[id] = struct{}{}
 		}
 	}
+	if HasCharacterScopedObservationPolicyV1(p.Sources) {
+		for _, view := range p.ResourceViews {
+			for _, channel := range view.ObservationChannels {
+				if channel.MechanismRef != "" {
+					out[channel.MechanismRef] = struct{}{}
+				}
+			}
+		}
+	}
 	return out
 }
 
@@ -619,6 +631,9 @@ func FinalizeCharacterObservationPacket(p CharacterObservationPacket) (Character
 		return p, err
 	}
 	if err := validateCharacterOperationalObservationPacketV1(p); err != nil {
+		return p, err
+	}
+	if err := validateCharacterScopedObservationPacketV1(p); err != nil {
 		return p, err
 	}
 	if err := validateCharacterObservationCycleContext(p); err != nil {

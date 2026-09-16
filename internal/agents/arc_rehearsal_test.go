@@ -37,6 +37,10 @@ func arcRehearsalTestInput(t *testing.T) (*store.Store, domain.ArcRehearsalInput
 
 func arcRehearsalTestBody(input domain.ArcRehearsalInput, missing bool) domain.ArcRehearsalBody {
 	body := domain.ArcRehearsalBody{Summary: "如果取得现有依据，可能在弧末闭合；这不是执行结果。", UnresolvedItems: []string{"角色实际选择须由后续独立阶段产生"}}
+	requiredness := ""
+	if current, err := ArcRehearsalProtocolDigest(); err == nil && input.ProtocolDigest == current {
+		requiredness = "required"
+	}
 	for _, entry := range input.Outline {
 		body.Chapters = append(body.Chapters, domain.ArcRehearsalChapter{Chapter: entry.Chapter, ConditionalForecast: "若人物获得所需信息，则可能推进本章冲突", Assumptions: []string{"条件尚未实际执行"}, CausalLinks: []string{"实际取得依据后才可能核验"}, TimeResourceChecks: []string{"保留真实路程与操作时间，不预定资源充足"}})
 	}
@@ -46,12 +50,12 @@ func arcRehearsalTestBody(input domain.ArcRehearsalInput, missing bool) domain.A
 	for _, text := range input.HardContracts {
 		body.ContractChecks = append(body.ContractChecks, domain.ArcRehearsalContractCheck{Contract: text, Assessment: "conditional", Conditions: []string{"所需资料实际可用且人物自主选择"}})
 	}
-	check := domain.ArcRehearsalMaterialCheck{Operation: "核读既有账本", RequiresReadable: true, ResourceRefs: []string{"res_1111111111111111"}, Status: "available", Explanation: "输入有账本实体及原始readable_facts"}
+	check := domain.ArcRehearsalMaterialCheck{Operation: "核读既有账本", RequiresReadable: true, ResourceRefs: []string{"res_1111111111111111"}, Status: "available", Requiredness: requiredness, Explanation: "输入有账本实体及原始readable_facts"}
 	if input.ExecutionCapabilities != nil {
 		check.CapabilityRequirements = []domain.ArcRehearsalCapabilityRequirementV1{{Key: "read_ledger", Kind: "resource_read", ActorRef: input.CharacterObservations[0].AgentID, ResourceRefs: check.ResourceRefs}}
 	}
 	if missing {
-		check = domain.ArcRehearsalMaterialCheck{Operation: "核读交接夹", RequiresReadable: true, Status: "missing", Explanation: "文字提到交接夹，但world_state没有对应实体和条款"}
+		check = domain.ArcRehearsalMaterialCheck{Operation: "核读交接夹", RequiresReadable: true, Status: "missing", Requiredness: requiredness, Explanation: "文字提到交接夹，但world_state没有对应实体和条款"}
 	}
 	body.MaterialChecks = []domain.ArcRehearsalMaterialCheck{check}
 	return body

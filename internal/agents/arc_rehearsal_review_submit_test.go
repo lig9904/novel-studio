@@ -178,16 +178,24 @@ func TestArcRehearsalReviewPreservesOriginalKeysButAllowsValidAdditions(t *testi
 	if loaded == nil || bound == nil || !loaded.ReadyForDetail || bound.InputDigest != input.InputDigest || loaded.DraftDigest != draft.DraftDigest {
 		t.Fatal("additive review did not preserve the original input/draft binding")
 	}
+	originalActor := review.MaterialChecks[1].CapabilityRequirements[0].ActorRef
+	otherActor := ""
+	for _, observation := range input.CharacterObservations {
+		if observation.AgentID != originalActor {
+			otherActor = observation.AgentID
+		}
+	}
+	originalSender := review.MaterialChecks[5].CapabilityRequirements[0].ActorRef
 	for name, mutate := range map[string]func(*domain.ArcRehearsalBody){
 		"old-key": func(b *domain.ArcRehearsalBody) {
 			b.MaterialChecks[1].CapabilityRequirements[0].Key = "renamed_measure"
 		},
 		"old-kind": func(b *domain.ArcRehearsalBody) { b.MaterialChecks[1].CapabilityRequirements[0].Kind = "resource_use" },
 		"old-actor": func(b *domain.ArcRehearsalBody) {
-			b.MaterialChecks[1].CapabilityRequirements[0].ActorRef = input.CharacterObservations[1].AgentID
+			b.MaterialChecks[1].CapabilityRequirements[0].ActorRef = otherActor
 		},
 		"old-recipient": func(b *domain.ArcRehearsalBody) {
-			b.MaterialChecks[5].CapabilityRequirements[0].RecipientRef = input.CharacterObservations[0].AgentID
+			b.MaterialChecks[5].CapabilityRequirements[0].RecipientRef = originalSender
 		},
 		"old-resource": func(b *domain.ArcRehearsalBody) {
 			b.MaterialChecks[1].CapabilityRequirements[0].ResourceRefs = []string{rehearsalPaperID}

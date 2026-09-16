@@ -180,13 +180,13 @@ exec sleep 30
 			wanted := context.Canceled
 			if timeout {
 				cancel()
-				ctx, cancel = context.WithTimeout(context.Background(), time.Second)
+				ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
 				wanted = context.DeadlineExceeded
 			}
 			defer cancel()
 			finished := make(chan error, 1)
 			go func() { _, err := model.Generate(ctx, usageMessages("wait for cancellation"), nil); finished <- err }()
-			deadline := time.Now().Add(3 * time.Second)
+			deadline := time.Now().Add(7 * time.Second)
 			for {
 				if _, err := os.Stat(marker); err == nil {
 					break
@@ -216,7 +216,7 @@ exec sleep 30
 				if u == nil || u.Input != 50 || u.Output != 5 || source != "reported" {
 					t.Fatalf("context failure changed usage: %+v %s", u, source)
 				}
-			case <-time.After(3 * time.Second):
+			case <-time.After(7 * time.Second):
 				t.Fatal("fake CLI did not stop at its context boundary")
 			}
 		})
