@@ -99,6 +99,74 @@ func TestOperationalObservationV1DerivesOnlyOwnerResultAndPreservesPhysicalState
 	}
 }
 
+func TestOperationalObservationExecutesWithObserveOnlyPermissionWithoutAccessGain(t *testing.T) {
+	f := newOperationalObservationFixture(t)
+	f.stimulus.Sources = append(f.stimulus.Sources, CharacterScopedObservationPolicyV1)
+	for i := range f.stimulus.PhysicalState.Actors[0].Resources {
+		holding := &f.stimulus.PhysicalState.Actors[0].Resources[i]
+		if holding.ResourceID == operationalPowerTestID {
+			holding.Access = "none"
+			holding.Permissions = []string{ResourcePermissionObserve}
+		}
+	}
+	for i := range f.receipt.Resolutions[0].PostState.Resources {
+		holding := &f.receipt.Resolutions[0].PostState.Resources[i]
+		if holding.ResourceID == operationalPowerTestID {
+			holding.Access = "none"
+			holding.Permissions = []string{ResourcePermissionObserve}
+		}
+	}
+	state, err := FinalizeWorldPhysicalStateV2(*f.stimulus.PhysicalState)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.stimulus.PhysicalState = &state
+	f.stimulus, err = FinalizeWorldStimulusPacket(f.stimulus)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.receipt.StimulusDigest = f.stimulus.Digest
+	for i := range f.observations {
+		f.observations[i].Sources = append(f.observations[i].Sources, CharacterScopedObservationPolicyV1)
+		f.observations[i].StimulusDigest = f.stimulus.Digest
+		f.observations[i].ResourceViews, err = BuildCharacterResourceViewsForSourcesV2(state, f.observations[i].AgentID, f.observations[i].Sources)
+		if err != nil {
+			t.Fatal(err)
+		}
+		f.observations[i], err = FinalizeCharacterObservationPacket(f.observations[i])
+		if err != nil {
+			t.Fatal(err)
+		}
+		f.proposals[i].ObservationDigest = f.observations[i].Digest
+		f.activation.Entries[i].ObservationDigest = f.observations[i].Digest
+	}
+	f.activation, err = FinalizeCharacterAgentActivation(f.activation)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.receipt.ActivationDigest = f.activation.Digest
+	rebindPhysicalTestProposals(t, &f)
+	for i := range f.receipt.ResourceSettlements {
+		f.receipt.ResourceSettlements[i].EvidenceRefs = []string{f.proposals[0].Digest}
+	}
+	receipt, err := finalizePhysicalFixture(f)
+	if err != nil {
+		t.Fatal(err)
+	}
+	after, err := ApplyArbitrationPhysicalStateV2(receipt, f.stimulus, f.proposals...)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, holding := range after.Actors[0].Resources {
+		if holding.ResourceID == operationalPowerTestID && (holding.Access != "none" || !CharacterResourceHasPermissionV1(holding.Access, holding.Permissions, ResourcePermissionObserve) || CharacterResourceHasPermissionV1(holding.Access, holding.Permissions, ResourcePermissionUse)) {
+			t.Fatalf("observe-only execution gained access/use: %+v", holding)
+		}
+	}
+	if len(after.Actors[0].OperationalObservations) != 1 {
+		t.Fatal("observe-only execution did not produce its bounded owner receipt")
+	}
+}
+
 func TestOperationalObservationV1NextObservationBindsExactResultAndOriginalAge(t *testing.T) {
 	f := newOperationalObservationFixture(t)
 	receipt, err := finalizePhysicalFixture(f)

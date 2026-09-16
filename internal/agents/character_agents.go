@@ -1840,7 +1840,7 @@ func runWorldArbitration(ctx context.Context, cfg bootstrap.Config, st *store.St
 	usage, err := runCharacterAgentTerminalLoop(
 		withCharacterToolDiagnosticScope(ctx, usageRecord), model, arbiterPrompt,
 		userPrompt,
-		executionTool, tool.Name(), cappedMaxTurns(cfg.ResolveMaxTurns("world_arbiter", 6), 8), roleThinking(cfg, "world_arbiter"), guard,
+		executionTool, tool.Name(), cappedMaxTurns(cfg.ResolveMaxTurns("world_arbiter", 8), 8), roleThinking(cfg, "world_arbiter"), guard,
 		characterCyclePromptCacheKey(agentPromptCacheKey("world_arbiter", st.Dir(), inputs.Stimulus.GenerationID, fmt.Sprint(inputs.Stimulus.Chapter), fmt.Sprint(round)), proofs),
 		st,
 	)

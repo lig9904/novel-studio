@@ -265,9 +265,14 @@ func applyCharacterSelfExecutionsV2(receipt WorldArbitrationReceipt, stimulus Wo
 				if resolution.Outcome == "blocked" || resolution.CompletionState == "blocked" || *execution.StartDay < receipt.StoryTime.StartDay-1e-12 || *execution.EndDay > receipt.StoryTime.EndDay+1e-12 {
 					return fmt.Errorf("self execution exceeds its final actual interval or belongs to a blocked actor")
 				}
+				observedResources := map[string]bool{}
+				for _, request := range task.ObservationRequests {
+					observedResources[request.ResourceID] = true
+				}
 				for _, resourceID := range task.ResourceIDs {
 					previous, knew := oldHoldings[resourceID]
-					if !knew || previous.Perception.Kind == "unaware" || (previous.Access == "none" && !hasResourceDeliveryV2(receipt, resourceID, "", actor.AgentID, "", "", "shared") && !hasResourceDeliveryV2(receipt, resourceID, "", actor.AgentID, "", "", "exclusive")) {
+					observationOnly := observedResources[resourceID] && CharacterResourceHasPermissionV1(previous.Access, previous.Permissions, ResourcePermissionObserve)
+					if !knew || previous.Perception.Kind == "unaware" || (previous.Access == "none" && !observationOnly && !hasResourceDeliveryV2(receipt, resourceID, "", actor.AgentID, "", "", "shared") && !hasResourceDeliveryV2(receipt, resourceID, "", actor.AgentID, "", "", "exclusive")) {
 						return fmt.Errorf("active self task cannot use an unseen or inaccessible resource")
 					}
 				}
