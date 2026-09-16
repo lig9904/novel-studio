@@ -1653,7 +1653,7 @@ func runOneCharacterAgentWithDispatchView(ctx context.Context, cfg bootstrap.Con
 	usage, err := runCharacterAgentTerminalLoop(
 		withCharacterToolDiagnosticScope(ctx, usageRecord), model, characterPrompt,
 		"你是 "+observation.Character+"。这是你唯一可见的观察包：\n<character_observation_packet>\n"+string(raw)+"\n</character_observation_packet>\n现在只调用 submit_character_decision。",
-		executionTool, tool.Name(), cappedMaxTurns(cfg.ResolveMaxTurns("character", 6), 8), roleThinking(cfg, "character"), guard,
+		executionTool, tool.Name(), cappedMaxTurns(cfg.ResolveMaxTurns("character", 8), 8), roleThinking(cfg, "character"), guard,
 		characterCyclePromptCacheKey(agentPromptCacheKey("character", st.Dir(), observation.GenerationID, fmt.Sprint(observation.Chapter), fmt.Sprint(observation.Round), observation.AgentID), proofs),
 		st,
 	)
