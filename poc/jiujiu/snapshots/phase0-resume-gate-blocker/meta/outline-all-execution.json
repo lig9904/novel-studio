@@ -1,0 +1,116 @@
+{
+  "version": 2,
+  "mode": "sealed_full_book_outline_v1",
+  "status": "complete",
+  "base_canon_chapter": 0,
+  "generation_id": "simulation-20260916-084355635116",
+  "writing_mode": "sealed_two_pass_v2",
+  "writing_mode_receipt_digest": "sha256:ea81207a97402cbdcce3c23774d314d92ae13020957d149bd848003518711303",
+  "compass_digest": "sha256:c57611357834964281c74f0b4f35e19cbbe1e86aeeca826e723abcbc96281b4a",
+  "estimated_scale": "1-1卷，3-3章",
+  "ending_direction": "TEST_SCAFFOLD：在三章有界测试中，为角色自治、知识边界与有限海岸水域事件留下可裁决的测试收束空间；不预定九九的选择，不渲染正文，不把任何测试结果升级为官方 Canon 或人类批准。",
+  "non_negotiables": [
+    "This is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.",
+    "Create the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.",
+    "- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.",
+    "- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.",
+    "- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.",
+    "- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.",
+    "Build only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.",
+    "- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.",
+    "The pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved."
+  ],
+  "author_contracts": {
+    "policy": "author-sources.v1",
+    "sources_digest": "sha256:0f5016dff782c21dfb84d92aaa9fb81286ad31eb1be14d6be5944d0e3d208650",
+    "refs": [
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 1
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 2
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 4
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 6
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 8
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 10
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 12
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 13
+      },
+      {
+        "source_id": "startup_prompt",
+        "paragraph": 14
+      }
+    ]
+  },
+  "min_volumes": 1,
+  "max_volumes": 1,
+  "min_chapters": 3,
+  "max_chapters": 3,
+  "target_volumes": 1,
+  "target_chapters": 3,
+  "structure_plan": {
+    "volumes": [
+      {
+        "arc_spans": [
+          3
+        ]
+      }
+    ]
+  },
+  "target_words": 0,
+  "target_words_per_chapter": 0,
+  "story_time_hint": "",
+  "source_snapshot_root": "sha256:901a08c76cd2e4e34fce4323fbb3ac55bc67d112468cc2b376d1584bf706b957",
+  "protected_canon_root": "sha256:625dfdc4fc5610d03944a7fdb65888d42b48e9d85070505626bd8ffb56cbd67a",
+  "stable_progress_root": "sha256:90e16ffd85959dd65006c6d683af001bd326de2ac84f5030b5c3e647802cd82f",
+  "foundation_context_root": "sha256:6a54e7eeca1629dcb5e9b96d826e8dfaaad872737a8ff079bb01dbac579f8e7f",
+  "attempt_id": "oa-b314628fde9dbad9",
+  "candidate_dir": "/Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/.outline-all/oa-b314628fde9dbad9/output/novel",
+  "coordinator_provider": "host",
+  "coordinator_model": "direct_dispatch",
+  "coordinator_reasoning": "not_applicable",
+  "architect_provider": "deepseek",
+  "architect_model": "deepseek-flash",
+  "architect_reasoning": "high",
+  "model_identity_digest": "sha256:e7b939824d0e199cfacb1cc9b182fdc9a5620104936b72dd36e0ac88321313a6",
+  "prompt_protocol_digest": "sha256:c1cf3be540a654bc4da06415f6d8ef57a2660cfa6d922d8488fb007cfc6007ba",
+  "final_layered_digest": "sha256:e42cc429dcd10281a7c1f8a3b0de807aaad4327586bd6b795d96598de26b86fc",
+  "final_flat_digest": "sha256:834a218fa810e7b42060ef1789f2ad01f95413d3ab7333d33d77fe5dfe6bbfb7",
+  "architect_readiness_json_digest": "sha256:f6e9536447ff1739996e973da08bd5ac28b6ebf2989d90d10fdfc239f15d59f4",
+  "architect_readiness_md_digest": "sha256:5420bc7a45ebfb993ec5f82b849f11b1a97af041d005a724c22677bed01743df",
+  "expected_live_directory_root": "sha256:a221ca1e83f3cda7ead196d7c0fae6a5c94989b3251afd7e8867184a438d19db",
+  "published_candidate_root": "sha256:6e810428bbe7238cc8267fa8b94342651d6457b12f2a68ff8692dde2836acbbe",
+  "directory_publish_receipt_digest": "sha256:a1a64672a17bcbd848e1b57414b489e071d245bf0f591cc06537c785d67f9989",
+  "lock_version": 1,
+  "lock_mode": "outline_all",
+  "lock_target_chapter": 1,
+  "lock_plan_digest": "sha256:e7b939824d0e199cfacb1cc9b182fdc9a5620104936b72dd36e0ac88321313a6",
+  "lock_owner": "pipeline-outline-all-ch000001-pid75673-1789548235920122000",
+  "lock_process_id": 75673,
+  "lock_acquired_at": "2026-09-16T08:45:49.868995Z",
+  "lock_expires_at": "2026-09-16T14:45:49.863989Z",
+  "completed_action_count": 3,
+  "started_at": "2026-09-16T08:43:56.12293Z",
+  "updated_at": "2026-09-16T08:45:50.080838Z",
+  "receipt_digest": "sha256:980d3e50841df8eb3a019811eb0d888ad7daf4ce5ba86a4242236d0e1245b183"
+}

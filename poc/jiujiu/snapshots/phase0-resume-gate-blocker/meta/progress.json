@@ -1,0 +1,13 @@
+{
+  "completed_chapters": null,
+  "current_arc": 1,
+  "current_chapter": 0,
+  "current_volume": 1,
+  "generation_id": "simulation-20260916-084355635116",
+  "generation_mode": "simulation_restart_from_seed",
+  "layered": true,
+  "novel_name": "test-scaffold-run",
+  "phase": "init",
+  "total_chapters": 3,
+  "total_word_count": 0
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "phase0-resume-gate-blocker.v1",
+  "classification": "TEST_SCAFFOLD",
+  "baseline_core_commit": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "repair_applied_chapters": 3,
+  "repair_after_layered_digest": "sha256:afc1ab134d27491c7444684e4138d49b0fd941ce8f34c03db47bae31d1e00a03",
+  "repair_receipt_digest": "sha256:5b8241ee78fe75140dd024620e4586352efd1481a9a22ee14dba4b091f716669",
+  "final_operation_3_layered_digest": "sha256:e42cc429dcd10281a7c1f8a3b0de807aaad4327586bd6b795d96598de26b86fc",
+  "final_operation_3_receipt_digest": "sha256:f49ce97fa3df147c2bd293d5ecb7afe7167a5ca6d7bcb8bf4f06cd5898aea186",
+  "repair_preserved_in_final_outline": false,
+  "ready_for_detail": false,
+  "character_agent_executed": false,
+  "project_all_started": false,
+  "promote_run": false,
+  "render_run": false,
+  "accepted_chapter": 0,
+  "core_source_modified": false,
+  "official_input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a",
+  "outline_sha256": "c978d8e58268b7a6fa73aa0b07c4ce2ee6b952c85d904311610650ec6069c6a2",
+  "layered_outline_sha256": "51c3c3f9c32ba8a1d129ae74f6f55284eee0ed8d35a8c1d2a2e20b4cf2c59063"
+}

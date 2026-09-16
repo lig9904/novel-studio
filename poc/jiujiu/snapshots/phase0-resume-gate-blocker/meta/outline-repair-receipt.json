@@ -1,0 +1,15 @@
+{
+  "version": "chapter-zero-outline-repair-receipt.v1",
+  "operation": 0,
+  "attempt_id": "oa-b314628fde9dbad9",
+  "source_snapshot_root": "sha256:901a08c76cd2e4e34fce4323fbb3ac55bc67d112468cc2b376d1584bf706b957",
+  "manifest_digest": "sha256:50c8cf298ce04ee2514de6492d269b05e6b0c7687debaefc86df2c4ae2ac8477",
+  "intent_digest": "sha256:3965072979be709f678e8f0c14ca976d6096ab7fabdcdae18340facd98c430e6",
+  "before_layered_digest": "sha256:59527f78ac8dd2fc086f970373cfc9a938906c685dde380d00c99348beed0b7d",
+  "before_flat_digest": "sha256:6983a890b2ff8959927f9093d18777ea76da37ad134ca6dfd0aa8d44b896db97",
+  "after_layered_digest": "sha256:afc1ab134d27491c7444684e4138d49b0fd941ce8f34c03db47bae31d1e00a03",
+  "after_flat_digest": "sha256:a81e925541e94b330c8c6ae376e1d11961bb67763dc0d9b18f1b03521ae6e8fe",
+  "applied_arc_count": 1,
+  "replaced_chapter_count": 3,
+  "receipt_digest": "sha256:5b8241ee78fe75140dd024620e4586352efd1481a9a22ee14dba4b091f716669"
+}

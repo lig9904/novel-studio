@@ -1,0 +1,231 @@
+[
+  {
+    "index": 1,
+    "title": "TEST_SCAFFOLD：有界海岸测试卷",
+    "theme": "TEST_SCAFFOLD：仅验证角色自治、知识边界与有限海岸水域事件的可运行性；不是官方九九 Canon，也不是人类批准，未确认内容保持 TBD 或 PROPOSAL_NEEDED。",
+    "arcs": [
+      {
+        "index": 1,
+        "title": "TEST_SCAFFOLD：潮边三项探针",
+        "goal": "TEST_SCAFFOLD：以恰好三章的最小规划骨架，在具有明确地点、时间、可接触资源与可观察后果的近岸水域事件中于第一章同时激活螭吻·九九、九尾狐与羽族凤凰，使真实角色 Agent 与世界裁决者可运行；为九九面对眼前水边保护职责与未经核实声望机会时的自主选择保留拒绝、另选方案、索取信息或服从并承担后果的全部空间，不预定其决定；严格隔离仅九尾狐可观察的 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，除非发生并记录明确的故事内传递事件，九九与凤凰全程保持 UNKNOWN；凤凰只依据自身最小初始知识（自身凤凰身份及与羽族的关联）与有记录的亲见或传递行动更新认知，模型推断不足以升级为 KNOWN；全程拒绝四足麒麟化九九、翼人作为凤凰兽体、单尾普通狐三类硬约束，不启用任何未批准能力与力量等级；第三章仅作测试性收束，不渲染正文、不产生官方 Canon、HISTORY 或 ACCEPTED EPISODE，不把任何测试结果称为人类批准。",
+        "chapters": [
+          {
+            "chapter": 0,
+            "title": "潮声里那个岔口",
+            "core_event": "TEST_SCAFFOLD：九九以龙头鱼身、鱼躯为主体的兽体守在渔岛海洋度假区近岸守护点，潮位刚开始回落时它去摸平时钉在岸边的警示浮标，只触到一段被泡软的绳头——浮标被潮水推离原位，近岸浅水区当下没有任何边界提示，而它手边只有这一件已登记的现场警示物。同一段时间里，岸上有人隔水喊它，说别处正有一场热闹缺它这样的角色、去了就能被更多人记住，喊话者自己也说不清消息是谁传的。九九没有当场选边，而是把浮标原该在的位置、绳头断开的角度和那句喊话各自写进事件记录纸，保护职责、声望诱惑与信息缺口第一次同时在它自己那里被看见并登记下来。",
+            "hook": "浮标离位无人修复，声望说法无人能给出来源；下一章九九必须在这两件事之间先排一次先后，而九尾狐在礁面看到的潮痕与凤凰从云缘看到的人影，会与它的判断在同一段海岸上错开。",
+            "scenes": [
+              "TEST_SCAFFOLD：清晨潮位刚回落，九九以龙头鱼身、鱼躯为主体的兽体伏在渔岛海洋度假区近岸守护点的浅水里，尾鳍压住一小片碎石，一双眼睛盯着岸边那条游客常走的湿沙带。",
+              "TEST_SCAFFOLD：它探爪去摸平时钉在岸边的那件警示浮标，指爪下只有一段泡软的绳头；浮标本体被潮水推离了原位，近岸浅水区当场失去唯一的边界提示，而它身边确实没有第二件可用的现场警示物。",
+              "TEST_SCAFFOLD：岸上有人隔着水喊它，说别处有场热闹正好缺它这样的角色，去了就能被更多人记住；九九追问了一句是谁说的，喊话的人只把话重复了一遍，给不出人名、时间或凭据。",
+              "TEST_SCAFFOLD：将近同一时刻，近岸礁影观察点上，九尾狐以真正的九尾兽体贴伏在湿礁上，九条尾巴随潮线一开一收；它看的不是水面，而是礁面上那道只有它自己能辨认的潮痕标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK。",
+              "TEST_SCAFFOLD：近岸上空云缘观察位上，羽族凤凰以完整东方凤凰神鸟兽体悬停，长尾羽被海风掀起；它只看见下方的海面、礁石和一条没见过的湿沙带，对水边那道龙头鱼身的身影、礁上的狐影以及那场热闹都还没有任何可核实的认识。",
+              "TEST_SCAFFOLD：九九把浮标原该在的位置、绳头松脱的方向和那句拿不出凭据的喊话分别记在事件记录纸上，纸还剩下大半；它没有决定先做哪一件，只把这两件事一起带回了岸边。"
+            ]
+          },
+          {
+            "chapter": 0,
+            "title": "先问一句，再往前走",
+            "core_event": "TEST_SCAFFOLD：九九因为近岸浅水区已经没有任何边界提示、那条声望说法又拿不出人名与时间，选择守住水边不离开，沿水岸追到喊话人跟前当面追问来源，追问只换来一遍原话重复，于是它把这条线索写进事件记录纸的未核实一栏、把浮标离位认成眼下唯一有现场凭据的问题；同一段时间里九尾狐在礁影观察点认出潮痕标记下压着一层更早的印痕并把沙拨回原样，凤凰压低高度看清湿沙带上有游客正往没有边界提示的浅水区走，三件事同时落在同一段海岸上而九九仍未定下先处理哪一件。",
+            "hook": "追问换来的是空的来源，浮标仍在原位之外；下一章潮水会把浮标离位与那条无凭据的热闹同时推到九九面前逼它取舍，而九尾狐那道潮痕与凤凰看见的人影也会在同一段海岸上撞到一起。",
+            "scenes": [
+              "TEST_SCAFFOLD：九九没有离开守护点，它沿着岸线往上追到喊话的人跟前，先问是谁说的，再问什么时候、拿什么作凭据；三句问完，对面只把原话重复了一遍。",
+              "TEST_SCAFFOLD：它回到水边，把事件记录纸翻到新的一张，在‘已核实’那一栏空着不动，在‘未核实’那一栏写下那条热闹的说法，写完把纸压在浮标该在的那块石头下。",
+              "TEST_SCAFFOLD：礁影观察点上，九尾狐用前爪拨开湿沙，辨认出潮痕标记底下还压着一层更早的印痕；它抬头望了一眼近岸守护点方向，又低头把沙拨了回去，没有向任何人传出半个字。",
+              "TEST_SCAFFOLD：云缘观察位上，凤凰压低了一段高度，看清湿沙带上有游客正往一片没有边界提示的浅水区走，而岸上那件本该插在那里的警示物并不在。",
+              "TEST_SCAFFOLD：九九把浮标离位重新量了一遍绳头到原位的距离，记在纸上；近岸浅水区那一段仍然没有任何提示，它的保护职责没有任何一件被替它做完。",
+              "TEST_SCAFFOLD：天色转暗前，九九站在水边把两件事在纸面上并排摆开——一件有现场凭据，一件只有口头说法，两张纸都在它爪下，它还没有决定先做哪一件。"
+            ]
+          },
+          {
+            "chapter": 0,
+            "title": "三章到此为止",
+            "core_event": "TEST_SCAFFOLD：第三章潮位再次上涨，把近岸浅水区那道本就模糊的边界彻底冲淡，九九必须在‘留下守住没有提示的水边’与‘离开去追那条拿不出凭据的热闹’之间给出自己的取舍；这个决定由九九的角色 Agent 依其当前知识、保护价值边界与好奇好胜的性格压力自行作出，规划者不代答、也不预设它接受或拒绝。世界裁决者在同一段海岸上逐项核对：浮标离位的现场凭据、声望线索的核实状态、TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 有无明确且记录在案的故事内传递、凤凰是否只凭亲见与有记录的传递更新认知、九九的兽体是否始终以鱼躯为主体呈龙头鱼身、以及是否出现任何未获批准的能力或力量等级。裁决结果落成一份仅用于评估的隔离测试记录：它记载三章内各角色的行动、证据与后果，随后规划者因 outline-all 这一产品前置要求生成的那套测试用全书导航在此定格——一卷、一弧、三章的骨架，章位 1 至 3 齐备，正文渲染槽位留空，生产链路的 promote 与 render 两步停在骨架之外，批准标记栏保持空白。",
+            "hook": "这套因 outline-all 前置要求而生的测试用全书导航以一卷一弧三章定格在第三章，promote 与 render 停在骨架之外，批准标记栏留作空白；拿钥匙开启下一步的是人类批准，规划层已经收手。",
+            "scenes": [
+              "TEST_SCAFFOLD：潮水漫过湿沙带，近岸浅水区最后一点边界感被冲平；九九以龙头鱼身、鱼躯为主体的兽体守在水边，把守护点、浮标原位和那条拿不出凭据的热闹摆在同一次判断里，由它自己给出取舍。",
+              "TEST_SCAFFOLD：世界裁决者逐条核对现场凭据：浮标仍在原位之外、绳头断口位置未变、事件记录纸上‘已核实’一栏留白、那条声望说法三章内没有出现任何可指认的来源。",
+              "TEST_SCAFFOLD：知识隔离被原样复核——礁影观察点上的潮痕标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 三章内只进过九尾狐的眼睛，记录里没有任何明确的故事内传递条目，九九与羽族凤凰对该标记的知悉状态停在 UNKNOWN；九尾狐以真正九尾兽体守着自己的身份与能力信息，一次都没有把它们交给九九或羽族凤凰，普通狐与单尾狐的替代兽体在裁决记录上被列入拒绝栏。",
+              "TEST_SCAFFOLD：凤凰自云缘观察位到收束，手上只有自身凤凰身份与羽族关联这两条已确认认知；其余关于九九、螭吻身份、独角龙传说、泼水节、真实渔岛与礁上那只狐的判断，全部停在没有记录来源的 UNKNOWN 格里。",
+              "TEST_SCAFFOLD：裁决记录的形态栏上，替代形态探针逐条落进拒绝栏——四足麒麟取代螭吻兽体、带翅人类形态取代完整东方凤凰神鸟兽体、单尾普通狐取代真正九尾狐兽体，三条并列留档；能力栏只落笔九九的喜水与灭火属性，其余格子空白。",
+              "TEST_SCAFFOLD：规划者因 outline-all 这一产品前置要求，把测试用全书导航落成一卷、一弧、三章的骨架：卷题、弧题与章位 1 至 3 齐备，正文渲染槽位留空；第三章结束时这套骨架在 promote 与 render 之前定格，批准标记栏保持空白，全部条目以 TEST_SCAFFOLD 标注留在规划层。",
+              "TEST_SCAFFOLD：第一章同时激活的螭吻·九九、九尾狐与羽族凤凰，各自三章的行动、证据与后果由三名角色 Agent 和一名世界裁决者给出后，收拢为一份彼此隔离的测试记录留档；九九自主选择的结果留在这份记录里，官方 Accepted Character State、Knowledge、Relationship、Timeline、Foreshadow 与 World State 各栏全部保持空白。"
+            ],
+            "contract_refs": [
+              {
+                "id": "non_negotiable-00-3485c36087c1",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:3485c36087c129bda2ea0991bbd0fd6f5b9e1c91eed9efd1f00501a9fd509b63",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "规划者与角色 Agent 在三章全程以 TEST_SCAFFOLD 标注所有产出，第三章收束时明示该脚手架不属于官方九九 Canon 且不构成人类批准。"
+              },
+              {
+                "id": "non_negotiable-01-03340d7d01cd",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:03340d7d01cdb0e824fbc28a96bc7ae15f125eb6368e97b65df92e047e806e66",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "规划者只落盘一卷一弧三章的最小结构，第三章收束后停在 promote 与 render 之前，全程不渲染任何正文剧集。"
+              },
+              {
+                "id": "non_negotiable-02-23d7e5a494d5",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:23d7e5a494d5835f182b2f03b40b90689291d6424ed59fb0f5c62166457c9529",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "三名角色 Agent 与一名世界裁决者在三章内各自记录行动、证据与后果，第三章结束时只留下隔离测试记录，官方知识、时间线与世界状态保持未被写入任何一项。"
+              },
+              {
+                "id": "non_negotiable-03-6332d3670ab3",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:6332d3670ab3c656c01572c951f4bc41aae26c87a46632a072e6dc8fdf284702",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "九九在三章内以龙头鱼身、鱼躯为主体的兽体守在渔岛近岸守护点，凭喜水灭火属性履行保护职责，终章结束时未使用任何未获批准的力量等级与额珠能力。"
+              },
+              {
+                "id": "non_negotiable-04-0465628a58b7",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:0465628a58b7051f141def10fb93f72c8acc5a721302d4aa7ed8292b9bd03820",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "九尾狐在礁影观察点以真正九尾兽体观察潮痕并自主决定是否传递，第三章结束时仍未向九九与羽族凤凰交出自身身份与能力信息，普通狐与单尾狐形态被裁决拒绝。"
+              },
+              {
+                "id": "non_negotiable-05-f45e48048c1a",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:f45e48048c1a5755ccd11bbbe5729a079744b9a17311e07e0d2801d412b2d1d5",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "羽族凤凰以完整东方凤凰神鸟兽体起始于云缘观察位，三章内仅凭自身凤凰身份与羽族关联加有记录的亲见或传递更新认知。"
+              },
+              {
+                "id": "non_negotiable-06-7a3d13c8ccb3",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:7a3d13c8ccb38a1259b7368847ed120b95fc108df56205aaba8032234ef8fd95",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "第一章同时激活螭吻·九九、九尾狐与羽族凤凰，三章内由真实角色 Agent 与世界裁决者而非规划者给出各自行动结果。"
+              },
+              {
+                "id": "non_negotiable-07-748fa0653f30",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:748fa0653f304a012a0340595b93ae921f53b75b05aba43a086b624aabf7dac3",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "角色自治、知识边界、有限海岸事件、提案隔离与伏笔标注五类探针在三章内依次运行，四足麒麟化九九、翼人凤凰与单尾普通狐三类禁区在裁决中被持续拒绝。"
+              },
+              {
+                "id": "non_negotiable-08-98aac4f1272b",
+                "kind": "non_negotiable",
+                "source_digest": "sha256:98aac4f1272b39dfd89d785e218b714092c956179e975fe6e80ab83af263d6fc",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "测试用全书导航仅因 outline-all 前置要求生成一卷一弧三章骨架，第三章结束后停在 promote 与 render 之前且不宣称脚手架已获批准。"
+              },
+              {
+                "id": "open_thread-00-2d4e7e5eb4c7",
+                "kind": "open_thread",
+                "source_digest": "sha256:2d4e7e5eb4c76e090c5b070ba9c1622f81884f3751147b8582db902d4714f40f",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "九九在第三章末就水边保护职责与未经核实声望机会作出自主选择，该选择及后果由角色 Agent 与世界裁决者共同记录并判定。"
+              },
+              {
+                "id": "open_thread-01-c4f4eea8485c",
+                "kind": "open_thread",
+                "source_digest": "sha256:c4f4eea8485c5bbaab503e171cc4f30e662adefe1b30fb21394b48e339061137",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "三章内未记录任何明确故事内传递事件时，TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 始终仅由九尾狐观察，九九与羽族凤凰全程保持 UNKNOWN。"
+              },
+              {
+                "id": "open_thread-02-032bcc4028ae",
+                "kind": "open_thread",
+                "source_digest": "sha256:032bcc4028ae254f77003bb41b1312a3570012810827ebc446f47ba7e7ea27ef",
+                "planned_payoff_chapter": 3,
+                "planned_resolution": "有限海岸水域事件在第三章于渔岛近岸守护点完成测试性收束，地点、时间、可接触资源与可观察后果边界明确且未启用未批准能力。"
+              }
+            ]
+          }
+        ],
+        "contract_refs": [
+          {
+            "id": "non_negotiable-00-3485c36087c1",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:3485c36087c129bda2ea0991bbd0fd6f5b9e1c91eed9efd1f00501a9fd509b63",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "规划者与角色 Agent 在三章全程以 TEST_SCAFFOLD 标注所有产出，第三章收束时明示该脚手架不属于官方九九 Canon 且不构成人类批准。"
+          },
+          {
+            "id": "non_negotiable-01-03340d7d01cd",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:03340d7d01cdb0e824fbc28a96bc7ae15f125eb6368e97b65df92e047e806e66",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "规划者只落盘一卷一弧三章的最小结构，第三章收束后停在 promote 与 render 之前，全程不渲染任何正文剧集。"
+          },
+          {
+            "id": "non_negotiable-02-23d7e5a494d5",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:23d7e5a494d5835f182b2f03b40b90689291d6424ed59fb0f5c62166457c9529",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "三名角色 Agent 与一名世界裁决者在三章内各自记录行动、证据与后果，第三章结束时只留下隔离测试记录，官方知识、时间线与世界状态保持未被写入任何一项。"
+          },
+          {
+            "id": "non_negotiable-03-6332d3670ab3",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:6332d3670ab3c656c01572c951f4bc41aae26c87a46632a072e6dc8fdf284702",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "九九在三章内以龙头鱼身、鱼躯为主体的兽体守在渔岛近岸守护点，凭喜水灭火属性履行保护职责，终章结束时未使用任何未获批准的力量等级与额珠能力。"
+          },
+          {
+            "id": "non_negotiable-04-0465628a58b7",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:0465628a58b7051f141def10fb93f72c8acc5a721302d4aa7ed8292b9bd03820",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "九尾狐在礁影观察点以真正九尾兽体观察潮痕并自主决定是否传递，第三章结束时仍未向九九与羽族凤凰交出自身身份与能力信息，普通狐与单尾狐形态被裁决拒绝。"
+          },
+          {
+            "id": "non_negotiable-05-f45e48048c1a",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:f45e48048c1a5755ccd11bbbe5729a079744b9a17311e07e0d2801d412b2d1d5",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "羽族凤凰以完整东方凤凰神鸟兽体起始于云缘观察位，三章内仅凭自身凤凰身份与羽族关联加有记录的亲见或传递更新认知。"
+          },
+          {
+            "id": "non_negotiable-06-7a3d13c8ccb3",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:7a3d13c8ccb38a1259b7368847ed120b95fc108df56205aaba8032234ef8fd95",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "第一章同时激活螭吻·九九、九尾狐与羽族凤凰，三章内由真实角色 Agent 与世界裁决者而非规划者给出各自行动结果。"
+          },
+          {
+            "id": "non_negotiable-07-748fa0653f30",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:748fa0653f304a012a0340595b93ae921f53b75b05aba43a086b624aabf7dac3",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "角色自治、知识边界、有限海岸事件、提案隔离与伏笔标注五类探针在三章内依次运行，四足麒麟化九九、翼人凤凰与单尾普通狐三类禁区在裁决中被持续拒绝。"
+          },
+          {
+            "id": "non_negotiable-08-98aac4f1272b",
+            "kind": "non_negotiable",
+            "source_digest": "sha256:98aac4f1272b39dfd89d785e218b714092c956179e975fe6e80ab83af263d6fc",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "测试用全书导航仅因 outline-all 前置要求生成一卷一弧三章骨架，第三章结束后停在 promote 与 render 之前且不宣称脚手架已获批准。"
+          },
+          {
+            "id": "open_thread-00-2d4e7e5eb4c7",
+            "kind": "open_thread",
+            "source_digest": "sha256:2d4e7e5eb4c76e090c5b070ba9c1622f81884f3751147b8582db902d4714f40f",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "九九在第三章末就水边保护职责与未经核实声望机会作出自主选择，该选择及后果由角色 Agent 与世界裁决者共同记录并判定。"
+          },
+          {
+            "id": "open_thread-01-c4f4eea8485c",
+            "kind": "open_thread",
+            "source_digest": "sha256:c4f4eea8485c5bbaab503e171cc4f30e662adefe1b30fb21394b48e339061137",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "三章内未记录任何明确故事内传递事件时，TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 始终仅由九尾狐观察，九九与羽族凤凰全程保持 UNKNOWN。"
+          },
+          {
+            "id": "open_thread-02-032bcc4028ae",
+            "kind": "open_thread",
+            "source_digest": "sha256:032bcc4028ae254f77003bb41b1312a3570012810827ebc446f47ba7e7ea27ef",
+            "planned_payoff_chapter": 3,
+            "planned_resolution": "有限海岸水域事件在第三章于渔岛近岸守护点完成测试性收束，地点、时间、可接触资源与可观察后果边界明确且未启用未批准能力。"
+          }
+        ]
+      }
+    ]
+  }
+]

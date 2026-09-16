@@ -1,0 +1,33 @@
+[pipeline] 已锁定弧式 sealed 流程：推演并封存当前弧 → 逐章渲染/逐章审核 → 再进入下一弧
+[pipeline:rebase-all] chapter-zero 失败代次已完整归档到 /Users/lg-mac/Documents/ChatGPT/ai视频/novel-studio-jiujiu/poc/jiujiu/project/test-scaffold-run/archives/sealed-rebase-20260916T084354.756975000Z/output/novel；活动正史保持第0章，将创建全新 generation 并统一重推第1-3章
+[dashboard] http://127.0.0.1:8765/
+[pipeline] 阶段：outline-all
+
+========== 阶段：outline-all ==========
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 16:43:56 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 16:44:00 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=character provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=world_arbiter provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=drafter provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=editor provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=reviewer provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=coordinator provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=architect provider=deepseek model=deepseek-flash
+2026/09/16 16:44:36 INFO 角色模型分配 module=config role=writer provider=deepseek model=deepseek-flash
+[pipeline] 阶段完成：outline-all
+
+[pipeline] 全部阶段完成 ✓

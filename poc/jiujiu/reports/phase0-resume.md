@@ -1,6 +1,6 @@
 # Phase 0 Resume
 
-Status: **IN PROGRESS**
+Status: **COMPLETE / STOPPED AT OUTLINE REPAIR PUBLICATION**
 
 This is a continuation of the original Phase 0, not Phase 1.
 
@@ -18,3 +18,14 @@ Confirmed prior Gate root cause:
 Authorized sequence: rebase → outline-all → zero-init → preplan → rehearse-arc; only after a legal `ready_for_detail=true` may project-all continue.
 
 Still prohibited: core-source changes, official Canon additions, fake sender/credential/evidence, digest edits, Gate bypass, direct Character Agent invocation, promote, render, and Phase 1 work.
+
+## Execution result
+
+1. rebase: PASS; old chapter-zero generation archived with accepted chapter still 0.
+2. outline-all: PASS, but the freely generated outline still introduced a messenger-like contact and mandatory evidence-seeking behavior.
+3. deterministic `outline-repair-file`: operation 0 PASS; all three chapters were replaced in the isolated candidate.
+4. outline-all continuation: FAIL semantically; operation 3 overwrote the repaired chapter contracts before publication.
+5. zero-init/preplan/rehearse-arc for the repaired outline: NOT RUN, because the final published outline no longer matched the authorized repair.
+6. project-all and Character Agent: NOT RUN.
+
+The supported pipeline offers no post-operation-3 repair stage. Continuing requires a core product fix or manual live-state mutation; both are outside Phase 0 authorization. Final decision remains NO-GO.
