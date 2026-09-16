@@ -1,0 +1,17 @@
+{
+  "schema": "jiujiu-phase0-failure-snapshot.v1",
+  "captured_at": "2026-09-16T12:42:00+08:00",
+  "failure_class": "PHASE0_ENTRYPOINT_CONTRACT_BLOCKER",
+  "baseline_commit": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "evidence_commit_before_snapshot": "081bc422b7ff1c2f56b46fa03365aeae1feaf9fe",
+  "branch": "poc/jiujiu-phase0",
+  "story_model_connectivity_calls": 1,
+  "story_generation_calls": 0,
+  "data_run_files": 0,
+  "output_files": 0,
+  "accepted_canon_mutated": false,
+  "candidate_state_created": false,
+  "pending_state_created": false,
+  "core_source_modified": false,
+  "input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a"
+}

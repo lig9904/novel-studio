@@ -1,0 +1,5 @@
+model_check_exit=0
+model_check_duration_seconds=approximately_10
+wrapper_postcheck_error=zsh_read_only_variable_status
+wrapper_error_occurred_after_successful_model_check=true
+model_check_was_not_repeated=true

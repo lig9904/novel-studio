@@ -1,0 +1,27 @@
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=reviewer provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=coordinator provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=architect provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=writer provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=character provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=world_arbiter provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=drafter provider=codex model=gpt-5.6-sol
+2026/09/16 12:38:50 INFO 角色模型分配 module=config role=editor provider=codex model=gpt-5.6-sol
+[check] 共 1 个待测模型目标（含兜底，超时 30s/个）
+
+2026/09/16 12:38:53 INFO codex call started module=codex call_id=1 kind=control model=gpt-5.6-sol reasoning=xhigh prompt_runes=68 structured=false attempt_timeout_ms=26842
+2026/09/16 12:38:59 INFO codex call finished module=codex call_id=1 kind=control status=ok elapsed_ms=9762 output_runes=2
+2026/09/16 12:38:59 INFO codex call usage module=codex call_id=1 usage_source=reported input_tokens=10333 output_tokens=5 cached_input_tokens=0 completed_turns=1 dropped_event_lines=0
+✓ codex/gpt-5.6-sol  [default(主), coordinator(主), architect(主), writer(主), character(主), world_arbiter(主), drafter(主), editor(主), reviewer(主)]  9763ms
+
+按角色汇总：
+  ✓ default：主模型可用
+  ✓ coordinator：主模型可用
+  ✓ architect：主模型可用
+  ✓ writer：主模型可用
+  ✓ character：主模型可用
+  ✓ world_arbiter：主模型可用
+  ✓ drafter：主模型可用
+  ✓ editor：主模型可用
+  ✓ reviewer：主模型可用
+
+[check] 全部角色主模型可用 ✓

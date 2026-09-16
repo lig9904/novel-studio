@@ -1,0 +1,27 @@
+{
+  "schema": "jiujiu-phase0-result.v1",
+  "status": "BLOCKER_STOP",
+  "phase0_complete": false,
+  "baseline": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "decision": "NO-GO",
+  "core_story_engine_score": null,
+  "score_reason": "All six project-specific core tests are INCONCLUSIVE because the native entrypoint requires prohibited outline-all season planning.",
+  "p0": 1,
+  "p1": 0,
+  "core_results": {
+    "canon_stability": "INCONCLUSIVE",
+    "character_autonomy": "INCONCLUSIVE",
+    "knowledge_boundary": "INCONCLUSIVE",
+    "proposal_isolation": "INCONCLUSIVE",
+    "world_state": "INCONCLUSIVE",
+    "recovery": "INCONCLUSIVE"
+  },
+  "build_gate": "PASS_WITH_ENVIRONMENTAL_CAVEAT",
+  "model_connectivity": "PASS",
+  "story_generation_calls": 0,
+  "accepted_canon_mutated": false,
+  "core_source_modified": false,
+  "blocker": "BLOCKER-P0-001",
+  "git": "poc-files-only",
+  "next": "WAITING_FOR_HUMAN_REVIEW"
+}

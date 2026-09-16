@@ -1,0 +1,56 @@
+novel-studio — AI 长篇小说创作引擎
+
+首次运行:
+  1. novel-studio doctor       # 检查本机环境并给出修复建议
+  2. novel-studio              # 创建配置（仅首次需要）
+  3. novel-studio --check      # 发起最小真实模型请求
+
+用法:
+  novel-studio --pipeline --prompt <text>     # 可恢复流水线：设计→按弧推演→逐章渲染审核
+  novel-studio --pipeline --prompt-file p.md  # 从文件读 prompt 后进入流水线
+  novel-studio --cocreate                     # 多轮对话澄清需求，定稿创作指令
+  novel-studio --headless --prompt <text>     # 兼容别名：内部转为 --pipeline
+
+功能子命令（无 TTY、CI / 远程可用）:
+  novel-studio --check                        # LLM 连通性自检（先确认能用再创作）
+  novel-studio --pipeline --stages review     # 逐章 Editor 评审（不改原文）
+  novel-studio --draft-ai-judge --chapter N  # 对当前草稿做独立 DeepSeek 裸正文预审
+  novel-studio --pipeline --stages rewrite    # 按评审反馈逐章 Writer 重写
+  novel-studio --diag                        # 诊断当前项目产物
+  novel-studio --writing-assets list         # 查看/启停/组合/绑定/试写写法资产
+  novel-studio --writing-assets seed-defaults # 初始化本书基础写法资产
+  novel-studio --refresh-progress [--dir d]  # 回填章节推进/人物变化/下一章计划台账
+  novel-studio --build-rag [--dir d]         # 构建本书 RAG 索引并可探测召回
+  novel-studio --rag-ready [--dir d]         # 只修复/验证 RAG，不启动写作
+  novel-studio rag audit [--root data/runs] # 审计全部主索引和历史 RAG 快照
+  novel-studio rag maintain --apply         # 备份、整理主索引并压缩重复快照
+  novel-studio --architect-check [--dir d]   # 检查 Architect foundation，通过后才允许 zero-init
+  novel-studio --zero-init [--dir d]         # 新书第一章前的角色/关系/资源推演资产
+  novel-studio eval inspect --cases evals/cases/harness # Harness 检查既有项目产物
+  novel-studio --simulate [--no-diag]         # 分析 simulate/ 语料合成仿写画像
+  novel-studio --import-sim <profile.json>    # 导入此前生成的仿写画像（默认写 diag）
+  novel-studio --steer "<指令>"               # 排队一条干预，下次启动生效
+
+其它:
+  novel-studio doctor                         # 本地环境/配置/看板前置检查（不调用模型）
+  novel-studio service start                  # 启动浏览器进度看板（长篇 output/novel + 短篇服务）
+  novel-studio service open                   # 手动打开小说项目进度看板
+  novel-studio service status                 # 检查看板服务 /api/health
+  novel-studio skills list                    # 列出内置 skills
+  novel-studio skills export --to <dir>       # 导出 skills 到项目目录
+  novel-studio --version                      # 打印版本信息
+  novel-studio update [version]               # 自我更新
+  novel-studio --config <path>                # 用指定配置文件启动
+  novel-studio --dir <project>                # 指定项目根目录（OutputDir 基准），免 cd
+
+每个子命令的专属选项：
+  novel-studio service --help
+  novel-studio --pipeline --help
+  novel-studio --review-existing --help      # 兼容别名
+  novel-studio --rewrite-existing --help     # 兼容别名
+  novel-studio skills --help
+
+提示:
+  · 配置默认读 ~/.novel-studio/config.json（项目内可用 ./.novel-studio/config.json 覆盖）
+  · 首次启动会跑 setup 引导：选 Provider / 填 Key / 填 Base URL / 填模型
+  · 章节输出在 output/novel/chapters/*.md（可在配置里改 OutputDir）
