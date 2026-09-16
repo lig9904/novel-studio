@@ -49,11 +49,11 @@ Because outline-all never published, zero-init, preplan, rehearse-arc, `ready_fo
 - Corrected TEST_SCAFFOLD author input: **ACCEPTED BY ARCHITECT READINESS**.
 - Shared placeholder alias collision: **TEST_SCAFFOLD input defect, corrected**.
 - Original operation-0 overwrite defect: **still present in the product design; not used in this attempt**.
-- Current blocker: **DeepSeek Flash structured-output convergence at outline-all operation 3**.
-- Core change required: **not established**. A different supported model could be evaluated only with separate model authorization; repeated unbounded retries are not valid evidence.
+- Initial blocker: **DeepSeek Flash structured-output convergence at outline-all operation 3**.
+- Later cross-model result: DeepSeek V4 Pro, GLM-5.3, and GPT-5.6 Sol did not remove the boundary. GPT-5.6 Sol reached operation 3 repeatedly and proved the final rejection is a positive-payoff validator conflict with negative/host-only contracts, not output length. See `phase0-resume-model-comparison-blocker.md`.
+- Core change required for a general solution: **YES**, or an equivalent first-class contract classification that keeps invariants, prohibitions, unresolved conditions, and host-only boundaries out of positive chapter payoff validation.
 - World Arbiter too strict: **not applicable**, because rehearsal did not run.
 
 ## Stop condition
 
 STOP. Repeating the same four-turn call is not a bounded test strategy. No core source was modified, no official Canon was added, and no Promote/Render/Phase 1 action occurred.
-

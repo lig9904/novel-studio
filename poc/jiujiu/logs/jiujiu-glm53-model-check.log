@@ -1,0 +1,35 @@
+[check] 共 1 个待测模型目标（含兜底，超时 2m0s/个）
+
+✗ glm_coding/glm-5.3  [default(主), coordinator(主), architect(主), writer(主), character(主), world_arbiter(主), drafter(主), editor(主), reviewer(主)]
+    Not Found
+
+按角色汇总：
+  ⚠ default：默认模型不可用（仅影响未配置兜底的辅助路径，如共创）
+  ✗ coordinator：主与兜底均不可用
+  ✗ architect：主与兜底均不可用
+  ✗ writer：主与兜底均不可用
+  ✗ character：主与兜底均不可用
+  ✗ world_arbiter：主与兜底均不可用
+  ✗ drafter：主与兜底均不可用
+  ✗ editor：主与兜底均不可用
+  ✗ reviewer：主与兜底均不可用
+
+check: 以下角色无任何可用模型：coordinator, architect, writer, character, world_arbiter, drafter, editor, reviewer（常见原因：代理未启动 / api_key 失效 / base_url 写错）
+（详细错误已记录到 /Users/lg-mac/.novel-studio/last-error.log）
+exit status 1
+[check] 共 1 个待测模型目标（含兜底，超时 2m0s/个）
+
+✓ glm_coding/glm-5.3  [default(主), coordinator(主), architect(主), writer(主), character(主), world_arbiter(主), drafter(主), editor(主), reviewer(主)]  2442ms
+
+按角色汇总：
+  ✓ default：主模型可用
+  ✓ coordinator：主模型可用
+  ✓ architect：主模型可用
+  ✓ writer：主模型可用
+  ✓ character：主模型可用
+  ✓ world_arbiter：主模型可用
+  ✓ drafter：主模型可用
+  ✓ editor：主模型可用
+  ✓ reviewer：主模型可用
+
+[check] 全部角色主模型可用 ✓

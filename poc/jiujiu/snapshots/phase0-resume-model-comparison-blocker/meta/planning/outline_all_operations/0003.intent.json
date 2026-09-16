@@ -1,0 +1,185 @@
+{
+  "version": "outline-all-operation-intent.v1",
+  "attempt_id": "oa-b66088e60a2349c9",
+  "action": {
+    "type": "expand_arc",
+    "operation": 3,
+    "volume": 1,
+    "arc": 1,
+    "expected_chapter_span": 3,
+    "before_layered_digest": "sha256:86fbcff5560002250687c80b18b047e3cb25be72b30c645f98fd15b66e242266"
+  },
+  "before_layered_digest": "sha256:86fbcff5560002250687c80b18b047e3cb25be72b30c645f98fd15b66e242266",
+  "before_volumes": [
+    {
+      "index": 1,
+      "title": "第一卷 · 渔岛潮汛（TEST_SCAFFOLD）",
+      "theme": "TEST_SCAFFOLD：在有界的近岸水情异动中，让守护职责与未经验证的声望压力正面相撞，并以严格的知识边界保留三种生灵各自选择的空间",
+      "arcs": [
+        {
+          "index": 1,
+          "title": "弧一 · 水线三影（TEST_SCAFFOLD）",
+          "goal": "TEST_SCAFFOLD：用三章完成最小可执行结构——近岸水情异动经现场观测、必要上报与后果结算得到收束；螭吻·九九在无人可核、无发信人可联系且无凭据的声望压力下自主决定行动并承担可观测后果，任何选择均不以核查该机会为前置；九尾狐的私密潮痕只留在其私有观察范围，除非后续实际发生并记录明确的故事内传递事件；凤凰从仅知道自身凤凰身份及与羽族有关联的最小知识起步，只能通过可记录的来源事件获得新信息。全弧不预定角色选择，不补全任何 TBD，不把 TEST_SCAFFOLD 内容视为官方 Canon。",
+          "estimated_chapters": 3,
+          "chapters": [],
+          "contract_refs": [
+            {
+              "id": "non_negotiable-00-3485c36087c1",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:3485c36087c129bda2ea0991bbd0fd6f5b9e1c91eed9efd1f00501a9fd509b63",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "宿主在第三章结算时将全部新增内容维持为TEST_SCAFFOLD，并明确不进入官方Canon或人类批准状态。"
+            },
+            {
+              "id": "non_negotiable-01-139705b110f5",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:139705b110f5724bd1c63e7c8415ddc74bf27cec14a63025ed713fc80ad9d892",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "规划链在第三章止于一卷一弧三章的分层大纲边界，不再追加卷弧或扩大测试篇幅。"
+            },
+            {
+              "id": "non_negotiable-02-28c70552c318",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:28c70552c3183349bcbcdc40b14b7acdd96111ad75d2f08407dc4d94fae0b3a5",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九九在第三章只把声望机会作为选择压力处理，行动结算不赋予它委托、许可或事实地位。"
+            },
+            {
+              "id": "non_negotiable-03-b24628cc9085",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:b24628cc90859a3b51e1ad92600c1e36e925674bf52abd02ffb0dee115c127c9",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "第三章终态继续标明机会未经验证、发信人不可用且凭据不存在，不以剧情便利改变三项状态。"
+            },
+            {
+              "id": "non_negotiable-04-ec08c42f00d8",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:ec08c42f00d8b4773caffb4f534e09c546ee16d40a9bf56df0fc7f88a6dc97e3",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "三章推进完全依靠现场水情与角色选择完成，未创建或追索发信人、信使、凭据、文书及历史证据。"
+            },
+            {
+              "id": "non_negotiable-05-f84568d414ed",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:f84568d414edf60e787199770ef1f914c3108da9684c8be4405cbdfa7dccf787",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "真实Character Agent在第三章自主选定应对方式，World Arbiter据该选择落下可观测且需承担的后果。"
+            },
+            {
+              "id": "non_negotiable-06-2974d902bc6a",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:2974d902bc6a274fa72419bd402b284f18f64d6f84f52d3a45976251ff2d9701",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "即使机会始终无法验证，九九仍以水线现况完成第三章行动与后果结算，后续材料不依赖核查结果。"
+            },
+            {
+              "id": "non_negotiable-07-335e3a1af6fb",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:335e3a1af6fb47fab641fc187e234e05a4f0cea90f959481a9b10bb27977cb05",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "弧末回执仅把缺席发信人与不存在凭据列为非阻塞未决条件，角色实际选择仍由Character Agent生成。"
+            },
+            {
+              "id": "non_negotiable-08-03340d7d01cd",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:03340d7d01cdb0e824fbc28a96bc7ae15f125eb6368e97b65df92e047e806e66",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "Architect只交付一卷一弧三章的短测试结构，第三章结束后停止扩展且不渲染任何正文剧集。"
+            },
+            {
+              "id": "non_negotiable-09-23d7e5a494d5",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:23d7e5a494d5835f182b2f03b40b90689291d6424ed59fb0f5c62166457c9529",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九九、九尾狐与凤凰在第三章只依亲见或当面转述采取行动；弧末无来源的身份、能力及关系信息均不进入三者已知事实。"
+            },
+            {
+              "id": "non_negotiable-10-6332d3670ab3",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:6332d3670ab3c656c01572c951f4bc41aae26c87a46632a072e6dc8fdf284702",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九九在第三章以龙首鱼身的螭吻兽体处理水线事件并承担选择后果，世界台账不新增力量等级、额珠关系或融合机制。"
+            },
+            {
+              "id": "non_negotiable-11-0465628a58b7",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:0465628a58b7051f141def10fb93f72c8acc5a721302d4aa7ed8292b9bd03820",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九尾狐始终以完整九尾狐兽体参与三章观测，其姓名、身份、能力与长期角色弧在弧末仍不补全。"
+            },
+            {
+              "id": "non_negotiable-12-f45e48048c1a",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:f45e48048c1a5755ccd11bbbe5729a079744b9a17311e07e0d2801d412b2d1d5",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "凤凰以完整东方凤凰神鸟兽体结束本弧，仅凭记录来源增加知识，不获得火、重生、治愈或不死能力。"
+            },
+            {
+              "id": "non_negotiable-13-748fa0653f30",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:748fa0653f304a012a0340595b93ae921f53b75b05aba43a086b624aabf7dac3",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "三位生灵在有界水情中分别行动，九九保有选择权、狐潮痕保持私密、凤凰能力不扩写，替代兽体全部被排除。"
+            },
+            {
+              "id": "non_negotiable-14-fae0e6d181cb",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:fae0e6d181cb493d3a5e28f08df6670a876b818f11fd0080a3b0d797a603b271",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "水域只支持定性观察、浮标只支持既有读数、狐潮痕只进入狐狸私有观察包，空白纸仍是普通记录材料。"
+            },
+            {
+              "id": "non_negotiable-15-310588d2d524",
+              "kind": "non_negotiable",
+              "source_digest": "sha256:310588d2d5245499080b265878a0920c21774c5f4cdfcae69bde3366d8ff5adb",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "World Arbiter以来源、时间和资源后果完成第三章回执，审计边界不成为角色，也不执行任何故事内动作。"
+            },
+            {
+              "id": "open_thread-00-99b3bcea5cd1",
+              "kind": "open_thread",
+              "source_digest": "sha256:99b3bcea5cd12201639f9060d3615eac8cfc8a3a7079a91c557b994ec076576e",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九尾狐在弧末独自保有潮痕观测；若三章内未发生明确传递，九九与凤凰的知识状态仍不包含该秘密。"
+            },
+            {
+              "id": "open_thread-01-bbf568d8e57b",
+              "kind": "open_thread",
+              "source_digest": "sha256:bbf568d8e57be66e61f76238e6b538b83008c6b31278b95090b4ce02bc303020",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九九完成自主取舍并承担现场后果，声望机会到弧末仍是未经验证且不阻塞行动的环境压力。"
+            },
+            {
+              "id": "open_thread-02-454b1b981e08",
+              "kind": "open_thread",
+              "source_digest": "sha256:454b1b981e08500e387bcfed5a9fee2132289a9dbf86b8a0cb7ddc945a788acd",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "九九与度假区值守链依据现场观察和浮标支持的读数处置异常，第三章明确水线终态及实际后果。"
+            },
+            {
+              "id": "open_thread-03-2f2b2de24108",
+              "kind": "open_thread",
+              "source_digest": "sha256:2f2b2de24108422fc0f590e0e04370aafce633f84404aea1d5bfbfbbab3733d6",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "第三章按已记录的亲见或转述事件分别更新三者知识包，未发生来源事件的信息继续维持UNKNOWN。"
+            },
+            {
+              "id": "open_thread-04-6405a1906d61",
+              "kind": "open_thread",
+              "source_digest": "sha256:6405a1906d619829784b346abcf1b48d7112dd41bf1f32a5f0e185e6b6dd7a58",
+              "planned_payoff_chapter": 3,
+              "planned_resolution": "凤凰在第三章只凭亲见辨认水边环境，不补述羽族性质；九九只处置水线事件，不把独角龙传说认作自身来历，弧末两项仍未知。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context_root": "sha256:fe235fd1e7ccf83ac9209cf067eb55e83a09b4604071a8d5e9d59e0d0e2a789a",
+  "visible_context_digest": "sha256:df0dedba2f78aa78f128c82144a9ae2ba0449112eba1e05d05087331581055fd",
+  "visible_context_bytes": 119594,
+  "model_identity_digest": "sha256:80b9fc3456591f211f045b520a80a4dc90677d803da896a96466cd0208007f0b",
+  "prompt_protocol_digest": "sha256:c1cf3be540a654bc4da06415f6d8ef57a2660cfa6d922d8488fb007cfc6007ba",
+  "created_at": "2026-09-16T10:42:53.596081Z",
+  "intent_digest": "sha256:219974f178ccf3dc2d2f0dbb6b5606e1954848b855bdaf3333dcc13d1850c1b6"
+}

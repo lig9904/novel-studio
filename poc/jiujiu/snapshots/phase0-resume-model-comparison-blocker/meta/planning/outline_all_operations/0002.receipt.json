@@ -1,0 +1,22 @@
+{
+  "version": "outline-all-operation-receipt.v1",
+  "attempt_id": "oa-b66088e60a2349c9",
+  "action": {
+    "type": "map_contracts",
+    "operation": 2,
+    "expected_chapter_span": 3,
+    "before_layered_digest": "sha256:939a67beb359e07db3e98c4f9d10ee333cae7c9f6eaf3ad6cc292ab5d9357dc2",
+    "final_skeleton": true
+  },
+  "intent_digest": "sha256:9bbc479a3b3eb582e3280f610c9c625f52e4ad28fd61c421f934b8928a367bde",
+  "before_layered_digest": "sha256:939a67beb359e07db3e98c4f9d10ee333cae7c9f6eaf3ad6cc292ab5d9357dc2",
+  "after_layered_digest": "sha256:86fbcff5560002250687c80b18b047e3cb25be72b30c645f98fd15b66e242266",
+  "derived_flat_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "model_identity_digest": "sha256:80b9fc3456591f211f045b520a80a4dc90677d803da896a96466cd0208007f0b",
+  "prompt_protocol_digest": "sha256:c1cf3be540a654bc4da06415f6d8ef57a2660cfa6d922d8488fb007cfc6007ba",
+  "context_root": "sha256:d620d60becb7ba3d686d6637f1462ec1a2e0946ca5c1122a7b58e4728047bbe8",
+  "visible_context_digest": "sha256:4da24e5f78a13bfaf5fb12fef5f1e501702f2148cf8500ea722963cd3eb08887",
+  "visible_context_bytes": 104323,
+  "completed_at": "2026-09-16T10:42:53.55876Z",
+  "receipt_digest": "sha256:9c5a0ad1259819aed994b6cce2254a4a73afeeabeec30769cfd990c361acd9b9"
+}

@@ -38,4 +38,4 @@ P0 is the outline-repair publication defect blocking the legal Rehearsal Gate pa
 
 Next: **WAITING FOR HUMAN REVIEW**.
 
-Post-stop continuation evidence: a fresh corrected-input route passed Architect readiness but stopped at DeepSeek Flash outline-all operation 3 after two bounded four-turn convergence failures. No later Gate or Character Agent evidence exists; the NO-GO decision is unchanged.
+Post-stop continuation evidence: a fresh corrected-input route passed Architect readiness. DeepSeek Flash, DeepSeek V4 Pro, GLM-5.3, and GPT-5.6 Sol comparisons then failed before outline-all publication. GPT-5.6 Sol demonstrated that negative invariants and host-only boundaries had been bound as positive chapter payoff contracts, which the validator cannot accept as negated/non-event evidence. No later Gate or Character Agent evidence exists; the NO-GO decision is unchanged.

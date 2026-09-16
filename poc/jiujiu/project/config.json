@@ -11,6 +11,12 @@
       "api_key_env": "DEEPSEEK_API_KEY",
       "base_url": "https://api.deepseek.com",
       "models": ["deepseek-v4-pro", "deepseek-flash"]
+    },
+    "glm_coding": {
+      "type": "glm",
+      "api_key_env": "GLM_CODING_API_KEY",
+      "base_url": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "models": ["glm-5.3", "glm-5.3-flash", "glm-5.2"]
     }
   },
   "roles": {
@@ -20,8 +26,8 @@
       "reasoning_effort": "high"
     },
     "architect": {
-      "provider": "deepseek",
-      "model": "deepseek-flash",
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
       "reasoning_effort": "high",
       "max_turns": 20
     },
@@ -66,7 +72,9 @@
     "max_activation_cycles": 4
   },
   "context_windows": {
-    "deepseek-flash": 1048576
+    "deepseek-flash": 1048576,
+    "glm-5.2": 1000000,
+    "glm-5.3": 200000
   },
   "rag": {
     "embedding": {

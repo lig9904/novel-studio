@@ -1,0 +1,17 @@
+{
+  "schema": "jiujiu-phase0-snapshot.v1",
+  "kind": "phase0-resume-model-comparison-blocker",
+  "baseline": "5e4d6912bae5f20a6224fa84ecd0e34b7838118e",
+  "architect_model": "codex/gpt-5.6-sol",
+  "outline_all_status": "building",
+  "completed_action_count": 2,
+  "pending_operation": 3,
+  "operation_3_receipt_exists": false,
+  "valid_operation_3_turns": 8,
+  "output_length_failure": false,
+  "rehearsal_executed": false,
+  "character_agent_executed": false,
+  "core_source_modified": false,
+  "official_input_modified": false
+}
+
