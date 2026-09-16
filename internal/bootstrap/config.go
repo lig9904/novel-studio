@@ -49,12 +49,13 @@ func CompactReserveTokens(window int) int {
 
 // ProviderConfig 定义单个 LLM 提供商的凭证。
 type ProviderConfig struct {
-	Type      string   `json:"type,omitempty"`        // API 协议类型（openai/anthropic/gemini），自定义代理时指定
-	API       string   `json:"api,omitempty"`         // OpenAI 协议 endpoint：chat（默认）/ responses
-	APIKey    string   `json:"api_key,omitempty"`     // API Key
-	APIKeyEnv string   `json:"api_key_env,omitempty"` // 可选；运行时从环境变量读取，优先于 api_key
-	BaseURL   string   `json:"base_url,omitempty"`    // API Base URL
-	Models    []string `json:"models,omitempty"`      // 可选模型列表，供 TUI 切换时展示
+	Type                   string   `json:"type,omitempty"`                      // API 协议类型（openai/anthropic/gemini），自定义代理时指定
+	API                    string   `json:"api,omitempty"`                       // OpenAI 协议 endpoint：chat（默认）/ responses
+	APIKey                 string   `json:"api_key,omitempty"`                   // API Key
+	APIKeyEnv              string   `json:"api_key_env,omitempty"`               // 可选；运行时从环境变量读取，优先于 api_key
+	BaseURL                string   `json:"base_url,omitempty"`                  // API Base URL
+	Models                 []string `json:"models,omitempty"`                    // 可选模型列表，供 TUI 切换时展示
+	MCPInventoryTimeoutSec int      `json:"mcp_inventory_timeout_sec,omitempty"` // codex-cli MCP 清单隔离探测；0=默认15秒
 	// ExtraBody 透传给该 provider 每次请求的额外参数（如 temperature/top_p/min_p/
 	// presence_penalty，或厂商特有键如 nvidia 开 think 的 chat_template_kwargs）。
 	// OpenAI 兼容端逐字并入请求体（即 extra_body 约定）；值由用户自负其责。
@@ -491,6 +492,9 @@ func validateProviderConfigText(name string, pc ProviderConfig) error {
 	case "", "chat", "responses":
 	default:
 		return fmt.Errorf("provider %q api must be chat or responses: %w", name, errs.ErrConfig)
+	}
+	if pc.MCPInventoryTimeoutSec < 0 || pc.MCPInventoryTimeoutSec > 120 {
+		return fmt.Errorf("provider %q mcp_inventory_timeout_sec must be 0 or 1..120: %w", name, errs.ErrConfig)
 	}
 	return nil
 }

@@ -86,11 +86,12 @@ func cappedCodexReasoning(requested string) string {
 
 // CodexModel 实现 agentcore.ChatModel，经 codex CLI 调 GPT（订阅）。
 type CodexModel struct {
-	binary        string // codex 可执行路径
-	model         string // 如 gpt-5.6-sol
-	reasoning     string // low/medium/high/xhigh/max/ultra；空=用 codex 配置默认
-	providerLabel string
-	contextWindow int // Optional operational budget for exact-agent inputs, not provider capability.
+	binary              string // codex 可执行路径
+	model               string // 如 gpt-5.6-sol
+	reasoning           string // low/medium/high/xhigh/max/ultra；空=用 codex 配置默认
+	providerLabel       string
+	contextWindow       int           // Optional operational budget for exact-agent inputs, not provider capability.
+	mcpInventoryTimeout time.Duration // Per-inventory isolation deadline; zero falls back to the safe default.
 }
 
 type Option func(*CodexModel)
@@ -102,14 +103,32 @@ func WithContextWindow(tokens int) Option {
 	return func(model *CodexModel) { model.contextWindow = tokens }
 }
 
+// WithMCPInventoryTimeout configures the bounded read-only `codex mcp list`
+// probe that precedes each model call. Non-positive values retain the default.
+func WithMCPInventoryTimeout(timeout time.Duration) Option {
+	return func(model *CodexModel) {
+		if timeout > 0 {
+			model.mcpInventoryTimeout = timeout
+		}
+	}
+}
+
 func (m *CodexModel) ExactAgentContextWindow() int { return m.contextWindow }
+
+// MCPInventoryTimeout reports the effective isolation-inventory deadline.
+func (m *CodexModel) MCPInventoryTimeout() time.Duration {
+	if m == nil || m.mcpInventoryTimeout <= 0 {
+		return defaultCodexMCPInventoryTimeout
+	}
+	return m.mcpInventoryTimeout
+}
 
 // New 构造 CodexModel。binary 为空时按常见路径探测 Codex.app 内置 codex。
 func New(binary, model, reasoning string, options ...Option) *CodexModel {
 	if strings.TrimSpace(binary) == "" {
 		binary = detectCodexBinary()
 	}
-	result := &CodexModel{binary: binary, model: model, reasoning: reasoning, providerLabel: "codex-cli"}
+	result := &CodexModel{binary: binary, model: model, reasoning: reasoning, providerLabel: "codex-cli", mcpInventoryTimeout: defaultCodexMCPInventoryTimeout}
 	for _, option := range options {
 		if option != nil {
 			option(result)

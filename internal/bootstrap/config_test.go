@@ -53,6 +53,24 @@ func TestCharacterAgentDefaultsAndConcurrencyLimit(t *testing.T) {
 	}
 }
 
+func TestMCPInventoryTimeoutValidation(t *testing.T) {
+	base := Config{Provider: "subscription", ModelName: "gpt-6-astra", Providers: map[string]ProviderConfig{"subscription": {Type: "codex-cli"}}}
+	for _, seconds := range []int{0, 1, 15, 120} {
+		cfg := base
+		cfg.Providers = map[string]ProviderConfig{"subscription": {Type: "codex-cli", MCPInventoryTimeoutSec: seconds}}
+		if err := cfg.ValidateBase(); err != nil {
+			t.Fatalf("timeout %d rejected: %v", seconds, err)
+		}
+	}
+	for _, seconds := range []int{-1, 121} {
+		cfg := base
+		cfg.Providers = map[string]ProviderConfig{"subscription": {Type: "codex-cli", MCPInventoryTimeoutSec: seconds}}
+		if err := cfg.ValidateBase(); err == nil || !strings.Contains(err.Error(), "mcp_inventory_timeout_sec") {
+			t.Fatalf("timeout %d was not rejected precisely: %v", seconds, err)
+		}
+	}
+}
+
 func TestDrafterConfigInheritsWriterUntilExplicitlyConfigured(t *testing.T) {
 	cfg := Config{
 		ReasoningEffort: "low",

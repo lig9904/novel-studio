@@ -299,6 +299,7 @@ Each role can select its own provider, model, reasoning effort, and fallbacks. A
 |---|---|
 | `provider` / `model` | Default text model |
 | `providers` | Credentials, protocol, base URL, model list, and provider extras |
+| `providers.*.mcp_inventory_timeout_sec` | MCP inventory isolation timeout before Codex CLI calls; defaults to 15 seconds, configurable from 1 to 120 |
 | `roles` | Independent routing for Coordinator, Architect, Writer, Character, World Arbiter, Drafter, Editor, and Reviewer |
 | `character_agents` | Activation scope, concurrency, and conflict revision rounds |
 | `context_window` | The real window for a custom model or an earlier compaction ceiling |

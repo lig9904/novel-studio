@@ -375,6 +375,9 @@ func createModelFromConfig(providerKey, model string, pc ProviderConfig, cache m
 	if opt.contextWindow > 0 {
 		cacheKey += fmt.Sprintf("|context_window=%d", opt.contextWindow)
 	}
+	if pc.MCPInventoryTimeoutSec > 0 {
+		cacheKey += fmt.Sprintf("|mcp_inventory_timeout_sec=%d", pc.MCPInventoryTimeoutSec)
+	}
 	if m, ok := cache[cacheKey]; ok {
 		return m, nil
 	}
@@ -388,7 +391,11 @@ func createModelFromConfig(providerKey, model string, pc ProviderConfig, cache m
 	if providerType == "codex-cli" || providerType == "codex" {
 		// reasoning 交给 codex 配置默认（config.toml model_reasoning_effort）；
 		// 角色级推理强度由上层 ResolveThinkingForModel 走 agentcore ThinkingLevel 处理。
-		cm := llmcodex.New(pc.BaseURL, model, "", llmcodex.WithContextWindow(opt.contextWindow))
+		codexOptions := []llmcodex.Option{llmcodex.WithContextWindow(opt.contextWindow)}
+		if pc.MCPInventoryTimeoutSec > 0 {
+			codexOptions = append(codexOptions, llmcodex.WithMCPInventoryTimeout(time.Duration(pc.MCPInventoryTimeoutSec)*time.Second))
+		}
+		cm := llmcodex.New(pc.BaseURL, model, "", codexOptions...)
 		cache[cacheKey] = cm
 		return cm, nil
 	}

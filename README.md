@@ -318,6 +318,7 @@ novel-studio 支持按角色选择 provider、model、reasoning effort 和 fallb
 |---|---|
 | `provider` / `model` | 默认文本模型 |
 | `providers` | 凭证、协议、base URL、模型列表与附加参数 |
+| `providers.*.mcp_inventory_timeout_sec` | Codex CLI 调用前的 MCP 清单隔离超时；默认 15 秒，可配 1–120 秒 |
 | `roles` | Coordinator、Architect、Writer、Character、World Arbiter、Drafter、Editor、Reviewer 的独立路由 |
 | `character_agents` | 激活范围、并发和冲突修订轮次 |
 | `context_window` | 自定义模型的真实窗口或提前压缩上限 |

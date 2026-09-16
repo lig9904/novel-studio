@@ -26,6 +26,13 @@
       "base_url": "https://api.deepseek.com",
       "models": ["deepseek-v4-pro", "deepseek-v4-flash"]
     },
+    "subscription": {
+      "type": "codex-cli",
+      // 可选。每次模型调用前读取 MCP 清单并逐项禁用，避免嵌套 Codex 继承 MCP。
+      // 0/省略=15 秒；仅在本机 CLI 清单读取确实更慢时调高，范围 1..120。
+      "mcp_inventory_timeout_sec": 15,
+      "models": ["gpt-5.6-sol"]
+    },
     "openrouter": {
       "api_key": "sk-or-v1-xxx",
       "base_url": "https://openrouter.ai/api/v1",

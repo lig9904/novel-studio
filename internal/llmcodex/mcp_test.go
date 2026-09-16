@@ -9,6 +9,7 @@ import (
 	"strings"
 	"sync"
 	"testing"
+	"time"
 
 	"github.com/voocel/agentcore"
 )
@@ -133,5 +134,24 @@ func TestMCPInventoryPreservesCancellation(t *testing.T) {
 	cancel()
 	if _, err := model.disabledMCPConfig(ctx, t.TempDir()); !errors.Is(err, context.Canceled) {
 		t.Fatalf("cancellation was lost: %v", err)
+	}
+}
+
+func TestMCPInventoryTimeoutDefaultsToFifteenSecondsAndCanBeOverridden(t *testing.T) {
+	model := usageFakeCLIWithMCP(t, "sleep 1\nprintf '[]'\nexit 0\n", "exit 88\n")
+	if got := model.MCPInventoryTimeout(); got != 15*time.Second {
+		t.Fatalf("default MCP inventory timeout = %s", got)
+	}
+	WithMCPInventoryTimeout(25 * time.Millisecond)(model)
+	if got := model.MCPInventoryTimeout(); got != 25*time.Millisecond {
+		t.Fatalf("configured MCP inventory timeout = %s", got)
+	}
+	started := time.Now()
+	_, err := model.disabledMCPConfig(context.Background(), t.TempDir())
+	if err == nil || !errors.Is(err, context.DeadlineExceeded) || !strings.Contains(err.Error(), "Codex MCP isolation") {
+		t.Fatalf("configured inventory timeout was not preserved: %v", err)
+	}
+	if elapsed := time.Since(started); elapsed > 500*time.Millisecond {
+		t.Fatalf("inventory timeout was not applied promptly: %s", elapsed)
 	}
 }

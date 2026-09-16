@@ -13,10 +13,10 @@ import (
 )
 
 const (
-	maxCodexMCPInventoryBytes = 1 << 20
-	maxCodexMCPServers        = 256
-	maxCodexMCPNameBytes      = 512
-	codexMCPInventoryTimeout  = 5 * time.Second
+	maxCodexMCPInventoryBytes       = 1 << 20
+	maxCodexMCPServers              = 256
+	maxCodexMCPNameBytes            = 512
+	defaultCodexMCPInventoryTimeout = 15 * time.Second
 )
 
 // disabledMCPConfig reads the effective CLI configuration without connecting to
@@ -27,7 +27,7 @@ func (m *CodexModel) disabledMCPConfig(ctx context.Context, cwd string) (string,
 	if ctx == nil {
 		ctx = context.Background()
 	}
-	probeCtx, cancel := context.WithTimeout(ctx, codexMCPInventoryTimeout)
+	probeCtx, cancel := context.WithTimeout(ctx, m.MCPInventoryTimeout())
 	defer cancel()
 	cmd := exec.CommandContext(probeCtx, m.binary, "mcp", "list", "--json", "--disable", "plugins", "--disable", "apps")
 	cmd.Dir = cwd

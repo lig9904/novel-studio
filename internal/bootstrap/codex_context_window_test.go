@@ -2,6 +2,7 @@ package bootstrap
 
 import (
 	"testing"
+	"time"
 
 	"github.com/chenhongyang/novel-studio/internal/llmcodex"
 	"github.com/voocel/agentcore"
@@ -14,6 +15,15 @@ func codexBudgetForTest(t *testing.T, model agentcore.ChatModel) int {
 		t.Fatalf("not a Codex target: %T", model)
 	}
 	return codex.ExactAgentContextWindow()
+}
+
+func codexMCPInventoryTimeoutForTest(t *testing.T, model agentcore.ChatModel) time.Duration {
+	t.Helper()
+	codex, ok := model.(*llmcodex.CodexModel)
+	if !ok {
+		t.Fatalf("not a Codex target: %T", model)
+	}
+	return codex.MCPInventoryTimeout()
 }
 
 func TestCodexContextWindowConfigurationReachesDefaultRoleFallbackAndSwap(t *testing.T) {
@@ -79,5 +89,33 @@ func TestCodexContextWindowUnknownKeepsLegacyAndRegistryWindowIsOperational(t *t
 	second, err := createModelFromConfig("subscription", "same-target", provider, cache, modelCreateOptions{contextWindow: 200_000})
 	if err != nil || first == second || codexBudgetForTest(t, second) != 200_000 {
 		t.Fatal("cache reused a model with a different operating budget")
+	}
+}
+
+func TestCodexMCPInventoryTimeoutConfigurationReachesModelAndCacheIdentity(t *testing.T) {
+	cache := map[string]agentcore.ChatModel{}
+	firstProvider := ProviderConfig{Type: "codex-cli", BaseURL: "/never-execute-mcp-timeout-test", MCPInventoryTimeoutSec: 21}
+	first, err := createModelFromConfig("subscription", "same-target", firstProvider, cache)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := codexMCPInventoryTimeoutForTest(t, first); got != 21*time.Second {
+		t.Fatalf("configured MCP inventory timeout = %s", got)
+	}
+	secondProvider := firstProvider
+	secondProvider.MCPInventoryTimeoutSec = 22
+	second, err := createModelFromConfig("subscription", "same-target", secondProvider, cache)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if first == second || codexMCPInventoryTimeoutForTest(t, second) != 22*time.Second {
+		t.Fatal("cache reused a Codex model with a different MCP inventory timeout")
+	}
+	defaultModel, err := createModelFromConfig("default-subscription", "default-target", ProviderConfig{Type: "codex-cli", BaseURL: "/never-execute-mcp-timeout-test"}, cache)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := codexMCPInventoryTimeoutForTest(t, defaultModel); got != 15*time.Second {
+		t.Fatalf("default MCP inventory timeout = %s", got)
 	}
 }
