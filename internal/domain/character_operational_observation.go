@@ -65,7 +65,9 @@ func operationalResultV1(value string) bool {
 	return value == "available" || value == "unavailable" || value == "inconclusive"
 }
 func operationalResourceV1(resource WorldResourceBalanceV2) bool {
-	return resource.Unit == "" && resource.ActualAmount == nil && len(resource.ReadableFacts) == 0
+	semantics := WorldResourceSemanticsV2(resource)
+	return (semantics == ResourceSemanticsQualitative || semantics == ResourceSemanticsEnvironmental) &&
+		resource.Unit == "" && resource.ActualAmount == nil && len(resource.ReadableFacts) == 0 && resource.Artifact == nil
 }
 
 func validateCharacterOperationalRequestsV1(task CharacterSelfTaskV2) error {

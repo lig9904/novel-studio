@@ -43,4 +43,14 @@ V3 要求 `max_activation_cycles` 大于 1，可配置范围为 2–64；`max_co
 
 这是新 producer 的能力，不回填旧提案或重写旧观察。已有 generation 按其冻结 producer 恢复，不因软件升级或这项能力而重新初始化小说。未声明 `task_id` 的旧来件读取保持原协议。
 
+## 物理资源语义
+
+新建或明确修复的 `resource_balances` 可声明 `semantics`：
+
+- `quantitative`：有量纲的余额、库存或可清点物；必须有 `unit`，世界真值未知时 `actual_amount` 可为 `null`。
+- `qualitative`：不承担数量判断的局部状态或可用性；`unit` 必须为空且 `actual_amount=null`。
+- `environmental`：海、潮汐、天气、道路、沙滩等世界环境的可观察／可交互状态；环境实体仍属于 `book_world.places`，resource 只表达 affordance，不能写成“1处”库存，同样使用空 `unit` 与 `actual_amount=null`。
+
+旧数据省略 `semantics` 时保持兼容：存在 `unit` 或 `actual_amount` 即按 quantitative 读取，否则按 qualitative 读取。`operational_observation` 只消费 qualitative/environmental 非文书资源，并只形成指定时刻的局部状态回执；它不产生数量、所有权、控制权、认领权、进入许可或总体安全结论。角色 resource holding 的 `access` 只表示当前访问/交互边界，不等于拥有该资源。
+
 截至 2026-09-13，V3 仍在进行真实三章小说验收，尚未宣称端到端生产成功。代码测试和无模型验证通过不能替代真实正文、审核与接受回执形成的完整闭环。

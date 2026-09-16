@@ -373,6 +373,65 @@ func TestPhysicalInitialStateV2MergesOnlyConsistentGlobalDefinitions(t *testing.
 	}
 }
 
+func TestPhysicalResourceSemanticsAreExplicitAndBackwardCompatible(t *testing.T) {
+	for name, resource := range map[string]WorldResourceBalanceV2{
+		"quantitative":  {ResourceID: physicalFuelTestID, Name: "燃油", Semantics: ResourceSemanticsQuantitative, Unit: "L"},
+		"qualitative":   {ResourceID: physicalPaperTestID, Name: "局部可用状态", Semantics: ResourceSemanticsQualitative},
+		"environmental": {ResourceID: physicalInnerTestID, Name: "近岸水域可供性", Semantics: ResourceSemanticsEnvironmental},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if err := validateWorldResourceBalanceV2(resource); err != nil {
+				t.Fatalf("valid semantics rejected: %v", err)
+			}
+		})
+	}
+	for name, resource := range map[string]WorldResourceBalanceV2{
+		"environmental amount": {ResourceID: physicalFuelTestID, Name: "海面", Semantics: ResourceSemanticsEnvironmental, Unit: "处", ActualAmount: physicalTestNumber(1)},
+		"qualitative unit":     {ResourceID: physicalPaperTestID, Name: "状态", Semantics: ResourceSemanticsQualitative, Unit: "项"},
+		"quantitative no unit": {ResourceID: physicalInnerTestID, Name: "库存", Semantics: ResourceSemanticsQuantitative},
+		"unknown semantics":    {ResourceID: physicalInnerTestID, Name: "库存", Semantics: "inventory-ish"},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if err := validateWorldResourceBalanceV2(resource); err == nil {
+				t.Fatal("invalid resource semantics passed")
+			}
+		})
+	}
+	legacy := WorldResourceBalanceV2{ResourceID: physicalFuelTestID, Name: "燃油", Unit: "L", ActualAmount: physicalTestNumber(12)}
+	if got := WorldResourceSemanticsV2(legacy); got != ResourceSemanticsQuantitative {
+		t.Fatalf("legacy quantitative semantics=%q", got)
+	}
+	raw, err := json.Marshal(legacy)
+	if err != nil || strings.Contains(string(raw), "semantics") {
+		t.Fatalf("legacy wire unexpectedly changed: %s err=%v", raw, err)
+	}
+}
+
+func TestInitialEnvironmentalResourcePropagatesToCharacterView(t *testing.T) {
+	registry, _, err := (CharacterAgentRegistry{}).UpsertCharacter("甲", nil, "core", 1, "now")
+	if err != nil {
+		t.Fatal(err)
+	}
+	characters := []Character{{Name: "甲", InitialState: &CharacterInitialState{
+		Location: "岸边", CurrentGoal: "观察水面", Pressure: "潮位变化", KnownFacts: []string{"知道自己在岸边"},
+		ResourceBalances: []InitialCharacterResourceV2{{
+			ResourceID: physicalInnerTestID, Name: "近岸公共水域状态", Semantics: ResourceSemanticsEnvironmental,
+			PerceivedName: "眼前水面", Access: "shared", Perception: ResourcePerceptionV2{Kind: "unknown"},
+		}},
+	}}}
+	state, err := BuildWorldPhysicalStateFromInitialV2(characters, registry)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(state.Resources) != 1 || state.Resources[0].Semantics != ResourceSemanticsEnvironmental {
+		t.Fatalf("environmental semantics lost in world state: %+v", state.Resources)
+	}
+	views, err := BuildCharacterResourceViewsV2(state, state.Actors[0].AgentID)
+	if err != nil || len(views) != 1 || views[0].Semantics != ResourceSemanticsEnvironmental {
+		t.Fatalf("environmental semantics lost in character view: %+v err=%v", views, err)
+	}
+}
+
 func TestPhysicalStateV2NameOnlyDeliveryDoesNotGrantContentsOrAmount(t *testing.T) {
 	f := newPhysicalProtocolFixture(t)
 	f.stimulus.PhysicalState.Actors[1].Resources[1].PerceivedName = ""

@@ -16,12 +16,17 @@ const (
 	WorldPhysicalStateV2Field        = "physical_state_v2"
 	WorldResourceActualAmountV2Field = "actual_amount_v2"
 	UnidentifiedResourceNameV2       = "未识别资源"
+
+	ResourceSemanticsQuantitative  = "quantitative"
+	ResourceSemanticsQualitative   = "qualitative"
+	ResourceSemanticsEnvironmental = "environmental"
 )
 
 type WorldResourceBalanceV2 struct {
 	Artifact            *CharacterWorkArtifactV1 `json:"artifact,omitempty"`
 	ResourceID          string                   `json:"resource_id"`
 	Name                string                   `json:"name"`
+	Semantics           string                   `json:"semantics,omitempty"`
 	Unit                string                   `json:"unit"`
 	ActualAmount        *float64                 `json:"actual_amount"`
 	ReadableFacts       []ResourceReadableFactV2 `json:"readable_facts,omitempty"`
@@ -75,6 +80,7 @@ type CharacterResourceViewV2 struct {
 	InspectableSurfaces []string                      `json:"inspectable_surfaces,omitempty"`
 	ResourceID          string                        `json:"resource_id"`
 	Name                string                        `json:"name"`
+	Semantics           string                        `json:"semantics,omitempty"`
 	Unit                string                        `json:"unit"`
 	Access              string                        `json:"access"`
 	Perception          ResourcePerceptionV2          `json:"perception"`
@@ -89,6 +95,7 @@ type InitialCharacterResourceV2 struct {
 	PerceivedLabel      string                   `json:"perceived_label,omitempty"`
 	PerceivedUnit       string                   `json:"perceived_unit,omitempty"`
 	Name                string                   `json:"name"`
+	Semantics           string                   `json:"semantics,omitempty"`
 	Unit                string                   `json:"unit"`
 	ActualAmount        *float64                 `json:"actual_amount"`
 	ReadableFacts       []ResourceReadableFactV2 `json:"readable_facts,omitempty"`
@@ -125,6 +132,20 @@ type ResourceEstimateV2 struct {
 	EstimateMin  *float64 `json:"estimate_min"`
 	EstimateMax  *float64 `json:"estimate_max"`
 	EvidenceRefs []string `json:"evidence_refs"`
+}
+
+// WorldResourceSemanticsV2 returns the explicit physical-resource semantics,
+// or derives the legacy behavior when the optional field is absent. Legacy
+// numeric resources remain quantitative; nil/empty resources remain
+// qualitative. Environmental affordances are always explicit.
+func WorldResourceSemanticsV2(resource WorldResourceBalanceV2) string {
+	if semantics := strings.TrimSpace(resource.Semantics); semantics != "" {
+		return semantics
+	}
+	if resource.Unit != "" || resource.ActualAmount != nil {
+		return ResourceSemanticsQuantitative
+	}
+	return ResourceSemanticsQualitative
 }
 
 type ResourceMeasurementV2 struct {
@@ -213,6 +234,20 @@ func validateWorldResourceBalanceV2(balance WorldResourceBalanceV2) error {
 	}
 	if balance.ActualAmount != nil && (strings.TrimSpace(balance.Unit) == "" || !physicalAmountV2(balance.ActualAmount)) {
 		return fmt.Errorf("physical state v2: resource %q actual amount requires a unit and finite nonnegative value", balance.ResourceID)
+	}
+	if declared := strings.TrimSpace(balance.Semantics); declared != "" {
+		switch declared {
+		case ResourceSemanticsQuantitative:
+			if strings.TrimSpace(balance.Unit) == "" {
+				return fmt.Errorf("physical state v2: quantitative resource %q requires a unit even when its amount is unknown", balance.ResourceID)
+			}
+		case ResourceSemanticsQualitative, ResourceSemanticsEnvironmental:
+			if strings.TrimSpace(balance.Unit) != "" || balance.ActualAmount != nil || len(balance.ReadableFacts) != 0 || balance.Artifact != nil {
+				return fmt.Errorf("physical state v2: %s resource %q cannot carry an inventory amount, unit, document facts or artifact", declared, balance.ResourceID)
+			}
+		default:
+			return fmt.Errorf("physical state v2: resource %q has invalid semantics %q", balance.ResourceID, balance.Semantics)
+		}
 	}
 	seen := map[string]bool{}
 	for _, fact := range balance.ReadableFacts {
@@ -339,6 +374,9 @@ func FinalizeWorldPhysicalStateV2(state WorldPhysicalStateV2) (WorldPhysicalStat
 			actor.Resources[j].Perception.EvidenceRefs = normalizeV2Strings(actor.Resources[j].Perception.EvidenceRefs)
 		}
 	}
+	for i := range out.Resources {
+		out.Resources[i].Semantics = strings.TrimSpace(out.Resources[i].Semantics)
+	}
 	return out, nil
 }
 
@@ -389,9 +427,9 @@ func BuildWorldPhysicalStateFromInitialV2(characters []Character, registry Chara
 		}
 		actor := CharacterPhysicalStateV2{AgentID: record.AgentID, Character: record.Character, Location: character.InitialState.Location, Resources: []CharacterResourceHoldingV2{}}
 		for _, initial := range character.InitialState.ResourceBalances {
-			balance := WorldResourceBalanceV2{ResourceID: initial.ResourceID, Name: initial.Name, Unit: initial.Unit, ActualAmount: initial.ActualAmount, ReadableFacts: initial.ReadableFacts, AccessRequiresAny: initial.AccessRequiresAny, InspectableSurfaces: initial.InspectableSurfaces}
+			balance := WorldResourceBalanceV2{ResourceID: initial.ResourceID, Name: initial.Name, Semantics: initial.Semantics, Unit: initial.Unit, ActualAmount: initial.ActualAmount, ReadableFacts: initial.ReadableFacts, AccessRequiresAny: initial.AccessRequiresAny, InspectableSurfaces: initial.InspectableSurfaces}
 			if previous, ok := catalog[balance.ResourceID]; ok {
-				if previous.Name != balance.Name || previous.Unit != balance.Unit || !samePhysicalNumberV2(previous.ActualAmount, balance.ActualAmount) || !samePhysicalValueV2(previous.ReadableFacts, balance.ReadableFacts) || !samePhysicalValueV2(normalizeV2Strings(previous.AccessRequiresAny), normalizeV2Strings(balance.AccessRequiresAny)) || !samePhysicalValueV2(normalizeV2Strings(previous.InspectableSurfaces), normalizeV2Strings(balance.InspectableSurfaces)) {
+				if previous.Name != balance.Name || strings.TrimSpace(previous.Semantics) != strings.TrimSpace(balance.Semantics) || previous.Unit != balance.Unit || !samePhysicalNumberV2(previous.ActualAmount, balance.ActualAmount) || !samePhysicalValueV2(previous.ReadableFacts, balance.ReadableFacts) || !samePhysicalValueV2(normalizeV2Strings(previous.AccessRequiresAny), normalizeV2Strings(balance.AccessRequiresAny)) || !samePhysicalValueV2(normalizeV2Strings(previous.InspectableSurfaces), normalizeV2Strings(balance.InspectableSurfaces)) {
 					return state, fmt.Errorf("physical initial state conflicts on shared resource %q name/unit/actual amount", balance.ResourceID)
 				}
 			} else {
@@ -436,7 +474,7 @@ func buildCharacterResourceViewsV2(state WorldPhysicalStateV2, agentID string, o
 			if holding.PerceivedLabel != "" {
 				name = holding.PerceivedLabel
 			}
-			views = append(views, CharacterResourceViewV2{ResourceID: resource.ResourceID, Name: name, Unit: holding.PerceivedUnit, Access: holding.Access, Perception: holding.Perception, EvidenceRefs: holding.EvidenceRefs, KnownPlacement: holding.KnownPlacement})
+			views = append(views, CharacterResourceViewV2{ResourceID: resource.ResourceID, Name: name, Semantics: resource.Semantics, Unit: holding.PerceivedUnit, Access: holding.Access, Perception: holding.Perception, EvidenceRefs: holding.EvidenceRefs, KnownPlacement: holding.KnownPlacement})
 		}
 		return views, nil
 	}

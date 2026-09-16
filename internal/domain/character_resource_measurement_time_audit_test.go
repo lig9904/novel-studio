@@ -128,4 +128,10 @@ func TestResourceObservationTimeLegacyJSONGolden(t *testing.T) {
 	if operationalResourceV1(WorldResourceBalanceV2{ResourceID: measurementTimeLightID, Name: "检修灯余量", Unit: "minute", ActualAmount: physicalTestNumber(4)}) {
 		t.Fatal("qualitative availability unexpectedly authorized a numeric reading")
 	}
+	if !operationalResourceV1(WorldResourceBalanceV2{ResourceID: measurementTimeLightID, Name: "近岸水域状态", Semantics: ResourceSemanticsEnvironmental}) {
+		t.Fatal("environmental affordance was unavailable to operational observation")
+	}
+	if !operationalResourceV1(WorldResourceBalanceV2{ResourceID: measurementTimeLightID, Name: "局部可用状态", Semantics: ResourceSemanticsQualitative}) {
+		t.Fatal("explicit qualitative resource was unavailable to operational observation")
+	}
 }

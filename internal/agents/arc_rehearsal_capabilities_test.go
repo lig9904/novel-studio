@@ -26,7 +26,7 @@ func rehearsalCapabilityFixture(t *testing.T) (*store.Store, domain.ArcRehearsal
 	number := func(n float64) *float64 { return &n }
 	characters[0].InitialState.ResourceBalances = append(characters[0].InitialState.ResourceBalances,
 		domain.InitialCharacterResourceV2{ResourceID: rehearsalFuelID, Name: "船油", Unit: "升", ActualAmount: number(80), PerceivedName: "船油", PerceivedLabel: "船油", PerceivedUnit: "升", Access: "shared", Perception: domain.ResourcePerceptionV2{Kind: "unknown"}},
-		domain.InitialCharacterResourceV2{ResourceID: rehearsalDeviceID, Name: "船用电源", PerceivedName: "电源", PerceivedLabel: "电源", Access: "shared", Perception: domain.ResourcePerceptionV2{Kind: "unknown"}},
+		domain.InitialCharacterResourceV2{ResourceID: rehearsalDeviceID, Name: "船用电源状态", Semantics: domain.ResourceSemanticsEnvironmental, PerceivedName: "电源", PerceivedLabel: "电源", Access: "shared", Perception: domain.ResourcePerceptionV2{Kind: "unknown"}},
 		domain.InitialCharacterResourceV2{ResourceID: rehearsalPaperID, Name: "交接纸", Unit: "张", ActualAmount: number(6), PerceivedName: "纸", PerceivedLabel: "纸", PerceivedUnit: "张", Access: "shared", Perception: domain.ResourcePerceptionV2{Kind: "unknown"}},
 	)
 	characters = append(characters, domain.Character{Name: "乙", Role: "接收员", Tier: "core", InitialState: &domain.CharacterInitialState{Location: "值班室", CurrentGoal: "只签本人所见", Pressure: "有限时间", KnownFacts: []string{"只签本人所见"}}})
