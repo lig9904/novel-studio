@@ -134,3 +134,88 @@ Reason:
 ```
 
 Report the models and reasoning efforts actually used. Distinguish configured intent from observed runtime evidence.
+
+## Phase Task GitHub Archival Policy
+
+Apply this policy after a Phase task reaches its declared terminal state and before work starts on the next Phase task. Archival preserves the verified implementation and evidence; it does not reopen the task, rerun story generation, or change any Canon authority.
+
+### Audit baseline and branch
+
+- Build each Phase audit branch from the latest verified Evidence commit for that Phase chain. For 九九 Phase 0, the unified branch is `codex/jiujiu-phase0-audit` and its initial verified baseline is P0-5 Evidence commit `92e9b5767aefa8b1e987677acb44fb87e58312af`.
+- Prefer an isolated clean worktree for archival. Preserve development branches, dirty worktrees, untracked runtime evidence, and their provenance.
+- Before creating or pushing an audit branch, inspect local worktrees, branch heads, base SHAs, commit graph, remotes, tracked changes, untracked files, and existing remote refs.
+- If the target remote branch already exists and was not created by the current archival chain, or its head is not the expected ancestor, stop and report the actual graph. Never overwrite it or force push.
+- Keep the audit history linear when the verified sources permit it. Do not rebase, squash, or discard frozen evidence merely to make the graph look linear.
+
+### Commit separation
+
+For every Phase task, preserve reviewable commit boundaries in this order:
+
+```text
+verified prior Evidence
+        ↓
+Phase Task CORE      (when generic code changed)
+        ↓
+Phase Task EVIDENCE
+```
+
+- `CORE` contains only generic Story Engine implementation, protocols, schemas, migrations, and their generic tests.
+- `EVIDENCE` contains PoC fixtures, manifests, reports, controlled runtime results, project-specific configuration, and project-specific test scaffolds.
+- Never place a 九九-specific live/runtime scaffold in a generic Core commit.
+- Do not manufacture an empty Core commit. Record `CORE: NO CODE CHANGE REQUIRED` when the task changed no generic code.
+- Do not squash Core and Evidence together. Use concise commit messages that identify the task and layer.
+
+### Explicit staging and scope control
+
+- Never use `git add .` or `git add -A` for Phase archival.
+- Stage only an explicit reviewed file list. Inspect `git diff --cached --name-status`, `git diff --cached --stat`, and `git diff --cached --check` before every commit.
+- Exclude unrelated work, runtime workspaces, archives, session transcripts, locks, caches, headless logs, build outputs, and temporary generated files.
+- If source worktrees contain mixed or unsafe changes, construct the audit chain in a separate worktree by copying only reviewed files from the verified sources. Do not mutate or clean the source worktrees to simplify archival.
+
+### Evidence authority
+
+Every PoC evidence set and its reports must preserve this authority boundary:
+
+```text
+TEST_SCAFFOLD
+NOT ACCEPTED CANON
+NOT HUMAN APPROVAL
+```
+
+- Git commit, GitHub push, fixture retention, model verdict, or test PASS does not promote story content into official Canon.
+- Human approval and the normal Canon promotion path remain separately required.
+- Preserve content-addressed fixture hashes. If public archival requires a path-only privacy redaction, retain the original content digests, document the normalization, recompute only the enclosing checksum manifest, and do not rerun an evidence-producing process.
+
+### Security and privacy gate
+
+Before every archival commit and push, verify that the staged range contains no:
+
+- API keys, access tokens, refresh tokens, passwords, credentials, private keys, or Keychain contents;
+- secret `.env` values or provider configuration with literal credentials;
+- unnecessary personal information in absolute local paths;
+- Codex session transcripts, local thread/session identifiers, or rollout files;
+- unrelated logs, databases, locks, caches, runtime archives, or build artifacts.
+
+Environment-variable names, explicit test-only placeholders, and documented redacted examples are allowed only when they cannot authenticate to any service.
+
+### Verification and push
+
+- Do not rerun paid models, Character Agents, Planner, Grounding, Story Simulation, rendering, or media generation merely to archive Git history.
+- Record the latest valid `go test ./...`, `go vet ./...`, and `go build ./...` results for the exact Core tree being pushed. Run only deterministic checks needed for changes made after that verification.
+- Run race checks only when the archived Core changes concurrency or race-sensitive behavior; otherwise report `RACE: NOT REQUIRED` with the reason.
+- Verify frozen fixture checksums and the official project-input digest when those artifacts are in scope.
+- Push only to the authorized `origin`. Do not create an upstream PR unless the user separately requests it.
+- Use a normal non-force push. After pushing, read the remote ref and require its SHA to equal the local audit branch head.
+
+### Required archival report and stop boundary
+
+Report the verified baseline, each Core/Evidence commit SHA, audit branch, remote URL, remote head SHA, deterministic check results, race disposition, secrets check, actual changed files, and whether an upstream PR was created. Show the real commit graph when it differs from the preferred linear form.
+
+After the remote SHA is verified, report:
+
+```text
+PHASE TASK GITHUB ARCHIVE READY
+WAITING FOR HUMAN REVIEW
+```
+
+Then stop. Do not begin the next Phase task, another chapter, rendering, promotion, or an upstream PR as part of archival.
