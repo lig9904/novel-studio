@@ -1,8 +1,10 @@
 package store
 
 import (
+	"bytes"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/chenhongyang/novel-studio/internal/domain"
@@ -33,6 +35,41 @@ func (s *Store) LoadWorldCoherenceReport() (*domain.WorldCoherenceReport, error)
 		return nil, err
 	}
 	return &report, nil
+}
+
+// VerifyWorldCoherenceReportEvidence verifies both the machine report against
+// the current authored sources and the human-readable projection against that
+// exact report. It is the source-bound derived-evidence boundary: the report is
+// replaceable after an authorized source change, but it is never accepted
+// stale, forged, or detached from its deterministic provenance.
+func (s *Store) VerifyWorldCoherenceReportEvidence() (*domain.WorldCoherenceReport, error) {
+	report, err := s.LoadWorldCoherenceReport()
+	if err != nil {
+		return nil, err
+	}
+	if report == nil {
+		return nil, fmt.Errorf("world coherence derived evidence is missing")
+	}
+	rules, rulesErr := s.World.LoadWorldRules()
+	codex, codexErr := s.LoadWorldCodex()
+	world, worldErr := s.World.LoadBookWorld()
+	if rulesErr != nil || codexErr != nil || worldErr != nil {
+		return nil, fmt.Errorf("world coherence derived evidence source is unreadable")
+	}
+	if err := domain.VerifyWorldCoherenceReport(*report, rules, codex, world); err != nil {
+		return nil, err
+	}
+	if !report.Ready || len(report.BlockingIssues()) != 0 {
+		return nil, fmt.Errorf("world coherence derived evidence is not ready")
+	}
+	md, err := os.ReadFile(filepath.Join(s.Dir(), worldCoherenceReportMD))
+	if err != nil {
+		return nil, fmt.Errorf("read world coherence derived review: %w", err)
+	}
+	if !bytes.Equal(md, []byte(renderWorldCoherenceReport(*report))) {
+		return nil, fmt.Errorf("world coherence derived review does not match its verified report")
+	}
+	return report, nil
 }
 
 func renderWorldCoherenceReport(report domain.WorldCoherenceReport) string {

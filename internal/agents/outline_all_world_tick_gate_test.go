@@ -165,6 +165,7 @@ func TestExpandArcWorldTickGateUsesOnlyExactChapterZeroOutlineAllIntent(t *testi
 		current.FinalFlatDigest, _ = domain.ComputeFlatOutlineDigest(nil)
 		current.ArchitectReadinessJSONDigest = compassDigest
 		current.ArchitectReadinessMDDigest = compassDigest
+		current.DerivedCoherenceEvidenceRoot = compassDigest
 		current.UpdatedAt = current.UpdatedAt.Add(time.Second)
 		return nil
 	})

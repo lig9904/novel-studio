@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/chenhongyang/novel-studio/internal/domain"
@@ -321,5 +322,151 @@ func TestPipelineOutlineAllProtectedCanonIgnoresHeadlessRuntimeFiles(t *testing.
 	}
 	if afterCanon == before {
 		t.Fatal("protected canon did not detect a real foundation mutation")
+	}
+}
+
+func TestPipelineOutlineAllSeparatesProtectedSourcesFromDerivedCoherence(t *testing.T) {
+	dir := seedZeroInitProject(t)
+	st := store.NewStore(dir)
+	if err := st.Progress.Init("derived-coherence", 1); err != nil {
+		t.Fatal(err)
+	}
+
+	initialProtected, err := pipelineOutlineAllProtectedCanonRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	initialDerived, err := pipelineOutlineAllDerivedEvidenceRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// Case A/C: an authorized visibility migration changes the source canon and
+	// immediately makes the old derived proof stale. Refreshing it must bind a
+	// new proof without changing the newly established protected source root.
+	rules, err := st.World.LoadWorldRules()
+	if err != nil || len(rules) == 0 {
+		t.Fatalf("load world rules: %v", err)
+	}
+	for i := range rules {
+		rules[i].EnforcementScope = domain.WorldRuleEnforcementGlobal
+		rules[i].VisibilityScope = domain.WorldRuleVisibilityAuthorOnly
+	}
+	if err := st.World.SaveWorldRules(rules); err != nil {
+		t.Fatal(err)
+	}
+	migratedProtected, err := pipelineOutlineAllProtectedCanonRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if migratedProtected == initialProtected {
+		t.Fatal("authorized source migration did not establish a new protected source root")
+	}
+	if _, err := pipelineOutlineAllDerivedEvidenceRoot(dir); err == nil || !strings.Contains(err.Error(), "source digest") {
+		t.Fatalf("stale derived evidence did not fail closed: %v", err)
+	}
+	if _, _, err := refreshPipelineOutlineAllArchitectReadiness(dir); err != nil {
+		t.Fatal(err)
+	}
+	refreshedProtected, err := pipelineOutlineAllProtectedCanonRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	refreshedDerived, err := pipelineOutlineAllDerivedEvidenceRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if refreshedProtected != migratedProtected || refreshedDerived == initialDerived {
+		t.Fatal("derived refresh changed source canon or failed to bind the migrated source")
+	}
+
+	// Case B: derived refresh does not weaken actual source protection.
+	characters, err := st.Characters.Load()
+	if err != nil || len(characters) == 0 {
+		t.Fatalf("load characters: %v", err)
+	}
+	characters[0].Description += " 未授权改写"
+	if err := st.Characters.Save(characters); err != nil {
+		t.Fatal(err)
+	}
+	tamperedProtected, err := pipelineOutlineAllProtectedCanonRoot(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if tamperedProtected == refreshedProtected {
+		t.Fatal("unauthorized character source change escaped protected canon")
+	}
+
+	// Case D: even with unchanged source files, an arbitrary derived review
+	// cannot acquire authority or produce a valid derived evidence root.
+	if err := os.WriteFile(filepath.Join(dir, "meta", "world_coherence_report.md"), []byte("forged derived report\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := pipelineOutlineAllDerivedEvidenceRoot(dir); err == nil || !strings.Contains(err.Error(), "does not match") {
+		t.Fatalf("forged/unsourced derived evidence did not fail closed: %v", err)
+	}
+}
+
+func TestPipelineOutlineAllProtectedSourcesRemainFailClosed(t *testing.T) {
+	cases := []struct {
+		name   string
+		mutate func(*testing.T, *store.Store)
+	}{
+		{"character", func(t *testing.T, st *store.Store) {
+			characters, err := st.Characters.Load()
+			if err != nil || len(characters) == 0 {
+				t.Fatalf("load characters: %v", err)
+			}
+			characters[0].Description += " 未授权改写"
+			if err := st.Characters.Save(characters); err != nil {
+				t.Fatal(err)
+			}
+		}},
+		{"world_rule", func(t *testing.T, st *store.Store) {
+			rules, err := st.World.LoadWorldRules()
+			if err != nil || len(rules) == 0 {
+				t.Fatalf("load world rules: %v", err)
+			}
+			rules[0].Rule += " 未授权改写"
+			if err := st.World.SaveWorldRules(rules); err != nil {
+				t.Fatal(err)
+			}
+		}},
+		{"hard_contract", func(t *testing.T, st *store.Store) {
+			compass, err := st.Outline.LoadCompass()
+			if err != nil || compass == nil {
+				t.Fatalf("load compass: %v", err)
+			}
+			compass.NonNegotiables = append(compass.NonNegotiables, "未授权新增硬合同")
+			if err := st.Outline.SaveCompass(*compass); err != nil {
+				t.Fatal(err)
+			}
+		}},
+		{"canon_premise", func(t *testing.T, st *store.Store) {
+			if err := st.Outline.SavePremise("未授权替换的正史前提"); err != nil {
+				t.Fatal(err)
+			}
+		}},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			dir := seedZeroInitProject(t)
+			st := store.NewStore(dir)
+			if err := st.Progress.Init("protected-"+tc.name, 1); err != nil {
+				t.Fatal(err)
+			}
+			before, err := pipelineOutlineAllProtectedCanonRoot(dir)
+			if err != nil {
+				t.Fatal(err)
+			}
+			tc.mutate(t, st)
+			after, err := pipelineOutlineAllProtectedCanonRoot(dir)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if after == before {
+				t.Fatalf("unauthorized %s change escaped protected canon", tc.name)
+			}
+		})
 	}
 }

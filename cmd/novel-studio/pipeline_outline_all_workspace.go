@@ -661,6 +661,34 @@ func pipelineOutlineAllProtectedCanonRootWithProgress(outputDir string, progress
 	}{Version: "outline-all-protected-canon.v3", Components: components}), nil
 }
 
+// pipelineOutlineAllDerivedEvidenceRoot binds the exact deterministic
+// coherence proof to its current authored world sources. The report is not
+// source canon: an authorized source migration invalidates it and requires a
+// refresh. It remains fail-closed because both JSON semantics/provenance and
+// the Markdown projection are independently verified before this root exists.
+func pipelineOutlineAllDerivedEvidenceRoot(outputDir string) (string, error) {
+	st := store.NewStore(outputDir)
+	report, err := st.VerifyWorldCoherenceReportEvidence()
+	if err != nil {
+		return "", fmt.Errorf("outline-all world coherence derived evidence: %w", err)
+	}
+	jsonDigest, err := pipelineRequiredFileSHA(outputDir, "meta/world_coherence_report.json")
+	if err != nil {
+		return "", err
+	}
+	mdDigest, err := pipelineRequiredFileSHA(outputDir, "meta/world_coherence_report.md")
+	if err != nil {
+		return "", err
+	}
+	return pipelineProjectAllDigest(struct {
+		Version      string `json:"version"`
+		SourceDigest string `json:"source_digest"`
+		ReportDigest string `json:"report_digest"`
+		JSONDigest   string `json:"json_digest"`
+		MDDigest     string `json:"md_digest"`
+	}{"outline-all-derived-coherence.v1", report.SourceDigest, report.ReportDigest, jsonDigest, mdDigest}), nil
+}
+
 // pipelineOutlineAllStableProgressRoot binds every JSON field, including
 // forward-compatible fields unknown to this binary, except the single derived
 // total_chapters value that outline-all is authorized to synchronize.
@@ -707,6 +735,7 @@ func outlineAllMutableOrVolatilePath(rel string) bool {
 		"meta/progress.json", "meta/pipeline.json", pipelineTimingLogPath, "meta/usage.json", "meta/diag-export.md",
 		"meta/run.json",
 		"meta/architect_readiness.json", "meta/architect_readiness.md",
+		"meta/world_coherence_report.json", "meta/world_coherence_report.md",
 		"meta/brainstorm.md",
 		"meta/checkpoints.jsonl", "meta/prompt_manifest.json",
 		"meta/story_time_contract.json", "meta/story_time_contract.md", "meta/story_calendar.json",
@@ -1052,6 +1081,13 @@ func bindRecoveredPipelineOutlineAllPublish(
 		return rootErr
 	} else if currentProtected != receipt.ProtectedCanonRoot {
 		return fmt.Errorf("outline-all recovered publish %s protected canon drift", attemptID)
+	}
+	if receipt.Version == domain.OutlineAllExecutionReceiptVersion {
+		if currentDerived, rootErr := pipelineOutlineAllDerivedEvidenceRoot(live); rootErr != nil {
+			return rootErr
+		} else if currentDerived != receipt.DerivedCoherenceEvidenceRoot {
+			return fmt.Errorf("outline-all recovered publish %s derived coherence evidence drift", attemptID)
+		}
 	}
 	if err := validatePipelineOutlineAllStableInputs(live, receipt.StableProgressRoot, receipt.FoundationContextRoot); err != nil {
 		return err

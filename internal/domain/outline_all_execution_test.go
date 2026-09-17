@@ -82,6 +82,24 @@ func TestOutlineAllExecutionReceiptDigestRejectsTampering(t *testing.T) {
 	}
 }
 
+func TestOutlineAllLegacyReceiptRemainsReadableWithoutDerivedEvidence(t *testing.T) {
+	receipt := validOutlineAllReceiptForTest(t)
+	receipt.Version = OutlineAllExecutionReceiptLegacyVersion
+	receipt.ReceiptDigest = ""
+	legacy, err := SignOutlineAllExecutionReceipt(receipt)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if legacy.DerivedCoherenceEvidenceRoot != "" || ValidateOutlineAllExecutionReceipt(legacy) != nil {
+		t.Fatal("legacy v2 receipt no longer validates without the v3 derived evidence binding")
+	}
+	legacy.DerivedCoherenceEvidenceRoot = PlanningV2DigestPrefix + strings.Repeat("a", 64)
+	legacy.ReceiptDigest = ""
+	if _, err := SignOutlineAllExecutionReceipt(legacy); err == nil || !strings.Contains(err.Error(), "legacy") {
+		t.Fatalf("legacy receipt acquired new derived authority: %v", err)
+	}
+}
+
 func TestOutlineAllExecutionReceiptRequiresGeneration(t *testing.T) {
 	receipt := validOutlineAllReceiptForTest(t)
 	receipt.GenerationID = ""

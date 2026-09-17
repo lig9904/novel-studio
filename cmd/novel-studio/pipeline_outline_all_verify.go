@@ -118,6 +118,15 @@ func verifyPipelineOutlineAllReceiptAndArtifactsWithControlHeld(outputDir string
 	if ok, reason := architectReadinessState(outputDir); !ok {
 		return nil, fmt.Errorf("outline-all refreshed architect readiness is invalid: %s", reason)
 	}
+	if receipt.Version == domain.OutlineAllExecutionReceiptVersion {
+		derivedRoot, err := pipelineOutlineAllDerivedEvidenceRoot(outputDir)
+		if err != nil {
+			return nil, err
+		}
+		if derivedRoot != receipt.DerivedCoherenceEvidenceRoot {
+			return nil, fmt.Errorf("outline-all derived coherence evidence drift")
+		}
+	}
 
 	// Before any downstream zero-init artifact exists, re-prove the entire
 	// chapter-zero isolation baseline. Later stages legitimately add world and

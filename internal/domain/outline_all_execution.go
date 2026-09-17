@@ -11,9 +11,10 @@ import (
 const (
 	// Version 2 replaces the arithmetic volume/arc partition with a
 	// model-allocated, host-frozen StructurePlan (see plan_structure).
-	OutlineAllExecutionReceiptVersion = 2
-	OutlineAllExecutionMode           = "sealed_full_book_outline_v1"
-	OutlineAllIntentMarker            = "OUTLINE_ALL_INTENT "
+	OutlineAllExecutionReceiptLegacyVersion = 2
+	OutlineAllExecutionReceiptVersion       = 3
+	OutlineAllExecutionMode                 = "sealed_full_book_outline_v1"
+	OutlineAllIntentMarker                  = "OUTLINE_ALL_INTENT "
 
 	OutlineAllExecutionBuilding = "building"
 	OutlineAllExecutionComplete = "complete"
@@ -145,6 +146,7 @@ type OutlineAllExecutionReceipt struct {
 	FinalFlatDigest               string                    `json:"final_flat_digest,omitempty"`
 	ArchitectReadinessJSONDigest  string                    `json:"architect_readiness_json_digest,omitempty"`
 	ArchitectReadinessMDDigest    string                    `json:"architect_readiness_md_digest,omitempty"`
+	DerivedCoherenceEvidenceRoot  string                    `json:"derived_coherence_evidence_root,omitempty"`
 	ExpectedLiveDirectoryRoot     string                    `json:"expected_live_directory_root,omitempty"`
 	PublishedCandidateRoot        string                    `json:"published_candidate_root,omitempty"`
 	DirectoryPublishReceiptDigest string                    `json:"directory_publish_receipt_digest,omitempty"`
@@ -275,7 +277,7 @@ func ValidateOutlineAllExecutionLockBinding(
 }
 
 func ValidateOutlineAllExecutionReceipt(receipt OutlineAllExecutionReceipt) error {
-	if receipt.Version != OutlineAllExecutionReceiptVersion ||
+	if (receipt.Version != OutlineAllExecutionReceiptLegacyVersion && receipt.Version != OutlineAllExecutionReceiptVersion) ||
 		receipt.Mode != OutlineAllExecutionMode ||
 		receipt.BaseCanonChapter != 0 ||
 		receipt.WritingMode != WritingPipelineModeSealedTwoPassV2 {
@@ -288,6 +290,9 @@ func ValidateOutlineAllExecutionReceipt(receipt OutlineAllExecutionReceipt) erro
 	if receipt.Status != OutlineAllExecutionBuilding &&
 		receipt.Status != OutlineAllExecutionComplete {
 		return fmt.Errorf("outline-all execution receipt has invalid status %q", receipt.Status)
+	}
+	if receipt.Version == OutlineAllExecutionReceiptLegacyVersion && receipt.DerivedCoherenceEvidenceRoot != "" {
+		return fmt.Errorf("legacy outline-all receipt cannot claim derived coherence evidence")
 	}
 	if err := validatePlanningV2Digest("writing_mode_receipt_digest", receipt.WritingModeReceiptDigest); err != nil {
 		return err
@@ -421,12 +426,18 @@ func ValidateOutlineAllExecutionReceipt(receipt OutlineAllExecutionReceipt) erro
 		if err := validatePlanningV2Digest("architect_readiness_md_digest", receipt.ArchitectReadinessMDDigest); err != nil {
 			return err
 		}
+		if receipt.Version == OutlineAllExecutionReceiptVersion {
+			if err := validatePlanningV2Digest("derived_coherence_evidence_root", receipt.DerivedCoherenceEvidenceRoot); err != nil {
+				return err
+			}
+		}
 	} else {
 		for name, digest := range map[string]string{
 			"final_layered_digest":            receipt.FinalLayeredDigest,
 			"final_flat_digest":               receipt.FinalFlatDigest,
 			"architect_readiness_json_digest": receipt.ArchitectReadinessJSONDigest,
 			"architect_readiness_md_digest":   receipt.ArchitectReadinessMDDigest,
+			"derived_coherence_evidence_root": receipt.DerivedCoherenceEvidenceRoot,
 			"expected_live_directory_root":    receipt.ExpectedLiveDirectoryRoot,
 		} {
 			if digest != "" {

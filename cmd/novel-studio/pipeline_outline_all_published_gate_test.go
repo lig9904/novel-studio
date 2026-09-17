@@ -187,6 +187,10 @@ func writeOutlineAllGateCompleteReceipt(
 	if err != nil {
 		t.Fatal(err)
 	}
+	derivedRoot, err := pipelineOutlineAllDerivedEvidenceRoot(outputDir)
+	if err != nil {
+		t.Fatal(err)
+	}
 	attemptID := filepath.Base(filepath.Dir(filepath.Dir(filepath.Clean(candidateDir))))
 	receipt := domain.OutlineAllExecutionReceipt{
 		Version: domain.OutlineAllExecutionReceiptVersion, Mode: domain.OutlineAllExecutionMode,
@@ -207,6 +211,7 @@ func writeOutlineAllGateCompleteReceipt(
 		FinalLayeredDigest: layeredDigest, FinalFlatDigest: flatDigest,
 		ArchitectReadinessJSONDigest: readinessJSON,
 		ArchitectReadinessMDDigest:   readinessMD,
+		DerivedCoherenceEvidenceRoot: derivedRoot,
 		ExpectedLiveDirectoryRoot:    expectedLiveRoot,
 		LockVersion:                  1, LockMode: domain.PipelineExecutionOutlineAll, LockTargetChapter: 1,
 		LockOwner: "outline-all-gate-test", LockProcessID: 1,

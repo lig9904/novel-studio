@@ -226,6 +226,7 @@ func TestChapterZeroOutlineAllWorldTickBypassRejectsCompleteReceipt(t *testing.T
 		current.FinalFlatDigest = finalFlatDigest
 		current.ArchitectReadinessJSONDigest = receipt.CompassDigest
 		current.ArchitectReadinessMDDigest = receipt.CompassDigest
+		current.DerivedCoherenceEvidenceRoot = receipt.CompassDigest
 		current.UpdatedAt = current.UpdatedAt.Add(time.Second)
 		return nil
 	})

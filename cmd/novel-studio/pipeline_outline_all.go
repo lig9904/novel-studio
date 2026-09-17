@@ -393,6 +393,10 @@ func pipelineOutlineAll(opts cliOptions, flags pipelineFlags) (returnErr error) 
 			if err != nil {
 				return err
 			}
+			derivedCoherenceRoot, err := pipelineOutlineAllDerivedEvidenceRoot(candidateDir)
+			if err != nil {
+				return err
+			}
 			receipt, err = candidate.UpdateOutlineAllExecutionReceipt(receipt.ReceiptDigest, func(current *domain.OutlineAllExecutionReceipt) error {
 				current.Status = domain.OutlineAllExecutionComplete
 				current.PendingAction = nil
@@ -400,6 +404,7 @@ func pipelineOutlineAll(opts cliOptions, flags pipelineFlags) (returnErr error) 
 				current.FinalFlatDigest = flatDigest
 				current.ArchitectReadinessJSONDigest = readinessJSONDigest
 				current.ArchitectReadinessMDDigest = readinessMDDigest
+				current.DerivedCoherenceEvidenceRoot = derivedCoherenceRoot
 				current.UpdatedAt = time.Now().UTC()
 				return nil
 			})
@@ -447,6 +452,11 @@ func pipelineOutlineAll(opts cliOptions, flags pipelineFlags) (returnErr error) 
 		return err
 	} else if currentProtected != protectedRoot {
 		return fmt.Errorf("outline-all final candidate modified protected canon")
+	}
+	if currentDerived, err := pipelineOutlineAllDerivedEvidenceRoot(candidateDir); err != nil {
+		return err
+	} else if currentDerived != receipt.DerivedCoherenceEvidenceRoot {
+		return fmt.Errorf("outline-all final candidate derived coherence evidence drift")
 	}
 	if err := validatePipelineOutlineAllStableInputs(candidateDir, stableProgressRoot, frozenFoundation.Root); err != nil {
 		return err
@@ -544,6 +554,11 @@ func pipelineOutlineAll(opts cliOptions, flags pipelineFlags) (returnErr error) 
 		return err
 	} else if currentProtected != protectedRoot {
 		return fmt.Errorf("outline-all published protected canon differs from entry root")
+	}
+	if currentDerived, err := pipelineOutlineAllDerivedEvidenceRoot(cfg.OutputDir); err != nil {
+		return err
+	} else if currentDerived != receipt.DerivedCoherenceEvidenceRoot {
+		return fmt.Errorf("outline-all published derived coherence evidence drift")
 	}
 	if _, err = verifyPipelineOutlineAllReceiptAndArtifacts(cfg.OutputDir); err != nil {
 		return err
