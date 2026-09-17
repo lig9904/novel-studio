@@ -928,6 +928,9 @@ func RunProjectedChapterPlanning(
 			return nil, fmt.Errorf("project-all POV plan chapter %d did not finalize", chapter)
 		}
 	}
+	if err := validateProjectedPlanGroundingProtocol(cfg, models, *simulation, plan); err != nil {
+		return nil, fmt.Errorf("project-all chapter %d refuses stale grounded plan: %w", chapter, err)
+	}
 
 	if simulationCP != nil && planCP.Seq <= simulationCP.Seq {
 		return nil, fmt.Errorf(
@@ -1005,6 +1008,32 @@ func RunProjectedChapterPlanning(
 		PlanningContextDigest:       strings.TrimSpace(planningContextDigest),
 		RenderContext:               renderContext,
 	}, nil
+}
+
+func validateProjectedPlanGroundingProtocol(
+	cfg bootstrap.Config,
+	models *bootstrap.ModelSet,
+	simulation domain.ChapterWorldSimulation,
+	plan *domain.ChapterPlan,
+) error {
+	if plan == nil || !domain.HasPlanGroundingPolicy(simulation) {
+		return nil
+	}
+	if plan.GroundingReview == nil || !plan.GroundingReview.Verdict.Pass {
+		return fmt.Errorf("formal plan has no passing grounding receipt")
+	}
+	reviewer := NewPlanGroundingReviewer(cfg, models, nil)
+	if reviewer.ResolveForSimulation != nil {
+		resolved, err := reviewer.ResolveForSimulation(simulation)
+		if err != nil {
+			return fmt.Errorf("resolve current plan grounding reviewer: %w", err)
+		}
+		reviewer = resolved
+	}
+	if strings.TrimSpace(reviewer.Protocol) == "" || plan.GroundingReview.ReviewProtocol != reviewer.Protocol {
+		return fmt.Errorf("formal plan grounding protocol is stale: got=%q want=%q", plan.GroundingReview.ReviewProtocol, reviewer.Protocol)
+	}
+	return nil
 }
 
 func exactProjectAllSourceToken(sources []string, expected string) bool {
@@ -1165,11 +1194,15 @@ const projectAllPlannerBoundary = `
 
 你处于 Project-Arc 单弧隔离规划，不是正文写作：
 - 当前章完整 world simulation 已是唯一因果输入；只把主角可知部分投影为 POV plan。
-- 必须给出完整章节合同、人物选择链、读者奖励/留存、声口、情绪、文学渲染和结构化结果变化；不得把 coarse outline 当成完成品。
+- Soft Outline/coarse outline 在 simulation 完成后只提供章节范围、主题压力和候选方向；其中未在最终 simulation/arbitration/POV evidence 发生的具体人物、物件、设备、消息、会面、动作、知识、状态和结果一律不得重新提升为 Story Fact。
+- 你的权限是选择、排序、合并、强调、表达和场景组织。可添加删除后不会改变任何后续 Story Simulation 结果的感官/氛围表现；不能创建可持有、使用、测量、追踪、举证、传信、触发行动或形成未来义务的新内容。删除细节可能改变后续结果时，它必须有当前权威来源，否则删除或改写计划。
+- required_beats、causal_beats、environment_state、对白参与者与new_information、render_capacity中的事实性动作、ending_consequence_contract都必须逐项服从最终 Story Facts；Derived Presentation 只承担非因果可视化、措辞、感官渲染和氛围。允许把多个真实事实并入一场，但不得补造事实之间的因果。
+- 找不到 authority source 时只修 Planner；不得续推世界、要求角色重选、修改仲裁或把宽泛 context token 当作该事实的具体来源。
+- 必须给出完整章节合同、人物选择链、读者奖励/留存、声口、情绪、文学渲染和结构化结果变化；不得把 coarse outline 当成完成品或事实清单。
 - reveal_budget 每一项、每个用逗号或分号分开的分句，都必须写成可机械检查的明确禁揭事实，例如“不揭示 X / 不解释 Y / 不提前给出 Z”，否定词后至少保留 4 个有效字符；禁止混入“只露一部分”“仅展示已知信息”“控制揭示程度”这类正向口号，也禁止只写“不解释”而不点名被禁事实。
 - continuity_checks 必须写成可核对的具体事实或具体禁行变化，不能只写“保持连续”“遵守前态”。
 - 每章都必须绑定本隔离工作区当前 planning context 生成的 content-addressed fact receipt 与 craft receipt；禁止缺省、沿用其他章节或沿用其他 generation 的 receipt。
-- craft receipt 有 hits 时，每个命中的 need 都必须在 external_reference_plan 中用 receipt pack 的 usable_details、transformation_rule、do_not_use 精确转化；fact receipt 有 hits 时同理。no_material 只能绑定来源，禁止伪造材料或引用。
+- craft receipt 有 hits 时，每个命中的 need 都必须在 external_reference_plan 中用 receipt pack 的 usable_details、transformation_rule、do_not_use 精确转化；fact receipt 有 hits 时同理。no_material 只能绑定来源，禁止伪造材料或引用。RAG/craft/web 只为最终 simulation 已有事实提供现实化方法和非因果细节，不能成为本章新事件、人物、资源、设备、通信、知识迁移或结果的替代 Authority。
 - RAG/craft 原始召回不得交给未来 Drafter；未来渲染只消费本章正式 plan 中已转化且受 receipt 约束的方法与细节。
 - arc_transition_contract 是弧内承接硬合同：弧首章 incoming 三字段留空；其余章节必须逐字复制 project_all_state.predecessor_contract 的 outgoing_consequence_id/text，并让 consumed_by_cause 逐字等于本章某个 causal_beats[].cause。每章必须发布弧内唯一 outgoing_consequence_id 和具体、已发生的 outgoing_consequence_text；不得从 goal、hook 或相邻章标题猜测承接。
 - render_capacity 是硬合同：必须用3-6个有角色目标、主动阻力、递进动作、转折和退出后果的场景单元自然支撑本书单章字数区间；禁止用说明、复述、检查清单、手续流水或重复反应凑长度。

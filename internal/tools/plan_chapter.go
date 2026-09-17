@@ -1672,10 +1672,10 @@ func renderCapacitySchema() map[string]any {
 		schema.Property("scene_id", schema.String("场景单元稳定标识；同章不得重复")).Required(),
 		schema.Property("target_runes", schema.Int("该场景的自然承载目标字数，必须300-1400；是容量估算，不是段落硬配额")).Required(),
 		schema.Property("pov_objective", schema.String("POV 人物在此场当下要拿到的具体结果")).Required(),
-		schema.Property("active_opposition", schema.String("正在现场阻止目标的人、制度、关系、时间或物理阻力")).Required(),
-		schema.Property("turn", schema.String("由台词、动作、证据或代价引发的场景转折")).Required(),
-		schema.Property("exit_consequence", schema.String("离开此场时已发生、会推动下一场的具体后果")).Required(),
-		schema.Property("concrete_action_beats", schema.Array("至少3个可在页面上看见的独立动作拍或现场证据；不写心情标签、抽象目标或同义反复", schema.String("具体行动/现场证据"))).Required(),
+		schema.Property("active_opposition", schema.String("正在现场阻止目标的人、制度、关系、时间或物理阻力；事实性参与者/机制必须来自最终simulation evidence")).Required(),
+		schema.Property("turn", schema.String("由已授权台词、动作、证据或代价引发的场景转折；不得借转折新建事件/资源/知识")).Required(),
+		schema.Property("exit_consequence", schema.String("离开此场时已发生、会推动下一场的权威后果；必须由simulation/arbitration结果支持")).Required(),
+		schema.Property("concrete_action_beats", schema.Array("至少3个页面动作/证据；事实性动作必须来自最终Story Facts，可添加删除后不改变状态、知识、结果或未来义务的感官/氛围表现", schema.String("权威行动或非因果表现"))).Required(),
 	)
 	return schema.Object(
 		schema.Property("total_target_runes", schema.Int("必须等于全部 scene_units.target_runes 之和，且落入 user_rules.chapter_words 闭区间")).Required(),
@@ -1722,16 +1722,16 @@ func focusedCausalSimulationSchema() map[string]any {
 	)
 	environmentState := schema.Object(
 		schema.Property("place", schema.String("地点或物件")).Required(),
-		schema.Property("visible_state", schema.String("读者可见状态")).Required(),
+		schema.Property("visible_state", schema.String("读者可见状态；事实性物件/设备/读数/状态必须来自最终simulation evidence，非因果感官表现必须可删除且不持续")).Required(),
 		schema.Property("information_carried", schema.String("承载的信息")),
 		schema.Property("pressure_applied", schema.String("对选择施加的压力")).Required(),
 		schema.Property("expected_change", schema.String("章末变化")).Required(),
 	)
 	causalBeat := schema.Object(
-		schema.Property("cause", schema.String("前置事实")).Required(),
-		schema.Property("character_choice", schema.String("角色选择")).Required(),
-		schema.Property("world_response", schema.String("环境、关系或规则反馈")).Required(),
-		schema.Property("story_result", schema.String("状态后果")).Required(),
+		schema.Property("cause", schema.String("最终simulation/arbitration已支持的前置事实")).Required(),
+		schema.Property("character_choice", schema.String("角色已实际作出的选择；不得由Planner重选")).Required(),
+		schema.Property("world_response", schema.String("已裁决的环境、关系或规则反馈；不得补造资源/实体/事件")).Required(),
+		schema.Property("story_result", schema.String("已裁决的状态后果；不得把Soft Outline候选升级为结果")).Required(),
 	)
 	voiceLogic := schema.Object(
 		schema.Property("character", schema.String("角色实名")).Required(),
@@ -1747,7 +1747,7 @@ func focusedCausalSimulationSchema() map[string]any {
 		schema.Property("speaker", schema.String("说话人")).Required(),
 		schema.Property("surface_line_function", schema.String("表层台词功能")).Required(),
 		schema.Property("hidden_subtext", schema.String("潜台词")),
-		schema.Property("new_information", schema.String("新增信息")),
+		schema.Property("new_information", schema.String("本场实际传递的新信息；必须有最终simulation中的通信/接收/POV知识来源，不能由对白蓝图创造")),
 		schema.Property("power_move", schema.String("权力变化")),
 		schema.Property("action_beat", schema.String("动作或停顿")).Required(),
 		schema.Property("next_pressure", schema.String("下一压力点")).Required(),
@@ -1756,7 +1756,7 @@ func focusedCausalSimulationSchema() map[string]any {
 		schema.Property("scene_id", schema.String("场景标识")).Required(),
 		schema.Property("dialogue_mode", schema.String("对话模式")).Required(),
 		schema.Property("scene_pressure", schema.String("场景压力")).Required(),
-		schema.Property("relationship_frame", schema.String("关系和权力位置")).Required(),
+		schema.Property("relationship_frame", schema.String("关系和权力位置；所有对白参与者必须是最终Story Facts中实际同场/可通信的既有角色或实体")).Required(),
 		schema.Property("location_anchor", schema.String("现场锚点")).Required(),
 		schema.Property("dialogue_objective", schema.String("对白必须完成的剧情功能")).Required(),
 		schema.Property("turn_progression", schema.Array("至少一轮改变信息或压力的对白", dialogueTurn)).Required(),
@@ -1835,9 +1835,9 @@ func focusedCausalSimulationSchema() map[string]any {
 	)
 	endingContract := schema.Object(
 		schema.Property("ending_mode", schema.String("章末模式")).Required(),
-		schema.Property("concrete_anchor", schema.String("章末具体物件、动作或提示")).Required(),
-		schema.Property("consequence", schema.String("已发生且不能撤销的后果")).Required(),
-		schema.Property("next_chapter_pull", schema.String("与下一章的直接承接")).Required(),
+		schema.Property("concrete_anchor", schema.String("章末具体锚点；事实性物件/动作/消息必须已有authority source，允许非持久的感官表现")).Required(),
+		schema.Property("consequence", schema.String("最终simulation/arbitration已支持、已经发生且不能撤销的后果；不得从Soft Outline恢复未发生结果")).Required(),
+		schema.Property("next_chapter_pull", schema.String("由真实后果或真实未决问题形成的承接；不得创建新的未来Story Obligation")).Required(),
 		schema.Property("why_not_ui", schema.String("为何不是空 UI 提示")),
 		schema.Property("forbidden_endings", schema.Array("禁用收尾", schema.String(""))).Required(),
 	)
@@ -2113,8 +2113,8 @@ func legacyCausalSimulationSchema(strict bool) map[string]any {
 		schema.Property("source_refs", schema.Array("来源链接、检索词、reference_pack 路径或精确 RAG receipt hit.ref；普通事实必须使用 rag_fact_receipt.hits.ref 并填写本章化 usable_details/transformation_rule/do_not_use，不能只挂 ref；消费 rewrite_craft_pack 时每个 need.id 恰好一行，并把该 need 采用的精确 hit.ref 全部合入本数组", schema.String(""))).Required(),
 		schema.Property("retrieved_at", schema.String("检索或简报日期；没有实时检索时写项目简报日期/未知并说明需要刷新")).Required(),
 		schema.Property("freshness_requirement", schema.String("时效要求：最新/近90天/年度盘点/稳定常识/无需最新，并说明原因")).Required(),
-		schema.Property("usable_details", schema.Array("可转化成正文的细节：物件、界面、流程、口语、空间、价格、制度压力", schema.String(""))).Required(),
-		schema.Property("transformation_rule", schema.String("如何从资料转成小说场景，禁止网页摘要式搬运")).Required(),
+		schema.Property("usable_details", schema.Array("用于现实化最终simulation已有Story Fact的细节：界面、流程、口语、空间、价格、制度压力或非因果物件表现；不得据此新增事件、人物、资源、设备、通信、知识或结果", schema.String(""))).Required(),
+		schema.Property("transformation_rule", schema.String("如何把资料转成已有Story Fact的现实化/表现细节，禁止网页摘要式搬运或绕过simulation创建事实")).Required(),
 		schema.Property("do_not_use", schema.Array("不使用的资料、过时梗、低可信内容、版权风险或破坏本书语气的内容", schema.String(""))).Required(),
 	)
 	trendLanguagePlan := schema.Object(

@@ -52,7 +52,7 @@ func TestProjectAllPlanningProtocolDigestKeepsRuntimeRecoveryOutOfIdentity(t *te
 	// contract, so they intentionally receive a new protocol identity.
 	// Runtime-only recovery prompts must remain outside this digest.
 	// Identity-correct projection is a compiler contract, not runtime recovery.
-	const want = "23b57c003f71763f5088271c1fff60dfa3734fdbf8c3f123c5ba1a212480a5b8"
+	const want = "00e76d21c9cb61482e81369eb5aa6879f6e930de0cb9ad251cae083fc1874390"
 	if got := ProjectAllPlanningProtocolDigest(plannerFixture); got != want {
 		t.Fatalf("project-all planning protocol digest changed: got %s want %s", got, want)
 	}

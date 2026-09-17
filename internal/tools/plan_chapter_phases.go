@@ -52,19 +52,19 @@ func (t *PlanStructureTool) Schema() map[string]any {
 	return schema.Object(
 		schema.Property("chapter", schema.Int("章节号")).Required(),
 		schema.Property("title", schema.String("章节标题")).Required(),
-		schema.Property("goal", schema.String("本章目标")).Required(),
-		schema.Property("conflict", schema.String("核心冲突")).Required(),
-		schema.Property("hook", schema.String("章末钩子")).Required(),
+		schema.Property("goal", schema.String("本章目标；独立 world simulation 已完成时只能投影其真实选择和结果，不能恢复未发生的 Soft Outline 事件")).Required(),
+		schema.Property("conflict", schema.String("核心冲突；参与者、信息、资源和状态变化必须有最终 simulation/arbitration/POV 来源")).Required(),
+		schema.Property("hook", schema.String("章末钩子；可强调已发生后果或真实未决问题，不得新增事件、实体、知识或未来义务")).Required(),
 		schema.Property("emotion_arc", schema.String("情绪曲线")),
 		schema.Property("notes", schema.String("自由备忘；写明本章承接的历史数据、大纲、动态台账、资源/人物连续性、写法资产或 RAG 召回依据")),
-		schema.Property("required_beats", schema.Array("本章正文必须让读者看见的 2-4 个结果级变化；能并成一项就并，不写离屏台账、点击、验证次数、动作拍、台词原句或流程步骤", schema.String(""))),
+		schema.Property("required_beats", schema.Array("本章正文必须让读者看见的2-4个权威结果；每项须由最终simulation/arbitration/POV evidence支持。可合并多个真实事实，不得把未发生Soft Outline候选写成结果", schema.String(""))),
 		schema.Property("forbidden_moves", schema.Array("本章明确不能发生的推进", schema.String(""))),
 		schema.Property("continuity_checks", schema.Array("本章需特别核对的连续性点", schema.String(""))),
 		schema.Property("evaluation_focus", schema.Array("Editor 重点检查项", schema.String(""))),
 		schema.Property("emotion_target", schema.String("可选：本章希望读者主要感受到的情绪")),
 		schema.Property("payoff_points", schema.Array("可选：关键章的兑现方向；不是逐项正文门禁，核心结果仍写入 required_beats", schema.String(""))),
 		schema.Property("hook_goal", schema.String("可选：章末希望驱动的追读欲望或悬念目标")),
-		schema.Property("scene_anchors", schema.Array("可选0-2项：可承担信息、关系或代价的现场候选物件/痕迹；Drafter 可重排、替换或省略，不逐项回收", schema.String(""))),
+		schema.Property("scene_anchors", schema.Array("可选0-2项：只能引用权威来源已有的物件/痕迹，或删除后不改变任何状态/因果的非持久表现；不得借候选锚点创建新资源、设备或证据", schema.String(""))),
 	)
 }
 

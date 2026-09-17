@@ -323,6 +323,15 @@ func TestWritingPromptsRemainProjectNeutral(t *testing.T) {
 	if !strings.Contains(bundle.Prompts.Planner, "章节号以本轮 task 为最高优先级") {
 		t.Fatal("planner prompt must pin every planning tool to the task chapter")
 	}
+	for _, authorityRule := range []string{
+		"Soft Outline 在世界模拟完成后只保留章节范围、主题压力与候选方向",
+		"如果删掉它，后续 Story Simulation 是否可能得到不同结果",
+		"两个或多个真实 Story Facts 可以合并进同一 Scene",
+	} {
+		if !strings.Contains(bundle.Prompts.Planner, authorityRule) {
+			t.Fatalf("planner missing projection authority rule %q", authorityRule)
+		}
+	}
 
 	combined := strings.Join([]string{
 		bundle.Prompts.Planner,

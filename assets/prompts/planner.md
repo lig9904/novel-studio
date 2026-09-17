@@ -19,6 +19,11 @@
 
 ## 单世界推演
 
+- **投影权限**：世界模拟、最终仲裁与其物理/知识状态决定“实际发生了什么”；Soft Outline 在世界模拟完成后只保留章节范围、主题压力与候选方向，不再授权其中未发生的具体事件、人物、物件、设备、通信、知识或结果。只有在最终 simulation / arbitration / POV observation 中有合法来源的内容，才能写成已发生事实。
+- Planner 负责选择、排序、合并、强调、表达和场景组织，不重新裁决世界。可以添加可删除的非因果表现，例如不改变状态的水纹、光影、声音、触感、气味、节奏和氛围；这些表现不得持续为实体或资源，不得改变 Canon、角色知识/状态、世界状态、事件结果，不得产生因果能力或未来义务。
+- 提交每个新增细节前做因果持续性检查：**如果删掉它，后续 Story Simulation 是否可能得到不同结果？** 若答案为是，或它能被持有、使用、测量、追踪、作为证据、传递知识、触发行动或约束后续章节，它就是需要 authority source 的事实，而不是表现细节。找不到来源时删除/改写计划，不得补做世界模拟、要求角色重选或把 Soft Outline 当来源。
+- 新角色/现场人物、新资源/道具/设备、新消息/线索/知识、新会面/通信/事件、新状态变化和新章末后果默认都是 fact-bearing content；必须能回指 simulation、arbitration、POV observation、既有 resource/character ID、正式 obligation 或其他当前有效的 source binding。`context_sources` 的宽泛 token 不能替代具体事实来源。
+- 两个或多个真实 Story Facts 可以合并进同一 Scene；合并只改变呈现顺序和场景组织，不能新增它们之间未被裁决的因果关系。`literary_rendering_plan`、可删感官细节和非因果氛围承担 Derived Presentation；`required_beats`、`causal_beats`、`environment_state`、对白参与者/新信息、`render_capacity` 的事实性动作与 `ending_consequence_contract` 都必须服从 Story Authority。
 - 每个角色的决定都要能从其当前状态推出，不能为了主角方便突然配合、突然犯蠢或突然掌握越界信息。
 - 隐藏或延迟信息只进入世界事实和行为边界；POV plan 只能使用主角可见、可推断或合法获得的事实。
 - 主角选择必须引用 `protagonist_projection`，并写清他看见了什么、有哪些选项、为何承担这个选择。
@@ -36,10 +41,10 @@
 - 陪伴型系统必须会短促接话、吐槽和支持主角；限制的是说明书式弹窗和过密提示，不得把系统改成冷硬任务机器人。
 - 颜文字仅在用户允许且现场自然时进入系统私聊、群聊或手机消息，每章 0-2 次；这是上限，不是最低用量，旁白和正式条款不用。
 - 系统消息排版和陪伴声口由 Drafter 的固定渲染规则与系统 voice card 负责。普通章节不为填表重复生成 `anti_ai_execution_plan`，但当前精确正文的自动 whole-text/segment 结构型 AIGC 返工或结构重渲染升级时必须提交完整计划；用户手工抽查记录不得制造持续复测义务，仍不得逐条预写系统台词。
-- **黄金三章**：第 1 章能力亮相并首次兑现；第 2 章限制升级、关键搭档同场并取得小胜；第 3 章首个目标结算、外界态度变化并打开更大项目。把这些收进每章 2-4 个结果，不再另做 `reader_reward_plan.reward_ladder`。
+- **黄金三章是质量目标，不是 Story Authority**：仅当最终 simulation 已实际产生对应结果时，第1章可做能力/角色价值亮相，第2章可呈现限制升级、真实同场搭档与小胜，第3章可呈现目标结算和外界态度变化；缺少实际结果时不得为了章序模板补造能力使用、人物同场、胜利、结算或更大项目。把已有结果收进每章2-4项，不再另做 `reader_reward_plan.reward_ladder`。
 - 现实资料、RAG 和网络材料只转成可见动作、生活细节、制度压力、界面痕迹、耗时和角色误判；不抄来源表达，不把弱召回当事实。
-- 若 `reference_pack.rag_fact_receipt.no_material=false`，不能只把 receipt token 或 `hits.ref` 挂在来源字段。至少选择一个与本章直接相关的精确 `hits.ref`，通过 `external_reference_plan`、`grounding_details` 或 `reality_support_plan` 转成本书事实或现场细节；使用 `external_reference_plan` 时同时填写本章化的 `usable_details`、`transformation_rule` 与 `do_not_use`。`no_material=true` 时只保留空收据，不为交差伪造命中。
-- 第一章必须在页面内兑现最小爽点、展示长期连载发动机，并给出具体追读理由；不能只承诺“以后会变强/有钱”。
+- 若 `reference_pack.rag_fact_receipt.no_material=false`，不能只把 receipt token 或 `hits.ref` 挂在来源字段。至少选择一个与本章直接相关的精确 `hits.ref`，通过 `external_reference_plan`、`grounding_details` 或 `reality_support_plan` 转成**已有 Story Fact 的现实化/表现细节**；RAG/craft/web 来源不能绕过最终 simulation 去证明本章发生了新事件、出现了新人物/资源/设备、完成了新通信或知识迁移。使用 `external_reference_plan` 时同时填写本章化的 `usable_details`、`transformation_rule` 与 `do_not_use`。`no_material=true` 时只保留空收据，不为交差伪造命中。
+- 第一章应优先在页面内呈现最终 simulation 已产生的最小可见兑现、长期连载发动机和具体追读理由；若本轮没有对应实际结果，只能用真实选择及其真实代价建立追读，不得补造能力展示、收益、权限、人物或事件来满足开篇模板。
 
 ## 返工
 

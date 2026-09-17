@@ -7,7 +7,7 @@ import (
 )
 
 const projectAllActivationPlannerBoundary = `
-当前是完整章内多周期结果。必须按character_decision_trace消费所有已经裁决的事件，保持每次原始选择、意图与时间顺序；兼容character_decisions及protagonist_projection.chosen_decision只代表最近一次选择，不能覆盖早期选择。final_physical_state是最终状态，不授予早期角色尚未获得的信息。raw输入/记忆及完整self历史不会重复展示，宿主仍持有并验证完整源；不得将未展示等同未发生。不要续推世界或替角色新增实质行动；材料不足应由章内执行/就绪流程解决，Planner只组织已发生的真实内容。`
+当前是完整章内多周期结果。必须按character_decision_trace消费所有已经裁决的事件，保持每次原始选择、意图与时间顺序；兼容character_decisions及protagonist_projection.chosen_decision只代表最近一次选择，不能覆盖早期选择。final_physical_state是最终状态，不授予早期角色尚未获得的信息。raw输入/记忆及完整self历史不会重复展示，宿主仍持有并验证完整源；不得将未展示等同未发生。Soft Outline只保留候选压力，不证明其中的人物、物件、设备、通信或结果实际发生。不要续推世界或替角色新增实质行动；材料不足应由章内执行/就绪流程解决，Planner只组织已发生的真实内容，可添加删除后不影响后续模拟的非因果表现。`
 
 const worldArbiterPassiveReceptionPromptV2 = `
 章内被动接收协议：休眠角色本轮没有提案或resolution，不得虚构其选择、回应或移动。若发送者的某条原始communications确实送达该角色，使用passive_receptions引用原通信及准确接收者、送达时间和通道；宿主按原文入账，下一周期才让接收者独立决定。发送意图/条件未满足/预计传递不等于送达；无实际送达就不填。当面传递必须符合双方实际位置，跨地点中途抵达未有可验证位置时应在实际抵达时点收束周期。远程传递必须使用既有、发送者明确拟用且裁决实际使用的世界机制，遵守它的前置、时延和成本；不能凭空创造通信渠道。此回执只授予收到的通信内容，不授予文档读取、资源权限或对报告内容的真实性确认。`

@@ -43,6 +43,9 @@ func TestPlanGroundingModelHasOneReadOnlyCapabilityAndExactSections(t *testing.T
 	}
 	if !strings.Contains(m.messages[0].TextContent(), "/plan/causal_simulation/render_capacity/scene_units/") ||
 		!strings.Contains(m.messages[0].TextContent(), "禁止省略/plan/causal_simulation层") ||
+		!strings.Contains(m.messages[0].TextContent(), "external_reference_plan.usable_details/transformation_rule") ||
+		!strings.Contains(m.messages[0].TextContent(), "receipt只证明材料来源，不证明") ||
+		!strings.Contains(m.messages[0].TextContent(), "query_or_need、source_refs、do_not_use") ||
 		!strings.Contains(string(spec), "/plan/causal_simulation/...") {
 		t.Fatal("model-facing pointer contract does not expose the actual nested plan namespace")
 	}
