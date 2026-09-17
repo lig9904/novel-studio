@@ -1,0 +1,275 @@
+{
+  "cycle_context": {
+    "version": "character-observation-cycle.prior-self.v1",
+    "index": 1,
+    "chapter_context_digest": "sha256:53699b7ec22d04245845b23be4ad0e9f12ce3bc4e9458559acb5387b8cf12733",
+    "current_day": 0
+  },
+  "version": "character-observation-packet.v2",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "round": 1,
+  "agent_id": "ca_e908a88390ffb536",
+  "character": "九尾狐",
+  "tier": "important",
+  "time_window": "TEST_SCAFFOLD：第一章开始前；全书开局后 0.000000 分钟（已确认的当前时间；不是章均估算）",
+  "location": "近岸礁影观察点",
+  "current_goal": "TEST_SCAFFOLD：在有限信息下自行判断如何处理仅自己可观察的潮痕标记",
+  "pressure": "TEST_SCAFFOLD：私密观察可能与沿海事件有关，但其含义与行动价值均未获确认",
+  "resource_views": [
+    {
+      "resource_id": "res_1111222233334444",
+      "name": "近岸公开水况",
+      "semantics": "environmental",
+      "unit": "",
+      "access": "none",
+      "permissions": [
+        "observe"
+      ],
+      "observation_channels": [
+        {
+          "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+          "visibility": "public",
+          "label": "TEST_SCAFFOLD现场公开水况目视"
+        }
+      ],
+      "perception": {
+        "kind": "unknown",
+        "as_of_chapter": 0
+      }
+    },
+    {
+      "resource_id": "res_4444555566667777",
+      "name": "私密潮痕",
+      "semantics": "qualitative",
+      "unit": "",
+      "access": "none",
+      "permissions": [
+        "observe"
+      ],
+      "observation_channels": [
+        {
+          "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+          "visibility": "private",
+          "label": "TEST_SCAFFOLD九尾狐本人私密潮痕感知"
+        }
+      ],
+      "perception": {
+        "kind": "unknown",
+        "as_of_chapter": 0
+      },
+      "evidence_refs": [
+        "src_de80f3c5e1c129889188f68439330aa275b3328b9c33ea03e1dfc6fc23c444c6"
+      ]
+    }
+  ],
+  "relationships": [
+    "与九九的开局关系为 TBD，无已记录秘密传递事件",
+    "与羽族凤凰的开局关系为 TBD，无已记录秘密传递事件"
+  ],
+  "commitments": [
+    "TEST_SCAFFOLD：私密标记在未发生明确故事内传递事件前仅由自己知悉"
+  ],
+  "known_facts": [
+    {
+      "id": "fact_960c8a4bce4e0691",
+      "kind": "self_profile",
+      "text": "身份：九尾狐；角色：重要配角；特征：TBD",
+      "source": "src_343945da0e07e77348d379650ebe804a3207561ed7cdb40ff63f27c0e5b3023d",
+      "visibility": "private"
+    },
+    {
+      "id": "fact_c9c8ebeddc82c45c",
+      "kind": "initial_known",
+      "text": "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+      "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+      "visibility": "private"
+    },
+    {
+      "id": "fact_b5ec33c23fc5b2ac",
+      "kind": "initial_known",
+      "text": "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+      "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+      "visibility": "private"
+    },
+    {
+      "id": "fact_00b9eae03ee214a9",
+      "kind": "initial_known",
+      "text": "该标记的含义、来源及是否应传递均为 TBD",
+      "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+      "visibility": "private"
+    }
+  ],
+  "perceived_events": [
+    {
+      "id": "fact_db98999b9632195e",
+      "kind": "own_current_action",
+      "text": "TEST_SCAFFOLD：观察近岸礁面，不自动向任何角色传递私密信息",
+      "source": "src_cc63700a28658b72fa67aa138708812733650779a3ed9823c9cba2f5a46476c1",
+      "visibility": "private"
+    }
+  ],
+  "public_rules": [
+    {
+      "id": "fact_621d279dfc73b980",
+      "kind": "world_rule_character_view",
+      "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+      "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_9a223d4e9af55e67",
+      "kind": "world_rule_character_view",
+      "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+      "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_6473ff3b0924a6ba",
+      "kind": "world_rule_character_view",
+      "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+      "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_774bb01c51c0b912",
+      "kind": "world_rule_character_view",
+      "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+      "source": "src_6b9e5f55388704580ed4283235e7bc94bdabdf091b7ec27faa9d0cf239acd51a",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_e7dcdd979eead785",
+      "kind": "world_rule_character_view",
+      "text": "你自己的兽体只能按你开局已知且获批准的既定原型理解；不得用开局未批准的替代形态补全自己或其他角色。",
+      "source": "src_eb0a2b11e4d4270bcb0dddffdbb52bebb0f38425b1180da53098936c1899ec16",
+      "visibility": "formal"
+    }
+  ],
+  "public_mechanisms": [
+    {
+      "id": "mech_scaffold_bounded_coastal_response",
+      "name": "有限海岸水域响应",
+      "visibility": "formal",
+      "section_refs": null,
+      "actor_scope": [
+        "身处现场且能感知风险的角色"
+      ],
+      "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+      "preconditions": [
+        "你实际位于可行动范围内。",
+        "你只能依据自己已知的事实与可观察证据行动。"
+      ],
+      "inputs": [
+        "普通观察",
+        "普通移动与交流",
+        "你可访问的现场资源"
+      ],
+      "costs": [
+        "行动会占用你当下的时间与注意力。",
+        "若离开当前保护位置，该处风险可能继续发展。"
+      ],
+      "effects": [
+        "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+      ],
+      "failure_modes": [
+        "不在现场或缺少可访问资源时，行动不能凭空生效。",
+        "不能调用未获批准的超自然能力。"
+      ],
+      "observability": [
+        "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+        "不在场者不会自动获知。"
+      ],
+      "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+    },
+    {
+      "id": "mech_scaffold_explicit_knowledge_transfer",
+      "name": "显式知识传递",
+      "visibility": "formal",
+      "section_refs": null,
+      "actor_scope": [
+        "持有亲见信息的角色与可能的接收者"
+      ],
+      "trigger": "你尝试把一项私人观察传给另一角色。",
+      "preconditions": [
+        "你确实通过亲见或有来源证据获得该信息。",
+        "存在对方实际可接收的故事内传递行为。"
+      ],
+      "inputs": [
+        "信息来源",
+        "传递行为",
+        "可用接收渠道"
+      ],
+      "costs": [
+        "传递占用故事内时间，并受地点、路线与接收条件约束。"
+      ],
+      "effects": [
+        "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+      ],
+      "failure_modes": [
+        "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+        "推测不能替代传递。"
+      ],
+      "observability": [
+        "传递参与者可知道传递是否发生；旁观者须实际观察。"
+      ],
+      "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+    }
+  ],
+  "memory": [
+    {
+      "id": "mem_98767204f3bd7b6a",
+      "chapter": 1,
+      "kind": "accepted_continuity",
+      "text": "自己能够观察到私密标记 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+      "source_digest": "sha256:98767204f3bd7b6a81fab19bc437b0c3b14e4aa9595446ab694ffee944bf3a91",
+      "accepted": true
+    },
+    {
+      "id": "mem_ed58b0b7ec11080b",
+      "chapter": 1,
+      "kind": "accepted_continuity",
+      "text": "自己的兽体是真正的九尾狐，不是普通狐狸、单尾狐或狐耳人形",
+      "source_digest": "sha256:ed58b0b7ec11080b103c211b3288f42c1147208a8099adb55f3f71772944efe4",
+      "accepted": true
+    },
+    {
+      "id": "mem_f8de2f71a64ad4bc",
+      "chapter": 1,
+      "kind": "accepted_continuity",
+      "text": "该标记的含义、来源及是否应传递均为 TBD",
+      "source_digest": "sha256:f8de2f71a64ad4bc00ce220474f2aea21746932cd8b624e2711e6809cc343669",
+      "accepted": true
+    }
+  ],
+  "stimulus_digest": "sha256:28c2d79e4fcc8406e8ceae8a79c35c164c59e3124747cee16677d629f19d571f",
+  "memory_root": "sha256:9fb78350079d9d604670a1f0db3ea75b94017508d729002cb7d9100a15c8303d",
+  "sources": [
+    "chapter-activation-cycles.v3",
+    "character-arbitration:verified-round-sources.v1",
+    "character-incoming-material-read:receipt.v1",
+    "character-operational-availability:receipt.v1",
+    "character-resource-observation-time.v1",
+    "character-revision-feedback:owner-constraints.v1",
+    "character-scoped-observation-channel:v1",
+    "character-self-chronology:evaluation.v1",
+    "character-self-completion-view:receipt.v1",
+    "character-self-experience:receipt.v1",
+    "character-soft-event-readiness:v1",
+    "character-source-refs:opaque.v1",
+    "character-surface-inspection:receipt.v1",
+    "character-work-artifact:receipt.v1",
+    "character-work-continuation-history:full-owner.v1",
+    "character-work-continuation:explicit.v1",
+    "src_0d99766d4a5e60e7c3b8ca2bea86c6fa7b21c58d1bca655c3e16974bf904ecdf",
+    "src_1d32fc303110e35cf8f9b5a23e9ce27128f26dc27ca985243274a8338b26c2d9",
+    "src_246e646c877e459ae14b7240d7fcb180c4e39001a37103bfe57b716b411d261c",
+    "src_343945da0e07e77348d379650ebe804a3207561ed7cdb40ff63f27c0e5b3023d",
+    "src_43d4139323cb415b0177d09a0378fd67559f59c99db42e90de3b0f43373a6cf1",
+    "src_7d2dd3477cada36ba2253da5967ebddd6114acd5cbfef8b457aee6adfa2fac3a",
+    "src_972aa381f0415bf0f75de1fe46648c802457fb692bfc8ca66ddabc5da7071f26",
+    "src_d3e4200a3f1d9f89e02c01a74555cb04ef1927e37a848cfa7708498ecd3d5bbd"
+  ],
+  "generated_at": "2026-09-17T02:00:32.120008Z",
+  "digest": "sha256:31e44257cd1832f7b63d7ece32d2fa64ee54aa56549083a7b43b3b3388a53143"
+}

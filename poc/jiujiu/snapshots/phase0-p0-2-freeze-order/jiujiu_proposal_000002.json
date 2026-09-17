@@ -1,0 +1,87 @@
+{
+  "version": "character-decision-proposal.v1",
+  "self_tasks": [
+    {
+      "task_id": "task_coastal_watch_02",
+      "kind": "work",
+      "action": "在近岸守护点对公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象",
+      "resource_ids": [
+        "res_1111222233334444"
+      ],
+      "progress_target": 10,
+      "progress_unit": "minute",
+      "knowledge_refs": [
+        "fact_774bb01c51c0b912",
+        "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+      ]
+    }
+  ],
+  "work_continuations": [
+    {
+      "task_id": "task_coastal_watch_02",
+      "until_target": true
+    }
+  ],
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "round": 1,
+  "agent_id": "ca_28b35c0537fec56e",
+  "character": "螭吻·九九",
+  "observation_digest": "sha256:cd03e2ce314b068b5fb4b8858465f838b61e205f7ccf57e2d4a1d48f2c4b3abe",
+  "time": "开局后约20分钟",
+  "location": "渔岛海洋度假区近岸守护点",
+  "current_goal": "守在近岸守护点履行保护职责，以有来源证据的判断决定是否追查未经证实的声望机会",
+  "pressure": "保护职责与未经证实的声望机会同时争夺注意力",
+  "resources": [
+    "现场警示浮标（shared，最后观测1件）",
+    "空白事件记录纸（exclusive，最后观测6张）",
+    "近岸公开水况（shared，仅可观察）"
+  ],
+  "available_options": [
+    "原地待着，既不主动观察也不追查任何线索",
+    "暂时离开守护点，去追查那条没有来源的声望线索",
+    "留在近岸守护点，开始第二轮现场目视观察，继续履行保护职责"
+  ],
+  "rejected_options": [
+    "原地待着不主动观察也不追查",
+    "暂时离开守护点去追查没有来源的声望线索"
+  ],
+  "decision": "留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追",
+  "decision_reason": "上一轮观察已完成，但保护是本人核心价值边界，现场职责优先；声望线索目前没有可亲见或有记录的来源，按测试范围规则不能当作事实；在没有来源与渠道前离开岗位追线索，只会放弃眼前唯一确定的责任。",
+  "intended_action": "在近岸守护点对近岸公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象；同时确认现场警示浮标仍在原位、空白事件记录纸仍可随时取用，但在没有可核实事件前不书写任何记录；不离开守护点去追查未来源的声望线索。",
+  "action_duration": "现实约10分钟",
+  "knowledge_refs": [
+    "fact_621d279dfc73b980",
+    "fact_6473ff3b0924a6ba",
+    "fact_774bb01c51c0b912",
+    "fact_b7b06596f6d8d6c0",
+    "fact_c405032c1c26f983",
+    "fact_e12dcc16d47253cf",
+    "oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9",
+    "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+  ],
+  "mechanism_refs": [
+    "mech_scaffold_bounded_coastal_response"
+  ],
+  "resource_claims": [
+    "近岸公开水况（仅观察，不占用）"
+  ],
+  "constraints": [
+    "不在没有可核实事件时书写事件记录",
+    "不把未经核实的声望信息当作事实",
+    "不离开守护点去追查没有来源的线索",
+    "只依据自己亲见或有记录来源的证据更新认知"
+  ],
+  "contingencies": [
+    "若出现带来源的新信息：另行评估是否值得处理声望线索",
+    "若始终无风险迹象：维持守护点位置，继续以观察为主",
+    "若观察到有明确地点与边界的风险：按现场公开规则示警并采取普通保护行动"
+  ],
+  "expected_consequences": [
+    "保护职责在守护点持续履行",
+    "声望线索在自己这里仍保持未证实、待来源状态",
+    "对水况的认知只在自己亲见范围内更新"
+  ],
+  "submitted_at": "2026-09-17T02:07:27.013585Z",
+  "digest": "sha256:a0031eaf46e038c6ee009b29d6e73e2f2271067898b859ef86867a3b11080d5e"
+}

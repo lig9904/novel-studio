@@ -1,0 +1,235 @@
+{
+  "cycle_context": {
+    "version": "character-observation-cycle.prior-self.v1",
+    "index": 1,
+    "chapter_context_digest": "sha256:53699b7ec22d04245845b23be4ad0e9f12ce3bc4e9458559acb5387b8cf12733",
+    "current_day": 0
+  },
+  "version": "character-observation-packet.v2",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "round": 1,
+  "agent_id": "ca_dab3e91796825b05",
+  "character": "羽族凤凰",
+  "tier": "important",
+  "time_window": "TEST_SCAFFOLD：第一章开始前；全书开局后 0.000000 分钟（已确认的当前时间；不是章均估算）",
+  "location": "近岸上空云缘观察位",
+  "current_goal": "TEST_SCAFFOLD：在不越过自身知识边界的前提下确认陌生环境是否安全",
+  "pressure": "TEST_SCAFFOLD：身处陌生海岸环境且可用信息极少",
+  "resource_views": [
+    {
+      "resource_id": "res_1111222233334444",
+      "name": "近岸公开水况",
+      "semantics": "environmental",
+      "unit": "",
+      "access": "none",
+      "permissions": [
+        "observe"
+      ],
+      "observation_channels": [
+        {
+          "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+          "visibility": "public",
+          "label": "TEST_SCAFFOLD现场公开水况目视"
+        }
+      ],
+      "perception": {
+        "kind": "unknown",
+        "as_of_chapter": 0
+      }
+    }
+  ],
+  "relationships": [
+    "与其他角色的关系均为 TBD，开局无已记录相识或信息传递事件"
+  ],
+  "commitments": [
+    "TEST_SCAFFOLD：未知信息保持 UNKNOWN，只有记录来源事件、证据、章节和故事时间后才可转为 KNOWN"
+  ],
+  "known_facts": [
+    {
+      "id": "fact_2cbfc18c95962285",
+      "kind": "self_profile",
+      "text": "身份：羽族凤凰；角色：重要配角；特征：TBD",
+      "source": "src_a3fbb34200d146b60a63b95fb34dab8c1449b5119e979a6ee7a8ee8d1051680c",
+      "visibility": "private"
+    },
+    {
+      "id": "fact_b04f70d74cba7885",
+      "kind": "initial_known",
+      "text": "自己是凤凰",
+      "source": "src_930384ce1690e8c976e90166c4cd88ddb8da52d461de44e76bcb517e8548042a",
+      "visibility": "private"
+    },
+    {
+      "id": "fact_ea6a122587408cd4",
+      "kind": "initial_known",
+      "text": "自己与羽族有关",
+      "source": "src_930384ce1690e8c976e90166c4cd88ddb8da52d461de44e76bcb517e8548042a",
+      "visibility": "private"
+    }
+  ],
+  "perceived_events": [
+    {
+      "id": "fact_0f7abed2ae09355a",
+      "kind": "own_current_action",
+      "text": "TEST_SCAFFOLD：仅观察自身可见环境，不推断未知角色、传说或秘密",
+      "source": "src_930384ce1690e8c976e90166c4cd88ddb8da52d461de44e76bcb517e8548042a",
+      "visibility": "private"
+    }
+  ],
+  "public_rules": [
+    {
+      "id": "fact_621d279dfc73b980",
+      "kind": "world_rule_character_view",
+      "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+      "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_9a223d4e9af55e67",
+      "kind": "world_rule_character_view",
+      "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+      "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_6473ff3b0924a6ba",
+      "kind": "world_rule_character_view",
+      "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+      "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_774bb01c51c0b912",
+      "kind": "world_rule_character_view",
+      "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+      "source": "src_10d7d64e4935deac481b13e428791f2177d19efdfe7a7c82e1d02e3904b9de2b",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_e7dcdd979eead785",
+      "kind": "world_rule_character_view",
+      "text": "你自己的兽体只能按你开局已知且获批准的既定原型理解；不得用开局未批准的替代形态补全自己或其他角色。",
+      "source": "src_f97f952ecea1cdfd4d36e01b11eb7100b4b1148dd63dfa495825e781bc760cbd",
+      "visibility": "formal"
+    }
+  ],
+  "public_mechanisms": [
+    {
+      "id": "mech_scaffold_bounded_coastal_response",
+      "name": "有限海岸水域响应",
+      "visibility": "formal",
+      "section_refs": null,
+      "actor_scope": [
+        "身处现场且能感知风险的角色"
+      ],
+      "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+      "preconditions": [
+        "你实际位于可行动范围内。",
+        "你只能依据自己已知的事实与可观察证据行动。"
+      ],
+      "inputs": [
+        "普通观察",
+        "普通移动与交流",
+        "你可访问的现场资源"
+      ],
+      "costs": [
+        "行动会占用你当下的时间与注意力。",
+        "若离开当前保护位置，该处风险可能继续发展。"
+      ],
+      "effects": [
+        "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+      ],
+      "failure_modes": [
+        "不在现场或缺少可访问资源时，行动不能凭空生效。",
+        "不能调用未获批准的超自然能力。"
+      ],
+      "observability": [
+        "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+        "不在场者不会自动获知。"
+      ],
+      "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+    },
+    {
+      "id": "mech_scaffold_explicit_knowledge_transfer",
+      "name": "显式知识传递",
+      "visibility": "formal",
+      "section_refs": null,
+      "actor_scope": [
+        "持有亲见信息的角色与可能的接收者"
+      ],
+      "trigger": "你尝试把一项私人观察传给另一角色。",
+      "preconditions": [
+        "你确实通过亲见或有来源证据获得该信息。",
+        "存在对方实际可接收的故事内传递行为。"
+      ],
+      "inputs": [
+        "信息来源",
+        "传递行为",
+        "可用接收渠道"
+      ],
+      "costs": [
+        "传递占用故事内时间，并受地点、路线与接收条件约束。"
+      ],
+      "effects": [
+        "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+      ],
+      "failure_modes": [
+        "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+        "推测不能替代传递。"
+      ],
+      "observability": [
+        "传递参与者可知道传递是否发生；旁观者须实际观察。"
+      ],
+      "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+    }
+  ],
+  "memory": [
+    {
+      "id": "mem_73a70f9269fa5e35",
+      "chapter": 1,
+      "kind": "accepted_continuity",
+      "text": "自己与羽族有关",
+      "source_digest": "sha256:73a70f9269fa5e3503893282aa5597e9384b2c9ff5a17ccf9807005459502bbb",
+      "accepted": true
+    },
+    {
+      "id": "mem_f22afdd60b501f06",
+      "chapter": 1,
+      "kind": "accepted_continuity",
+      "text": "自己是凤凰",
+      "source_digest": "sha256:f22afdd60b501f064826f12607cf90e0a178263f5442ec7d9332dda2d750e4c9",
+      "accepted": true
+    }
+  ],
+  "stimulus_digest": "sha256:28c2d79e4fcc8406e8ceae8a79c35c164c59e3124747cee16677d629f19d571f",
+  "memory_root": "sha256:ffb5cc6ce6f1c9cd1fd6bd215ee3b505676816f1dc8082cedd1fd6749dafab33",
+  "sources": [
+    "chapter-activation-cycles.v3",
+    "character-arbitration:verified-round-sources.v1",
+    "character-incoming-material-read:receipt.v1",
+    "character-operational-availability:receipt.v1",
+    "character-resource-observation-time.v1",
+    "character-revision-feedback:owner-constraints.v1",
+    "character-scoped-observation-channel:v1",
+    "character-self-chronology:evaluation.v1",
+    "character-self-completion-view:receipt.v1",
+    "character-self-experience:receipt.v1",
+    "character-soft-event-readiness:v1",
+    "character-source-refs:opaque.v1",
+    "character-surface-inspection:receipt.v1",
+    "character-work-artifact:receipt.v1",
+    "character-work-continuation-history:full-owner.v1",
+    "character-work-continuation:explicit.v1",
+    "src_23c0627b0dcc7d6658d2716e8e45f45e8618614090d30d4d11a05db4f36708bd",
+    "src_2b0f32bbc1d706818363bec4871d092815a654592c44ddfe6846e542e2bdade7",
+    "src_5064d12c692eb2b7cfac76656c0eba33669dce72a547a702af8ea97ba0877c86",
+    "src_5453f0840fd77143fc4bdfd8ce840791e2468a23e3956a02ca59a107ab5aeb3c",
+    "src_9e49378685f72597eaee0222b9a115108fd2dacc05e272a3ebb5c4c8beeb7db8",
+    "src_a3fbb34200d146b60a63b95fb34dab8c1449b5119e979a6ee7a8ee8d1051680c",
+    "src_a65f6a4d8025af46e0870ca373ffb2e55c6275644c162dddacd9d2bf0fbd0f3b",
+    "src_cf4f00ee960f0d9889620594ed0e066322ff3713af23169351864e339c80a8c9"
+  ],
+  "generated_at": "2026-09-17T02:00:32.120008Z",
+  "digest": "sha256:000142614306f32ad509dcfabb439152882a1f53f621d20e00fadbe1143a2aff"
+}
