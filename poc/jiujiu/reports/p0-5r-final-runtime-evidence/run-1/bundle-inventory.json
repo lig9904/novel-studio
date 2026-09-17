@@ -1,0 +1,8 @@
+{
+  "schema": "p0-5r-final-bundle-inventory.v1",
+  "classification": "TEST_SCAFFOLD",
+  "chapter_1_bundle_created": false,
+  "bundle_paths": [],
+  "failure": "previous_bundle_digest must use sha256:<lowercase-hex> form",
+  "failure_scope": "controlled P0-5 acceptance harness passed empty predecessor digest; production path derives genesis"
+}

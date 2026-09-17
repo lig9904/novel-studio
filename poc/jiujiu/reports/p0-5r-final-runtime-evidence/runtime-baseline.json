@@ -1,0 +1,18 @@
+{
+  "schema": "p0-5r-final-runtime-baseline.v1",
+  "classification": "TEST_SCAFFOLD",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "partial_sha256": "sha256:18fa6c49de4def05b54e50f075635d0c14a280556490a157146c5fc3e5bb0605",
+  "partial_bytes": 48600,
+  "formal_plan_exists": false,
+  "grounding_receipt_files_before": 4,
+  "usage_audit_bytes_before": 464335,
+  "usage_audit_lines_before": 680,
+  "top_level_attempt_budget": 1,
+  "overall_deadline_minutes": 20,
+  "planner_model": "gpt-5.6-sol",
+  "planner_reasoning": "medium",
+  "grounding_model": "gpt-5.6-sol",
+  "grounding_reasoning": "medium"
+}

@@ -1,0 +1,19 @@
+TEST_SCAFFOLD / NOT ACCEPTED CANON / NOT HUMAN APPROVAL
+
+Command exit: 1
+Top-level attempts: 1
+Elapsed: 1123.49 seconds
+Planner-only preflight: PASS
+Planner model: GPT-5.6 Sol / Medium
+Plan Grounding model: GPT-5.6 Sol / Medium
+Planner calls: 17 completed
+Grounding calls: 12 completed
+Host-valid Grounding receipts: 10
+Host-rejected unverifiable Grounding responses: 2
+Formal Plan: CREATED
+Final Grounding: pass=true, findings=[]
+Chapter 1 Bundle: NOT CREATED
+Failure: projected chapter bundle v2: previous_bundle_digest must use sha256:<lowercase-hex> form
+Classification: P0-5R BLOCKED — NEW HOST DEFECT
+Scope: controlled P0-5 acceptance harness wiring only; production path unaffected
+Story State rerun: NO

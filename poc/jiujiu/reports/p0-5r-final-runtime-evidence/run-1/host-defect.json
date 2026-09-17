@@ -1,0 +1,17 @@
+{
+  "schema": "p0-5r-final-host-defect.v1",
+  "classification": "TEST_SCAFFOLD",
+  "status": "CONFIRMED_CONTROLLED_HARNESS_WIRING_BLOCKER",
+  "stage": "Chapter 1 projected bundle construction",
+  "error": "projected chapter bundle v2: previous_bundle_digest must use sha256:<lowercase-hex> form",
+  "formal_plan_created": true,
+  "current_grounding_pass": true,
+  "bundle_created": false,
+  "caller_observation": "TestLiveP05FrozenPlannerProjection passed an empty previousBundleDigest for chapter 1",
+  "validator_observation": "ProjectedChapterBundle validation requires previous_bundle_digest to use sha256 form; chain validation separately expects the first bundle to equal the derived genesis digest",
+  "repair_performed": false,
+  "second_attempt": false,
+  "stop_reason": "Runtime Acceptance tasks prohibit editing the harness and rerunning after a newly discovered Host wiring defect",
+  "production_path_observation": "pipelineProjectAllTail derives the genesis digest when no previous bundles exist; production Project-All passes that value to the bundle helper",
+  "scope": "P0-5 controlled acceptance harness wiring, not the production tail calculation or bundle validator"
+}

@@ -1,0 +1,14 @@
+{
+  "version": "planner-only-recovery.v1",
+  "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "planning_context_digest": "sha256:b375711231d23e46b6a08ea1e169ee0dd8eb13e6ee974573832aab3801fd1079",
+  "planner_protocol": "233670cbd225e86c4c7902ee72072286860f1e31a755157804470ddaff873db0",
+  "simulation_id": "ch001-4db45dbca11c",
+  "simulation_digest": "sha256:cd312f3ac76daa340f5bec568c68f5286766775480b1432f06eea57e4fa80642",
+  "simulation_checkpoint_seq": 1,
+  "simulation_checkpoint_digest": "sha256:5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e",
+  "evidence_digest": "sha256:034994e9ecb7fa4e4182440ed56ae1be58874faa3a78950a287bbe094da367d4",
+  "partial_digest": "sha256:544ef3d19a31c9bee87bfef528fe05d8ce11980ac7717519228ef4ce79ffa265"
+}

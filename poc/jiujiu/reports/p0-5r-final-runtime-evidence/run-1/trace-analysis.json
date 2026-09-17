@@ -1,0 +1,150 @@
+{
+  "schema": "p0-5r-final-trace-analysis.v1",
+  "classification": "TEST_SCAFFOLD",
+  "event_count": 115,
+  "sequence_contiguous": true,
+  "stage_counts": {
+    "preflight": 2,
+    "craft_receipt": 2,
+    "pre_planner_revalidation": 1,
+    "host_context": 2,
+    "tool_start": 17,
+    "before_merge": 16,
+    "after_merge": 14,
+    "after_source_anchor": 14,
+    "persisted": 14,
+    "validation": 16,
+    "tool_end": 17
+  },
+  "explicit_clear_patch_digest": "sha256:70b74d6a67164f1bfa37e039b5e20fdd1d0410ae31a5b7769181dcdd99ec4309",
+  "explicit_clear_events": [
+    {
+      "before_merge_sequence": 16,
+      "patch_digest": "sha256:70b74d6a67164f1bfa37e039b5e20fdd1d0410ae31a5b7769181dcdd99ec4309",
+      "phase_evidence": {
+        "after_merge": {
+          "sequence": 17,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "after_merge",
+          "tool": "plan_details",
+          "state_digest": "sha256:fd3cabdf7531d07469b6ca7f018bcb0fb714b2779c0d5546d08ec63764db5b9a",
+          "result": "UNKNOWN"
+        },
+        "after_source_anchor": {
+          "sequence": 18,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "after_source_anchor",
+          "tool": "plan_details",
+          "state_digest": "sha256:9c1ecf4a14ae13716afe3aa60f8f4b4063578f51288e8a7f9158b8f1c769a1c3",
+          "result": "UNKNOWN"
+        },
+        "persisted": {
+          "sequence": 19,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "persisted",
+          "tool": "plan_details",
+          "after_partial_digest": "sha256:981d9573c71ebd5a9fd6346f4fc924aa3d21afe361adf17df706f1ef97a1902e",
+          "result": "UNKNOWN"
+        },
+        "validation": {
+          "sequence": 20,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "validation",
+          "tool": "plan_details",
+          "result": "PASS"
+        },
+        "tool_end": {
+          "sequence": 21,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "tool_end",
+          "tool": "plan_details",
+          "after_partial_digest": "sha256:981d9573c71ebd5a9fd6346f4fc924aa3d21afe361adf17df706f1ef97a1902e",
+          "result": "PASS"
+        }
+      }
+    },
+    {
+      "before_merge_sequence": 61,
+      "patch_digest": "sha256:70b74d6a67164f1bfa37e039b5e20fdd1d0410ae31a5b7769181dcdd99ec4309",
+      "phase_evidence": {
+        "after_merge": {
+          "sequence": 62,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "after_merge",
+          "tool": "plan_details",
+          "state_digest": "sha256:af6bbe3b41de2c912ecc58c1b24ea16d1773ca45e40d2f3d88f172cba7270a1e",
+          "result": "UNKNOWN"
+        },
+        "after_source_anchor": {
+          "sequence": 63,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "after_source_anchor",
+          "tool": "plan_details",
+          "state_digest": "sha256:7e2b65b5d064f910ec8c15afebf44730f56d97a1ca85b2324358e0341ab5d068",
+          "result": "UNKNOWN"
+        },
+        "persisted": {
+          "sequence": 64,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "persisted",
+          "tool": "plan_details",
+          "after_partial_digest": "sha256:6e7aa55f684053337514e8aac66914d58eafd47efc3d273e9a56cf4298cd344a",
+          "result": "UNKNOWN"
+        },
+        "validation": {
+          "sequence": 65,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "validation",
+          "tool": "plan_details",
+          "result": "PASS"
+        },
+        "tool_end": {
+          "sequence": 66,
+          "execution_id": "p0-5-controlled-recovery-20260917T103347.202612000",
+          "stage": "tool_end",
+          "tool": "plan_details",
+          "after_partial_digest": "sha256:6e7aa55f684053337514e8aac66914d58eafd47efc3d273e9a56cf4298cd344a",
+          "result": "PASS"
+        }
+      }
+    }
+  ],
+  "non_empty_external_reference_patch_events": [
+    {
+      "sequence": 23,
+      "digest": "sha256:5edb6d7fd413e4757b95932dec45b2dc2db7fad03be87f3c879330f6cd400ec2",
+      "keys": [
+        "external_reference_plan"
+      ]
+    },
+    {
+      "sequence": 68,
+      "digest": "sha256:cdb586b4caadd79032a17485b3cdc1e13c22c80dca52966adba3ac2db59b77cb",
+      "keys": [
+        "external_reference_plan"
+      ]
+    }
+  ],
+  "field_patch_counts": {
+    "context_sources": 2,
+    "external_reference_plan": 4,
+    "emotional_logic": 2,
+    "ending_consequence_contract": 2,
+    "longform_opening": 2,
+    "reader_entertainment_plan": 2,
+    "reader_reward_plan": 2,
+    "arc_transition_contract": 1,
+    "causal_beats": 1,
+    "chapter_function": 1,
+    "decision_points": 1,
+    "initial_state": 1,
+    "outcome_shift": 1,
+    "project_promise": 1,
+    "protagonist_decision": 1,
+    "world_simulation_id": 1,
+    "render_capacity": 1,
+    "environment_state": 1,
+    "information_gaps": 1
+  },
+  "trace_limitation": "trace proves exact empty-patch submission and phase digests, but does not retain raw field snapshots; direct field-value proof after source-anchor is unavailable"
+}

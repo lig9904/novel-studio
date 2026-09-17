@@ -1,0 +1,21 @@
+{
+  "schema": "p0-5r-final-frozen-comparison.v1",
+  "classification": "TEST_SCAFFOLD",
+  "byte_identical": true,
+  "before": [
+    "5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e  chapter_simulation::meta/chapter_simulations/001.json",
+    "fdbefdc0c001f18e0e15d448ab9fe1f5d8ac60487e82081b833dbc34d4fce4fa  character_activation_evidence::meta/character_agents/activation_sessions/pg2_b2354a98e8714bba2baca89a/000001/chapter_evidence.json",
+    "70b08086a81e1d2b04302a2332dc98c79f53aaec9dd7b4c81b5d2099e71f1849  soft_outline::outline.json",
+    "eeb73b94031e59ecac17d0dd70794cbd6aa1e3467f808f21672fb844fb733f55  layered_outline::layered_outline.json",
+    "6381dac99872d033d8e8733890d75a8efd1372356cd5bccdb3566e86b3d9e4a5  project_all_state::meta/project_all_state.json",
+    "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a  official_user_input::poc/jiujiu/snapshots/p0-5-plan-projection-fixture/source-user-input.md"
+  ],
+  "after": [
+    "5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e  chapter_simulation::meta/chapter_simulations/001.json",
+    "fdbefdc0c001f18e0e15d448ab9fe1f5d8ac60487e82081b833dbc34d4fce4fa  character_activation_evidence::meta/character_agents/activation_sessions/pg2_b2354a98e8714bba2baca89a/000001/chapter_evidence.json",
+    "70b08086a81e1d2b04302a2332dc98c79f53aaec9dd7b4c81b5d2099e71f1849  soft_outline::outline.json",
+    "eeb73b94031e59ecac17d0dd70794cbd6aa1e3467f808f21672fb844fb733f55  layered_outline::layered_outline.json",
+    "6381dac99872d033d8e8733890d75a8efd1372356cd5bccdb3566e86b3d9e4a5  project_all_state::meta/project_all_state.json",
+    "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a  official_user_input::poc/jiujiu/snapshots/p0-5-plan-projection-fixture/source-user-input.md"
+  ]
+}

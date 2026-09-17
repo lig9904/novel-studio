@@ -1,0 +1,1630 @@
+{
+  "input": {
+    "policy": "plan-grounding:activation-trace.v1",
+    "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+    "plan": {
+      "chapter": 1,
+      "title": "TEST_SCAFFOLD：退潮露出来的第一件事",
+      "goal": "落实本轮世界模拟后的主角选择：留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追",
+      "conflict": "两轮目视观察都没有给出地点与边界明确的风险迹象，容易削弱继续留岗的紧迫感；与此同时，无来源的声望线索构成离岗诱因。九九必须在亲见范围有限、线索又无证据的条件下，坚持只据可核实事实行动。",
+      "hook": "两轮观察已经完成，九九仍守在原位，六张事件记录纸没有落下一笔；亲见范围内没有明确风险，并不等于更远处没有变化，而那条声望线索依旧没有来源。",
+      "emotion_arc": "警惕地开始观察→未见明确风险后的短暂松动与声望诱因拉扯→重新确认事实边界→第二轮观察后克制地继续留岗",
+      "notes": "依据world_simulation ch001-4db45dbca11c修复章节合同：浮标相关事实只保留九九确认其所在位置且归属未变，不再把它升级为仍处于此前原位；继续删除Soft Outline中未被激活时间线裁决的浮标绳离位、水尺异常、退潮通道、潮水期限与现场来客。绑定当前planning context receipt context-access:61359c90a1d5a9bd5f9adf10cf50599af814da3bb442c6465a2ed5052f869fb0。",
+      "contract": {
+        "required_beats": [
+          "九九留在近岸守护点完成第一轮现场目视观察，确认本人可亲见范围内未见需要立即就地示警且地点与边界明确的风险迹象；它确认了现场警示浮标的所在位置与空白事件记录纸可用，没有书写记录，也没有离岗追查无来源的声望线索。",
+          "第一轮观察完成后，九九没有把‘暂未见明确风险’当作离岗许可，仍将无来源的声望线索维持在未证实状态，并选择开始第二轮原地目视观察。",
+          "到T+50分钟，九九已完成第二轮观察，本人可亲见范围内仍未出现地点与边界明确的风险迹象；它继续留在守护点，六张空白事件记录纸未消耗，三处观察位之间没有发生信息传递。"
+        ],
+        "forbidden_moves": [
+          "不得写浮标仍处于此前原位、浮标绳松脱、浮标离位、水尺异常、退潮通道痕迹或潮水回涨倒计时",
+          "不得安排现场来客、当面对话、口头转述或本章新通信",
+          "不得让九九离开守护点追查声望线索",
+          "不得让九九书写任何事件记录或消耗六张空白记录纸",
+          "不得让九九获知、推断或接收九尾狐与凤凰的观察内容",
+          "不得启用任何未批准的超自然能力或力量等级",
+          "不得把亲见范围内未见明确风险扩大解释为整个近岸绝对安全"
+        ],
+        "continuity_checks": [
+          "九九全章位于渔岛海洋度假区近岸守护点，未离岗追查无来源的声望线索",
+          "第一轮与第二轮观察均只得出：本人可亲见范围内未出现地点与边界明确的风险迹象",
+          "九九只确认现场警示浮标的所在位置，浮标归属未变；不得写成仍处于此前原位、绳索松脱、离位或需要处置",
+          "空白事件记录纸保持6张且全章未书写、未消耗",
+          "不得出现水尺读数异常、退潮通道痕迹、潮水回涨期限或由此衍生的处置义务",
+          "不得让现场来客到场、与九九对话、催促或传递新消息；声望线索只作为既有且无来源的未证实压力",
+          "九九、九尾狐与羽族凤凰的信息互不相通；九九不得知道或推断另两处观察内容",
+          "本章时间范围为T+0至T+50分钟，两次实际观察分别位于T+0至T+10分钟和T+20至T+30分钟"
+        ],
+        "evaluation_focus": [
+          "required_beats是否完全收束到两轮观察、留岗、未书写与线索待证",
+          "是否删除浮标仍处于此前原位、浮标绳离位、水尺异常、退潮痕迹、潮水期限和现场来客等未裁决事实",
+          "九九的选择是否由保护职责与证据边界推出",
+          "知识隔离和T+0至T+50分钟的时间顺序是否严格保持",
+          "章末是否只发布已经发生的后果，不新增风险或未来处置义务"
+        ],
+        "emotion_target": "在信息不足时仍不肯用猜测填空的克制与责任感",
+        "payoff_points": [
+          "九九第一次自主选择落地：在信息不足时仍把保护职责置于无来源声望诱因之前",
+          "两轮观察均只承认亲见结果，未把未知写成风险或记录",
+          "未离岗、未书写与线索待证形成可见且可延续的选择后果"
+        ],
+        "hook_goal": "让读者追问：在亲见范围持续受限、线索仍待证的情况下，九九下一次会依据什么可核实事实改变行动。",
+        "scene_anchors": [
+          "所在位置已经九九确认、归属未变的现场警示浮标",
+          "始终没有落笔的空白事件记录纸"
+        ]
+      },
+      "causal_simulation": {
+        "world_simulation_id": "ch001-4db45dbca11c",
+        "protagonist_decision": "留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追",
+        "project_promise": "持续兑现角色不越知识边界、每一次行动都有真实后果、东方神兽原型不走样，以及秘密必须经过明确传递才能改变他人认知。",
+        "chapter_function": "全书开场与弧首章：让螭吻·九九连续两次选择留守近岸守护点，以亲见观察履行保护职责，并把无来源的声望线索留在未核实状态；同时维持三名角色各自观察、彼此信息不互通的知识隔离基线。",
+        "context_sources": [
+          "context-access:9eceb3be713e3c9605a87c8ddc5d4e87fc6478ae70b6aa2d77fff030742742f0",
+          "world_simulation:ch001-4db45dbca11c",
+          "project-all-state:sha256:b375711231d23e46b6a08ea1e169ee0dd8eb13e6ee974573832aab3801fd1079",
+          "meta/simulation_restart_policy.md#generation_id=simulation-20260917-0042213091",
+          "meta/world_foundation.md",
+          "character_dossiers",
+          "outline.json#chapter=1",
+          "working_memory.current_chapter_outline#chapter=1",
+          "progression/chapter_contract#chapter=1",
+          "project_all_state#generation_id=pg2_b2354a98e8714bba2baca89a",
+          "chapter_world_simulation:ch001-4db45dbca11c",
+          "context-access:8387dd074d043f8b730f91d97f3f8f34fdea1581f77ff44572744ea072ad5e86",
+          "context-access:aef35c01db4123ef47374a6e68d2a4cfe8f3a07147862689b8818633cf8d0f7b",
+          "context-access:61359c90a1d5a9bd5f9adf10cf50599af814da3bb442c6465a2ed5052f869fb0",
+          "craft_recall_receipt:f992760b73a77da629b793fe",
+          "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#facts_sha256=b36eab373afa8c1e742f2e7e192fc4bff5fb59bcb975d13bd33b34e1dc1dc437"
+        ],
+        "anti_ai_execution_plan": {},
+        "external_reference_plan": [
+          {
+            "query_or_need": "TEST_SCAFFOLD：退潮露出来的第一件事 九九守在渔岛海洋度假区近岸守护点，退潮后它看见现场警示浮标绳在礁角外松脱、水尺读数与它上次观测对不上；与此同时一名现场来客转述一条未经核实的声望机会口信，催它立刻离开水边岗位。九九手上只有一次现场观测、一件共享浮标与六张空白事件记录纸，它必须先在守住水边与追这条口信之间自己作决定，规划不替它作答。九尾狐在近岸礁影观察点以真正的九尾狐兽体看见仅它可观察的私密潮痕，没有开口，也没有向外发信号。羽族凤凰在近岸上空云缘观察位以完整东方凤凰神鸟形态只看见陌生海岸与风，未推断出任何角色、传说或秘密。三名角色因此同时进入同一有限海岸事件的可观察范围，但彼此信息仍互不互通。 松脱的浮标绳被浪推得离位，退潮通道露出一段无记录的痕迹；无论九九怎么选，它都必须在下一段潮水回来前给出可核实的现场处置，而那条口信依旧没有任何来源。 九九在近岸守护点把浮标绳位置与上次观测逐段对照，记下浮标已经离位，却在水尺读数上拿不到一致的数字。 来客在岸上把声望机会说得热络，只给出口头转述，拿不出书面凭证，也不肯说明消息来自谁。 九尾狐在礁影观察点上伏低身体，以九尾兽体避开浪花，看见礁面一道只有它能观察的潮痕，没有离开，也没有发出声音。 凤凰在云缘观察位收翅悬停，只确认自己下方的陌生海岸与风向，其余一律按未知处理。 螭吻·九九 九尾狐 羽族凤凰",
+            "source_type": "RAG",
+            "source_refs": [
+              "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:2e1ec3d0559d5dbe:006#hash=7624c8c5c9fab0b5adc94c3a3fe31af0b9b93975e5b94933f733865bd0e0518f"
+            ],
+            "retrieved_at": "2026-09-17T02:08:58Z",
+            "freshness_requirement": "当前项目事实 receipt；selected hits 与当前 RAG index 已由服务端校验",
+            "usable_details": [
+              "把九九只承认本人亲见结果的职责边界，落实为两轮观察中对可见水况的有限判断、对浮标当时所在位置的确认，以及让六张空白事件记录纸保持未书写的选择后果",
+              "用未离岗、未落笔和再次开始原地观察表现九九不拿无来源声望线索替代现场证据"
+            ],
+            "transformation_rule": "只为world simulation已裁决的两轮有限目视、留岗、浮标当时所在位置已确认且归属未变、记录纸未书写提供人物化表现；不得由档案新增事件、知识、能力、资源、通信或结果",
+            "do_not_use": [
+              "不得写浮标仍处于此前原位、绳索松脱或位置发生变化",
+              "不得恢复水尺异常、退潮痕迹、现场来客或潮水期限",
+              "不得让九九获知九尾狐或羽族凤凰的观察内容",
+              "不得把亲见范围内未见明确风险扩写为整个近岸绝对安全"
+            ]
+          }
+        ],
+        "reader_entertainment_plan": {
+          "opening_beat": "开场由九九留在近岸守护点，把注意力落到本人可亲见的公开水况，并确认警示浮标当时的所在位置与空白事件记录纸可用；暂未见地点与边界明确的风险迹象后，它仍不离岗追逐那条无来源线索。",
+          "humor_beats": [
+            "候选一：无来源的声望诱因显得热闹，九九却只用继续盯住眼前水况作回应；反差来自诱因的虚浮与它的认真，不新增传信者或对话。",
+            "候选二：六张记录纸始终空白，九九宁可让纸继续空着，也不拿猜测凑出一条事件；轻微趣味由空白物件与克制选择形成，结果仍是记录纸未消耗。"
+          ],
+          "immediate_payoffs": [
+            "九九完成第一轮观察后没有被无来源线索带离岗位，保护职责当场压过声望诱因。",
+            "九九主动开始并完成第二轮观察，两次都守住只承认亲见范围的证据边界。"
+          ],
+          "procedure_compression": "压缩两次观察之间的等待、重复扫视与T+50分钟评估过程；页面保留第一轮有限结论、是否离岗的选择、第二轮完成及未书写和未离岗的可见后果，不把观察写成检查教程。",
+          "companion_voice_beat": "本章没有已裁决的系统、搭档或朋友与九九通信，不安排陪伴者接话；轻松感只由九九对声望诱因的克制反应和空白记录纸的现场反差承担。",
+          "forbidden_comedy": [
+            "不得把九九写成听不懂诱因或机械守岗的降智角色",
+            "不得用旁白热梗、梗串或系统弹窗制造笑点",
+            "不得拿保护职责、未知风险或知识隔离强行抖包袱",
+            "不得借喜剧候选新增来客、通信、消息来源或角色知识"
+          ]
+        },
+        "offscreen_character_stage": [
+          {
+            "character": "九尾狐",
+            "location": "近岸礁影观察点",
+            "status": "原地潜伏，潮痕未传递",
+            "environment": "",
+            "current_action": "伏低身体、以九尾兽体避开浪花，观察礁面那道只有它能看见的私密潮痕",
+            "pressure": "浪花随时会抹掉潮痕，含义与来源都未确认",
+            "decision": "不动、不发声、不向任何方向传递它看到的潮痕",
+            "knowledge_boundary": "只知道自己看见的潮痕，不知道九九的岗位任务，也不知道凤凰的存在",
+            "transport": "原地",
+            "timeline_consistency": "与九九两轮观察同处 T+0 至 T+50 分钟，互不同步信息"
+          },
+          {
+            "character": "羽族凤凰",
+            "location": "近岸上空云缘观察位",
+            "status": "悬停观察，未推断出任何角色、传说或秘密",
+            "environment": "",
+            "current_action": "收翅悬停，只确认自己下方的陌生海岸线与推得不稳的风",
+            "pressure": "信息极少，环境完全陌生",
+            "decision": "只更新自身可见信息，其余一律按未知处理",
+            "knowledge_boundary": "只知道自己凤凰身份与羽族关联，以及眼前的陌生海岸与风",
+            "transport": "原地悬停",
+            "timeline_consistency": "与九九、九尾狐同处 T+0 至 T+50 分钟，无信息交互"
+          }
+        ],
+        "longform_opening": {
+          "target_reader": "偏好东方神兽角色自治、严格知识边界与有限信息因果推进的长篇读者。",
+          "opening_hook": "九九连续面对同一个朴素却有约束力的选择：亲见范围内暂未见明确风险时，是继续守住岗位，还是为一条没有来源的声望线索离开；它用两轮观察给出答案。",
+          "serial_engine": "以角色在有限信息下反复作出可追溯选择为推进发动机；秘密只有经过明确观察或传递才改变认知，行动后果持续约束后续章节。",
+          "reader_reward_loop": [
+            "看见角色自主选择产生真实后果",
+            "从知识隔离中获得悬念与验证快感",
+            "通过可核实证据逐步修正判断",
+            "保持东方神兽原型与人物声口稳定"
+          ],
+          "long_range_promises": [
+            {
+              "promise": "三名角色会在各自知识边界内行动，信息只有经合法传递才汇合。",
+              "first_chapter_seed": "九九完成两轮观察仍不知道另两处观察内容，三处观察位之间没有信息传递。",
+              "payoff_horizon": "第1至第3章持续验证并阶段兑现"
+            },
+            {
+              "promise": "保护职责与声望诱因的取舍会由事实和后果推动。",
+              "first_chapter_seed": "九九两次留岗，并把无来源声望线索保持在未证实状态。",
+              "payoff_horizon": "本弧后续章节及跨弧持续回收"
+            }
+          ],
+          "reveal_budget": [
+            "不揭示九尾狐观察到的私密内容",
+            "不揭示羽族凤凰尚未形成的判断",
+            "不解释无来源声望线索的真实出处",
+            "不提前给出范围外水况是否变化",
+            "不提前给出三处观察信息何时互通"
+          ],
+          "first_chapter_proof": [
+            "页面呈现九九完成两轮带时点的有限目视观察",
+            "页面呈现九九始终留在近岸守护点",
+            "页面呈现警示浮标仍在原位且六张记录纸未书写",
+            "页面呈现声望线索仍无来源、三处观察位仍未互通"
+          ],
+          "retention_risks": [
+            "两轮观察结果相近可能显得重复；用第一次结果后的重新评价与第二次主动选择区分场景功能。",
+            "现场没有明确风险可能削弱张力；把张力落在有限视野、职责边界与离岗诱因的选择代价上。",
+            "知识隔离容易被解释性旁白冲淡；全章只进入九九可亲见、可判断的范围。"
+          ]
+        },
+        "reader_reward_plan": {
+          "chapter_window": "第1章内完成两次可见兑现，并把有限视野与无来源线索保留为后续压力。",
+          "first_chapter_small_win": "九九没有让无来源声望诱因改变岗位选择，完成两轮现场目视观察，同时守住不以猜测书写记录的事实边界。",
+          "new_debt_or_cost": "两轮观察都只覆盖九九本人可亲见范围；继续留岗意味着它仍需在信息有限的条件下承担保护职责，而声望线索仍未得到来源。",
+          "payoff_visibility": "读者亲眼看见九九完成第一轮观察后没有离岗或落笔，又主动开始并完成第二轮观察；章末警示浮标仍在原位，六张空白事件记录纸未消耗，声望线索仍待证。",
+          "traffic_risk": "两次观察若按相同步骤平铺会显得停滞；必须让第二轮由第一次后的价值判断推动，并突出留岗与不落笔的可见后果。",
+          "forbidden_reward_patterns": [
+            "不得凭空出现明确风险供九九解决",
+            "不得把未书写包装成获得新权限或资源",
+            "不得让无来源线索突然证实或兑现声望",
+            "不得把有限目视结论夸大为整个近岸绝对安全"
+          ]
+        },
+        "reader_retention_plan": {},
+        "render_capacity": {
+          "total_target_runes": 3000,
+          "scene_units": [
+            {
+              "scene_id": "ch01-watch-cycle-1",
+              "target_runes": 1000,
+              "pov_objective": "九九留在近岸守护点，以本人亲见确认公开水况中是否存在地点与边界明确、需要立即就地示警的风险迹象。",
+              "active_opposition": "亲见范围有限，无来源的声望线索持续牵扯注意，而没有明确风险的结果本身不足以证明范围外安全。",
+              "turn": "第一轮目视观察没有发现地点与边界明确的风险迹象；九九据此不书写事件记录，也不把未知补成事实。",
+              "exit_consequence": "第一轮观察完成，九九仍在守护点，未书写记录，也未离岗追查无来源声望线索。",
+              "concrete_action_beats": [
+                "九九在T+0至T+10分钟留在近岸守护点，对本人可亲见的公开水况完成第一轮目视观察。",
+                "九九确认现场警示浮标当时的所在位置与空白事件记录纸可用；浮标归属未变。",
+                "本人可亲见范围内未出现地点与边界明确、需要立即就地示警的风险迹象。",
+                "九九没有在六张空白事件记录纸上书写，也没有离开守护点。"
+              ]
+            },
+            {
+              "scene_id": "ch01-evidence-boundary-choice",
+              "target_runes": 900,
+              "pov_objective": "九九在第一轮观察结束后判断是否有足够事实改变行动，并决定如何处理仍无来源的声望线索。",
+              "active_opposition": "暂未见明确风险容易被误当作可以离岗的许可，无来源声望线索又提供了即时诱因。",
+              "turn": "九九把‘本人暂未看见明确风险’与‘近岸绝对安全’分开，继续将声望线索留在未证实状态，并选择第二轮原地观察。",
+              "exit_consequence": "九九没有离岗、没有消耗记录纸，于T+20分钟开始第二轮现场目视观察。",
+              "concrete_action_beats": [
+                "第一轮观察完成后，九九只承认本人亲见范围内的观察结果。",
+                "九九不把无来源的声望线索写成事实，也不为追查它离开岗位。",
+                "六张空白事件记录纸保持未书写、未消耗。",
+                "九九选择留在守护点，于T+20分钟开始第二轮原地目视观察。"
+              ]
+            },
+            {
+              "scene_id": "ch01-watch-cycle-2",
+              "target_runes": 1100,
+              "pov_objective": "九九完成第二轮目视观察，在不扩大亲见结论的前提下继续履行保护职责。",
+              "active_opposition": "第二轮仍受相同的可见范围限制，连续未见明确风险会加重放松警惕或用猜测填补未知的诱惑。",
+              "turn": "第二轮可亲见范围内仍未出现地点与边界明确的风险迹象；九九保持证据边界，继续留岗且不书写无事实支撑的记录。",
+              "exit_consequence": "到T+50分钟，两轮观察均已完成，九九仍在守护点；六张空白事件记录纸未消耗，无来源声望线索仍未证实，三处观察位之间未发生信息传递。",
+              "concrete_action_beats": [
+                "九九在T+20至T+30分钟留在近岸守护点，完成第二轮公开水况目视观察。",
+                "第二轮本人可亲见范围内仍未出现地点与边界明确的风险迹象。",
+                "九九继续不离岗追查无来源声望线索，也不书写事件记录。",
+                "T+50分钟的评估确认第二轮任务完成；三处观察位之间没有发生信息传递。"
+              ]
+            }
+          ],
+          "anti_padding_policy": "两轮观察各自只保留一次足以改变判断的页面证据；T+10至T+20分钟及T+30至T+50分钟的重复等待与评估过程压缩处理。字数不足时只加深九九在亲见范围、无来源诱因与保护职责之间的选择压力，以及未书写、未离岗的可见后果；禁止重复心理、同义对话、台账解释、手续流水，禁止新增来客、通信、设备、风险、处置义务或无因果场景。"
+        },
+        "arc_transition_contract": {
+          "outgoing_consequence_id": "arc-v1a1-ch001-two-watches-held",
+          "outgoing_consequence_text": "到T+50分钟，九九已在近岸守护点完成两轮现场目视观察并继续留岗；六张空白事件记录纸未消耗，无来源声望线索仍未证实，三处观察位之间仍未发生信息传递。"
+        },
+        "ending_consequence_contract": {
+          "ending_mode": "克制留岗后的有限认知悬念",
+          "concrete_anchor": "仍在原位的现场警示浮标与六张始终没有落笔的空白事件记录纸",
+          "consequence": "到T+50分钟，九九已经完成两轮近岸现场目视观察，仍留在守护点；本人可亲见范围内未出现地点与边界明确的风险迹象，六张空白事件记录纸未消耗，无来源声望线索仍保持未证实，三处观察位之间仍未发生信息传递。",
+          "next_chapter_pull": "亲见范围内暂未见明确风险不等于范围外没有变化；在声望线索仍无来源、知识仍隔离的条件下，九九下一次只会依据新的可核实事实改变行动。",
+          "why_not_ui": "章末由已经发生的两轮观察、留岗、不书写与信息隔离构成实体行动后果，具体锚点是现场浮标和未消耗的记录纸，不依赖弹窗、提示或任务列表。",
+          "forbidden_endings": [
+            "不得以浮标绳松脱、浮标离位或待处置任务收尾",
+            "不得以水尺异常、退潮通道痕迹或潮水回涨期限收尾",
+            "不得让现场来客、对话或新消息制造钩子",
+            "不得让九九获知九尾狐或羽族凤凰的观察内容"
+          ]
+        },
+        "emotional_logic": [
+          {
+            "character": "螭吻·九九",
+            "immediate_state": "刚完成第一轮有限目视观察，只能确认本人可亲见范围内未见地点与边界明确的风险迹象；无来源声望线索仍在牵扯注意。",
+            "primary_emotion": "克制的警惕",
+            "emotional_trigger": "第一轮观察没有发现明确风险，但这不足以证明整个近岸绝对安全，也不足以让无来源线索变成可行动事实。",
+            "goal_appraisal": "继续留岗观察比离开岗位追逐未证实线索更符合保护职责与证据边界。",
+            "regulation_strategy": "把未知保持为未知，以第二轮原地观察代替猜测、记录或离岗追查。",
+            "emotion_led_action": "九九不在空白事件记录纸上落笔，继续留在守护点并开始第二轮现场目视观察。",
+            "evidence_in_scene": [
+              "第一轮只确认亲见范围内未见明确风险迹象",
+              "警示浮标仍在原位",
+              "六张空白事件记录纸保持未书写",
+              "九九完成第二轮观察且没有离岗"
+            ]
+          }
+        ],
+        "world_background_layers": {},
+        "narrative_tension_matrix": {},
+        "initial_state": [
+          {
+            "character": "螭吻·九九",
+            "current_goal": "留在近岸守护点，以亲见观察确认公开水况中是否存在地点与边界明确的风险迹象",
+            "pressure": "保护职责要求它关注眼前水况，而一条没有来源证据的声望线索构成离岗诱因",
+            "resources": [
+              "现场警示浮标最后观测1件",
+              "空白事件记录纸最后观测6张",
+              "可亲见的近岸公开水况"
+            ],
+            "misbeliefs": [
+              "尚不知道本轮观察能否发现需要立即示警的明确风险"
+            ],
+            "private_boundary": "不知道九尾狐与羽族凤凰各自观察到的内容，也不能把未经证实的声望线索写成事实",
+            "action_tendency": "先做就地目视观察，不把无来源线索当作事实，也不为追查它离岗",
+            "likely_action": "留在守护点观察公开水况，并确认现场警示浮标的所在位置与空白事件记录纸可用",
+            "skill_limits": [
+              "只能在本人可亲见范围内普通观察、交流与示警，不能使用未批准的超自然能力"
+            ],
+            "plausible_mistakes": [
+              "让无来源线索分散对公开水况的注意"
+            ],
+            "knowledge_ledger": {},
+            "decision_frame": {},
+            "relationship_contract": null,
+            "emotion_appraisal": {},
+            "arc_axis": {}
+          },
+          {
+            "character": "九尾狐",
+            "current_goal": "在有限信息下自行判断如何处理只由自己可观察的潮痕",
+            "pressure": "潮痕的含义与来源都未确认，浪花随时会把它抹掉",
+            "action_tendency": "原地观察，不主动向任何角色传递或发信号",
+            "knowledge_ledger": {},
+            "decision_frame": {},
+            "relationship_contract": null,
+            "emotion_appraisal": {},
+            "arc_axis": {}
+          }
+        ],
+        "voice_logic": [
+          {
+            "character": "螭吻·九九",
+            "scene_objective": "在两轮现场目视观察中只依据本人可亲见结果判断是否需要示警，并决定是否继续留岗。",
+            "hidden_subtext": "它不愿让没有来源证据的声望线索凌驾于眼前的保护职责，也不愿用猜测填满空白。",
+            "knowledge_boundary": "只知道本人亲见范围内的近岸公开水况、现场警示浮标所在位置、空白事件记录纸可用，以及声望线索尚无来源；不知道九尾狐、凤凰及其各自观察内容。",
+            "diction_and_rhythm": "表达短而直接，先说可确认事实，再说选择；遇到不能确认的内容明确停在未知，不使用说明书式长句。",
+            "silence_or_action_beat": "以继续观察、保持记录纸未书写和留在岗位的动作承接判断，不用对白补造来客、通信或新信息。",
+            "dialogue_functions": [
+              "划清亲见事实与无来源说法的边界",
+              "让留岗选择通过行动成立",
+              "在必要的自言或回应中体现克制与不服输"
+            ],
+            "forbidden_moves": [
+              "不得与未裁决到场的来客对话",
+              "不得说出浮标绳松脱、水尺异常、潮水期限等未发生事实",
+              "不得获知或推断九尾狐与凤凰的观察内容",
+              "不得用台词宣读观察流程或后台台账"
+            ]
+          }
+        ],
+        "literary_rendering_plan": {
+          "focalizer": "螭吻·九九",
+          "narrative_access": "internal",
+          "knowledge_boundary": "叙述只进入九九当下可亲见、可回想并有依据评价的范围；九尾狐、凤凰及其私密观察不进入主视角，未来源的声望线索不得被叙述确认为真实机会。",
+          "perceptual_bias": "九九优先注意与水边保护职责有关的公开水况、警示浮标位置和记录纸是否有足够事实可写；它会警惕声望诱因，却不能据此推断来源。",
+          "scene_modes": [
+            {
+              "target": "第一轮目视观察与不书写事件记录的决定",
+              "mode": "scene",
+              "distance": "close",
+              "state_change": "第一轮观察完成，亲见范围内未见地点与边界明确的风险迹象；九九未书写、未离岗。",
+              "render_move": "以公开水况的当下感知、对浮标位置的确认和记录纸保持空白的动作呈现选择结果。"
+            },
+            {
+              "target": "T+10至T+20分钟及两轮之间不改变判断的重复过程",
+              "mode": "summary",
+              "distance": "far",
+              "state_change": "第一轮完成状态被确认，无来源线索仍未证实，九九继续留岗。",
+              "render_move": "压缩等待和重复核对，只保留事实边界与继续留岗的结果。"
+            },
+            {
+              "target": "第二轮原地目视观察及章末状态",
+              "mode": "scene",
+              "distance": "close",
+              "state_change": "第二轮观察完成，亲见范围内仍未见明确风险；九九仍在岗、未书写，线索继续待证。",
+              "render_move": "用再次观察、拒绝越过亲见范围和空白记录纸的可见状态收束，不添加新的风险或处置义务。"
+            }
+          ],
+          "active_lenses": [
+            {
+              "kind": "受限焦点与证据边界",
+              "target": "九九两轮目视观察及对无来源声望线索的判断",
+              "move": "只写九九亲见的公开水况、可确认的浮标位置与记录纸状态；把不能确认的内容停留为未知，并让留岗选择从证据边界中生出。",
+              "why": "本章核心是角色自治与知识隔离，读者必须看见九九如何依据有限信息作决定。",
+              "avoid": "避免引入来客到场、未发生通信、浮标绳异常、水尺异常、潮水期限，以及九尾狐或凤凰的私密信息。",
+              "source_refs": [
+                "literary-rendering#focalization-boundary",
+                "literary-rendering#goal-causality"
+              ]
+            },
+            {
+              "kind": "场景与概述分配",
+              "target": "第一轮观察、T+20分钟评估与第二轮观察",
+              "move": "把选择发生和结果确认留在场景中；重复扫描、等待以及没有改变判断的过程压缩为概述。",
+              "why": "三千字容量需要由两次选择的差异和可见后果支撑，不能靠重复观察步骤注水。",
+              "avoid": "避免逐项罗列检查动作、重复心理结论或用后台时间台账代替现场变化。",
+              "source_refs": [
+                "literary-rendering#scene-summary",
+                "literary-rendering#psychic-distance"
+              ]
+            },
+            {
+              "kind": "选择压力的节奏",
+              "target": "无来源线索牵扯注意力而九九决定继续留岗的段落",
+              "move": "在判断将要落定时缩短感知与动作单位，用未落笔和继续观察作为句群落点；进入重复观察时拉远叙事距离。",
+              "why": "让克制通过节奏和动作显现，同时保持线索未证实的边界。",
+              "avoid": "避免悬空情绪标签、同义反复和替不存在的对话制造摩擦。",
+              "source_refs": [
+                "literary-rendering#emotion-appraisal",
+                "literary-rendering#syntax-rhythm"
+              ]
+            }
+          ],
+          "summary_omission_policy": "第一轮与第二轮中重复的扫描和等待过程概述或省略；实时呈现九九从亲见结果作出不书写、不离岗和继续观察的选择，使两轮观察的因果差异清楚。",
+          "afterimage": "第二轮观察结束，九九仍在原来的守护位置，空白事件记录纸没有落下一笔；那条没有来源的声望线索仍停在事实门外。",
+          "source_refs": [
+            "literary-rendering#focalization-boundary",
+            "literary-rendering#goal-causality",
+            "literary-rendering#scene-summary",
+            "literary-rendering#emotion-appraisal",
+            "literary-rendering#syntax-rhythm"
+          ]
+        },
+        "review_refinement": {},
+        "environment_state": [
+          {
+            "place": "近岸守护点的公开水况",
+            "visible_state": "九九只能观察本人当时可亲见的近岸公开水况；两轮观察中均未见地点与边界明确、需要立即就地示警的风险迹象",
+            "information_carried": "两次带时点的普通目视观察结果",
+            "pressure_applied": "亲见范围有限，未见明确风险不能证明范围外绝对安全；无来源声望线索同时牵扯注意力",
+            "expected_change": "两轮观察完成后，九九对水况的认知仍严格限于本人亲见范围"
+          },
+          {
+            "place": "现场警示浮标与空白事件记录纸",
+            "visible_state": "现场警示浮标当时的所在位置已确认且归属未变；六张空白事件记录纸可用且未书写",
+            "information_carried": "浮标当时所在位置已确认、归属未变，以及九九未书写记录的选择后果",
+            "pressure_applied": "只有出现可核实事件才足以支持书写记录，不能用猜测填空",
+            "expected_change": "浮标归属未变，六张记录纸保持未消耗"
+          }
+        ],
+        "world_rules_in_force": [
+          "无来源、无凭证的信息不能自动当作事实",
+          "秘密必须经过明确传递才能改变他人认知",
+          "跨地点信息不会零耗时同步",
+          "未批准的超自然能力与力量等级不可启用"
+        ],
+        "information_gaps": [
+          "九九不知道九尾狐的私密潮痕，也不知道另两处观察位的存在",
+          "来客口信的来源与真伪对九九始终讳莫如深，也无凭证可查",
+          "水尺读数差、浮标绳松脱的成因未定，现场无法定性",
+          "凤凰对自己下方的海岸与人物一律按未知处理"
+        ],
+        "causal_beats": [
+          {
+            "cause": "故事开始时，九九身在近岸守护点，眼前只有可亲见的公开水况、所在位置可确认且归属未变的现场警示浮标、可用的空白事件记录纸；声望线索没有可核实来源。",
+            "character_choice": "九九留在守护点，对公开水况做第一轮现场目视观察，并把无来源线索暂缓。",
+            "world_response": "目视范围内没有出现需要立即就地示警、且地点与边界明确的可见风险；九九确认了现场警示浮标的所在位置与空白事件记录纸可用。",
+            "story_result": "第一轮观察完成，九九没有书写事件记录，也没有离岗追查声望线索；浮标归属未变，六张空白纸未消耗。"
+          },
+          {
+            "cause": "第一轮观察已完成，目视范围内未见地点与边界明确的风险迹象，而声望线索仍没有来源证据。",
+            "character_choice": "九九开始第二轮原地目视观察，继续把无来源线索挡在决策之外，不离开岗位去追。",
+            "world_response": "第二轮本人可亲见范围内仍未出现有明确地点与边界的风险迹象；三处观察位之间没有发生信息传递。",
+            "story_result": "到T+50分钟，两轮观察均已完成，九九仍留在守护点，未书写任何事件记录，声望线索继续保持未核实。"
+          }
+        ],
+        "decision_points": [
+          "九九在T+0至T+10分钟选择留在近岸守护点完成第一轮目视观察，不去追查无来源的声望线索",
+          "第一轮观察未见明确风险后，九九仍不把无来源线索当作事实，也不在空白事件记录纸上书写",
+          "九九在T+20至T+30分钟选择开始第二轮原地目视观察，继续履行保护职责而不离岗"
+        ],
+        "outcome_shift": [
+          "九九完成两轮近岸公开水况目视观察，本人可亲见范围内均未出现地点与边界明确的风险迹象",
+          "九九始终留在近岸守护点，没有为追查无来源声望线索离岗",
+          "九九已确认现场警示浮标的所在位置且浮标归属未变；六张空白事件记录纸保持未书写、未消耗",
+          "声望线索到章末仍未经来源证实，三处观察位的信息仍未互通"
+        ],
+        "scene_constraints": [
+          "全章以螭吻·九九为主视角，仅进入九九可亲见、可推断、可合法获得的信息",
+          "九尾狐与凤凰只作为后台世界事实，不作为可见角色进入正文",
+          "不描写九九知识边界之外的潮痕、凤凰或口信来源内容",
+          "能力与兽体形态保持在 TBD 边界内，不新增超自然成因"
+        ]
+      }
+    },
+    "simulation": {
+      "simulation_id": "ch001-4db45dbca11c",
+      "generation_id": "pg2_b2354a98e8714bba2baca89a",
+      "chapter": 1,
+      "time_window": "故事开始后 0–50 分钟",
+      "story_time": {
+        "chapter": 1,
+        "start_day": 0,
+        "end_day": 0.03472222222222222
+      },
+      "protagonist_projection": {
+        "protagonist": "螭吻·九九",
+        "observable_effects": [
+          "周期1（故事开始后0–20分钟）的本人可知结果：本轮决定：留在近岸守护点，先对公开水况做一次以亲见为准的观察，把未经证实的声望线索暂缓、待有来源证据再议；本轮意图（不代表全部完成）：在守护点原地对近岸公开水况进行现场目视观察，确认是否有明确地点与边界的风险；同时确认现场警示浮标位置与空白记录纸可用，但不在无核实事件时书写任何记录。不离开守护点去追查未来源的声望线索。；完成度：completed；位置：渔岛海洋度假区近岸守护点；本人经历（第1章，task_coastal_watch_01）：在近岸守护点对公开水况做现场目视观察，记录是否出现有明确地点与边界的风险；已完成此步骤；实际区间T+0至T+10分钟；第1次评估于T+20分钟确认本次状态（评估时刻不等于执行工时）；本人任务进度（task_coastal_watch_01）：在近岸守护点对公开水况做现场目视观察，记录是否出现有明确地点与边界的风险；累计有效工时10分钟；状态completed；最近一次尝试状态completed（不清零既有工时）；本人申报目标10分钟，尚余0分钟；达到工时不等于作业结果合格；资源感知：近岸公开水况（res_1111222233334444；access=shared）：信息未确认；现场警示浮标（res_2222333344445555；access=shared）：最后观测 1 件（第0章）；空白事件记录纸（res_3333444455556666；access=exclusive）：最后观测 6 张（第0章）；本人操作性观察（近岸公开水况；第1章T+10分钟；oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9）：局部可操作；仅限当时对本人任务用途的操作性，不证明持续可用、容量或整项检查合格；本人申请用途（其中数量和命题未由此观察证实）：确认近岸公开水况是否出现本人可亲见、有明确地点与边界的风险迹象",
+          "周期2（故事开始后20–50分钟）的本人可知结果：本轮决定：留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追；本轮意图（不代表全部完成）：在近岸守护点对近岸公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象；同时确认现场警示浮标仍在原位、空白事件记录纸仍可随时取用，但在没有可核实事件前不书写任何记录；不离开守护点去追查未来源的声望线索。；完成度：completed；位置：渔岛海洋度假区近岸守护点；本人经历（第1章，task_coastal_watch_02）：在近岸守护点对公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象；已完成此步骤；实际区间T+20至T+30分钟；第2次评估于T+50分钟确认本次状态（评估时刻不等于执行工时）；本人任务进度（task_coastal_watch_02）：在近岸守护点对公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象；累计有效工时10分钟；状态completed；最近一次尝试状态completed（不清零既有工时）；本人申报目标10分钟，尚余0分钟；达到工时不等于作业结果合格；资源感知：近岸公开水况（res_1111222233334444；access=shared）：信息未确认；现场警示浮标（res_2222333344445555；access=shared）：最后观测 1 件（第0章）；空白事件记录纸（res_3333444455556666；access=exclusive）：最后观测 6 张（第0章）"
+        ],
+        "hidden_pressures": null,
+        "available_options": [
+          "原地待着，既不主动观察也不追查任何线索",
+          "暂时离开守护点，去追查那条没有来源的声望线索",
+          "留在近岸守护点，开始第二轮现场目视观察，继续履行保护职责"
+        ],
+        "chosen_decision": "留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追",
+        "decision_reason": "上一轮观察已完成，但保护是本人核心价值边界，现场职责优先；声望线索目前没有可亲见或有记录的来源，按测试范围规则不能当作事实；在没有来源与渠道前离开岗位追线索，只会放弃眼前唯一确定的责任。",
+        "plan_constraints": [
+          "按character_decision_trace保留每个周期的原始选择和实际顺序；兼容决策列表只代表各角色最近一次选择，不能覆盖早期选择。",
+          "新信息不得倒灌到较早周期；通信报告、持有材料和实际读取/核验必须区分。"
+        ],
+        "causal_chain": [
+          "先独立决定并裁决各周期，再按所有已发生的事件规划整章。"
+        ]
+      },
+      "digest": "sha256:cd312f3ac76daa340f5bec568c68f5286766775480b1432f06eea57e4fa80642"
+    },
+    "pov_observation": {
+      "cycle_context": {
+        "version": "character-observation-cycle.prior-self.v1",
+        "index": 1,
+        "chapter_context_digest": "sha256:53699b7ec22d04245845b23be4ad0e9f12ce3bc4e9458559acb5387b8cf12733",
+        "current_day": 0
+      },
+      "version": "character-observation-packet.v2",
+      "generation_id": "pg2_b2354a98e8714bba2baca89a",
+      "chapter": 1,
+      "round": 1,
+      "agent_id": "ca_28b35c0537fec56e",
+      "character": "螭吻·九九",
+      "tier": "core",
+      "time_window": "TEST_SCAFFOLD：第一章开始前；全书开局后 0.000000 分钟（已确认的当前时间；不是章均估算）",
+      "location": "渔岛海洋度假区近岸守护点",
+      "current_goal": "TEST_SCAFFOLD：守住眼前水边保护职责，并自行判断未经证实的信息是否值得追查",
+      "pressure": "TEST_SCAFFOLD：保护职责与未经证实的声望机会同时争夺注意力",
+      "resource_views": [
+        {
+          "resource_id": "res_1111222233334444",
+          "name": "近岸公开水况",
+          "semantics": "environmental",
+          "unit": "",
+          "access": "none",
+          "permissions": [
+            "observe"
+          ],
+          "observation_channels": [
+            {
+              "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+              "visibility": "public",
+              "label": "TEST_SCAFFOLD现场公开水况目视"
+            }
+          ],
+          "perception": {
+            "kind": "unknown",
+            "as_of_chapter": 0
+          }
+        },
+        {
+          "resource_id": "res_2222333344445555",
+          "name": "现场警示浮标",
+          "unit": "件",
+          "access": "shared",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 1,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+            ]
+          },
+          "evidence_refs": [
+            "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+          ]
+        },
+        {
+          "resource_id": "res_3333444455556666",
+          "name": "空白事件记录纸",
+          "unit": "张",
+          "access": "exclusive",
+          "perception": {
+            "kind": "last_observed",
+            "amount": 6,
+            "as_of_chapter": 0,
+            "evidence_refs": [
+              "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+            ]
+          },
+          "evidence_refs": [
+            "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+          ]
+        }
+      ],
+      "relationships": [
+        "与九尾狐的开局关系为 TBD，无已记录相识或秘密传递事件",
+        "与羽族凤凰的开局关系为 TBD，无已记录相识或信息传递事件"
+      ],
+      "commitments": [
+        "TEST_SCAFFOLD：不把未经核实的声望信息自动视为事实",
+        "TEST_SCAFFOLD：眼前水边保护职责需进入其自主决策，而非由规划者替其作答"
+      ],
+      "known_facts": [
+        {
+          "id": "fact_b7b06596f6d8d6c0",
+          "kind": "self_profile",
+          "text": "身份：螭吻·九九；角色：主角；特征：好奇、好胜、骄傲、负责、主动探索、以保护为核心价值边界",
+          "source": "src_c060600623fc75b59281ff7cae056ab5e9fcec19fc136bb23158f7151873d82a",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_66c4ff642f256d31",
+          "kind": "initial_known",
+          "text": "自己的正式名为螭吻·九九，简称九九",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_14fc1f0e0d44f3c2",
+          "kind": "initial_known",
+          "text": "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_2b0b0ede98bf7450",
+          "kind": "initial_known",
+          "text": "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_c405032c1c26f983",
+          "kind": "initial_known",
+          "text": "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_451c0d1ded05e179",
+          "kind": "initial_known",
+          "text": "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        },
+        {
+          "id": "fact_698428ad8dc9f9e7",
+          "kind": "initial_known",
+          "text": "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        }
+      ],
+      "perceived_events": [
+        {
+          "id": "fact_850740084ff46d74",
+          "kind": "own_current_action",
+          "text": "TEST_SCAFFOLD：关注近岸公开可见的水域状况",
+          "source": "src_0d8326bbe59903f059293aa2686e8d3adf862163e22cf7423dda289014d4f1f8",
+          "visibility": "private"
+        }
+      ],
+      "public_rules": [
+        {
+          "id": "fact_621d279dfc73b980",
+          "kind": "world_rule_character_view",
+          "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+          "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_9a223d4e9af55e67",
+          "kind": "world_rule_character_view",
+          "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+          "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_6473ff3b0924a6ba",
+          "kind": "world_rule_character_view",
+          "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+          "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_774bb01c51c0b912",
+          "kind": "world_rule_character_view",
+          "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+          "source": "src_2bb57f21d312ab27fb4920d4b7a0b25fd330df35a9e8b4df558e7cf899399680",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_e7dcdd979eead785",
+          "kind": "world_rule_character_view",
+          "text": "你自己的兽体只能按你开局已知且获批准的既定原型理解；不得用开局未批准的替代形态补全自己或其他角色。",
+          "source": "src_53c69eaaeb9415fdb1f912ee2cc7cf7fe95ed91676acb1377eeaa360ff82ae70",
+          "visibility": "formal"
+        },
+        {
+          "id": "fact_e12dcc16d47253cf",
+          "kind": "world_rule_character_view",
+          "text": "面对未经证实的声望机会时，你可以拒绝、另选方案、索取信息，或选择追逐并承担后果；眼前保护职责与可见风险都应进入自主判断。",
+          "source": "src_53c69eaaeb9415fdb1f912ee2cc7cf7fe95ed91676acb1377eeaa360ff82ae70",
+          "visibility": "informal"
+        }
+      ],
+      "public_mechanisms": [
+        {
+          "id": "mech_scaffold_bounded_coastal_response",
+          "name": "有限海岸水域响应",
+          "visibility": "formal",
+          "section_refs": null,
+          "actor_scope": [
+            "身处现场且能感知风险的角色"
+          ],
+          "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+          "preconditions": [
+            "你实际位于可行动范围内。",
+            "你只能依据自己已知的事实与可观察证据行动。"
+          ],
+          "inputs": [
+            "普通观察",
+            "普通移动与交流",
+            "你可访问的现场资源"
+          ],
+          "costs": [
+            "行动会占用你当下的时间与注意力。",
+            "若离开当前保护位置，该处风险可能继续发展。"
+          ],
+          "effects": [
+            "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+          ],
+          "failure_modes": [
+            "不在现场或缺少可访问资源时，行动不能凭空生效。",
+            "不能调用未获批准的超自然能力。"
+          ],
+          "observability": [
+            "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+            "不在场者不会自动获知。"
+          ],
+          "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+        },
+        {
+          "id": "mech_scaffold_explicit_knowledge_transfer",
+          "name": "显式知识传递",
+          "visibility": "formal",
+          "section_refs": null,
+          "actor_scope": [
+            "持有亲见信息的角色与可能的接收者"
+          ],
+          "trigger": "你尝试把一项私人观察传给另一角色。",
+          "preconditions": [
+            "你确实通过亲见或有来源证据获得该信息。",
+            "存在对方实际可接收的故事内传递行为。"
+          ],
+          "inputs": [
+            "信息来源",
+            "传递行为",
+            "可用接收渠道"
+          ],
+          "costs": [
+            "传递占用故事内时间，并受地点、路线与接收条件约束。"
+          ],
+          "effects": [
+            "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+          ],
+          "failure_modes": [
+            "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+            "推测不能替代传递。"
+          ],
+          "observability": [
+            "传递参与者可知道传递是否发生；旁观者须实际观察。"
+          ],
+          "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+        }
+      ],
+      "memory": [
+        {
+          "id": "mem_302d34f55441e63c",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "自己与渔岛海洋度假区及独角龙一夜开海口传说有关，但具体整合方式为 TBD",
+          "source_digest": "sha256:302d34f55441e63c69ae79d3441288efce4ebf291e2c7b33660f9a165b48a603",
+          "accepted": true
+        },
+        {
+          "id": "mem_46f995d4e83cbdc0",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "自己的神兽原型是龙之九子中的螭吻，兽体为龙头鱼身且以鱼躯为主体",
+          "source_digest": "sha256:46f995d4e83cbdc08b32f71e2fc80ad9c2e035a1fa55bffafb6a501e1e273815",
+          "accepted": true
+        },
+        {
+          "id": "mem_adb84e4551a08f74",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "自己喜水并具有灭火属性，但力量强度、频率、来源、代价与等级均为 TBD",
+          "source_digest": "sha256:adb84e4551a08f74f426669cd7e00c1b60d6813abaa318c3f7c71d00fcef4920",
+          "accepted": true
+        },
+        {
+          "id": "mem_b6f968d62c638f63",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "自己的正式名为螭吻·九九，简称九九",
+          "source_digest": "sha256:b6f968d62c638f63bdc66280955056a07724c387744b676014f145b18ef1be06",
+          "accepted": true
+        },
+        {
+          "id": "mem_c2900bca8920ca69",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "保护是自己的核心价值边界，主动探索是主要行动驱动力",
+          "source_digest": "sha256:c2900bca8920ca69e49dfd0b4f52e9306af4f7c29834d2d6c609cea2a3694383",
+          "accepted": true
+        },
+        {
+          "id": "mem_d9f9cc32d0f9bfd9",
+          "chapter": 1,
+          "kind": "accepted_continuity",
+          "text": "泼水节名称正确，水、祝福、互动和喷水祝福属于已知基础概念",
+          "source_digest": "sha256:d9f9cc32d0f9bfd9a384a98446addfa551160bd6c90e15aed22f118170febd80",
+          "accepted": true
+        }
+      ],
+      "stimulus_digest": "sha256:28c2d79e4fcc8406e8ceae8a79c35c164c59e3124747cee16677d629f19d571f",
+      "memory_root": "sha256:83373d97503a78fc6d09b62f226bd216919922f98b80e342303b5c53098775d6",
+      "sources": [
+        "chapter-activation-cycles.v3",
+        "character-arbitration:verified-round-sources.v1",
+        "character-incoming-material-read:receipt.v1",
+        "character-operational-availability:receipt.v1",
+        "character-resource-observation-time.v1",
+        "character-revision-feedback:owner-constraints.v1",
+        "character-scoped-observation-channel:v1",
+        "character-self-chronology:evaluation.v1",
+        "character-self-completion-view:receipt.v1",
+        "character-self-experience:receipt.v1",
+        "character-soft-event-readiness:v1",
+        "character-source-refs:opaque.v1",
+        "character-surface-inspection:receipt.v1",
+        "character-work-artifact:receipt.v1",
+        "character-work-continuation-history:full-owner.v1",
+        "character-work-continuation:explicit.v1",
+        "src_0f38976a883101d57d1decb172d33f8f69a17188d29af548718c0b4730825ac9",
+        "src_62d51cc523b3da6feaf82fa9f27f9e7a6a7e9dfec3479faf079a052f443f3767",
+        "src_c060600623fc75b59281ff7cae056ab5e9fcec19fc136bb23158f7151873d82a",
+        "src_ce8e962738018d2a3fe3e7852c5c3210493b2a828a88f685e71909648b3e46f9",
+        "src_ee923756cc556e1e4f76c281a8cbc654c56b1a4e625a8e400d8812b6f6ffa041",
+        "src_ef81cad7dc7d825bf9d0647196cf42cbdc173942ad742458e450b6823704cc54",
+        "src_f4985d9f4ff4a09cfbd9645dc41cbf174e722fe30bc5148064522960447c5e78",
+        "src_f93029dc0054684e099b2c8e1f9beb1434cd77e5e9e230cad498f845a7c14001"
+      ],
+      "generated_at": "2026-09-17T02:00:32.120008Z",
+      "digest": "sha256:e247cc37592add5158041c7bebf099c17c8c2699025d389bbaa8ea1cc48f51ba"
+    },
+    "arbitration": {
+      "version": "",
+      "generation_id": "",
+      "chapter": 0,
+      "round": 0,
+      "stimulus_digest": "",
+      "activation_digest": "",
+      "proposal_digests": null,
+      "resolutions": null,
+      "hard_contract_status": "",
+      "protagonist_projection": {
+        "protagonist": "",
+        "observable_effects": null,
+        "hidden_pressures": null,
+        "available_options": null,
+        "chosen_decision": "",
+        "decision_reason": "",
+        "plan_constraints": null,
+        "causal_chain": null
+      },
+      "finalized": false,
+      "digest": ""
+    },
+    "activation": {
+      "evidence_digest": "sha256:d498f00a4d40f9e635d54b3f5bdfdd968e170b56cff826cef247756c4992ecfa",
+      "cycles": [
+        {
+          "cycle": 1,
+          "cycle_digest": "sha256:b61a82d0031914a4009bcc0eedb41218c05c9f7c58d0862e2f4f5e1d5736e9e5",
+          "arbitration_digest": "sha256:f8bb03b01b31130bb4ccec735ad4c6bf2834a396fbdc37e2defc33adde32f247",
+          "story_time": {
+            "chapter": 1,
+            "start_day": 0,
+            "end_day": 0.013888888888888888
+          },
+          "decisions": [
+            {
+              "cycle": 1,
+              "agent_id": "ca_28b35c0537fec56e",
+              "origin_location": "渔岛海洋度假区近岸守护点",
+              "proposal_digest": "sha256:f049281874a935d59f032663e92922a49884c4b4ad67101fee78822c2ba54fc1",
+              "arbitration_digest": "sha256:f8bb03b01b31130bb4ccec735ad4c6bf2834a396fbdc37e2defc33adde32f247",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0,
+                "end_day": 0.013888888888888888
+              },
+              "decision": {
+                "character": "螭吻·九九",
+                "time": "第一章开始前；全书开局后 0.000000 分钟",
+                "location": "渔岛海洋度假区近岸守护点",
+                "current_goal": "守在近岸守护点履行保护职责，并以有来源证据的判断决定是否追查未经证实的声望机会",
+                "pressure": "保护职责与未经证实的声望机会同时争夺注意力",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=shared）：信息未确认",
+                  "现场警示浮标（res_2222333344445555；access=shared）：最后观测 1 件（第0章）",
+                  "空白事件记录纸（res_3333444455556666；access=exclusive）：最后观测 6 张（第0章）"
+                ],
+                "knowledge_boundary": "fact_621d279dfc73b980,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,fact_850740084ff46d74,fact_b7b06596f6d8d6c0,fact_c405032c1c26f983,fact_e12dcc16d47253cf",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response"
+                ],
+                "available_options": [
+                  "原地等待他人来报或来件，不做任何主动观察",
+                  "把未核实的声望说法直接当成事实并据此行动",
+                  "留在近岸守护点，直接观察公开水况，先建立亲眼见的基线事实",
+                  "离开守护点去追查尚无来源的声望线索"
+                ],
+                "decision": "留在近岸守护点，先对公开水况做一次以亲见为准的观察，把未经证实的声望线索暂缓、待有来源证据再议",
+                "decision_reason": "保护是我的核心价值边界，而眼前近岸水域情况目前对我仍是未知；声望线索没有经过记录与确认，不能当事实，也没有传递到我这里。先履行眼前可见的保护义务并取得亲见证据，代价最低、风险最可控。",
+                "action": "在守护点原地对近岸公开水况进行现场目视观察，确认是否有明确地点与边界的风险；同时确认现场警示浮标位置与空白记录纸可用，但不在无核实事件时书写任何记录。不离开守护点去追查未来源的声望线索。",
+                "action_duration": "约10分钟",
+                "completion_state": "completed",
+                "immediate_result": "九九在渔岛海洋度假区近岸守护点原地完成一次约 10 分钟的现场目视观察，取得本人亲见、带时点的近岸公开水况基线；目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险，故未书写任何事件记录。她确认了现场警示浮标的所在位置与空白事件记录纸可用，但除使用外未变更浮标归属，六张空白纸未消耗。未离开守护点，未调用任何未获批准的超自然能力或形态。未经核实的声望机会口信未在本轮被采纳为事实，仍保持未证实、无来源记录状态。",
+                "state_after": "九九仍位于渔岛海洋度假区近岸守护点，值守连续未中断；已可亲见近岸公开水况，无新增书面记录；警示浮标（共享，1 件）与空白事件记录纸（独占，6 张）余额不变。",
+                "butterfly_effects": [
+                  {
+                    "effect": "近岸守护点保持连续值守、无人离岗；未经核实的声望机会因缺少有来源证据被暂缓，且未进入任何记录。",
+                    "targets": [
+                      "螭吻·九九",
+                      "渔岛海洋度假区近岸守护点"
+                    ],
+                    "transmission_path": "九九本人现场值守与自主决定",
+                    "arrival_chapter": 2,
+                    "visibility": "visible",
+                    "protagonist_impact": "九九仍守在水边岗位，声望线索维持未证实状态；若后续出现可核验来源，才具备重新评估的条件。"
+                  },
+                  {
+                    "effect": "九九获得一份本人亲见、时点明确的近岸公开水况基线，供后续变化对照；但未形成书面事件记录。",
+                    "targets": [
+                      "螭吻·九九",
+                      "近岸公开水况"
+                    ],
+                    "transmission_path": "守护点对近岸公开水况的公开目视",
+                    "arrival_chapter": 2,
+                    "visibility": "visible",
+                    "protagonist_impact": "后续若水况出现变化，九九可以用该基线作对照，但当前无从据此断定整片环境安全。"
+                  }
+                ]
+              }
+            },
+            {
+              "cycle": 1,
+              "agent_id": "ca_dab3e91796825b05",
+              "origin_location": "近岸上空云缘观察位",
+              "proposal_digest": "sha256:0bebd73ec4475f8342541e20de93764d3a20708180305c40ea3ecaeaf625e5a9",
+              "arbitration_digest": "sha256:f8bb03b01b31130bb4ccec735ad4c6bf2834a396fbdc37e2defc33adde32f247",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0,
+                "end_day": 0.013888888888888888
+              },
+              "decision": {
+                "character": "羽族凤凰",
+                "time": "TEST_SCAFFOLD：第一章开始前；全书开局后 0.000000 分钟",
+                "location": "近岸上空云缘观察位",
+                "current_goal": "在不越过自身知识边界的前提下，确认这处陌生海岸环境是否安全",
+                "pressure": "身处陌生海岸上空且可用信息极少，任何结论都可能超出已知证据",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=none）：信息未确认"
+                ],
+                "knowledge_boundary": "fact_0f7abed2ae09355a,fact_2cbfc18c95962285,fact_621d279dfc73b980,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,fact_9a223d4e9af55e67,fact_b04f70d74cba7885,fact_ea6a122587408cd4,mem_73a70f9269fa5e35,mem_f22afdd60b501f06",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response"
+                ],
+                "available_options": [
+                  "向现场可能存在的他者示警或索取信息（但无任何已记录相识或接收渠道）",
+                  "留在云缘观察位，持续目视近岸公开水况，只依据亲见证据判断",
+                  "离开观察位向下靠近岸线，直接查看水面与岸线近景"
+                ],
+                "decision": "留在云缘观察位继续目视近岸公开水况，先积累亲见证据，暂不对未知水况、成因或他者身份作任何推断",
+                "decision_reason": "自己身为凤凰、与羽族有关，但对这片陌生海岸只有极少的已知事实；规则要求仅凭亲眼获得、记录了来源与时点的证据更新认知，未知项保持未知，因此先做成本最低、风险最小的持续观察，而不是靠推测或离位冒险。",
+                "action": "从云缘观察位持续目视近岸公开水况，记录当下可见的水面与岸线局部情况，作为后续判断的现场证据",
+                "action_duration": "TEST_SCAFFOLD：约十余分钟的连续现场观察",
+                "completion_state": "completed",
+                "immediate_result": "凤凰在近岸上空云缘观察位完成约 15 分钟的持续目视观察，记录下当下可见的水面与岸线局部情况，作为来源清晰、时点明确的现场证据。她未向下靠近岸线，未离开观察位，未对他者、传说、隐藏成因或整片环境安全性作出任何推断，未调用任何未获批准的形态或超自然能力。对九九、螭吻身份、独角龙传说、泼水节、真实渔岛及九尾狐等内容仍一律保持 UNKNOWN。",
+                "state_after": "凤凰仍位于近岸上空云缘观察位，位形与知识状态不变；新增一份本人亲见的近岸水况局部观察；未向任何角色发出通信或示警。",
+                "butterfly_effects": [
+                  {
+                    "effect": "凤凰知识边界保持完整：陌生海岸、下方他者与现场成因仍为 UNKNOWN，未因同场或观察位邻近而获得任何未传播信息。",
+                    "targets": [
+                      "羽族凤凰",
+                      "近岸上空云缘观察位"
+                    ],
+                    "transmission_path": "云缘观察位公开目视",
+                    "arrival_chapter": 2,
+                    "visibility": "delayed",
+                    "protagonist_impact": "凤凰仍处信息稀缺状态，其后续任何认知更新都需依赖显式、有记录的故事内来源；本轮对外界无可感知影响。"
+                  }
+                ]
+              }
+            },
+            {
+              "cycle": 1,
+              "agent_id": "ca_e908a88390ffb536",
+              "origin_location": "近岸礁影观察点",
+              "proposal_digest": "sha256:863af25875424185223e9cd48573089132ba09a3155b8caae67371e649bf4b23",
+              "arbitration_digest": "sha256:f8bb03b01b31130bb4ccec735ad4c6bf2834a396fbdc37e2defc33adde32f247",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0,
+                "end_day": 0.013888888888888888
+              },
+              "decision": {
+                "character": "九尾狐",
+                "location": "近岸礁影观察点",
+                "current_goal": "在信息有限的情况下，先自行弄清仅自己可观察的私密潮痕到底指示什么，再决定是否、向谁传递",
+                "pressure": "私密潮痕可能与沿海事件相关，但含义、来源与行动价值都未确认；贸然外传既无依据，也可能把未经记录的东西当成事实",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=shared）：信息未确认",
+                  "私密潮痕（res_4444555566667777；access=exclusive）：信息未确认"
+                ],
+                "knowledge_boundary": "fact_00b9eae03ee214a9,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,fact_b5ec33c23fc5b2ac",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response",
+                  "mech_scaffold_secret_fox_tide_mark"
+                ],
+                "available_options": [
+                  "暂时撤离观察点，把标记的事搁置",
+                  "留在近岸礁影观察点，继续就地观察私密潮痕并核对近岸公开水况，不做任何外传",
+                  "立刻向九九或羽族凤凰通报自己看到了一个说不清含义的标记，请对方接手判断",
+                  "自行判定该标记值得警觉，直接按海岸风险示警并采取普通保护行动"
+                ],
+                "decision": "选择留在近岸礁影观察点继续就地观察，先不向任何人传递该私密标记",
+                "decision_reason": "该标记的含义、来源与是否应传递都未确认，我唯一确定的是自己能观察到它；在没有任何来源可支撑判断前外传，等于把未知当成事实。先就地多看一会儿，取得更多属于我自己的观察记录，再决定要不要传、传给谁。",
+                "action": "保持在近岸礁影观察点，先凭自己惯有的感知留意私密潮痕的当前征状，再看近岸公开水况是否有与之对应的可见迹象；只记录本人亲见的内容与时间，不向九九、羽族凤凰或其他角色发出任何关于该标记的信息。",
+                "action_duration": "约 20 分钟",
+                "completion_state": "completed",
+                "immediate_result": "九尾狐在近岸礁影观察点以真正的九尾狐兽体保持原位，先以本人私密观察通道留意私密潮痕的当前征状，再完成约 20 分钟对近岸公开水况的目视核对，本人亲见内容与时间被记为个人观察。她未离开观察点，未发出声音或信号，未向九九、羽族凤凰或任何其他角色传递该私密标记或其推导信息；标记含义、来源与真伪仍为 TBD，未被断言为事实。未调用任何未获批准的形态或能力。",
+                "state_after": "九尾狐仍位于近岸礁影观察点；其私密潮痕观察仅进入本人私人知识，含义维持 TBD；九九与羽族凤凰对该标记的知识状态不变；无可观察外部行动。",
+                "butterfly_effects": [
+                  {
+                    "effect": "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 的观察保持仅九尾狐可见；九九与羽族凤凰的知识状态不因同场、地点邻近或模型推断而改变。",
+                    "targets": [
+                      "九尾狐",
+                      "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK",
+                      "螭吻·九九",
+                      "羽族凤凰"
+                    ],
+                    "transmission_path": "私密观察通道隔离（未发生任何故事内传递）",
+                    "arrival_chapter": 2,
+                    "visibility": "hidden",
+                    "protagonist_impact": "九九无从获得该标记或由其推导的信息；除非后续记录到显式且真实的故事内传递，隔离将持续。"
+                  },
+                  {
+                    "effect": "九尾狐取得一份本人亲见、带时点的近岸公开水况观察，可与私密潮痕作私人对照，但未外传。",
+                    "targets": [
+                      "九尾狐",
+                      "近岸公开水况"
+                    ],
+                    "transmission_path": "礁影观察点对近岸公开水况的公开目视",
+                    "arrival_chapter": 2,
+                    "visibility": "hidden",
+                    "protagonist_impact": "该对照仅存于九尾狐本人，暂不构成对九九的任何信息压力或线索。"
+                  }
+                ]
+              }
+            }
+          ],
+          "pov_before": {
+            "location": "渔岛海洋度假区近岸守护点",
+            "resource_views": [
+              {
+                "resource_id": "res_1111222233334444",
+                "name": "近岸公开水况",
+                "semantics": "environmental",
+                "unit": "",
+                "access": "none",
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                }
+              },
+              {
+                "resource_id": "res_2222333344445555",
+                "name": "现场警示浮标",
+                "unit": "件",
+                "access": "shared",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 1,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                ]
+              },
+              {
+                "resource_id": "res_3333444455556666",
+                "name": "空白事件记录纸",
+                "unit": "张",
+                "access": "exclusive",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 6,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                ]
+              }
+            ],
+            "task_progress": null
+          },
+          "pov_after": {
+            "operational_observations": [
+              {
+                "id": "oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9",
+                "agent_id": "ca_28b35c0537fec56e",
+                "generation_id": "pg2_b2354a98e8714bba2baca89a",
+                "chapter": 1,
+                "task_id": "task_coastal_watch_01",
+                "request_id": "obs_water_01",
+                "resource_id": "res_1111222233334444",
+                "resource_label": "近岸公开水况",
+                "purpose": "确认近岸公开水况是否出现本人可亲见、有明确地点与边界的风险迹象",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "result": "available",
+                "observed_at_day": 0.006944444444444445,
+                "source_proposal_digest": "sha256:f049281874a935d59f032663e92922a49884c4b4ad67101fee78822c2ba54fc1",
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              }
+            ],
+            "location": "渔岛海洋度假区近岸守护点",
+            "resource_views": [
+              {
+                "resource_id": "res_1111222233334444",
+                "name": "近岸公开水况",
+                "semantics": "environmental",
+                "unit": "",
+                "access": "shared",
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                },
+                "evidence_refs": [
+                  "src_4300ea9d26d8aeecac88ed7ec4698804da3236c3cd5f16aad3d0dad381f85089"
+                ]
+              },
+              {
+                "resource_id": "res_2222333344445555",
+                "name": "现场警示浮标",
+                "unit": "件",
+                "access": "shared",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 1,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                ]
+              },
+              {
+                "resource_id": "res_3333444455556666",
+                "name": "空白事件记录纸",
+                "unit": "张",
+                "access": "exclusive",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 6,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                ]
+              }
+            ],
+            "task_progress": [
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_coastal_watch_01",
+                "action": "在近岸守护点对公开水况做现场目视观察，记录是否出现有明确地点与边界的风险",
+                "unit": "minute",
+                "target": 10,
+                "completed": 10,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              }
+            ]
+          },
+          "new_pov_knowledge": null
+        },
+        {
+          "cycle": 2,
+          "cycle_digest": "sha256:1a88b4e0ad7d65fe4a6b1407a06547779f4f28c15f1ee8ee8e1fa8398dff7e9c",
+          "arbitration_digest": "sha256:f809144f629421db8d375c9fe98c8d695661cc2b7c2ae7af039c0e9f15ac7ace",
+          "story_time": {
+            "chapter": 1,
+            "start_day": 0.013888888888888888,
+            "end_day": 0.03472222222222222
+          },
+          "decisions": [
+            {
+              "cycle": 2,
+              "agent_id": "ca_28b35c0537fec56e",
+              "origin_location": "渔岛海洋度假区近岸守护点",
+              "proposal_digest": "sha256:a0031eaf46e038c6ee009b29d6e73e2f2271067898b859ef86867a3b11080d5e",
+              "arbitration_digest": "sha256:f809144f629421db8d375c9fe98c8d695661cc2b7c2ae7af039c0e9f15ac7ace",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0.013888888888888888,
+                "end_day": 0.03472222222222222
+              },
+              "decision": {
+                "character": "螭吻·九九",
+                "time": "开局后约20分钟",
+                "location": "渔岛海洋度假区近岸守护点",
+                "current_goal": "守在近岸守护点履行保护职责，以有来源证据的判断决定是否追查未经证实的声望机会",
+                "pressure": "保护职责与未经证实的声望机会同时争夺注意力",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=shared）：信息未确认",
+                  "现场警示浮标（res_2222333344445555；access=shared）：最后观测 1 件（第0章）",
+                  "空白事件记录纸（res_3333444455556666；access=exclusive）：最后观测 6 张（第0章）"
+                ],
+                "knowledge_boundary": "fact_621d279dfc73b980,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,fact_b7b06596f6d8d6c0,fact_c405032c1c26f983,fact_e12dcc16d47253cf,oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9,self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response"
+                ],
+                "available_options": [
+                  "原地待着，既不主动观察也不追查任何线索",
+                  "暂时离开守护点，去追查那条没有来源的声望线索",
+                  "留在近岸守护点，开始第二轮现场目视观察，继续履行保护职责"
+                ],
+                "decision": "留在近岸守护点开始第二轮现场目视观察；对无来源的声望线索继续暂缓，不离开岗位去追",
+                "decision_reason": "上一轮观察已完成，但保护是本人核心价值边界，现场职责优先；声望线索目前没有可亲见或有记录的来源，按测试范围规则不能当作事实；在没有来源与渠道前离开岗位追线索，只会放弃眼前唯一确定的责任。",
+                "action": "在近岸守护点对近岸公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象；同时确认现场警示浮标仍在原位、空白事件记录纸仍可随时取用，但在没有可核实事件前不书写任何记录；不离开守护点去追查未来源的声望线索。",
+                "action_duration": "现实约10分钟",
+                "completion_state": "completed",
+                "immediate_result": "九九保持在渔岛海洋度假区近岸守护点，按原提案完成第二段十分钟的现场目视观察。近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象；本人仅用公开现场目视通道，未调用任何未获批准能力。本段没有书写任何事件记录，未离开守护点去追查未来源的声望线索。",
+                "state_after": "九九仍位于近岸守护点，保护职责于本时段持续；对未来源的声望线索按原选择保持未证实、待来源状态；对水况的认知仅在其亲见范围内。",
+                "butterfly_effects": [
+                  {
+                    "effect": "TEST_SCAFFOLD边界维护单元推进第一段：近岸守护点在第一时段内持续有一名在场角色履行保护职责。",
+                    "targets": [
+                      "fac_test_scaffold_boundary",
+                      "place_yudao_nearshore_guard"
+                    ],
+                    "transmission_path": "九九现场留守护点行动 → 世界裁决 → 场景边界记录槽位",
+                    "arrival_chapter": 1,
+                    "visibility": "visible",
+                    "protagonist_impact": "后续若该处出现可亲见的明确风险，现场已有一名职责中的观察者，可作为普通响应的在位者。"
+                  },
+                  {
+                    "effect": "九九未追查未来源的声望线索，该线索在其认知中仍未获来源与渠道，保持待证。",
+                    "targets": [
+                      "螭吻·九九"
+                    ],
+                    "transmission_path": "九九自主选择 → 未发生离开守护点的行动",
+                    "arrival_chapter": 1,
+                    "visibility": "visible",
+                    "protagonist_impact": "声望机会仍可作为后续可观察压力，但尚无任何可核实证据进入其知识。"
+                  }
+                ]
+              }
+            },
+            {
+              "cycle": 2,
+              "agent_id": "ca_dab3e91796825b05",
+              "origin_location": "近岸上空云缘观察位",
+              "proposal_digest": "sha256:650ceecd6ba5d080bae154788ff0967e9c987968bff0186fc8895e909e7798e1",
+              "arbitration_digest": "sha256:f809144f629421db8d375c9fe98c8d695661cc2b7c2ae7af039c0e9f15ac7ace",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0.013888888888888888,
+                "end_day": 0.03472222222222222
+              },
+              "decision": {
+                "character": "羽族凤凰",
+                "location": "近岸上空云缘观察位",
+                "current_goal": "在不越过自身知识边界的前提下，确认这处陌生海岸环境是否安全",
+                "pressure": "身处陌生海岸上空且可用信息极少，任何结论都可能超出已知证据",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=none）：信息未确认"
+                ],
+                "knowledge_boundary": "fact_621d279dfc73b980,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,self_f85bf18d2aa1964ac8a8d6d306320fe506d3044ebf94b56f3cf9bbaf20c3c2c1",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response"
+                ],
+                "available_options": [
+                  "下降到更低但仍保持在岸外上空的观察点，换取更近视野",
+                  "不再评估，直接离开这片陌生海岸",
+                  "保持原位静默等待，不再新增观察投入",
+                  "留在云缘观察位，改用有界公开目视巡查岸线与水面，重点找可指认的危险迹象"
+                ],
+                "decision": "继续停留在云缘观察位，但把观察对象从泛泛水面改为岸线与水面联合的有界目视巡查，只记录可指认的局部特征与可能危险迹象，未知项继续保持 UNKNOWN",
+                "decision_reason": "我目前能实际使用的只有公开现场目视这一观察通道，上一轮十五分钟水况目视并未得到可确认信息；在成因、他者身份均未知时，靠近或离开都会引入新的未知风险，因而选择在原地以有界、可记录的新一轮目视继续积累亲见证据，而不下任何安全性结论。",
+                "action": "从近岸上空云缘观察位，用公开现场目视通道对近岸岸线与水面做一轮有界联合观察，当场记录可指认的岸线局部特征、水面可见现象与可能危险迹象；不推断成因、他者身份或整体安全性。",
+                "action_duration": "约12分钟",
+                "completion_state": "completed",
+                "immediate_result": "凤凰保持在近岸上空云缘观察位，按原提案完成十二分钟有界目视巡查。公开现场目视通道可用，本人仅记录当场可见的岸线局部特征、水面现象与可能危险迹象，未推断成因、他者身份或整体安全性，未调用任何未获批准能力，也未离开既有观察位。",
+                "state_after": "凤凰仍位于云缘观察位；获得有限的新增亲见视觉材料，但不足以判定环境整体安全；对九九、螭吻身份、独角龙传说、九尾狐及重大世界秘密仍为 UNKNOWN。",
+                "butterfly_effects": [
+                  {
+                    "effect": "凤凰持续在近岸上空停留观察，未与任何角色发生接触或信息交换。",
+                    "targets": [
+                      "羽族凤凰",
+                      "place_cloud_edge_observation"
+                    ],
+                    "transmission_path": "凤凰原地有界观察 → 世界裁决 → 无跨地点传播",
+                    "arrival_chapter": 1,
+                    "visibility": "visible",
+                    "protagonist_impact": "凤凰与地面两处观察点仍互不通讯；任何后续信息抵达都必须经由显式且有记录的故事内传递。"
+                  },
+                  {
+                    "effect": "TEST_SCAFFOLD边界维护单元记录到第二名在场但隔离的观察者，知识隔离保持成立。",
+                    "targets": [
+                      "fac_test_scaffold_boundary"
+                    ],
+                    "transmission_path": "凤凰现场观察 → 世界裁决 → 场景边界记录槽位",
+                    "arrival_chapter": 1,
+                    "visibility": "delayed",
+                    "protagonist_impact": "后续若需三人交汇，须先满足既有通道与耗时，不能零耗时同步。"
+                  }
+                ]
+              }
+            },
+            {
+              "cycle": 2,
+              "agent_id": "ca_e908a88390ffb536",
+              "origin_location": "近岸礁影观察点",
+              "proposal_digest": "sha256:6d8504a0f6783ad0bfe296fba6ac3b07012ba0a5537fa7904001111c60eadfdd",
+              "arbitration_digest": "sha256:f809144f629421db8d375c9fe98c8d695661cc2b7c2ae7af039c0e9f15ac7ace",
+              "story_time": {
+                "chapter": 1,
+                "start_day": 0.013888888888888888,
+                "end_day": 0.03472222222222222
+              },
+              "decision": {
+                "character": "九尾狐",
+                "location": "近岸礁影观察点",
+                "current_goal": "在信息有限的情况下，先自行弄清仅自己可观察的私密潮痕到底指示什么，再决定是否、向谁传递",
+                "pressure": "私密潮痕的含义、来源与行动价值均未确认，唯一可用的只是本人的私密感知；贸然外传既无依据，也可能把未经记录的东西当成事实",
+                "resources": [
+                  "近岸公开水况（res_1111222233334444；access=shared）：信息未确认",
+                  "私密潮痕（res_4444555566667777；access=exclusive）：信息未确认"
+                ],
+                "knowledge_boundary": "fact_00b9eae03ee214a9,fact_621d279dfc73b980,fact_6473ff3b0924a6ba,fact_774bb01c51c0b912,fact_960c8a4bce4e0691,fact_9a223d4e9af55e67,fact_b5ec33c23fc5b2ac,fact_c9c8ebeddc82c45c,fact_e7dcdd979eead785,mem_98767204f3bd7b6a,mem_ed58b0b7ec11080b,mem_f8de2f71a64ad4bc,oper_01b3ad45ff20e6b9516b113e0f0c05b4fd833c3c06252b7bad340dd0b18fe406,self_0daaea62d1b9d4ef55144753194cb55c7a98564ebbc2db5437ba2a3345b13a8a",
+                "mechanism_refs": [
+                  "mech_scaffold_bounded_coastal_response",
+                  "mech_scaffold_secret_fox_tide_mark"
+                ],
+                "available_options": [
+                  "向九九或羽族凤凰传递私密潮痕的信息，试探他们是否知情",
+                  "就地什么都不做地等待，不追加观察",
+                  "留在近岸礁影观察点，按时间先后继续看私密潮痕的征状是否变化，并对照近岸公开水况的可见迹象",
+                  "离开观察点，去别处寻找可能与潮痕有关的线索"
+                ],
+                "decision": "选择留在近岸礁影观察点，对私密潮痕做一段有先后次序的续察，并同时对照近岸公开水况的可见迹象；只记录本人亲见的内容与时间，不向九九、羽族凤凰或其他任何人传递该标记",
+                "decision_reason": "该标记含义、来源、是否应传递都还是 TBD，本人又只有私密观察这一条通道，没有可核验的第二来源；在尚无明确故事内传递事件前外传，只会把未确认的东西说成事实。所以先用自己的感知把潮痕征状是否随时间变化看清，再决定有无值得传递的内容。",
+                "action": "在近岸礁影观察点就位，按时间先后重复感知私密潮痕的当前征状（是否变化、变化方向），同时目视近岸公开水况是否出现可与之对照的可见迹象；把本人亲见征状与时点记下，不解读为任何未经确认的结论，也不向他人发送关于该标记的任何信息。",
+                "action_duration": "约 30 分钟（现场连续时间内的观察期）",
+                "completion_state": "completed",
+                "immediate_result": "九尾狐保持在近岸礁影观察点，按原提案完成三十分钟按时间先后的续察。仅其本人私密通道可感知的潮痕在该时段内可继续观察，近岸公开水况亦可目视对照；两处均只产生本人亲见证状与时点，未解读为任何未经确认的结论。本段未向九九、羽族凤凰或任何其他人发送关于该标记的任何信息，也未发生明确的传递事件。",
+                "state_after": "九尾狐仍位于近岸礁影观察点；私密潮痕的含义、来源与真伪仍为 TBD；九九与凤凰对该标记保持 UNKNOWN。",
+                "butterfly_effects": [
+                  {
+                    "effect": "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 的知识隔离继续成立：该私密观察只进入九尾狐的测试私人知识。",
+                    "targets": [
+                      "九尾狐",
+                      "螭吻·九九",
+                      "羽族凤凰"
+                    ],
+                    "transmission_path": "mech_scaffold_secret_fox_tide_mark 私密观察通道 → 仅九尾狐本人",
+                    "arrival_chapter": 1,
+                    "visibility": "hidden",
+                    "protagonist_impact": "同处有限海岸事件范围内的其余角色不得因同场或推断获知该标记；后续若要变更知识状态，必须出现显式且有记录的故事内传递。"
+                  },
+                  {
+                    "effect": "近岸礁影观察点在本时段内保留一名按时间对照私密征状与公开水况的观察者。",
+                    "targets": [
+                      "fac_test_scaffold_boundary",
+                      "place_reef_shadow_observation"
+                    ],
+                    "transmission_path": "九尾狐原地续察 → 世界裁决 → 场景边界记录槽位",
+                    "arrival_chapter": 1,
+                    "visibility": "delayed",
+                    "protagonist_impact": "该观察者未外传、未移动，故其他角色仍未获得其私人材料。"
+                  }
+                ]
+              }
+            }
+          ],
+          "pov_before": {
+            "operational_observations": [
+              {
+                "id": "oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9",
+                "agent_id": "ca_28b35c0537fec56e",
+                "generation_id": "pg2_b2354a98e8714bba2baca89a",
+                "chapter": 1,
+                "task_id": "task_coastal_watch_01",
+                "request_id": "obs_water_01",
+                "resource_id": "res_1111222233334444",
+                "resource_label": "近岸公开水况",
+                "purpose": "确认近岸公开水况是否出现本人可亲见、有明确地点与边界的风险迹象",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "result": "available",
+                "observed_at_day": 0.006944444444444445,
+                "source_proposal_digest": "sha256:f049281874a935d59f032663e92922a49884c4b4ad67101fee78822c2ba54fc1",
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              }
+            ],
+            "location": "渔岛海洋度假区近岸守护点",
+            "resource_views": [
+              {
+                "resource_id": "res_1111222233334444",
+                "name": "近岸公开水况",
+                "semantics": "environmental",
+                "unit": "",
+                "access": "shared",
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                },
+                "evidence_refs": [
+                  "src_4300ea9d26d8aeecac88ed7ec4698804da3236c3cd5f16aad3d0dad381f85089"
+                ]
+              },
+              {
+                "resource_id": "res_2222333344445555",
+                "name": "现场警示浮标",
+                "unit": "件",
+                "access": "shared",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 1,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                ]
+              },
+              {
+                "resource_id": "res_3333444455556666",
+                "name": "空白事件记录纸",
+                "unit": "张",
+                "access": "exclusive",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 6,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                ]
+              }
+            ],
+            "task_progress": [
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_coastal_watch_01",
+                "action": "在近岸守护点对公开水况做现场目视观察，记录是否出现有明确地点与边界的风险",
+                "unit": "minute",
+                "target": 10,
+                "completed": 10,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              }
+            ]
+          },
+          "pov_after": {
+            "operational_observations": [
+              {
+                "id": "oper_93519aa8431328a3d28644447ce94f2fe898f075e6039a546b330bc397bd93c9",
+                "agent_id": "ca_28b35c0537fec56e",
+                "generation_id": "pg2_b2354a98e8714bba2baca89a",
+                "chapter": 1,
+                "task_id": "task_coastal_watch_01",
+                "request_id": "obs_water_01",
+                "resource_id": "res_1111222233334444",
+                "resource_label": "近岸公开水况",
+                "purpose": "确认近岸公开水况是否出现本人可亲见、有明确地点与边界的风险迹象",
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "result": "available",
+                "observed_at_day": 0.006944444444444445,
+                "source_proposal_digest": "sha256:f049281874a935d59f032663e92922a49884c4b4ad67101fee78822c2ba54fc1",
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              }
+            ],
+            "location": "渔岛海洋度假区近岸守护点",
+            "resource_views": [
+              {
+                "resource_id": "res_1111222233334444",
+                "name": "近岸公开水况",
+                "semantics": "environmental",
+                "unit": "",
+                "access": "shared",
+                "perception": {
+                  "kind": "unknown",
+                  "as_of_chapter": 0
+                },
+                "evidence_refs": [
+                  "src_4300ea9d26d8aeecac88ed7ec4698804da3236c3cd5f16aad3d0dad381f85089"
+                ]
+              },
+              {
+                "resource_id": "res_2222333344445555",
+                "name": "现场警示浮标",
+                "unit": "件",
+                "access": "shared",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 1,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_8036f48b137dc42ae87b15e195e6ef94b4c4ec70e7539c6e499be42d55c23869"
+                ]
+              },
+              {
+                "resource_id": "res_3333444455556666",
+                "name": "空白事件记录纸",
+                "unit": "张",
+                "access": "exclusive",
+                "perception": {
+                  "kind": "last_observed",
+                  "amount": 6,
+                  "as_of_chapter": 0,
+                  "evidence_refs": [
+                    "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                  ]
+                },
+                "evidence_refs": [
+                  "src_a70e000024a70f673a35f327cc0f59c8a590ff93c5e4fcdda0e12a1501057694"
+                ]
+              }
+            ],
+            "task_progress": [
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_coastal_watch_01",
+                "action": "在近岸守护点对公开水况做现场目视观察，记录是否出现有明确地点与边界的风险",
+                "unit": "minute",
+                "target": 10,
+                "completed": 10,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_c541970b396bded285c16561e7d087ebd69b82933b9a9e1a92536e2dd4fc17e9"
+              },
+              {
+                "latest_attempt_status": "completed",
+                "task_id": "task_coastal_watch_02",
+                "action": "在近岸守护点对公开水况进行第二轮现场目视观察，确认是否出现有明确地点与边界的风险迹象",
+                "unit": "minute",
+                "target": 10,
+                "completed": 10,
+                "state": "completed",
+                "as_of_chapter": 1,
+                "source_experience_id": "self_a311bc7dd4de96d84046f7ab8d9dec52d70ab390239fc445a8fcac08cb84b849"
+              }
+            ]
+          },
+          "new_pov_knowledge": null
+        }
+      ]
+    }
+  },
+  "receipt": {
+    "policy": "plan-grounding:activation-trace.v1",
+    "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+    "input_digest": "sha256:19278678c88d740b2e165d343b81012e694378054b9dcd0bca6166ecde9e10e8",
+    "verdict": {
+      "pass": false,
+      "findings": [
+        {
+          "kind": "location",
+          "plan_path": "/plan/causal_simulation/longform_opening/first_chapter_proof/2",
+          "plan_quote": "页面呈现警示浮标仍在原位且六张记录纸未书写",
+          "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+          "source_quote": "她确认了现场警示浮标的所在位置与空白事件记录纸可用，但除使用外未变更浮标归属，六张空白纸未消耗。",
+          "explanation": "裁决只支持九九确认浮标当时的所在位置及归属未变，不支持它相对先前位置保持不变。应删除本处‘仍在原位’，并同步修正reader_reward_plan、ending_consequence_contract、emotional_logic等正向字段中的同源表述，只保留‘所在位置已确认、归属未变’。"
+        },
+        {
+          "kind": "outcome",
+          "plan_path": "/plan/causal_simulation/information_gaps/2",
+          "plan_quote": "水尺读数差、浮标绳松脱的成因未定，现场无法定性",
+          "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+          "source_quote": "近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象；本人仅用公开现场目视通道，未调用任何未获批准能力。",
+          "explanation": "完整激活时间线没有发生或观察到水尺读数差、浮标绳松脱；把它们写成‘成因未定’仍先行断言异常存在。应从information_gaps删除这两项，不得作为未知成因保留。"
+        },
+        {
+          "kind": "knowledge",
+          "plan_path": "/plan/causal_simulation/information_gaps/1",
+          "plan_quote": "来客口信的来源与真伪对九九始终讳莫如深，也无凭证可查",
+          "source_path": "/activation/cycles/0/decisions/0/decision/decision_reason",
+          "source_quote": "声望线索没有经过记录与确认，不能当事实，也没有传递到我这里。",
+          "explanation": "裁决明确声望线索没有传递给九九，计划却把它具体化为面向九九的‘来客口信’，暗含口信及来客接触已经发生。应改回仅有无来源、未传递且未证实的声望线索，不得新增来客或通信事实。"
+        }
+      ]
+    },
+    "digest": "sha256:4de106ec98ee8697fed7b772e7c8b5752f29dede68df8c7912470343a7a9125e"
+  }
+}

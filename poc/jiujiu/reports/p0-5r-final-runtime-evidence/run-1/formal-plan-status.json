@@ -1,0 +1,32 @@
+{
+  "schema": "p0-5r-final-formal-plan-status.v1",
+  "classification": "TEST_SCAFFOLD",
+  "formal_plan_exists": true,
+  "formal_plan_sha256": "sha256:0055fddcbbc882c19248ef2697be6748ff5245b471675239ea1e86c95fb6246f",
+  "partial_exists_after": false,
+  "checkpoints": {
+    "chapter_world_simulation": {
+      "seq": 1,
+      "scope": {
+        "kind": "chapter",
+        "chapter": 1
+      },
+      "step": "chapter_world_simulation",
+      "artifact": "meta/chapter_simulations/001.json",
+      "digest": "sha256:5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e",
+      "occurred_at": "2026-09-17T10:08:58.041247+08:00"
+    },
+    "plan": {
+      "seq": 2,
+      "scope": {
+        "kind": "chapter",
+        "chapter": 1
+      },
+      "step": "plan",
+      "artifact": "drafts/01.plan.json",
+      "digest": "sha256:0055fddcbbc882c19248ef2697be6748ff5245b471675239ea1e86c95fb6246f",
+      "occurred_at": "2026-09-17T18:52:29.80835+08:00"
+    }
+  },
+  "bundle_exists": false
+}

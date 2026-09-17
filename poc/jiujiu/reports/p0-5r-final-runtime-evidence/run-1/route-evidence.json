@@ -1,0 +1,29 @@
+{
+  "schema": "p0-5r-final-route-evidence.v1",
+  "classification": "TEST_SCAFFOLD",
+  "observed_agents": {
+    "writer": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning": "medium",
+      "calls": 17
+    },
+    "plan_grounding": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning": "medium",
+      "calls": 12
+    }
+  },
+  "forbidden_stage_calls": {
+    "character": 0,
+    "world_arbiter": 0,
+    "readiness": 0,
+    "story_simulation": 0
+  },
+  "story_state_rerun": false,
+  "basis": [
+    "runtime usage audit contains only writer and plan_grounding starts",
+    "frozen source hashes are byte-identical"
+  ]
+}

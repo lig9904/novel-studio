@@ -1,0 +1,42 @@
+{
+  "schema": "p0-5r-final-usage-summary.v1",
+  "classification": "TEST_SCAFFOLD",
+  "top_level_attempts": 1,
+  "by_agent": {
+    "plan_grounding": {
+      "started": 12,
+      "completed": 12,
+      "input": 458691,
+      "output": 24159,
+      "cache_read": 51200,
+      "cache_write": 0,
+      "total_tokens": 482850,
+      "configured_accounting_cost_usd": 2.787825
+    },
+    "writer": {
+      "started": 17,
+      "completed": 17,
+      "input": 687874,
+      "output": 15008,
+      "cache_read": 51200,
+      "cache_write": 0,
+      "total_tokens": 702882,
+      "configured_accounting_cost_usd": 3.65921
+    }
+  },
+  "total": {
+    "started": 29,
+    "completed": 29,
+    "input": 1146565,
+    "output": 39167,
+    "cache_read": 102400,
+    "cache_write": 0,
+    "total_tokens": 1185732,
+    "configured_accounting_cost_usd": 6.447035
+  },
+  "orphan_reconciliation_records": [
+    "direct_usage_7L75ZQFGNM6QIQV57BDMREE7BB"
+  ],
+  "actual_cost": "UNAVAILABLE",
+  "accounting_note": "configured accounting is not a provider invoice"
+}
