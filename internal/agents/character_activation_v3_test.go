@@ -63,6 +63,31 @@ func (m *activationV3RuntimeModel) Generate(ctx context.Context, messages []agen
 				verdict.ContractGroups[i].Status = "impossible"
 			}
 		}
+		if verdict.SoftEvent != nil {
+			switch verdict.Decision {
+			case "continue":
+				verdict.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventPending, EvidenceRefs: append([]string(nil), verdict.EvidenceRefs...)}
+			case "hard_conflict":
+				verdict.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventHardUnsatisfied, EvidenceRefs: append([]string(nil), verdict.EvidenceRefs...)}
+			case "ready_for_plan":
+				view := m.readiness.readinessViews[len(m.readiness.readinessViews)-1]
+				var cycles []struct {
+					ArbitrationRef string `json:"arbitration_ref"`
+					Actions        []struct {
+						AgentID         string `json:"agent_id"`
+						ProposalRef     string `json:"proposal_ref"`
+						DecisionReason  string `json:"decision_reason"`
+						ImmediateResult string `json:"immediate_result"`
+					} `json:"actions"`
+				}
+				if err := json.Unmarshal(view.Trace["cycles"], &cycles); err != nil || len(cycles) == 0 || len(cycles[len(cycles)-1].Actions) == 0 {
+					return nil, fmt.Errorf("v3 readiness fixture lacks actual closing evidence")
+				}
+				last, action := cycles[len(cycles)-1], cycles[len(cycles)-1].Actions[0]
+				verdict.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventOccurred, ActorRef: action.AgentID, ProposalRef: action.ProposalRef,
+					CharacterReason: action.DecisionReason, WorldConsequence: action.ImmediateResult, EvidenceRefs: []string{action.ProposalRef, last.ArbitrationRef}}
+			}
+		}
 		call.Args, err = json.Marshal(verdict)
 		if err != nil {
 			return nil, err

@@ -108,6 +108,10 @@ func NewCharacterReadinessModelCodecV1(input CharacterReadinessReviewInput) (*Ch
 		return nil, err
 	}
 	delete(c.view.Context, "hard_contracts")
+	// Producer/readiness binding is Host authority. The selected model schema and
+	// source_version already communicate the semantic contract; raw producer
+	// digests and policy inventories must not become model-selectable metadata.
+	delete(c.view.Context, "policy_binding")
 	// The original context digest belongs to the canonical input retained by
 	// the Host. Do not label this projected context with that old digest.
 	delete(c.view.Context, "digest")

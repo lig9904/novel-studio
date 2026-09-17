@@ -44,6 +44,10 @@ func runCharacterActivationChapter(ctx context.Context, cfg bootstrap.Config, st
 	if producer == "" {
 		return nil, fmt.Errorf("chapter activation has an unknown frozen producer")
 	}
+	// Freeze the resolved executable identity now. Every later input and the
+	// readiness context must be derived from this exact producer, never from an
+	// implicit "current" lookup performed at a different assembly stage.
+	boundary.FrozenActivationProducer = producer
 	if projected.Version != "" {
 		if err := domain.ValidateProjectedPlanningContextV2(projected); err != nil {
 			return nil, err
@@ -88,7 +92,7 @@ func runCharacterActivationChapter(ctx context.Context, cfg bootstrap.Config, st
 		}
 		opening.PhysicalState = &prepared
 	}
-	chapterContext, err := buildCharacterReadinessContext(st, generation, chapter, boundary, projected, opening)
+	chapterContext, err := buildCharacterReadinessContext(st, generation, chapter, boundary, projected, opening, producer)
 	if err != nil {
 		return nil, err
 	}
@@ -105,6 +109,9 @@ func runCharacterActivationChapter(ctx context.Context, cfg bootstrap.Config, st
 		ExecuteCycle: func(ctx context.Context, session domain.CharacterActivationSession) (domain.CharacterActivationCycle, error) {
 			inputs, err := loadOrPrepareCharacterActivationInputs(st, session, boundary, projected, sources)
 			if err != nil {
+				return domain.CharacterActivationCycle{}, err
+			}
+			if err := domain.ValidateCharacterReadinessContextPolicySources(chapterContext, inputs.Stimulus.Sources); err != nil {
 				return domain.CharacterActivationCycle{}, err
 			}
 			// Frozen input identifies what is now running, but is not evidence

@@ -51,6 +51,43 @@ func dispatchViewObservations(input domain.CharacterActivationInputSet) (map[str
 	return observations, activeCharacterAgentIDs(input.Activation)
 }
 
+func TestReadinessContextFreezesExactProducerBeforeFirstDispatch(t *testing.T) {
+	st, _, session, input, _ := dispatchViewFixture(t)
+	contextValue, err := st.LoadCharacterReadinessContext(session.GenerationID, session.Chapter)
+	selectionMust(t, err)
+	if contextValue == nil || contextValue.Version != domain.CharacterReadinessReviewPolicyV2 || contextValue.PolicyBinding == nil {
+		t.Fatal("current producer froze a legacy readiness context")
+	}
+	binding := contextValue.PolicyBinding
+	wantProducer := characterActivationProtocolForStimulus(input.Stimulus)
+	if binding.ActivationPolicy != domain.CharacterActivationCyclePolicyV3 || binding.ProducerDigest != wantProducer || binding.ReadinessPolicy != domain.CharacterReadinessReviewPolicyV2 || binding.SoftEventPolicy != domain.CharacterSoftEventReadinessPolicyV1 || !domain.HasCharacterSoftEventReadinessPolicyV1(binding.ProducerPolicies) {
+		t.Fatalf("readiness context did not bind the complete producer inventory: %+v", binding)
+	}
+	if session.ChapterContextDigest != contextValue.Digest {
+		t.Fatal("activation session was not created from the final readiness context")
+	}
+	selectionMust(t, domain.ValidateCharacterReadinessContextPolicySources(*contextValue, input.Stimulus.Sources))
+
+	legacy := *contextValue
+	legacy.Version, legacy.PolicyBinding, legacy.Digest = domain.CharacterReadinessReviewPolicy, nil, ""
+	legacy, err = domain.FinalizeCharacterReadinessContext(legacy)
+	selectionMust(t, err)
+	if err := domain.ValidateCharacterReadinessContextPolicySources(legacy, input.Stimulus.Sources); err == nil {
+		t.Fatal("new producer executed against a legacy context frozen before policy assembly")
+	}
+
+	missingSoft := append([]string(nil), input.Stimulus.Sources...)
+	for i, source := range missingSoft {
+		if source == domain.CharacterSoftEventReadinessPolicyV1 {
+			missingSoft = append(missingSoft[:i], missingSoft[i+1:]...)
+			break
+		}
+	}
+	if err := domain.ValidateCharacterReadinessContextPolicySources(*contextValue, missingSoft); err == nil {
+		t.Fatal("frozen soft-event context accepted a downgraded producer inventory")
+	}
+}
+
 func TestCharacterDispatchViewPoolConcurrentResultsAndResume(t *testing.T) {
 	st, cfg, session, input, _ := dispatchViewFixture(t)
 	cfg.CharacterAgents.MaxConcurrency = 4

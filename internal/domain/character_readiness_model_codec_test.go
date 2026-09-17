@@ -43,6 +43,9 @@ func TestReadinessModelCodecKeepsRequirementsOnceAndPreservesCanonicalFacts(t *t
 	if _, falseDigest := view.Context["digest"]; falseDigest {
 		t.Fatal("projected context pretended to retain the original canonical digest")
 	}
+	if _, hostBinding := view.Context["policy_binding"]; hostBinding {
+		t.Fatal("projected context exposed Host producer/readiness authority")
+	}
 	raw, _ := json.Marshal(view)
 	for _, requirement := range input.Requirements {
 		contractJSON, _ := json.Marshal(requirement.Contract)
@@ -115,6 +118,9 @@ func TestSoftEventReadinessModelCodecUsesV2AliasesAndRoundTrips(t *testing.T) {
 	view := codec.ModelView()
 	if view.ViewPolicy != domain.CharacterReadinessModelViewPolicyV2 || view.SchemaPolicy != domain.CharacterReadinessGroupedSchemaPolicyV2 || view.SourcePolicy != domain.CharacterReadinessReviewPolicyV2 {
 		t.Fatal("soft-event readiness did not select its explicit v2 model contract")
+	}
+	if _, hostBinding := view.Context["policy_binding"]; hostBinding {
+		t.Fatal("soft-event model view exposed the frozen Host producer binding")
 	}
 	rawView, _ := json.Marshal(view)
 	for _, digest := range []string{input.Trace.Cycles[0].BeforePhysicalRoot, input.Trace.Cycles[0].AfterPhysicalRoot, input.Trace.Cycles[0].Actions[0].ProposalDigest} {

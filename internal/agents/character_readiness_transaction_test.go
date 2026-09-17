@@ -252,7 +252,7 @@ func TestReadinessTransactionCanceledAndLateToolSubmissionAreRecoverable(t *test
 	snapshot, err := models.SnapshotForRole("writer")
 	selectionMust(t, err)
 	thinking, _ := ResolveThinkingForModel(snapshot.Model, roleThinking(cfg, "writer"))
-	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, true)
+	protocol, err := characterReadinessReviewProtocol(snapshot, thinking, true, true)
 	selectionMust(t, err)
 	input, _, err := st.PrepareVerifiedCharacterReadinessReview(pending, protocol)
 	selectionMust(t, err)
@@ -262,6 +262,22 @@ func TestReadinessTransactionCanceledAndLateToolSubmissionAreRecoverable(t *test
 	var ref string
 	selectionMust(t, json.Unmarshal(view.Trace["final_state_ref"], &ref))
 	verdict := domain.CharacterReadinessGroupedVerdictV1{Decision: "ready_for_plan", Reason: "实际已结算检查可进入规划", EvidenceRefs: []string{ref}}
+	var cycles []struct {
+		ArbitrationRef string `json:"arbitration_ref"`
+		Actions        []struct {
+			AgentID         string `json:"agent_id"`
+			ProposalRef     string `json:"proposal_ref"`
+			DecisionReason  string `json:"decision_reason"`
+			ImmediateResult string `json:"immediate_result"`
+		} `json:"actions"`
+	}
+	selectionMust(t, json.Unmarshal(view.Trace["cycles"], &cycles))
+	if len(cycles) == 0 || len(cycles[len(cycles)-1].Actions) == 0 {
+		t.Fatal("late readiness fixture lacks actual soft-event evidence")
+	}
+	last, action := cycles[len(cycles)-1], cycles[len(cycles)-1].Actions[0]
+	verdict.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventOccurred, ActorRef: action.AgentID, ProposalRef: action.ProposalRef,
+		CharacterReason: action.DecisionReason, WorldConsequence: action.ImmediateResult, EvidenceRefs: []string{action.ProposalRef, last.ArbitrationRef}}
 	for _, requirement := range view.Requirements {
 		status := "pending"
 		if requirement.DueNow {

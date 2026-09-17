@@ -73,8 +73,18 @@ func softEventReadinessFixture(t *testing.T) (domain.CharacterReadinessReviewInp
 	_, _, _, input := testutil.CharacterReadiness(t, false)
 	input.Policy = domain.CharacterReadinessReviewPolicyV2
 	input.Context.Version = domain.CharacterReadinessReviewPolicyV2
+	binding, err := domain.FinalizeCharacterReadinessPolicyBindingV1(domain.CharacterReadinessPolicyBindingV1{
+		ActivationPolicy: domain.CharacterActivationCyclePolicyV3,
+		ProducerDigest:   "sha256:" + strings.Repeat("9", 64),
+		ProducerPolicies: []string{domain.CharacterActivationCyclePolicyV3, domain.CharacterSoftEventReadinessPolicyV1},
+		ReadinessPolicy:  domain.CharacterReadinessReviewPolicyV2,
+		SoftEventPolicy:  domain.CharacterSoftEventReadinessPolicyV1,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	input.Context.PolicyBinding = &binding
 	input.Context.Digest = ""
-	var err error
 	input.Context, err = domain.FinalizeCharacterReadinessContext(input.Context)
 	if err != nil {
 		t.Fatal(err)
@@ -128,6 +138,32 @@ func TestSoftEventReadinessCaseAValidRejectionRequiresActualConsequence(t *testi
 	}
 }
 
+func TestSoftEventReadinessCaseAccepted(t *testing.T) {
+	input, verdict := softEventReadinessFixture(t)
+	verdict.SoftEvent.Outcome = domain.CharacterSoftEventOccurred
+	receipt, err := domain.FinalizeCharacterReadinessReview(input, verdict)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if receipt.Decision != "ready_for_plan" || receipt.SoftEvent == nil || receipt.SoftEvent.Outcome != domain.CharacterSoftEventOccurred {
+		t.Fatal("actual accepted/occurred soft direction did not close")
+	}
+}
+
+func TestSoftEventReadinessCasePlainRejectionWithoutConsequenceStaysDeferred(t *testing.T) {
+	input, verdict := softEventReadinessFixture(t)
+	verdict.Decision = "continue"
+	verdict.Reason = "角色已经拒绝，但当前没有可证明的替代故事后果"
+	verdict.SoftEvent = &domain.CharacterReadinessSoftEvent{Outcome: domain.CharacterSoftEventPending, EvidenceRefs: []string{input.Trace.Cycles[0].ArbitrationDigest}}
+	receipt, err := domain.FinalizeCharacterReadinessReview(input, verdict)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if receipt.Decision != "continue" || receipt.SoftEvent == nil || receipt.SoftEvent.Outcome != domain.CharacterSoftEventPending {
+		t.Fatal("plain rejection without consequence pretended to complete the soft event")
+	}
+}
+
 func TestSoftEventReadinessCaseBActualChoiceSupersedesSoftOutline(t *testing.T) {
 	input, verdict := softEventReadinessFixture(t)
 	verdict.SoftEvent.Outcome = domain.CharacterSoftEventSuperseded
@@ -137,6 +173,20 @@ func TestSoftEventReadinessCaseBActualChoiceSupersedesSoftOutline(t *testing.T) 
 	}
 	if receipt.Decision != "ready_for_plan" || receipt.SoftEvent == nil || receipt.SoftEvent.Outcome != domain.CharacterSoftEventSuperseded {
 		t.Fatal("actual alternative choice did not supersede the soft outline")
+	}
+}
+
+func TestSoftEventReadinessCaseUnresolvedAllowsAnotherCycle(t *testing.T) {
+	input, verdict := softEventReadinessFixture(t)
+	verdict.Decision = "continue"
+	verdict.Reason = "现有证据不足以证明选择、拒绝或替代后果"
+	verdict.SoftEvent = &domain.CharacterReadinessSoftEvent{Outcome: domain.CharacterSoftEventPending, EvidenceRefs: []string{input.Trace.Cycles[0].CycleDigest}}
+	receipt, err := domain.FinalizeCharacterReadinessReview(input, verdict)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if receipt.Decision != "continue" || receipt.SoftEvent == nil || receipt.SoftEvent.Outcome != domain.CharacterSoftEventPending {
+		t.Fatal("unresolved evidence did not remain fail-closed")
 	}
 }
 

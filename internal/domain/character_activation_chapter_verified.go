@@ -99,7 +99,7 @@ func rebuildCharacterActivationChapterPrefix(value CharacterActivationChapterEvi
 			return empty, err
 		}
 		audit := value.Reviews[i]
-		if audit.Receipt.Version != CharacterReadinessReviewedVersion {
+		if audit.Receipt.Version != CharacterReadinessReviewedVersion && audit.Receipt.Version != CharacterReadinessReviewedVersionV3 {
 			return empty, fmt.Errorf("activation chapter requires an audited readiness result for every cycle")
 		}
 		if err := ValidateCharacterReadinessReviewAudit(audit); err != nil {

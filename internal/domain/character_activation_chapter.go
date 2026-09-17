@@ -48,7 +48,7 @@ func FinalizeCharacterActivationChapterEvidence(value CharacterActivationChapter
 			return value, err
 		}
 		audit := value.Reviews[i]
-		if audit.Receipt.Version != CharacterReadinessReviewedVersion {
+		if audit.Receipt.Version != CharacterReadinessReviewedVersion && audit.Receipt.Version != CharacterReadinessReviewedVersionV3 {
 			return value, fmt.Errorf("chapter activation requires audited model readiness for every cycle")
 		}
 		if err := ValidateCharacterReadinessReviewAudit(audit); err != nil {

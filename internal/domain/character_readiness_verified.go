@@ -96,6 +96,9 @@ func NewCharacterReadinessReviewInputFromSteps(context CharacterReadinessContext
 			return input, fmt.Errorf("readiness step differs from its committed session/context")
 		}
 	}
+	if err := ValidateCharacterReadinessContextPolicySources(context, steps[0].cycle.Evidence.Stimulus.Sources); err != nil {
+		return input, err
+	}
 	first, last := steps[0].cycle, steps[len(steps)-1].cycle
 	if session.InitialPhysicalRoot != first.BeforePhysicalRoot || session.InitialDay != first.StartDay || session.CurrentPhysicalRoot != last.AfterPhysicalRoot || session.CurrentDay != last.EndDay {
 		return input, fmt.Errorf("readiness session state/time differs from its verified source chain")

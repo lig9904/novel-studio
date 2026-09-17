@@ -118,7 +118,7 @@ func characterReadinessReviewProtocol(snapshot bootstrap.ModelSnapshot, thinking
 	return "sha256:" + digest, nil
 }
 
-func buildCharacterReadinessContext(st *store.Store, generation string, chapter int, boundary ProjectedArcBoundary, projected domain.ProjectedPlanningContextV2, stimulus domain.WorldStimulusPacket) (domain.CharacterReadinessContext, error) {
+func buildCharacterReadinessContext(st *store.Store, generation string, chapter int, boundary ProjectedArcBoundary, projected domain.ProjectedPlanningContextV2, stimulus domain.WorldStimulusPacket, producers ...string) (domain.CharacterReadinessContext, error) {
 	var value domain.CharacterReadinessContext
 	if stimulus.GenerationID != generation || stimulus.Chapter != chapter {
 		return value, fmt.Errorf("readiness chapter context requires its exact opening stimulus")
@@ -135,8 +135,31 @@ func buildCharacterReadinessContext(st *store.Store, generation string, chapter 
 		return value, fmt.Errorf("readiness chapter outline is missing")
 	}
 	value = domain.CharacterReadinessContext{GenerationID: generation, Chapter: chapter, POVCharacter: protagonist, ArcLastChapter: boundary.LastChapter, BookLastChapter: boundary.BookLastChapter, SoftOutline: *outline, HardContracts: append([]string(nil), stimulus.HardContracts...)}
-	if domain.HasCharacterSoftEventReadinessPolicyV1(stimulus.Sources) {
+	activationPolicy := characterActivationPolicyForBoundary(boundary)
+	producer := CharacterActivationProtocolWithProducer(activationPolicy, boundary.FrozenActivationProducer)
+	if producer == "" || len(producers) > 1 || (len(producers) == 1 && producers[0] != producer) {
+		return value, fmt.Errorf("readiness context cannot resolve its exact activation producer")
+	}
+	var producerPolicies []string
+	if activationPolicy == domain.CharacterActivationCyclePolicyV3 {
+		producerPolicies = characterActivationV3PoliciesForProducer(producer)
+		if producerPolicies == nil {
+			return value, fmt.Errorf("readiness context has an unknown v3 producer policy inventory")
+		}
+	}
+	if domain.HasCharacterSoftEventReadinessPolicyV1(producerPolicies) {
+		binding, err := domain.FinalizeCharacterReadinessPolicyBindingV1(domain.CharacterReadinessPolicyBindingV1{
+			ActivationPolicy: activationPolicy,
+			ProducerDigest:   producer,
+			ProducerPolicies: producerPolicies,
+			ReadinessPolicy:  domain.CharacterReadinessReviewPolicyV2,
+			SoftEventPolicy:  domain.CharacterSoftEventReadinessPolicyV1,
+		})
+		if err != nil {
+			return value, err
+		}
 		value.Version = domain.CharacterReadinessReviewPolicyV2
+		value.PolicyBinding = &binding
 	}
 	if projected.Version != "" {
 		if err := domain.ValidateProjectedPlanningContextV2(projected); err != nil {

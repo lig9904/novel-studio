@@ -10,6 +10,7 @@ const CharacterReadinessReviewPolicy = "chapter-readiness:arbitrated-events.v1"
 const CharacterReadinessReviewPolicyV2 = "chapter-readiness:soft-event-outcome.v2"
 const CharacterReadinessReviewedVersion = "character-chapter-readiness.v2"
 const CharacterReadinessReviewedVersionV3 = "character-chapter-readiness.v3"
+const CharacterReadinessPolicyBindingVersionV1 = "character-readiness-policy-binding.v1"
 
 const (
 	CharacterSoftEventOccurred        = "OCCURRED"
@@ -23,18 +24,93 @@ const (
 // session binds its digest before the first cycle, so a later outline edit
 // cannot silently change what an already paid readiness review was judging.
 type CharacterReadinessContext struct {
-	Version                 string                          `json:"version"`
-	GenerationID            string                          `json:"generation_id"`
-	Chapter                 int                             `json:"chapter"`
-	POVCharacter            string                          `json:"pov_character"`
-	ArcLastChapter          int                             `json:"arc_last_chapter"`
-	BookLastChapter         int                             `json:"book_last_chapter"`
-	TargetWords             int                             `json:"target_words,omitempty"`
-	ProjectionContextDigest string                          `json:"projection_context_digest,omitempty"`
-	SoftOutline             OutlineEntry                    `json:"soft_outline"`
-	HardContracts           []string                        `json:"hard_contracts"`
-	Obligations             []ProjectedPlanningObligationV2 `json:"obligations,omitempty"`
-	Digest                  string                          `json:"digest"`
+	Version                 string                             `json:"version"`
+	GenerationID            string                             `json:"generation_id"`
+	Chapter                 int                                `json:"chapter"`
+	POVCharacter            string                             `json:"pov_character"`
+	ArcLastChapter          int                                `json:"arc_last_chapter"`
+	BookLastChapter         int                                `json:"book_last_chapter"`
+	TargetWords             int                                `json:"target_words,omitempty"`
+	ProjectionContextDigest string                             `json:"projection_context_digest,omitempty"`
+	SoftOutline             OutlineEntry                       `json:"soft_outline"`
+	HardContracts           []string                           `json:"hard_contracts"`
+	Obligations             []ProjectedPlanningObligationV2    `json:"obligations,omitempty"`
+	PolicyBinding           *CharacterReadinessPolicyBindingV1 `json:"policy_binding,omitempty"`
+	Digest                  string                             `json:"digest"`
+}
+
+// CharacterReadinessPolicyBindingV1 freezes the exact execution semantics
+// that selected the readiness contract. ProducerPolicies is an inventory, not
+// character-visible knowledge; the producer digest remains the executable root.
+type CharacterReadinessPolicyBindingV1 struct {
+	Version          string   `json:"version"`
+	ActivationPolicy string   `json:"activation_policy"`
+	ProducerDigest   string   `json:"producer_digest"`
+	ProducerPolicies []string `json:"producer_policies"`
+	ReadinessPolicy  string   `json:"readiness_policy"`
+	SoftEventPolicy  string   `json:"soft_event_policy"`
+	Digest           string   `json:"digest"`
+}
+
+func FinalizeCharacterReadinessPolicyBindingV1(value CharacterReadinessPolicyBindingV1) (CharacterReadinessPolicyBindingV1, error) {
+	if value.Version == "" {
+		value.Version = CharacterReadinessPolicyBindingVersionV1
+	}
+	if value.Version != CharacterReadinessPolicyBindingVersionV1 || !IsCharacterActivationPolicy(value.ActivationPolicy) || value.ReadinessPolicy != CharacterReadinessReviewPolicyV2 || value.SoftEventPolicy != CharacterSoftEventReadinessPolicyV1 {
+		return value, fmt.Errorf("character readiness policy binding has invalid semantics")
+	}
+	if err := validatePlanningV2Digest("character readiness producer", value.ProducerDigest); err != nil {
+		return value, err
+	}
+	value.ProducerPolicies = normalizeV2Strings(value.ProducerPolicies)
+	if len(value.ProducerPolicies) == 0 || !planningV2ContainsExactString(value.ProducerPolicies, value.ActivationPolicy) || !planningV2ContainsExactString(value.ProducerPolicies, value.SoftEventPolicy) {
+		return value, fmt.Errorf("character readiness policy binding lacks its activation/soft-event inventory")
+	}
+	value.Digest = ""
+	var err error
+	value.Digest, err = characterAgentDigest(value)
+	return value, err
+}
+
+// ValidateCharacterReadinessContextPolicySources prevents a later producer
+// inventory from silently upgrading or downgrading an already frozen chapter.
+func ValidateCharacterReadinessContextPolicySources(context CharacterReadinessContext, sources []string) error {
+	checked, err := FinalizeCharacterReadinessContext(context)
+	if err != nil {
+		return err
+	}
+	if checked.Digest != context.Digest {
+		return fmt.Errorf("character readiness context digest mismatch")
+	}
+	if context.Version != CharacterReadinessReviewPolicyV2 {
+		if HasCharacterSoftEventReadinessPolicyV1(sources) {
+			return fmt.Errorf("soft-event producer cannot execute against a legacy frozen readiness context")
+		}
+		return nil
+	}
+	binding := context.PolicyBinding
+	if binding == nil {
+		return fmt.Errorf("soft-event readiness context lacks its frozen producer policy binding")
+	}
+	for _, policy := range binding.ProducerPolicies {
+		if !planningV2ContainsExactString(sources, policy) {
+			return fmt.Errorf("activation stimulus differs from frozen readiness producer policies")
+		}
+	}
+	wantProducer := "character-agent-protocol:" + binding.ProducerDigest
+	producerCount := 0
+	for _, source := range sources {
+		if strings.HasPrefix(source, "character-agent-protocol:") {
+			producerCount++
+			if source != wantProducer {
+				return fmt.Errorf("activation stimulus producer differs from frozen readiness producer")
+			}
+		}
+	}
+	if producerCount != 1 || !planningV2ContainsExactString(sources, binding.ActivationPolicy) || !planningV2ContainsExactString(sources, binding.SoftEventPolicy) {
+		return fmt.Errorf("activation stimulus lacks the exact frozen readiness execution binding")
+	}
+	return nil
 }
 
 func FinalizeCharacterReadinessContext(value CharacterReadinessContext) (CharacterReadinessContext, error) {
@@ -43,6 +119,22 @@ func FinalizeCharacterReadinessContext(value CharacterReadinessContext) (Charact
 	}
 	if (value.Version != CharacterReadinessReviewPolicy && value.Version != CharacterReadinessReviewPolicyV2) || !strings.HasPrefix(value.GenerationID, PlanningGenerationIDPrefix) || value.Chapter < 1 || value.ArcLastChapter < value.Chapter || value.BookLastChapter < value.ArcLastChapter || value.SoftOutline.Chapter != value.Chapter || strings.TrimSpace(value.POVCharacter) == "" || value.TargetWords < 0 {
 		return value, fmt.Errorf("chapter readiness context has invalid identity/boundaries")
+	}
+	if value.Version == CharacterReadinessReviewPolicyV2 {
+		if value.PolicyBinding == nil {
+			return value, fmt.Errorf("soft-event readiness context requires its frozen policy binding")
+		}
+		originalDigest := value.PolicyBinding.Digest
+		binding, err := FinalizeCharacterReadinessPolicyBindingV1(*value.PolicyBinding)
+		if err != nil {
+			return value, err
+		}
+		if originalDigest != binding.Digest {
+			return value, fmt.Errorf("character readiness policy binding digest mismatch")
+		}
+		value.PolicyBinding = &binding
+	} else if value.PolicyBinding != nil {
+		return value, fmt.Errorf("legacy readiness context cannot claim a producer policy binding")
 	}
 	if value.ProjectionContextDigest != "" {
 		if err := validatePlanningV2Digest("readiness projection context", value.ProjectionContextDigest); err != nil {
@@ -219,6 +311,9 @@ func NewCharacterReadinessReviewInput(context CharacterReadinessContext, session
 		if cycles[i].Digest != session.CycleDigests[i] {
 			return input, fmt.Errorf("readiness cycle differs from committed session")
 		}
+	}
+	if err := ValidateCharacterReadinessContextPolicySources(context, cycles[0].Evidence.Stimulus.Sources); err != nil {
+		return input, err
 	}
 	trace, err := BuildCharacterReadinessTrace(cycles)
 	if err != nil {
@@ -450,17 +545,29 @@ func validateCharacterReadinessSoftEvent(input CharacterReadinessReviewInput, ve
 		if verdict.Decision != "ready_for_plan" || strings.TrimSpace(soft.ActorRef) == "" || strings.TrimSpace(soft.ProposalRef) == "" || strings.TrimSpace(soft.CharacterReason) == "" || strings.TrimSpace(soft.WorldConsequence) == "" {
 			return fmt.Errorf("closed soft event requires ready_for_plan and exact actor/proposal/reason/consequence")
 		}
-		var action *CharacterReadinessAction
 		var cycle *CharacterReadinessCycleView
 		for i := range input.Trace.Cycles {
-			for j := range input.Trace.Cycles[i].Actions {
-				candidate := &input.Trace.Cycles[i].Actions[j]
-				if candidate.ProposalDigest == soft.ProposalRef {
-					if action != nil {
-						return fmt.Errorf("soft-event proposal reference is ambiguous")
-					}
-					action, cycle = candidate, &input.Trace.Cycles[i]
+			for _, ref := range soft.EvidenceRefs {
+				if ref != input.Trace.Cycles[i].CycleDigest && ref != input.Trace.Cycles[i].ArbitrationDigest {
+					continue
 				}
+				if cycle != nil && cycle != &input.Trace.Cycles[i] {
+					return fmt.Errorf("soft-event outcome cites more than one actual cycle")
+				}
+				cycle = &input.Trace.Cycles[i]
+			}
+		}
+		if cycle == nil {
+			return fmt.Errorf("soft-event closure must cite its same-cycle actual result")
+		}
+		var action *CharacterReadinessAction
+		for j := range cycle.Actions {
+			candidate := &cycle.Actions[j]
+			if candidate.ProposalDigest == soft.ProposalRef {
+				if action != nil {
+					return fmt.Errorf("soft-event proposal reference is ambiguous within its cited cycle")
+				}
+				action = candidate
 			}
 		}
 		if action == nil || soft.ActorRef != action.AgentID || strings.TrimSpace(soft.CharacterReason) != strings.TrimSpace(action.DecisionReason) {

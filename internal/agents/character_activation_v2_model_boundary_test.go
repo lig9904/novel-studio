@@ -136,17 +136,22 @@ func (m *activationV2ViewModel) Generate(_ context.Context, messages []agentcore
 		if err := decode("chapter_readiness_input", modelinput.KindChapterReadiness, &view); err != nil {
 			return nil, err
 		}
-		if view.ViewPolicy != domain.CharacterReadinessModelViewPolicyV1 || view.SchemaPolicy != domain.CharacterReadinessGroupedSchemaPolicyV1 || !seenPrompt(characterGroupedReadinessPrompt) || len(view.Requirements) == 0 {
+		properties, ok := specs[0].Parameters.(map[string]any)["properties"].(map[string]any)
+		if !ok || properties["contract_groups"] == nil || properties["contract_checks"] != nil || properties["input_digest"] != nil || properties["view_digest"] != nil {
+			return nil, fmt.Errorf("readiness still asks the model for old checks or Host digest binding")
+		}
+		softOutcome := properties["soft_event"] != nil
+		wantView, wantSchema := domain.CharacterReadinessModelViewPolicyV1, domain.CharacterReadinessGroupedSchemaPolicyV1
+		if softOutcome {
+			wantView, wantSchema = domain.CharacterReadinessModelViewPolicyV2, domain.CharacterReadinessGroupedSchemaPolicyV2
+		}
+		if view.ViewPolicy != wantView || view.SchemaPolicy != wantSchema || !seenPrompt(characterGroupedReadinessPrompt) || seenPrompt(characterSoftEventReadinessPromptV1) != softOutcome || len(view.Requirements) == 0 {
 			return nil, fmt.Errorf("readiness did not receive the actual grouped model view")
 		}
 		if _, duplicate := view.Context["hard_contracts"]; duplicate {
 			return nil, fmt.Errorf("readiness duplicated hard contracts")
 		}
 		m.readinessViews = append(m.readinessViews, view)
-		properties, ok := specs[0].Parameters.(map[string]any)["properties"].(map[string]any)
-		if !ok || properties["contract_groups"] == nil || properties["contract_checks"] != nil || properties["input_digest"] != nil || properties["view_digest"] != nil {
-			return nil, fmt.Errorf("readiness still asks the model for old checks or Host digest binding")
-		}
 		var ref string
 		if err := json.Unmarshal(view.Trace["final_state_ref"], &ref); err != nil || !strings.HasPrefix(ref, "e") {
 			return nil, fmt.Errorf("readiness has no short actual-state evidence reference")
@@ -174,7 +179,34 @@ func (m *activationV2ViewModel) Generate(_ context.Context, messages []agentcore
 		if cycle == 2 {
 			decision, reason = "ready_for_plan", "两轮实际观察已完成，未来硬约束仍保留"
 		}
-		args = domain.CharacterReadinessGroupedVerdictV1{Decision: decision, Reason: reason, EvidenceRefs: []string{ref}, ContractGroups: groups}
+		grouped := domain.CharacterReadinessGroupedVerdictV1{Decision: decision, Reason: reason, EvidenceRefs: []string{ref}, ContractGroups: groups}
+		if softOutcome {
+			var cycles []struct {
+				CycleRef       string `json:"cycle_ref"`
+				ArbitrationRef string `json:"arbitration_ref"`
+				Actions        []struct {
+					AgentID         string `json:"agent_id"`
+					ProposalRef     string `json:"proposal_ref"`
+					DecisionReason  string `json:"decision_reason"`
+					ImmediateResult string `json:"immediate_result"`
+				} `json:"actions"`
+			}
+			if err := json.Unmarshal(view.Trace["cycles"], &cycles); err != nil || len(cycles) == 0 {
+				return nil, fmt.Errorf("soft-event readiness lacks actual cycle evidence")
+			}
+			last := cycles[len(cycles)-1]
+			if decision == "continue" {
+				grouped.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventPending, EvidenceRefs: []string{last.ArbitrationRef}}
+			} else {
+				if len(last.Actions) == 0 {
+					return nil, fmt.Errorf("soft-event readiness lacks an actual character action")
+				}
+				action := last.Actions[0]
+				grouped.SoftEvent = &domain.CharacterReadinessGroupedSoftEventV2{Outcome: domain.CharacterSoftEventOccurred, ActorRef: action.AgentID, ProposalRef: action.ProposalRef,
+					CharacterReason: action.DecisionReason, WorldConsequence: action.ImmediateResult, EvidenceRefs: []string{action.ProposalRef, last.ArbitrationRef}}
+			}
+		}
+		args = grouped
 	default:
 		return nil, fmt.Errorf("unexpected v2 terminal tool %s", specs[0].Name)
 	}
