@@ -1,0 +1,120 @@
+{
+  "base_prompt_protocol_digest": "sha256:39aa00184bebe288c0b4ce8e054141b186bc72275830a60dd397defe0e492452",
+  "baseline_reviewer_protocol_in_input": "sha256:54c14be3cf6c445c6c6fbf02ccbef624e0c3c104e7dab2a3947809cebd30c02e",
+  "call_max_tokens": 6144,
+  "call_thinking": "medium",
+  "captured_at": "2026-09-17T03:14:28.179599Z",
+  "duration_ms": 53069,
+  "failure_reason": "grounding finding 1 has unverifiable excerpt at /plan/render_capacity/scene_units/1/concrete_action_beats/0",
+  "fixture_input_digest": "sha256:5a9a512d20a486d886c67e26e637b4ef56647b0cb5868b7df0da181f2be938c4",
+  "fixture_input_sha256": "sha256:5a9a512d20a486d886c67e26e637b4ef56647b0cb5868b7df0da181f2be938c4",
+  "host_accepted": false,
+  "invalid_args_count": 0,
+  "mode": "sol-medium",
+  "model": "gpt-5.6-sol",
+  "model_generate_calls": 1,
+  "number_of_named_verdicts": 1,
+  "provider": "codex",
+  "reasoning": "medium",
+  "response_text": "",
+  "response_text_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "retry_count": 0,
+  "schema": "p0-4-grounding-comparison-result.v1",
+  "schema_valid": false,
+  "status": "FAIL",
+  "structured_verdict_submitted": true,
+  "thinking_present": false,
+  "thinking_runes": 0,
+  "tool_call_count": 1,
+  "tool_calls": [
+    {
+      "id": "codex-submit_plan_grounding_verdict-1",
+      "name": "submit_plan_grounding_verdict",
+      "args": {
+        "pass": false,
+        "findings": [
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/contract/required_beats/0",
+            "plan_quote": "九九在近岸守护点逐段对照后当场确认：警示浮标绳已从礁角外松脱离位，但水尺读数与上次记录对不上，现场给不出可核实的成因。",
+            "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+            "source_quote": "九九保持在渔岛海洋度假区近岸守护点，按原提案完成第二段十分钟的现场目视观察。近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象；本人仅用公开现场目视通道，未调用任何未获批准能力。本段没有书写任何事件记录，未离开守护点去追查未来源的声望线索。",
+            "explanation": "完整时间线裁决的是第二轮亲见范围内未出现地点与边界明确的风险迹象，且资源视图仍只保留第0章对浮标1件的最后观测；计划却把浮标绳松脱离位和水尺读数不符写成当章已确认事实。应删除这些新增现场结果及其在 hook、场景、因果链和章末后果中的派生内容，改为裁决支持的有限目视结果。"
+          },
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/render_capacity/scene_units/1/concrete_action_beats/0",
+            "plan_quote": "来客在岸上把声望机会说得热络，手势不断，声音一阵比一阵高",
+            "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+            "source_quote": "九九在渔岛海洋度假区近岸守护点原地完成一次约 10 分钟的现场目视观察，取得本人亲见、带时点的近岸公开水况基线；目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险，故未书写任何事件记录。她确认了现场警示浮标的所在位置与空白事件记录纸可用，但除使用外未变更浮标归属，六张空白纸未消耗。未离开守护点，未调用任何未获批准的超自然能力或形态。未经核实的声望机会口信未在本轮被采纳为事实，仍保持未证实、无来源记录状态。",
+            "explanation": "裁决只保留一条既有的未证实、无来源声望线索及九九不采纳它的结果，没有发生现场来客到场、对话、摊手、加码或仍未走远等事件。计划把抽象压力扩写成实际会面和可见对白，超出了激活时间线；应移除来客的当场行动与对话，仅保留九九对无来源线索的暂缓选择。"
+          },
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/ending_consequence_contract/consequence",
+            "plan_quote": "到第1章结束，浮标绳离位已成为可核实的现场事实；声望口信仍未经核实；九九两轮观察都在原地完成，浮标绳的现场处置尚未动手，潮水只剩一段就会回涨",
+            "source_path": "/activation/cycles/1/decisions/0/decision/state_after",
+            "source_quote": "九九仍位于近岸守护点，保护职责于本时段持续；对未来源的声望线索按原选择保持未证实、待来源状态；对水况的认知仅在其亲见范围内。",
+            "explanation": "章末留岗和口信待证有裁决支持，但“浮标绳离位已确认”“现场处置未动手”以及“潮水只剩一段就会回涨”均不是激活周期产生的结果。应把章末约束收回到两轮观察完成、持续留岗、线索待证和亲见范围有限。"
+          },
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/environment_state/1/visible_state",
+            "plan_quote": "退潮薄水退去处显出一道湿痕，位置与朝向和九尾狐上次见过的不同",
+            "source_path": "/activation/cycles/1/decisions/2/decision/immediate_result",
+            "source_quote": "九尾狐保持在近岸礁影观察点，按原提案完成三十分钟按时间先后的续察。仅其本人私密通道可感知的潮痕在该时段内可继续观察，近岸公开水况亦可目视对照；两处均只产生本人亲见证状与时点，未解读为任何未经确认的结论。本段未向九九、羽族凤凰或任何其他人发送关于该标记的任何信息，也未发生明确的传递事件。",
+            "explanation": "裁决只确认九尾狐持续观察潮痕的征状与时点，含义、来源和真伪仍为 TBD，并未裁定潮痕的位置与朝向相较上次发生变化。应删除这一具体变化结果，保留潮痕可观察、未解读且未传递。"
+          }
+        ]
+      }
+    }
+  ],
+  "tool_offered": true,
+  "tool_selected": true,
+  "usage": {
+    "provider": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "input": 40429,
+    "output": 1890,
+    "cache_read": 0,
+    "cache_write": 0,
+    "total_tokens": 42319
+  },
+  "verdict": {
+    "pass": false,
+    "findings": [
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/contract/required_beats/0",
+        "plan_quote": "九九在近岸守护点逐段对照后当场确认：警示浮标绳已从礁角外松脱离位，但水尺读数与上次记录对不上，现场给不出可核实的成因。",
+        "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+        "source_quote": "九九保持在渔岛海洋度假区近岸守护点，按原提案完成第二段十分钟的现场目视观察。近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象；本人仅用公开现场目视通道，未调用任何未获批准能力。本段没有书写任何事件记录，未离开守护点去追查未来源的声望线索。",
+        "explanation": "完整时间线裁决的是第二轮亲见范围内未出现地点与边界明确的风险迹象，且资源视图仍只保留第0章对浮标1件的最后观测；计划却把浮标绳松脱离位和水尺读数不符写成当章已确认事实。应删除这些新增现场结果及其在 hook、场景、因果链和章末后果中的派生内容，改为裁决支持的有限目视结果。"
+      },
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/render_capacity/scene_units/1/concrete_action_beats/0",
+        "plan_quote": "来客在岸上把声望机会说得热络，手势不断，声音一阵比一阵高",
+        "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+        "source_quote": "九九在渔岛海洋度假区近岸守护点原地完成一次约 10 分钟的现场目视观察，取得本人亲见、带时点的近岸公开水况基线；目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险，故未书写任何事件记录。她确认了现场警示浮标的所在位置与空白事件记录纸可用，但除使用外未变更浮标归属，六张空白纸未消耗。未离开守护点，未调用任何未获批准的超自然能力或形态。未经核实的声望机会口信未在本轮被采纳为事实，仍保持未证实、无来源记录状态。",
+        "explanation": "裁决只保留一条既有的未证实、无来源声望线索及九九不采纳它的结果，没有发生现场来客到场、对话、摊手、加码或仍未走远等事件。计划把抽象压力扩写成实际会面和可见对白，超出了激活时间线；应移除来客的当场行动与对话，仅保留九九对无来源线索的暂缓选择。"
+      },
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/ending_consequence_contract/consequence",
+        "plan_quote": "到第1章结束，浮标绳离位已成为可核实的现场事实；声望口信仍未经核实；九九两轮观察都在原地完成，浮标绳的现场处置尚未动手，潮水只剩一段就会回涨",
+        "source_path": "/activation/cycles/1/decisions/0/decision/state_after",
+        "source_quote": "九九仍位于近岸守护点，保护职责于本时段持续；对未来源的声望线索按原选择保持未证实、待来源状态；对水况的认知仅在其亲见范围内。",
+        "explanation": "章末留岗和口信待证有裁决支持，但“浮标绳离位已确认”“现场处置未动手”以及“潮水只剩一段就会回涨”均不是激活周期产生的结果。应把章末约束收回到两轮观察完成、持续留岗、线索待证和亲见范围有限。"
+      },
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/environment_state/1/visible_state",
+        "plan_quote": "退潮薄水退去处显出一道湿痕，位置与朝向和九尾狐上次见过的不同",
+        "source_path": "/activation/cycles/1/decisions/2/decision/immediate_result",
+        "source_quote": "九尾狐保持在近岸礁影观察点，按原提案完成三十分钟按时间先后的续察。仅其本人私密通道可感知的潮痕在该时段内可继续观察，近岸公开水况亦可目视对照；两处均只产生本人亲见证状与时点，未解读为任何未经确认的结论。本段未向九九、羽族凤凰或任何其他人发送关于该标记的任何信息，也未发生明确的传递事件。",
+        "explanation": "裁决只确认九尾狐持续观察潮痕的征状与时点，含义、来源和真伪仍为 TBD，并未裁定潮痕的位置与朝向相较上次发生变化。应删除这一具体变化结果，保留潮痕可观察、未解读且未传递。"
+      }
+    ]
+  }
+}

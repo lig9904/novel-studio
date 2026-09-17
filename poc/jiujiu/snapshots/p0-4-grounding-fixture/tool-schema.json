@@ -1,0 +1,65 @@
+{
+  "name": "submit_plan_grounding_verdict",
+  "description": "提交章节计划对最终裁决的忠实性分类，不修改任何故事数据",
+  "parameters": {
+    "properties": {
+      "findings": {
+        "description": "通过为空，拒绝时1-8项",
+        "items": {
+          "properties": {
+            "explanation": {
+              "description": "具体矛盾与应修范围，不保存原始推理",
+              "type": "string"
+            },
+            "kind": {
+              "description": "矛盾类别",
+              "enum": [
+                "time",
+                "location",
+                "knowledge",
+                "intent",
+                "outcome"
+              ],
+              "type": "string"
+            },
+            "plan_path": {
+              "description": "待修计划字段的 JSON pointer",
+              "type": "string"
+            },
+            "plan_quote": {
+              "description": "该字段原文摘录",
+              "type": "string"
+            },
+            "source_path": {
+              "description": "裁决或观察依据的 JSON pointer",
+              "type": "string"
+            },
+            "source_quote": {
+              "description": "来源原文摘录",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "plan_path",
+            "plan_quote",
+            "source_path",
+            "source_quote",
+            "explanation"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "pass": {
+        "description": "无实质矛盾时为true",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "pass",
+      "findings"
+    ],
+    "type": "object"
+  }
+}

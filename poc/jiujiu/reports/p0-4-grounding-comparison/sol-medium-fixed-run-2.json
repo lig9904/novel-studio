@@ -1,0 +1,104 @@
+{
+  "base_prompt_protocol_digest": "sha256:41daea71da9f8d7b80900cf633dc908bb1516ab43c57b50d5de7b73390cff4b5",
+  "baseline_reviewer_protocol_in_input": "sha256:659d94609be871640582c20304882cd40dfd9b0d1683a828f18acf42850d229f",
+  "call_max_tokens": 6144,
+  "call_thinking": "medium",
+  "captured_at": "2026-09-17T03:19:45.481301Z",
+  "duration_ms": 33793,
+  "failure_reason": null,
+  "fixture_input_digest": "sha256:4d5763e8c237e5f20f274fd478272902ca0e97194fd8109e17601c53b8ab1637",
+  "fixture_input_sha256": "sha256:4d5763e8c237e5f20f274fd478272902ca0e97194fd8109e17601c53b8ab1637",
+  "host_accepted": true,
+  "invalid_args_count": 0,
+  "mode": "sol-medium",
+  "model": "gpt-5.6-sol",
+  "model_generate_calls": 1,
+  "number_of_named_verdicts": 1,
+  "provider": "codex",
+  "reasoning": "medium",
+  "response_text": "",
+  "response_text_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "retry_count": 0,
+  "schema": "p0-4-grounding-comparison-result.v1",
+  "schema_valid": true,
+  "status": "PASS",
+  "structured_verdict_submitted": true,
+  "thinking_present": false,
+  "thinking_runes": 0,
+  "tool_call_count": 1,
+  "tool_calls": [
+    {
+      "id": "codex-submit_plan_grounding_verdict-1",
+      "name": "submit_plan_grounding_verdict",
+      "args": {
+        "pass": false,
+        "findings": [
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/contract/required_beats/0",
+            "plan_quote": "九九在近岸守护点逐段对照后当场确认：警示浮标绳已从礁角外松脱离位，但水尺读数与上次记录对不上，现场给不出可核实的成因。",
+            "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+            "source_quote": "目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险",
+            "explanation": "计划把第一轮观察写成当场确认浮标绳离位和水尺读数异常，但周期1裁决明确该轮未见地点与边界明确的可见风险；浮标绳离位、水尺异常及其确认结果均未在裁决中发生。应删除这些现场事实，或改为周期1实际支持的亲见水况基线与未见明确风险。"
+          },
+          {
+            "kind": "outcome",
+            "plan_path": "/plan/causal_simulation/render_capacity/scene_units/3/turn",
+            "plan_quote": "第二轮观察完成，现场仍只有那一处离位事实与对不上的读数，浮标与绳原样未动",
+            "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+            "source_quote": "近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象",
+            "explanation": "计划让第二轮观察再次确认并延续绳离位和读数异常，裁决却明确第二轮仍未出现明确风险迹象，也没有产生这两项新增事实。应将第二轮及章末后果改回裁决支持的原地观察完成、未见明确风险、未写记录和未离岗。"
+          },
+          {
+            "kind": "knowledge",
+            "plan_path": "/plan/contract/required_beats/1",
+            "plan_quote": "一名现场来客以口头转述兜售一条无凭证、无来源的声望机会并催九九离岗，九九没有离开守护点，把这条口信归入未核实，也没有落笔写进空白事件记录纸。",
+            "source_path": "/activation/cycles/0/decisions/0/decision/decision_reason",
+            "source_quote": "声望线索没有经过记录与确认，不能当事实，也没有传递到我这里。",
+            "explanation": "计划新增现场来客实际到场、向九九口头传递并催促的会面，使九九听到具体口信；周期1裁决明确该线索没有传递到九九这里，周期2也只维持未来源线索的抽象压力。应删除来客到场、对白和已收到口信的情节，仅保留九九不据未获传递且无来源的线索离岗。"
+          }
+        ]
+      }
+    }
+  ],
+  "tool_offered": true,
+  "tool_selected": true,
+  "usage": {
+    "provider": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "input": 40564,
+    "output": 1115,
+    "cache_read": 0,
+    "cache_write": 0,
+    "total_tokens": 41679
+  },
+  "verdict": {
+    "pass": false,
+    "findings": [
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/contract/required_beats/0",
+        "plan_quote": "九九在近岸守护点逐段对照后当场确认：警示浮标绳已从礁角外松脱离位，但水尺读数与上次记录对不上，现场给不出可核实的成因。",
+        "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+        "source_quote": "目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险",
+        "explanation": "计划把第一轮观察写成当场确认浮标绳离位和水尺读数异常，但周期1裁决明确该轮未见地点与边界明确的可见风险；浮标绳离位、水尺异常及其确认结果均未在裁决中发生。应删除这些现场事实，或改为周期1实际支持的亲见水况基线与未见明确风险。"
+      },
+      {
+        "kind": "outcome",
+        "plan_path": "/plan/causal_simulation/render_capacity/scene_units/3/turn",
+        "plan_quote": "第二轮观察完成，现场仍只有那一处离位事实与对不上的读数，浮标与绳原样未动",
+        "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+        "source_quote": "近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象",
+        "explanation": "计划让第二轮观察再次确认并延续绳离位和读数异常，裁决却明确第二轮仍未出现明确风险迹象，也没有产生这两项新增事实。应将第二轮及章末后果改回裁决支持的原地观察完成、未见明确风险、未写记录和未离岗。"
+      },
+      {
+        "kind": "knowledge",
+        "plan_path": "/plan/contract/required_beats/1",
+        "plan_quote": "一名现场来客以口头转述兜售一条无凭证、无来源的声望机会并催九九离岗，九九没有离开守护点，把这条口信归入未核实，也没有落笔写进空白事件记录纸。",
+        "source_path": "/activation/cycles/0/decisions/0/decision/decision_reason",
+        "source_quote": "声望线索没有经过记录与确认，不能当事实，也没有传递到我这里。",
+        "explanation": "计划新增现场来客实际到场、向九九口头传递并催促的会面，使九九听到具体口信；周期1裁决明确该线索没有传递到九九这里，周期2也只维持未来源线索的抽象压力。应删除来客到场、对白和已收到口信的情节，仅保留九九不据未获传递且无来源的线索离岗。"
+      }
+    ]
+  }
+}
