@@ -18,6 +18,9 @@ func upsertRAGChunks(ctx context.Context, st *store.Store, embedder rag.Embedder
 }
 
 func UpsertRAGChunks(ctx context.Context, st *store.Store, embedder rag.Embedder, vectorWriter rag.VectorWriter, chunks []domain.RAGChunk, cfg domain.RAGIndexConfig) error {
+	if err := validateProposalRAGChunks(st, chunks); err != nil {
+		return err
+	}
 	chunks = normalizeRAGChunks(chunks)
 	chunks = filterProjectContaminatedRAGChunks(st, chunks)
 	pending, err := st.RAG.LoadPendingUpserts()
@@ -26,6 +29,9 @@ func UpsertRAGChunks(ctx context.Context, st *store.Store, embedder rag.Embedder
 	}
 	if pending != nil && len(pending.Chunks) > 0 {
 		chunks = mergeRAGPendingChunks(pending.Chunks, chunks)
+		if err := validateProposalRAGChunks(st, chunks); err != nil {
+			return err
+		}
 		chunks = filterProjectContaminatedRAGChunks(st, chunks)
 	}
 	if len(chunks) == 0 {
@@ -49,6 +55,9 @@ func UpsertRAGChunks(ctx context.Context, st *store.Store, embedder rag.Embedder
 	}
 	if state == nil {
 		state = &domain.RAGIndexState{SchemaVersion: domain.CurrentRAGIndexSchemaVersion, Config: domain.RAGIndexConfig{Collection: "local_keyword"}}
+	}
+	if err := validateProposalRAGChunks(st, state.Chunks); err != nil {
+		return err
 	}
 	if strings.TrimSpace(state.Config.Collection) == "" {
 		state.Config.Collection = "local_keyword"

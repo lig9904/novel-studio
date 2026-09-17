@@ -370,6 +370,8 @@ func BuildCoordinatorWithOptions(
 	webResearch := tools.NewWebResearchTool(store)
 	architectTools := []agentcore.Tool{
 		contextTool,
+		tools.NewSubmitStoryProposalTool(store),
+		tools.NewListStoryProposalsTool(store),
 		saveFoundation,
 		craftRecall,
 		// 世界推演（离屏世界 tick）：Architect 在弧边界以 GM 身份裁决镜头外世界变化。

@@ -532,6 +532,7 @@ func pipelineSourceBindingsV2(
 	outlineDigest := pipelineProjectAllDigest(outline)
 	bindings := []domain.SourceBindingV2{{
 		Kind:            "stable_outline",
+		Authority:       domain.SourceAuthorityReference,
 		SourceID:        fmt.Sprintf("outline:chapter:%d", outline.Chapter),
 		SourceDigest:    outlineDigest,
 		ExactReferences: []string{fmt.Sprintf("outline.json#chapter=%d", outline.Chapter)},
@@ -552,8 +553,13 @@ func pipelineSourceBindingsV2(
 		if len(usable) == 0 {
 			continue
 		}
+		authority := domain.SourceAuthorityReference
+		if strings.EqualFold(strings.TrimSpace(external.SourceType), "proposal") {
+			authority = domain.SourceAuthorityProposal
+		}
 		bindings = append(bindings, domain.SourceBindingV2{
 			Kind:            fallbackProjectAllText(external.SourceType, "external_reference"),
+			Authority:       authority,
 			SourceID:        fallbackProjectAllText(external.QueryOrNeed, fmt.Sprintf("external:%d", i)),
 			SourceDigest:    pipelineProjectAllDigest(refs),
 			ExactReferences: refs,
@@ -570,6 +576,7 @@ func pipelineSourceBindingsV2(
 		// immutable retrieval receipt itself.
 		bindings = append(bindings, domain.SourceBindingV2{
 			Kind:            "rag_fact_receipt",
+			Authority:       domain.SourceAuthorityReference,
 			SourceID:        receipt.ID,
 			SourceDigest:    "sha256:" + receipt.PayloadSHA256,
 			ExactReferences: []string{token},
@@ -588,6 +595,7 @@ func pipelineSourceBindingsV2(
 		if err == nil {
 			bindings = append(bindings, domain.SourceBindingV2{
 				Kind:            "craft_recall_receipt",
+				Authority:       domain.SourceAuthorityReference,
 				SourceID:        craftReceipt.ID,
 				SourceDigest:    craftDigest,
 				ExactReferences: []string{domain.CraftRecallReceiptSourceTokenV2(*craftReceipt)},

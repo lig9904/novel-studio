@@ -15,6 +15,7 @@ import (
 	"github.com/chenhongyang/novel-studio/internal/bootstrap"
 	"github.com/chenhongyang/novel-studio/internal/domain"
 	"github.com/chenhongyang/novel-studio/internal/store"
+	"github.com/chenhongyang/novel-studio/internal/tools"
 )
 
 const (
@@ -358,6 +359,11 @@ func pipelineProjectAllOnce(opts cliOptions, flags pipelineFlags) (returnErr err
 		if err != nil {
 			return err
 		}
+		if err := tools.ValidateNoPendingProposalClaims(shadow, "project-all bundle candidate", map[string]any{
+			"simulation": artifacts.WorldSimulation, "plan": artifacts.Plan,
+		}); err != nil {
+			return fmt.Errorf("project-all 第 %d 章 Proposal isolation: %w", chapter, err)
+		}
 		nextBundle, nextRegistry, err := buildPipelineProjectedChapterBundle(
 			*currentGeneration,
 			*outline,
@@ -394,7 +400,7 @@ func pipelineProjectAllOnce(opts cliOptions, flags pipelineFlags) (returnErr err
 			return fmt.Errorf("project-all 第 %d 章推进影子前态: %w", chapter, err)
 		}
 	}
-	if err := validatePipelineProjectAllComplete(projected, identity.Generation); err != nil {
+	if err := validatePipelineProjectAllComplete(shadow, projected, identity.Generation); err != nil {
 		return err
 	}
 	fmt.Fprintf(
@@ -1179,6 +1185,9 @@ func reconcilePipelineProjectAllWorkspace(
 	}
 	for i := range bundles {
 		chapter := bundles[i].Chapter
+		if err := tools.ValidateNoPendingProposalClaims(shadow, "project-all recovered bundle", bundles[i]); err != nil {
+			return fmt.Errorf("project-all 恢复第 %d 章 Proposal isolation: %w", chapter, err)
+		}
 		if shadow.Progress.IsChapterCompleted(chapter) {
 			continue
 		}
@@ -1249,6 +1258,7 @@ func reconcilePipelineProjectionCursor(
 }
 
 func validatePipelineProjectAllComplete(
+	st *store.Store,
 	projected *store.ProjectedStoreV2,
 	generation domain.PlanningGenerationV2,
 ) error {
@@ -1274,6 +1284,11 @@ func validatePipelineProjectAllComplete(
 	}
 	if len(bundles) != generation.ExpectedChapterCount {
 		return fmt.Errorf("project-all 只完成 %d/%d 章", len(bundles), generation.ExpectedChapterCount)
+	}
+	for i := range bundles {
+		if err := tools.ValidateNoPendingProposalClaims(st, "project-all completed bundle", bundles[i]); err != nil {
+			return fmt.Errorf("project-all chapter %d Proposal isolation: %w", bundles[i].Chapter, err)
+		}
 	}
 	if err := domain.ValidateProjectedChapterBundleChain(*building, bundles, *registry); err != nil {
 		return err

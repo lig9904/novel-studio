@@ -28,6 +28,7 @@ type pipelineProjectAllWorkspaceManifest struct {
 	IsolatedWrites                  bool   `json:"isolated_writes"`
 	FoundationSnapshotRoot          string `json:"foundation_snapshot_root"`
 	RAGSnapshotRoot                 string `json:"rag_snapshot_root"`
+	ProposalRegistryDigest          string `json:"proposal_registry_digest,omitempty"`
 	AcceptedCharacterBaselineDigest string `json:"accepted_character_baseline_digest,omitempty"`
 }
 
@@ -144,6 +145,10 @@ func savePipelineProjectAllWorkspaceManifest(
 	if err != nil {
 		return fmt.Errorf("hash project-all RAG snapshot: %w", err)
 	}
+	proposalRegistryDigest, err := pipelineProjectAllProposalRegistryDigest(workspace)
+	if err != nil {
+		return fmt.Errorf("hash project-all proposal registry: %w", err)
+	}
 	manifest := pipelineProjectAllWorkspaceManifest{
 		Version:                "project-all-workspace.v3",
 		GenerationID:           strings.TrimSpace(generationID),
@@ -154,6 +159,7 @@ func savePipelineProjectAllWorkspaceManifest(
 		IsolatedWrites:         true,
 		FoundationSnapshotRoot: foundationSnapshotRoot,
 		RAGSnapshotRoot:        ragSnapshotRoot,
+		ProposalRegistryDigest: proposalRegistryDigest,
 	}
 	baseline, err := pipelineProjectAllAcceptedCharacterBaseline(liveOutputDir, generationID, baseChapter)
 	if err != nil {
@@ -196,6 +202,14 @@ func validatePipelineProjectAllWorkspaceManifest(
 	if err != nil {
 		return err
 	}
+	liveProposalDigest, err := pipelineProjectAllProposalRegistryDigest(liveOutputDir)
+	if err != nil {
+		return err
+	}
+	workspaceProposalDigest, err := pipelineProjectAllProposalRegistryDigest(workspace)
+	if err != nil {
+		return err
+	}
 	if manifest.Version != "project-all-workspace.v3" ||
 		manifest.GenerationID != strings.TrimSpace(generationID) ||
 		manifest.SourceOutput != filepath.Clean(liveOutputDir) ||
@@ -203,7 +217,9 @@ func validatePipelineProjectAllWorkspaceManifest(
 		manifest.Workspace != filepath.Clean(workspace) ||
 		!manifest.IsolatedWrites ||
 		manifest.FoundationSnapshotRoot != foundationSnapshotRoot ||
-		manifest.RAGSnapshotRoot != ragSnapshotRoot {
+		manifest.RAGSnapshotRoot != ragSnapshotRoot ||
+		manifest.ProposalRegistryDigest != liveProposalDigest ||
+		manifest.ProposalRegistryDigest != workspaceProposalDigest {
 		return fmt.Errorf("workspace manifest does not match generation/source/base")
 	}
 	baseline, err := pipelineProjectAllAcceptedCharacterBaseline(liveOutputDir, generationID, baseChapter)
@@ -214,6 +230,10 @@ func validatePipelineProjectAllWorkspaceManifest(
 		return err
 	}
 	return nil
+}
+
+func pipelineProjectAllProposalRegistryDigest(outputDir string) (string, error) {
+	return pipelineOptionalFileSHA(outputDir, store.StoryProposalRegistryPath)
 }
 
 func loadPipelineProjectAllWorkspaceManifest(

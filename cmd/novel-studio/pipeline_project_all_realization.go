@@ -73,7 +73,7 @@ func pipelineSeal(opts cliOptions, flags pipelineFlags) (returnErr error) {
 	}
 	identity = lockedIdentity
 	projected := st.ProjectedV2()
-	if err := validatePipelineProjectAllComplete(projected, identity.Generation); err != nil {
+	if err := validatePipelineProjectAllComplete(st, projected, identity.Generation); err != nil {
 		return fmt.Errorf("seal 前 project-all 未完整: %w", err)
 	}
 	building, err := projected.LoadBuildingGeneration(identity.Generation.GenerationID)

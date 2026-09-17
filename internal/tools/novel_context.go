@@ -321,6 +321,9 @@ func (t *ContextTool) Execute(ctx context.Context, args json.RawMessage) (json.R
 	if len(warnings) > 0 {
 		result["_warnings"] = warnings
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "novel_context", result); err != nil {
+		return nil, err
+	}
 	return t.finalizeContextWithAccessReceipt(result, a.Chapter, a.Profile)
 }
 

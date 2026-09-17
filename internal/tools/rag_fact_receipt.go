@@ -43,6 +43,11 @@ func persistChapterRAGFactReceipt(st *store.Store, state contextBuildState, trac
 	if err != nil {
 		return nil, err
 	}
+	if index != nil {
+		if err := validateProposalRAGChunks(st, index.Chunks); err != nil {
+			return nil, fmt.Errorf("RAG fact receipt proposal authority: %w", err)
+		}
+	}
 	chunks := make(map[string]domain.RAGChunk)
 	if index != nil {
 		for _, chunk := range index.Chunks {
@@ -304,6 +309,11 @@ func validateRAGFactReceiptCurrent(st *store.Store, receipt domain.RAGFactReceip
 	index, err := st.RAG.LoadIndexStateReadOnly()
 	if err != nil {
 		return fmt.Errorf("load current RAG fact index: %w", err)
+	}
+	if index != nil {
+		if err := validateProposalRAGChunks(st, index.Chunks); err != nil {
+			return fmt.Errorf("current RAG fact index proposal authority: %w", err)
+		}
 	}
 	current := make(map[string]domain.RAGChunk)
 	if index != nil {

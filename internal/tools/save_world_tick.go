@@ -121,6 +121,9 @@ func (t *SaveWorldTickTool) Execute(_ context.Context, args json.RawMessage) (js
 	if err := unmarshalToolArgs(args, &a); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "save_world_tick", a); err != nil {
+		return nil, err
+	}
 	// through_chapter=0 是合法的开局前初始 tick（第 1 章写作前建立离屏信息流）；
 	// 负数才非法。此时事件的 chapter 也可为 0（开局前发生），visibility_chapter>=1 陆续浮出。
 	if a.ThroughChapter < 0 {

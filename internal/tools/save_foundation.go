@@ -136,6 +136,9 @@ func (t *SaveFoundationTool) Execute(ctx context.Context, args json.RawMessage) 
 	if err := unmarshalToolArgs(args, &a); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "save_foundation", args); err != nil {
+		return nil, err
+	}
 	if t.allowedFoundationType != "" && a.Type != t.allowedFoundationType {
 		return nil, fmt.Errorf(
 			"foundation refresh sidecar only allows save_foundation(type=%q); received %q: %w",

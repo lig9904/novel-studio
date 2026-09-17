@@ -51,6 +51,9 @@ func (t *SaveVolumeSummaryTool) Execute(_ context.Context, args json.RawMessage)
 	if err := unmarshalToolArgs(args, &a); err != nil {
 		return nil, fmt.Errorf("invalid args: %w", err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "save_volume_summary", a); err != nil {
+		return nil, err
+	}
 	if a.Volume <= 0 {
 		return nil, fmt.Errorf("volume must be > 0")
 	}

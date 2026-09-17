@@ -248,6 +248,9 @@ func (t *CommitChapterTool) Execute(ctx context.Context, args json.RawMessage) (
 	if err := unmarshalToolArgs(args, &a); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "commit_chapter payload", a); err != nil {
+		return nil, err
+	}
 	if a.Chapter <= 0 {
 		return nil, fmt.Errorf("chapter must be > 0: %w", errs.ErrToolArgs)
 	}
@@ -352,6 +355,9 @@ func (t *CommitChapterTool) Execute(ctx context.Context, args json.RawMessage) (
 		if err := requireDraftAIGCGate(t.store, a.Chapter, content); err != nil {
 			return nil, err
 		}
+	}
+	if err := ValidateNoPendingProposalClaims(t.store, "commit_chapter", map[string]any{"content": content, "commit": a}); err != nil {
+		return nil, err
 	}
 
 	pending, err := t.newPendingCommit(a, domain.CommitModeInitial, content, wordCount, pipelineWritingManaged(t.store), "", "")
@@ -726,6 +732,9 @@ func (t *CommitChapterTool) validatePendingCommitIdentity(pending *domain.Pendin
 	if strings.TrimSpace(content) == "" || currentSHA != pending.BodySHA256 || wordCount != pending.WordCount {
 		return a, "", fmt.Errorf("第 %d 章恢复失败：当前 draft SHA/字数已变化（pending=%s/%d, current=%s/%d），禁止从可变草稿继续: %w",
 			a.Chapter, pending.BodySHA256, pending.WordCount, currentSHA, wordCount, errs.ErrToolPrecondition)
+	}
+	if err := ValidateNoPendingProposalClaims(t.store, "pending commit recovery", map[string]any{"content": content, "commit": a}); err != nil {
+		return a, "", err
 	}
 	if pending.ExternalBodySHA256 != pending.BodySHA256 {
 		return a, "", fmt.Errorf("第 %d 章 pending external identity=%q 未绑定正文 SHA=%q: %w",
@@ -1311,6 +1320,9 @@ func (t *CommitChapterTool) executeRewriteCommit(
 	rewriteFlow := ""
 	if progress != nil {
 		rewriteFlow = string(progress.Flow)
+	}
+	if err := ValidateNoPendingProposalClaims(t.store, "rewrite commit", map[string]any{"content": content, "commit": a}); err != nil {
+		return nil, err
 	}
 	pending, err := t.newPendingCommit(a, domain.CommitModeRewrite, content, wordCount, strictAIGC, previousFinal, rewriteFlow)
 	if err != nil {

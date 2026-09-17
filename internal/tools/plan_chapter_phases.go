@@ -132,6 +132,9 @@ func (t *PlanStructureTool) Execute(_ context.Context, args json.RawMessage) (js
 		"rewrite":           isRewritePlan,
 		"updated_at":        time.Now().Format(time.RFC3339),
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "plan_structure", partial); err != nil {
+		return nil, err
+	}
 	if craftReceipt != nil {
 		partial[planCraftReceiptKey] = craftReceipt.ID
 	} else {
@@ -397,6 +400,9 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 		partial["scope_normalizations"] = append(stringSliceFromAny(partial["scope_normalizations"]), normalizations...)
 	}
 	partial["updated_at"] = time.Now().Format(time.RFC3339)
+	if err := ValidateNoPendingProposalClaims(t.store, "plan_details", partial); err != nil {
+		return nil, err
+	}
 	if err := validateProjectContaminationFree(t.store, "plan_details", partial); err != nil {
 		return nil, err
 	}

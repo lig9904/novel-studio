@@ -105,6 +105,9 @@ func (t *SimulateChapterWorldTool) Execute(_ context.Context, args json.RawMessa
 	if err := unmarshalToolArgs(args, &a); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "simulate_chapter_world", a); err != nil {
+		return nil, err
+	}
 	if a.Chapter <= 0 {
 		a.Chapter = inProgressChapterOf(t.store)
 	}

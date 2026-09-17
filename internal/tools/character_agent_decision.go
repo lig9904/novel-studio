@@ -155,6 +155,14 @@ func (t *SubmitCharacterDecisionTool) Execute(_ context.Context, args json.RawMe
 	if err := unmarshalToolArgs(args, &input); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "character decision", map[string]any{
+		"current_goal": input.CurrentGoal, "pressure": input.Pressure, "resources": input.Resources,
+		"available_options": input.AvailableOptions, "decision": input.Decision, "decision_reason": input.DecisionReason,
+		"intended_action": input.IntendedAction, "expected_consequences": input.ExpectedConsequences,
+		"communications": input.Communications, "resource_reads": input.ResourceReads, "self_tasks": input.SelfTasks,
+	}); err != nil {
+		return nil, err
+	}
 	proposal := domain.CharacterDecisionProposal{
 		Version:              domain.CharacterDecisionProposalVersion,
 		GenerationID:         t.observation.GenerationID,
@@ -297,6 +305,9 @@ func (t *SubmitCharacterAgentSuccessorPlanTool) Execute(_ context.Context, args 
 	}
 	if err := unmarshalToolArgs(args, &input); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
+	}
+	if err := ValidateNoPendingProposalClaims(t.store, "character successor plan", input); err != nil {
+		return nil, err
 	}
 	plan := t.base
 	plan.ArchitectSummary = strings.TrimSpace(input.ArchitectSummary)
@@ -502,6 +513,9 @@ func (t *ResolveChapterWorldTool) Execute(_ context.Context, args json.RawMessag
 	}
 	if err := unmarshalToolArgs(args, &input); err != nil {
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
+	}
+	if err := ValidateNoPendingProposalClaims(t.store, "world arbitration", input); err != nil {
+		return nil, err
 	}
 	storyTime, err := input.StoryTime.schedule()
 	if err != nil {

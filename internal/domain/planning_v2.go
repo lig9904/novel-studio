@@ -259,6 +259,7 @@ type HardRenderContractV2 struct {
 
 type SourceBindingV2 struct {
 	Kind            string   `json:"kind"`
+	Authority       string   `json:"authority,omitempty"`
 	SourceID        string   `json:"source_id"`
 	SourceDigest    string   `json:"source_digest"`
 	ExactReferences []string `json:"exact_references"`
@@ -1603,6 +1604,7 @@ func normalizeSourceBindingsV2(bindings []SourceBindingV2) []SourceBindingV2 {
 	out := append([]SourceBindingV2(nil), bindings...)
 	for i := range out {
 		out[i].Kind = strings.TrimSpace(out[i].Kind)
+		out[i].Authority = strings.TrimSpace(out[i].Authority)
 		out[i].SourceID = strings.TrimSpace(out[i].SourceID)
 		out[i].SourceDigest = strings.TrimSpace(out[i].SourceDigest)
 		out[i].ExactReferences = normalizeV2Strings(out[i].ExactReferences)
@@ -2235,6 +2237,19 @@ func ValidateProjectedChapterBundle(bundle ProjectedChapterBundle) error {
 		if err := validatePlanningV2Digest("source_binding.source_digest", binding.SourceDigest); err != nil {
 			return fmt.Errorf("projected chapter bundle v2: source_bindings[%d]: %w", i, err)
 		}
+		if binding.Authority != "" && !ValidSourceAuthorityV2(binding.Authority) {
+			return fmt.Errorf("projected chapter bundle v2: source_bindings[%d] has unsupported authority %q", i, binding.Authority)
+		}
+		proposalKind := strings.EqualFold(strings.TrimSpace(binding.Kind), "proposal")
+		for _, ref := range binding.ExactReferences {
+			proposalKind = proposalKind || strings.HasPrefix(strings.ToLower(strings.TrimSpace(ref)), "proposal:")
+		}
+		if proposalKind && binding.Authority != SourceAuthorityProposal {
+			return fmt.Errorf("projected chapter bundle v2: source_bindings[%d] proposal source lacks PROPOSAL authority", i)
+		}
+	}
+	if err := validateProjectedProposalBindingsV2(bundle); err != nil {
+		return fmt.Errorf("projected chapter bundle v2: %w", err)
 	}
 	if bundle.RAGFactReceipt == nil {
 		return fmt.Errorf("projected chapter bundle v2: every chapter requires an explicit RAG fact receipt, including no_material")

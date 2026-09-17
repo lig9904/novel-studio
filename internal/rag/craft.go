@@ -27,6 +27,10 @@ const CraftSourceKind = "craft_technique"
 // CalibrationSourceKind 审核校准库（review-calibration）chunk 的 source_kind 标记。
 const CalibrationSourceKind = "calibration_reference"
 
+// ProposalSourceKind stores discussable candidate material. It is never part
+// of the ordinary project-fact corpus and cannot mint a RAG fact receipt.
+const ProposalSourceKind = "proposal"
+
 // BenchmarkSourceKind 对标素材库（novel_all）chunk 的 source_kind 标记。
 // 对标素材只可迁移手法/结构/节奏，禁止照搬情节、人名与专有设定。
 const BenchmarkSourceKind = "benchmark_reference"
@@ -37,7 +41,8 @@ func IsDesignOnlySourceKind(kind string) bool {
 	kind = strings.TrimSpace(kind)
 	return strings.EqualFold(kind, CraftSourceKind) ||
 		strings.EqualFold(kind, BenchmarkSourceKind) ||
-		strings.EqualFold(kind, CalibrationSourceKind)
+		strings.EqualFold(kind, CalibrationSourceKind) ||
+		strings.EqualFold(kind, ProposalSourceKind)
 }
 
 // BenchmarkCategory 从 novel_all 路径推导类目（剥掉编号前缀）。

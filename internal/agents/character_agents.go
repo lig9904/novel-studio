@@ -1571,6 +1571,9 @@ func (d *characterDispatchViewV3) validate(st *store.Store, session *domain.Char
 }
 
 func runOneCharacterAgentWithDispatchView(ctx context.Context, cfg bootstrap.Config, st *store.Store, model agentcore.ChatModel, observation domain.CharacterObservationPacket, dispatch *characterDispatchViewV3, sessions ...*domain.CharacterActivationSession) error {
+	if err := tools.ValidateNoPendingProposalClaims(st, "character observation", observation); err != nil {
+		return err
+	}
 	proofs, cycleSession, err := characterExecutionProofs(st, sessions...)
 	if err != nil {
 		return err
@@ -1775,6 +1778,11 @@ func runCharacterAgentTerminalLoop(
 }
 
 func runWorldArbitration(ctx context.Context, cfg bootstrap.Config, st *store.Store, models *bootstrap.ModelSet, inputs characterAgentChapterInputs, proposals []domain.CharacterDecisionProposal) (*domain.WorldArbitrationReceipt, error) {
+	if err := tools.ValidateNoPendingProposalClaims(st, "world arbitration inputs", map[string]any{
+		"stimulus": inputs.Stimulus, "proposals": proposals,
+	}); err != nil {
+		return nil, err
+	}
 	proofs, cycleSession, err := characterExecutionProofs(st, inputs.CycleSession)
 	if err != nil {
 		return nil, err
@@ -1816,6 +1824,9 @@ func runWorldArbitration(ctx context.Context, cfg bootstrap.Config, st *store.St
 	if existing, err := loadArbitration(); err != nil {
 		return nil, err
 	} else if existing != nil {
+		if err := tools.ValidateNoPendingProposalClaims(st, "recovered world arbitration", existing); err != nil {
+			return nil, err
+		}
 		return existing, nil
 	}
 	protocolDigest := CharacterAgentProtocolDigestForVersion(characterProtocolForStimulus(inputs.Stimulus))

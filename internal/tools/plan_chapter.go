@@ -90,6 +90,9 @@ func (t *PlanChapterTool) Execute(ctx context.Context, args json.RawMessage) (js
 	if plan.Chapter <= 0 {
 		plan.Chapter = inProgressChapterOf(t.store)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "plan_chapter", plan); err != nil {
+		return nil, err
+	}
 	// 无 partial 的单发路径：核心字段缺失时给明确指引（schema 已不强制）。
 	if strings.TrimSpace(plan.Goal) == "" || strings.TrimSpace(plan.Conflict) == "" || strings.TrimSpace(plan.Hook) == "" {
 		return nil, fmt.Errorf("plan_chapter 单发需给出 goal/conflict/hook（或改用两阶段 plan_structure+plan_details）: %w", errs.ErrToolArgs)

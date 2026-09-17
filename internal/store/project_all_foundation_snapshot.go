@@ -74,6 +74,7 @@ func CaptureProjectAllFoundationSnapshot(outputDir string) (ProjectAllFoundation
 		"timeline.json",
 		"meta/compass.json",
 		AuthorSourcesPath,
+		StoryProposalRegistryPath,
 		"meta/run.json",
 		"meta/world_foundation.json",
 		"meta/world_coherence_report.json",

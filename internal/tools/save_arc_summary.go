@@ -79,6 +79,9 @@ func (t *SaveArcSummaryTool) Execute(_ context.Context, args json.RawMessage) (j
 		}
 		return nil, fmt.Errorf("invalid args: %w: %w", errs.ErrToolArgs, err)
 	}
+	if err := ValidateNoPendingProposalClaims(t.store, "save_arc_summary", a); err != nil {
+		return nil, err
+	}
 	if a.Volume <= 0 || a.Arc <= 0 {
 		return nil, fmt.Errorf("volume and arc must be > 0: %w", errs.ErrToolArgs)
 	}
