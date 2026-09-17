@@ -1,0 +1,14 @@
+{
+  "schema": "p0-5r-final-positive-bundle-status.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "status": "NOT_CREATED",
+  "formal_plan_created": false,
+  "grounding_pass": false,
+  "authority_post_check": "NOT_EXECUTED",
+  "bundle_validation": "NOT_EXECUTED",
+  "chain_genesis_validation": "NOT_EXECUTED"
+}

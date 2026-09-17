@@ -1,0 +1,41 @@
+{
+  "schema": "p0-5r-final-positive-usage-summary.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "by_agent": {
+    "writer": {
+      "started": 10,
+      "completed": 10,
+      "input": 406217,
+      "output": 10710,
+      "cache_read": 40960,
+      "configured_cost_usd": 2.168065,
+      "unfinished": 0
+    },
+    "plan_grounding": {
+      "started": 8,
+      "completed": 7,
+      "input": 275905,
+      "output": 19882,
+      "cache_read": 40960,
+      "configured_cost_usd": 1.791665,
+      "unfinished": 1
+    }
+  },
+  "total": {
+    "started": 18,
+    "completed": 17,
+    "input": 682122,
+    "output": 30592,
+    "cache_read": 81920,
+    "configured_cost_usd": 3.95973,
+    "total_tokens": 712714
+  },
+  "actual_provider_cost": "UNAVAILABLE",
+  "accounting_note": "configured accounting is not an actual provider bill; one timed-out Grounding call has no terminal usage record",
+  "orphan_zero_value_records_excluded": 1,
+  "orphan_note": "one zero-value plan_grounding record reconciles an earlier lost owner and has no started event in this attempt delta; it is excluded from completed-call and token totals"
+}

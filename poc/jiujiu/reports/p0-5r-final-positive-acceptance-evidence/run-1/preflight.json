@@ -1,0 +1,22 @@
+{
+  "schema": "p0-5r-final-positive-preflight.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "audit_base": "4315d63605c789b6628b34cbc75d87f55e9a721d",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "entry": "RunPlannerOnlyProjectedChapterPlanning",
+  "top_level_attempt_budget": 1,
+  "top_level_attempts_used": 1,
+  "deadline_minutes": 15,
+  "planner": "gpt-5.6-sol/medium",
+  "plan_grounding": "gpt-5.6-sol/medium",
+  "formal_plan_present": false,
+  "partial_present": true,
+  "frozen_expected_digests_match": true,
+  "story_state_rerun_allowed": false,
+  "upstream_story_calls_required": 0
+}

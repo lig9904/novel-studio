@@ -1,0 +1,4 @@
+NOVEL_STUDIO_P0_5_EVAL_ROOT="$WORKTREE/poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot" \
+NOVEL_STUDIO_P0_5_CONFIG="$WORKTREE/poc/jiujiu/reports/p0-5r-runtime-evidence/config-sol-medium.json" \
+NOVEL_STUDIO_P0_5_RESULT_DIR="$WORKTREE/poc/jiujiu/reports/p0-5r-final-positive-acceptance-evidence/run-1" \
+go test ./cmd/novel-studio -run '^TestLiveP05FrozenPlannerProjection$' -count=1 -timeout=15m -v

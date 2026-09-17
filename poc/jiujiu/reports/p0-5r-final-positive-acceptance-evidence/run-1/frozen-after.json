@@ -1,0 +1,82 @@
+{
+  "schema": "p0-5r-final-positive-frozen.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "items": [
+    {
+      "name": "chapter_simulation",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/meta/chapter_simulations/001.json",
+      "sha256": "5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e",
+      "bytes": 96042
+    },
+    {
+      "name": "character_activation_evidence",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/meta/character_agents/activation_sessions/pg2_b2354a98e8714bba2baca89a/000001/chapter_evidence.json",
+      "sha256": "fdbefdc0c001f18e0e15d448ab9fe1f5d8ac60487e82081b833dbc34d4fce4fa",
+      "bytes": 648001
+    },
+    {
+      "name": "planning_context",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/meta/project_all_state.json",
+      "sha256": "6381dac99872d033d8e8733890d75a8efd1372356cd5bccdb3566e86b3d9e4a5",
+      "bytes": 789
+    },
+    {
+      "name": "simulation_checkpoints",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/meta/checkpoints.jsonl",
+      "sha256": "d6c12243fed98a96dfca1d882df78b50f304be4628b41fac08c8953907802a4c",
+      "bytes": 262
+    },
+    {
+      "name": "soft_outline",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/outline.json",
+      "sha256": "70b08086a81e1d2b04302a2332dc98c79f53aaec9dd7b4c81b5d2099e71f1849",
+      "bytes": 12673
+    },
+    {
+      "name": "layered_outline",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/layered_outline.json",
+      "sha256": "eeb73b94031e59ecac17d0dd70794cbd6aa1e3467f808f21672fb844fb733f55",
+      "bytes": 20395
+    },
+    {
+      "name": "partial",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/.project-all/pg2_b2354a98e8714bba2baca89a/output/novel/drafts/01.plan.partial.json",
+      "sha256": "fc19e872bba403b24445ae1655e53f9ab91785823bc2fb43eec5ba06e35b21c9",
+      "bytes": 37632
+    },
+    {
+      "name": "generation",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/output/novel/meta/planning/v2/.building/pg2_b2354a98e8714bba2baca89a/generation.json",
+      "sha256": "ef16bfcbc78b20f91e6f4d8efbb44a4b89a563c542297552570ad7e6c6f462df",
+      "bytes": 1916
+    },
+    {
+      "name": "obligation_registry",
+      "path": "poc/jiujiu/project/test-scaffold-p0-5r-final-positive-one-shot/output/novel/meta/planning/v2/.building/pg2_b2354a98e8714bba2baca89a/obligation_registry.json",
+      "sha256": "956a8105a4ca483856c4408b1eabbd2556de53024b57476f1261d4bf192a98b5",
+      "bytes": 354
+    },
+    {
+      "name": "official_user_input",
+      "path": "poc/jiujiu/snapshots/p0-5-plan-projection-fixture/source-user-input.md",
+      "sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a",
+      "bytes": 5118
+    },
+    {
+      "name": "config",
+      "path": "poc/jiujiu/reports/p0-5r-runtime-evidence/config-sol-medium.json",
+      "sha256": "2eeae672ce12e693b22ee6985efe56fd40487d4736594d730638a809e129b99e",
+      "bytes": 2300
+    },
+    {
+      "name": "activation_readiness_tree",
+      "path": "meta/character_agents/.../000001/{readiness,readiness_audits}",
+      "sha256": "94c7f8d09d700cc57a11adaf2a798cb4dccc67dd0730332c6e5f7817d7a37b0a",
+      "files": 2
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+=== RUN   TestLiveP05FrozenPlannerProjection
+2026/09/17 20:20:34 WARN plan_details finalize rejected module=tools.plan_details chapter=1 saved_fields="arc_transition_contract, causal_beats, chapter_function, context_sources, decision_points, dialogue_scene_blueprints, emotional_logic, ending_consequence_contract, environment_state, external_reference_plan, information_gaps, initial_state, literary_rendering_plan, longform_opening, offscreen_character_stage, outcome_shift, project_promise, protagonist_decision, reader_entertainment_plan, reader_reward_plan, render_capacity, scene_constraints, voice_logic, world_rules_in_force, world_simulation_id" cause="plan grounding review did not complete: grounding finding 0 has unverifiable excerpt at /plan/reader_entertainment_plan/opening_beat"
+2026/09/17 20:27:08 INFO codex call started module=codex call_id=18 kind=control model=gpt-5.6-sol reasoning=medium prompt_runes=52789 structured=true attempt_timeout_ms=899999
+panic: test timed out after 15m0s
+FAIL	github.com/chenhongyang/novel-studio/cmd/novel-studio	900.993s
+FAIL

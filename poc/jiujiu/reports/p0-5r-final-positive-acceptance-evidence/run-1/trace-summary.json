@@ -1,0 +1,39 @@
+{
+  "schema": "p0-5r-final-positive-trace-summary.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "events": 70,
+  "first_sequence": 1,
+  "last_sequence": 70,
+  "stages": {
+    "preflight": 2,
+    "craft_receipt": 2,
+    "pre_planner_revalidation": 1,
+    "host_context": 2,
+    "tool_start": 10,
+    "before_merge": 9,
+    "after_merge": 9,
+    "after_source_anchor": 9,
+    "persisted": 9,
+    "validation": 8,
+    "tool_end": 9
+  },
+  "tools": {
+    "novel_context": 2,
+    "plan_details": 61,
+    "plan_structure": 2
+  },
+  "results": {
+    "STARTED": 13,
+    "PASS": 7,
+    "UNKNOWN": 36,
+    "FAIL": 14
+  },
+  "preflight_pass": true,
+  "upstream_story_stage_events": 0,
+  "terminal_trace_event_persisted": false,
+  "terminal_note": "go test hard timeout interrupted the in-flight Grounding call; append+fsync retained events through the last completed Planner patch persist"
+}

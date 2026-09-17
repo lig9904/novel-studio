@@ -1,0 +1,19 @@
+{
+  "schema": "p0-5r-final-positive-authority-post-check-status.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "status": "NOT_EXECUTED",
+  "reason": "no formal Plan and no passing current Grounding receipt before deadline",
+  "bundle_allowed": false,
+  "proposal_registry_gate": "NOT_EXECUTED",
+  "partial_text_scan": {
+    "p001_statement_present": false,
+    "phoenix_fire_ability_present": false,
+    "phoenix_healing_rebirth_immortality_present": false,
+    "known_unsupported_fox_erasure_wording_present": true
+  },
+  "warning": "text absence is not Proposal Registry evidence; mutable partial remains non-authoritative"
+}

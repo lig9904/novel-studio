@@ -1,0 +1,36 @@
+{
+  "schema": "p0-5r-final-positive-attempt.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "top_level_attempt": 1,
+  "top_level_attempt_limit": 1,
+  "started_at": "2026-09-17T12:12:34.812732+00:00",
+  "deadline_minutes": 15,
+  "entry": "RunPlannerOnlyProjectedChapterPlanning",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "planner": "gpt-5.6-sol/medium",
+  "plan_grounding": "gpt-5.6-sol/medium",
+  "story_state_rerun_allowed": false,
+  "status": "BLOCKED_TIMEOUT",
+  "go_test_exit_code": 1,
+  "elapsed_ms": 900993,
+  "formal_plan_created": false,
+  "final_grounding": "TIMEOUT",
+  "authority_post_check": "NOT_EXECUTED",
+  "bundle_created": false,
+  "story_state_rerun": false,
+  "upstream_story_calls": 0,
+  "failure_classification": [
+    "TIMEOUT",
+    "MODEL DID NOT CONVERGE WITHIN 15-MINUTE BUDGET"
+  ],
+  "second_attempt": false,
+  "evidence_collected_at": "2026-09-17T12:30:28.314462+00:00",
+  "process_exited_at": "UNAVAILABLE",
+  "estimated_test_finished_at": "2026-09-17T12:27:35.805732+00:00",
+  "estimated_test_finished_basis": "started_at + go test reported elapsed_ms (900993); process exit timestamp was not directly captured"
+}

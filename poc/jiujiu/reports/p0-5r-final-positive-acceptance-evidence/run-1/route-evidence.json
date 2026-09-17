@@ -1,0 +1,34 @@
+{
+  "schema": "p0-5r-final-positive-route-evidence.v1",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  },
+  "observed_agents": {
+    "writer": {
+      "provider": "codex-cli",
+      "model": "gpt-5.6-sol",
+      "reasoning": "medium",
+      "calls_started": 10
+    },
+    "plan_grounding": {
+      "provider": "codex-cli",
+      "model": "gpt-5.6-sol",
+      "reasoning": "medium",
+      "calls_started": 8
+    }
+  },
+  "forbidden_stage_calls": {
+    "character": 0,
+    "world_arbiter": 0,
+    "readiness": 0,
+    "story_simulation": 0
+  },
+  "story_state_rerun": false,
+  "basis": [
+    "runtime usage delta contains only writer and plan_grounding starts",
+    "planner-only durable trace contains no upstream stage",
+    "frozen source hashes are unchanged"
+  ]
+}
