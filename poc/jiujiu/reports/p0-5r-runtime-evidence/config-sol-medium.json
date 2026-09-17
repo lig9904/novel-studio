@@ -1,0 +1,105 @@
+{
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "reasoning_effort": "high",
+  "providers": {
+    "codex": {
+      "type": "codex-cli",
+      "mcp_inventory_timeout_sec": 15,
+      "models": [
+        "gpt-5.6-sol"
+      ]
+    },
+    "deepseek": {
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "base_url": "https://api.deepseek.com",
+      "models": [
+        "deepseek-v4-pro",
+        "deepseek-flash"
+      ]
+    },
+    "glm_coding": {
+      "type": "glm",
+      "api_key_env": "GLM_CODING_API_KEY",
+      "base_url": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "models": [
+        "glm-5.3",
+        "glm-5.3-flash",
+        "glm-5.2"
+      ]
+    }
+  },
+  "roles": {
+    "coordinator": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "high"
+    },
+    "architect": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "high",
+      "max_turns": 20
+    },
+    "writer": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "character": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "medium"
+    },
+    "world_arbiter": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "high"
+    },
+    "plan_grounding": {
+      "provider": "codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "drafter": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "medium"
+    },
+    "editor": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "high"
+    },
+    "reviewer": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "reasoning_effort": "high"
+    }
+  },
+  "character_agents": {
+    "protocol": "v2",
+    "scope": "active_core",
+    "activation": "event_driven",
+    "execution_policy": "v3",
+    "max_concurrency": 4,
+    "max_revision_rounds": 1,
+    "max_activation_cycles": 4
+  },
+  "context_windows": {
+    "deepseek-flash": 1048576,
+    "glm-5.2": 1000000,
+    "glm-5.3": 200000
+  },
+  "rag": {
+    "embedding": {
+      "enabled": false
+    },
+    "qdrant": {
+      "enabled": false
+    }
+  },
+  "notify": {
+    "enabled": false
+  }
+}

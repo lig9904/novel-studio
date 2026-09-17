@@ -1,0 +1,142 @@
+{
+  "schema": "p0-5r-positive-surface-scan.v1",
+  "status": "FAIL",
+  "finding_count": 27,
+  "findings": [
+    {
+      "path": "/ending/consequence",
+      "term": "浮标绳",
+      "quote": "到第1章结束，浮标绳离位已成为可核实的现场事实；声望口信仍未经核实；九九两轮观察都在原地完成，浮标绳的现场处置尚未动手，潮水只剩一段就会回涨"
+    },
+    {
+      "path": "/ending/next_chapter_pull",
+      "term": "浮标绳",
+      "quote": "第2章：九九发现浮标绳缠住礁角、退潮通道必须先清出来，而转述者当天第二次加码；它必须决定先要凭证还是先下水"
+    },
+    {
+      "path": "/ending/next_chapter_pull",
+      "term": "转述者",
+      "quote": "第2章：九九发现浮标绳缠住礁角、退潮通道必须先清出来，而转述者当天第二次加码；它必须决定先要凭证还是先下水"
+    },
+    {
+      "path": "/ending/next_chapter_pull",
+      "term": "退潮通道",
+      "quote": "第2章：九九发现浮标绳缠住礁角、退潮通道必须先清出来，而转述者当天第二次加码；它必须决定先要凭证还是先下水"
+    },
+    {
+      "path": "/entertainment/companion_voice_beat",
+      "term": "转述者",
+      "quote": "本书无陪伴型系统，不需要系统接话；本章唯一的持续对话声口来自岸上转述者，它热络、含糊、答不出出处，九九用短句反问与沉默回应，不升级为任务提示或说明男"
+    },
+    {
+      "path": "/entertainment/humor_beats/0/beat",
+      "term": "水尺",
+      "quote": "九九对读不平的水尺较劲，把水尺与自己记的数字反复对齐，越对越不对，负责与好胜扮在一起，现场证据反将一军"
+    },
+    {
+      "path": "/entertainment/humor_beats/1/beat",
+      "term": "转述者",
+      "quote": "岸上转述者把场面越说越大，却始终答不出是谁说的，九九一句你没说是谁说的就把话题顶回去"
+    },
+    {
+      "path": "/entertainment/humor_beats/1/carrier",
+      "term": "现场来客",
+      "quote": "现场来客与九九的对话反差"
+    },
+    {
+      "path": "/entertainment/immediate_payoffs/0",
+      "term": "浮标绳",
+      "quote": "浮标绳离位被当场确认为可核实事实"
+    },
+    {
+      "path": "/entertainment/opening_beat",
+      "term": "浮标绳",
+      "quote": "开场就近水线：九九贴着退潮后的礁面走到礁角，探到浮标绳末端已不在上次那个位置，绳面被浪磨松"
+    },
+    {
+      "path": "/entertainment/procedure_compression",
+      "term": "水尺",
+      "quote": "逐段比绳、读水尺、两轮观察的间隙全部压缩，只保留浮标离位这条证据、转述者的施压与九九不退让的选择后果，不写成检查流程教程"
+    },
+    {
+      "path": "/entertainment/procedure_compression",
+      "term": "转述者",
+      "quote": "逐段比绳、读水尺、两轮观察的间隙全部压缩，只保留浮标离位这条证据、转述者的施压与九九不退让的选择后果，不写成检查流程教程"
+    },
+    {
+      "path": "/reward/first_chapter_small_win",
+      "term": "浮标绳",
+      "quote": "九九通过逐段对照确认警示浮标绳已离位，把这一条可核实的现场事实握在手里，并在无凭证催促下没有离开岗位"
+    },
+    {
+      "path": "/reward/new_debt_or_cost",
+      "term": "浮标绳",
+      "quote": "无来源口信被挂起但没被解决，浮标绳与浮标的现场处置还完全没动，潮水回涨的窗口只剩一段"
+    },
+    {
+      "path": "/reward/new_debt_or_cost",
+      "term": "潮水回涨",
+      "quote": "无来源口信被挂起但没被解决，浮标绳与浮标的现场处置还完全没动，潮水回涨的窗口只剩一段"
+    },
+    {
+      "path": "/reward/payoff_visibility",
+      "term": "浮标绳",
+      "quote": "读者亲眼看到浮标绳从礁角外松脱、水尺读数对不上，以及九九被催促后仍留在水线边"
+    },
+    {
+      "path": "/reward/payoff_visibility",
+      "term": "水尺",
+      "quote": "读者亲眼看到浮标绳从礁角外松脱、水尺读数对不上，以及九九被催促后仍留在水线边"
+    },
+    {
+      "path": "/longform/first_chapter_proof/0",
+      "term": "浮标绳",
+      "quote": "页面直接出现已确认的现场事实：浮标绳离位"
+    },
+    {
+      "path": "/longform/opening_hook",
+      "term": "浮标绳",
+      "quote": "退潮把现场浮标绳推离礁角、水尺读数对不上，与此同时一条拿不出任何来源的口信催九九离开岗位，它必须自己决定先守哪一样"
+    },
+    {
+      "path": "/longform/opening_hook",
+      "term": "水尺",
+      "quote": "退潮把现场浮标绳推离礁角、水尺读数对不上，与此同时一条拿不出任何来源的口信催九九离开岗位，它必须自己决定先守哪一样"
+    },
+    {
+      "path": "/external_projection/0/usable_details/0",
+      "term": "水尺",
+      "quote": "渔岛海洋度假区近岸的共享水域、守护点、警示浮标与退潮水线，可转化为九九现场可见的浮标、水尺、退潮通道与潮水回涨窗口"
+    },
+    {
+      "path": "/external_projection/0/usable_details/0",
+      "term": "退潮通道",
+      "quote": "渔岛海洋度假区近岸的共享水域、守护点、警示浮标与退潮水线，可转化为九九现场可见的浮标、水尺、退潮通道与潮水回涨窗口"
+    },
+    {
+      "path": "/external_projection/0/usable_details/0",
+      "term": "潮水回涨",
+      "quote": "渔岛海洋度假区近岸的共享水域、守护点、警示浮标与退潮水线，可转化为九九现场可见的浮标、水尺、退潮通道与潮水回涨窗口"
+    },
+    {
+      "path": "/external_projection/3/usable_details/0",
+      "term": "浮标绳",
+      "quote": "退潮后礁角外会露出一段平时被水盖住、现场没有任何记录的通道痕迹，浮标绳与浮标就卡在这截通道上"
+    },
+    {
+      "path": "/external_projection/3/transformation_rule",
+      "term": "绳结",
+      "quote": "把命中记录里的地点、资源数量与隔离关系，逐条转成本章现场可观察的水线、绳结状态、纸张张数与距离感；只借其空间与资源结构，不沿用它的大纲句式与说明腔。"
+    },
+    {
+      "path": "/external_projection/4/usable_details/0",
+      "term": "浮标绳",
+      "quote": "退潮后礁角外会露出一段平时被水盖住、现场没有任何记录的通道痕迹，浮标绳与浮标就卡在这截通道上（outline.md 命中）"
+    },
+    {
+      "path": "/external_projection/4/transformation_rule",
+      "term": "绳结",
+      "quote": "把命中记录里的地点、资源数量与隔离关系，逐条转成本章现场可观察的水线、绳结状态、纸张张数与距离感；只借其空间与资源结构，不沿用它的大纲句式与说明腔。"
+    }
+  ]
+}

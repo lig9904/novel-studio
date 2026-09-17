@@ -1,0 +1,867 @@
+{
+  "schema": "p0-5r-run-usage.v1",
+  "calls": [
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_YD5EU6W6MWJDZKREZOPH2BQOXQ",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 33146,
+        "output": 392,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 33538
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 33146,
+            "output": 392,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_YD5EU6W6MWJDZKREZOPH2BQOXQ"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 33146,
+          "output": 392,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.17748999999999998,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 33146,
+            "output": 392,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.17748999999999998,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 33146,
+            "output": 392,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.17748999999999998,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:9a7e5836a441f4f947825cc7ff3afcfb21257b8ea7726a1eb608cb86b8ae0419"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_K6G76SWW6UOR7MM3M7HS46UPPY",
+      "agent": "plan_grounding",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42196,
+        "output": 1334,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43530
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42196,
+            "output": 1334,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_K6G76SWW6UOR7MM3M7HS46UPPY"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 42196,
+          "output": 1334,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.251,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "plan_grounding": {
+            "input": 42196,
+            "output": 1334,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.251,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 42196,
+            "output": 1334,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.251,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:9c036d7fdd51e77046793c1ba996600e20ad92d9f132b96c86f9a7563265fcc6"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_IKZR4T4O3UP2QTMGXLQ24JPXYL",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 34874,
+        "output": 1690,
+        "cache_read": 10240,
+        "cache_write": 0,
+        "total_tokens": 36564
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 34874,
+            "output": 1690,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_IKZR4T4O3UP2QTMGXLQ24JPXYL"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 34874,
+          "output": 1690,
+          "cache_read": 10240,
+          "cache_write": 0,
+          "cost_usd": 0.17899,
+          "saved_usd": 0.04608,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 34874,
+            "output": 1690,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "cost_usd": 0.17899,
+            "saved_usd": 0.04608,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 34874,
+            "output": 1690,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "cost_usd": 0.17899,
+            "saved_usd": 0.04608,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:b7a75edb74dab1b3cab13b66156635770034ecdd70a1c65b46eaf85e17f82834"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_T54XDLDZTYDWQD4MWLP6J4UHGG",
+      "agent": "plan_grounding",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41946,
+        "output": 1960,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43906
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41946,
+            "output": 1960,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_T54XDLDZTYDWQD4MWLP6J4UHGG"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 41946,
+          "output": 1960,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.26853,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "plan_grounding": {
+            "input": 41946,
+            "output": 1960,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.26853,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 41946,
+            "output": 1960,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.26853,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:1a1f33d893d4ee5a8216410d5cc361d3dddb99dba36debc16117b0593b6e8939"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_AVZ43K2OJOBSEJPHN2R6VIHJ7X",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 37561,
+        "output": 1416,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 38977
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 37561,
+            "output": 1416,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_AVZ43K2OJOBSEJPHN2R6VIHJ7X"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 37561,
+          "output": 1416,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.230285,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 37561,
+            "output": 1416,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.230285,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 37561,
+            "output": 1416,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.230285,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:571e85318668194182bdaa36190c505148ca9f75e9f8f352791cc9408ed637b3"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_KJLE3OEXBU4EN32Y7JFES5S6CZ",
+      "agent": "plan_grounding",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41706,
+        "output": 1557,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43263
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41706,
+            "output": 1557,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_KJLE3OEXBU4EN32Y7JFES5S6CZ"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 41706,
+          "output": 1557,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.25524,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "plan_grounding": {
+            "input": 41706,
+            "output": 1557,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.25524,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 41706,
+            "output": 1557,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.25524,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:76f23597de0c12c441c58ef3666a27359747679b3d4ab405afc946effff35b25"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_LAEJ5MNPEDLSWMBZEX4VMVCZNA",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 39203,
+        "output": 1623,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 40826
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 39203,
+            "output": 1623,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_LAEJ5MNPEDLSWMBZEX4VMVCZNA"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 39203,
+          "output": 1623,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.244705,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 39203,
+            "output": 1623,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.244705,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 39203,
+            "output": 1623,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.244705,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:e9041d52bbb0d40eb968c91eeb0e5face9d0589ddf3a335f118d4a63729f3232"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_BI66UO4VEAESEZDQHXPAZJ374V",
+      "agent": "plan_grounding",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41416,
+        "output": 1888,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43304
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41416,
+            "output": 1888,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_BI66UO4VEAESEZDQHXPAZJ374V"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 41416,
+          "output": 1888,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.26372,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "plan_grounding": {
+            "input": 41416,
+            "output": 1888,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.26372,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 41416,
+            "output": 1888,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.26372,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:20198691155bc04721507b770abcc2ad5653f08bd1fe75511261c5738e41cce2"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_OGI4XHPEIF5FYNBVLOK4UFGCMQ",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41176,
+        "output": 1568,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 42744
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41176,
+            "output": 1568,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_OGI4XHPEIF5FYNBVLOK4UFGCMQ"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 41176,
+          "output": 1568,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.25292000000000003,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 41176,
+            "output": 1568,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.25292000000000003,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 41176,
+            "output": 1568,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.25292000000000003,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:531e0451d3e9e126aaa80cbe8b1f57bd3e561ae1b70bfa567c23ec438d6af8f0"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_FLQOUCQRJMAQ4TN7OKKRENTXNO",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 46052,
+        "output": 1642,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 47694
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 46052,
+            "output": 1642,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_FLQOUCQRJMAQ4TN7OKKRENTXNO"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 46052,
+          "output": 1642,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.27952,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 46052,
+            "output": 1642,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.27952,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 46052,
+            "output": 1642,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.27952,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:7247b6dbdf4303b680e0a7be2c0d554f78e988f3cda43fc34fdb7e5f0f6613c3"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_SR2QRXH376QO4OLEQ54ZFZ2CUV",
+      "agent": "plan_grounding",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41245,
+        "output": 2687,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43932
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41245,
+            "output": 2687,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_SR2QRXH376QO4OLEQ54ZFZ2CUV"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 41245,
+          "output": 2687,
+          "cache_read": 0,
+          "cache_write": 0,
+          "cost_usd": 0.286835,
+          "saved_usd": 0,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "plan_grounding": {
+            "input": 41245,
+            "output": 2687,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.286835,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 41245,
+            "output": 2687,
+            "cache_read": 0,
+            "cache_write": 0,
+            "cost_usd": 0.286835,
+            "saved_usd": 0,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:054cdd4720a19846b3dc7509b97264a82ec013357a499f2e06048eb3c9e4c74e"
+    },
+    {
+      "version": 1,
+      "kind": "record",
+      "id": "direct_usage_LZ27EFPUETE47MPAH2IDZBLRIK",
+      "agent": "writer",
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 44001,
+        "output": 1290,
+        "cache_read": 10240,
+        "cache_write": 0,
+        "total_tokens": 45291
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 44001,
+            "output": 1290,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_LZ27EFPUETE47MPAH2IDZBLRIK"
+      },
+      "accounting": {
+        "schema": 2,
+        "updated_at": "0001-01-01T00:00:00Z",
+        "overall": {
+          "input": 44001,
+          "output": 1290,
+          "cache_read": 10240,
+          "cache_write": 0,
+          "cost_usd": 0.212625,
+          "saved_usd": 0.04608,
+          "cache_capable": true
+        },
+        "per_agent": {
+          "writer": {
+            "input": 44001,
+            "output": 1290,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "cost_usd": 0.212625,
+            "saved_usd": 0.04608,
+            "cache_capable": true
+          }
+        },
+        "per_model": {
+          "codex-cli/gpt-5.6-sol": {
+            "input": 44001,
+            "output": 1290,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "cost_usd": 0.212625,
+            "saved_usd": 0.04608,
+            "cache_capable": true
+          }
+        },
+        "missing_assistant_usage": 0
+      },
+      "digest": "sha256:b467d2dfc52c6da4b77effa160314dfd5693a4f1b93e29694fbc2e86d2e2bc35"
+    }
+  ],
+  "aggregate_by_agent": {
+    "writer": {
+      "started": 7,
+      "completed": 7,
+      "input": 276013,
+      "output": 9621,
+      "cache_read": 20480,
+      "total_tokens": 285634,
+      "accounting_cost_usd": 1.576535
+    },
+    "plan_grounding": {
+      "started": 6,
+      "completed": 5,
+      "input": 208509,
+      "output": 9426,
+      "cache_read": 0,
+      "total_tokens": 217935,
+      "accounting_cost_usd": 1.325325
+    }
+  },
+  "actual_cost": "UNAVAILABLE",
+  "note": "accounting_cost_usd is configured accounting, not a provider invoice; one started Grounding call was interrupted by the 10-minute Go test timeout."
+}

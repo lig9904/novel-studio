@@ -1,0 +1,16 @@
+TEST_SCAFFOLD / NOT ACCEPTED CANON / NOT HUMAN APPROVAL
+
+Route evidence observed at start:
+role=writer provider=codex model=gpt-5.6-sol reasoning=medium
+role=plan_grounding provider=codex model=gpt-5.6-sol reasoning=medium
+
+Host rejection of one invalid structured Grounding response:
+plan grounding review did not complete: grounding finding 1 has unverifiable excerpt at /plan/dialogue_scene_blueprints/0/turn_progression/0/new_information
+
+Terminal test output:
+panic: test timed out after 10m0s
+running tests: TestLiveP05FrozenPlannerProjection (10m0s)
+active stack: internal/agents.runPlanGroundingReview
+FAIL github.com/chenhongyang/novel-studio/cmd/novel-studio 601.633s
+
+No formal plan or bundle result was emitted before termination.

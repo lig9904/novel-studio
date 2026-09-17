@@ -1,0 +1,37 @@
+{
+  "schema": "p0-5r-sol-medium-run.v1",
+  "run": 1,
+  "status": "FAIL",
+  "classification": "TEST_SCAFFOLD",
+  "failure_categories": {
+    "primary": "E_HARNESS_GLOBAL_TIMEOUT",
+    "contributing": [
+      "D_GROUNDING_LEGITIMATE_REJECTION",
+      "A_TOOL_SCHEMA_COMPLIANCE_ONE_INVALID_GROUNDING_VERDICT",
+      "H_RECOVERY_FROM_HISTORICAL_PARTIAL"
+    ]
+  },
+  "planner_model": "gpt-5.6-sol",
+  "planner_reasoning": "medium",
+  "grounding_model": "gpt-5.6-sol",
+  "grounding_reasoning": "medium",
+  "top_level_runs": 1,
+  "elapsed_ms": 601633,
+  "planner_calls_started": 7,
+  "planner_calls_completed": 7,
+  "grounding_calls_started": 6,
+  "grounding_calls_completed": 5,
+  "host_valid_structured_verdicts": 4,
+  "grounding_pass_count": 0,
+  "formal_plan_produced": false,
+  "bundle_created": false,
+  "bundle_validation_pass": false,
+  "story_simulation_rerun": false,
+  "character_agent_rerun": false,
+  "world_arbiter_rerun": false,
+  "readiness_rerun": false,
+  "frozen_sources_byte_identical": true,
+  "official_input_byte_identical": true,
+  "actual_cost": "UNAVAILABLE",
+  "termination": "go test global timeout after 10m while current Grounding call was in progress"
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "p0-5r-model-comparison.v1",
+  "status": "DELIVERY_BLOCKED",
+  "actual_cost": "UNAVAILABLE",
+  "historical_deepseek": {
+    "top_level_runs": 2,
+    "planner_model": "deepseek-flash",
+    "planner_calls": 14,
+    "grounding_model": "gpt-5.6-sol",
+    "grounding_calls": 9,
+    "input_tokens": 1030223,
+    "output_tokens": 98537,
+    "cache_read": 657280,
+    "total_tokens": 1128760,
+    "elapsed_ms": 887773,
+    "formal_plans": 1,
+    "accepted_plans": 0,
+    "accepted_bundles": 0
+  },
+  "sol_medium_run_1": {
+    "top_level_runs": 1,
+    "planner_model": "gpt-5.6-sol",
+    "planner_calls_started": 7,
+    "planner_calls_completed": 7,
+    "grounding_model": "gpt-5.6-sol",
+    "grounding_calls_started": 6,
+    "grounding_calls_completed": 5,
+    "input_tokens_completed": 484522,
+    "output_tokens_completed": 19047,
+    "cache_read_completed": 20480,
+    "total_tokens_completed": 503569,
+    "elapsed_ms": 601633,
+    "formal_plans": 0,
+    "accepted_plans": 0,
+    "accepted_bundles": 0
+  },
+  "tokens_per_accepted_bundle": {
+    "historical_deepseek": "N/A_NO_ACCEPTED_BUNDLE",
+    "sol_medium": "N/A_NO_ACCEPTED_BUNDLE"
+  },
+  "time_per_accepted_bundle": {
+    "historical_deepseek": "N/A_NO_ACCEPTED_BUNDLE",
+    "sol_medium": "N/A_NO_ACCEPTED_BUNDLE"
+  },
+  "model_calls_per_accepted_bundle": {
+    "historical_deepseek": "N/A_NO_ACCEPTED_BUNDLE",
+    "sol_medium": "N/A_NO_ACCEPTED_BUNDLE"
+  },
+  "planner_capability_diagnosis": "INCONCLUSIVE_TIMEOUT_BEFORE_TERMINAL_MODEL_RESULT"
+}

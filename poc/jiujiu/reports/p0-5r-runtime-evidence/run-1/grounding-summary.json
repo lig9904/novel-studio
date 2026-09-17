@@ -1,0 +1,41 @@
+{
+  "schema": "p0-5r-grounding-summary.v1",
+  "host_valid_structured_verdicts": 4,
+  "verdicts": [
+    {
+      "file": "6f4a4db2bd8578292546189ef83b9acce023f6d51559b90b6ab20691351c3f58.json",
+      "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+      "input_digest": "sha256:6f4a4db2bd8578292546189ef83b9acce023f6d51559b90b6ab20691351c3f58",
+      "receipt_digest": "sha256:90698a3c3b26bca881d1c3a704f5da198dc0b2f2b3862f600f2ccd4f4fdad24e",
+      "pass": false,
+      "finding_count": 4
+    },
+    {
+      "file": "9314d546b426c53cb6ba6ea101e9798bb037d08cb0cee960c12c182e8d9dffd3.json",
+      "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+      "input_digest": "sha256:9314d546b426c53cb6ba6ea101e9798bb037d08cb0cee960c12c182e8d9dffd3",
+      "receipt_digest": "sha256:fc56ecadd1bcd99863a63b34ceff4191c717502e185c0438141af37ef3683e53",
+      "pass": false,
+      "finding_count": 8
+    },
+    {
+      "file": "9b2e8c00b3cb19df4a7de174440af854de8022c137be3e72746f3ab4c9de3d37.json",
+      "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+      "input_digest": "sha256:9b2e8c00b3cb19df4a7de174440af854de8022c137be3e72746f3ab4c9de3d37",
+      "receipt_digest": "sha256:ffca2cd61eda289f6f5e7963f00ff33eb1ffe62aab57a94e47ea8bf86e70ff0a",
+      "pass": false,
+      "finding_count": 3
+    },
+    {
+      "file": "ecdb60a524256645e1260afe359215a6bfa00274e1252883e321f3325f7c02ab.json",
+      "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+      "input_digest": "sha256:ecdb60a524256645e1260afe359215a6bfa00274e1252883e321f3325f7c02ab",
+      "receipt_digest": "sha256:c68f9c0b446fa86213b0ff165e1813d9f0156c0b71b2abba0b5c0aede8e42e17",
+      "pass": false,
+      "finding_count": 4
+    }
+  ],
+  "all_pass_false": true,
+  "invalid_structured_verdicts_rejected_by_host": 1,
+  "interrupted_grounding_attempts": 1
+}
