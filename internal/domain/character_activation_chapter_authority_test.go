@@ -175,3 +175,52 @@ func TestActivationChapterAuthorityRejectsBadSourcesAndSerializedBadges(t *testi
 		t.Fatal("grounding accepted altered simulation")
 	}
 }
+
+func TestActivationGroundingCarriesAndCanCiteOffscreenFactSurfaces(t *testing.T) {
+	chapter := testutil.CharacterActivationChapter(t)
+	sim, err := domain.BuildCharacterActivationSimulation(chapter, "tick_fixture", nil)
+	continuationMust(t, err)
+	plan := activationAuthorityPlan(sim)
+	plan.CausalSimulation.OffscreenStage = []domain.CharacterStageRecord{{
+		Character: "离屏角色", Location: "码头", CurrentAction: "执行未经来源的新动作",
+		Pressure: "未经来源的新因果压力", Decision: "继续行动", KnowledgeBoundary: "只知道本人观察",
+	}}
+	plan.CausalSimulation.InitialState = []domain.CharacterSimulationState{{
+		Character: "离屏角色", CurrentGoal: "核对现场", Pressure: "未经来源的新因果压力", ActionTendency: "继续行动",
+	}}
+	input, err := domain.NewActivationPlanGroundingInput(plan, sim, chapter, chapter.ProtocolDigest)
+	continuationMust(t, err)
+	if len(input.Plan.CausalSimulation.OffscreenStage) != 1 ||
+		input.Plan.CausalSimulation.OffscreenStage[0].Pressure != "未经来源的新因果压力" ||
+		len(input.Plan.CausalSimulation.InitialState) != 1 ||
+		input.Plan.CausalSimulation.InitialState[0].Pressure != "未经来源的新因果压力" {
+		t.Fatal("activation grounding projection omitted offscreen or initial-state fact surfaces")
+	}
+	var sourcePath, sourceQuote string
+	for cycleIndex, cycle := range input.Activation.Cycles {
+		for decisionIndex, trace := range cycle.Decisions {
+			if trace.Decision.ImmediateResult != "" {
+				sourcePath = fmt.Sprintf("/activation/cycles/%d/decisions/%d/decision/immediate_result", cycleIndex, decisionIndex)
+				sourceQuote = trace.Decision.ImmediateResult
+				break
+			}
+		}
+		if sourcePath != "" {
+			break
+		}
+	}
+	if sourcePath == "" {
+		t.Fatal("activation fixture has no citable decision result")
+	}
+	verdict := domain.PlanGroundingVerdict{Findings: []domain.PlanGroundingFinding{{
+		Kind: "outcome", PlanPath: "/plan/causal_simulation/offscreen_character_stage/0/pressure",
+		PlanQuote: "未经来源的新因果压力", SourcePath: sourcePath, SourceQuote: sourceQuote,
+		Explanation: "离屏正向压力没有对应权威来源，应删除或绑定真实裁决。",
+	}}}
+	receipt, err := domain.FinalizePlanGroundingReceipt(input, verdict)
+	continuationMust(t, err)
+	if receipt.Verdict.Pass || len(receipt.Verdict.Findings) != 1 {
+		t.Fatal("offscreen fact finding did not produce a valid rejection receipt")
+	}
+	continuationMust(t, domain.ValidatePlanGroundingAudit(domain.PlanGroundingAudit{Input: input, Receipt: receipt}))
+}
