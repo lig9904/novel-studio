@@ -290,7 +290,9 @@ func NewPlanDetailsTool(store *store.Store) *PlanDetailsTool {
 func (t *PlanDetailsTool) Name() string { return "plan_details" }
 func (t *PlanDetailsTool) Description() string {
 	return "章节推演第 2 阶段：向 plan_structure 建立的中间态分批合并 causal_simulation 字段，" +
-		"同名字段后批覆盖前批。最后一批传 finalize=true：合并结果按 plan_chapter 同一口径完整校验，" +
+		"同名字段通常由后批覆盖前批。省略字段会保留；external_reference_plan 的非空批次会保留绑定当前有效 RAG receipt 的完整 fact row，" +
+		"并按完整 row identity 去重；传空数组可显式清除该字段，修订既有 fact row 时先单独清空再提交完整替换，null 不属于公开合同。" +
+		"最后一批传 finalize=true：合并结果按 plan_chapter 同一口径完整校验，" +
 		"通过后写 drafts/NN.plan.json、置章节 in_progress 并记 checkpoint。novel_context 若返回 " +
 		"planning_context_access_receipt，必须把其 source_token 写入 causal_simulation.context_sources；" +
 		"finalize 会同时消费对应服务端回执。"
@@ -371,6 +373,14 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 		merged = map[string]any{}
 	}
 	stagedExternalReferences, _ := merged["external_reference_plan"].([]any)
+	explicitExternalReferenceClear := explicitlyClearsExternalReferencePlan(a.CausalSimulation)
+	if explicitExternalReferenceClear {
+		// Omission preserves staged progress. A schema-valid empty array is the
+		// distinct, explicit removal operation; do not restore the rows that the
+		// caller intentionally cleared. A corrected replacement can be submitted
+		// in the following batch and will be rebound to the current receipt.
+		stagedExternalReferences = nil
+	}
 	if len(a.CausalSimulation) == 0 && !a.Finalize {
 		return nil, fmt.Errorf("plan_details 空提交无效：必须提交非空 causal_simulation 补丁，不能只查看进度。当前缺口：%s。下一步只补最靠前的缺口分组: %w",
 			strings.Join(planDetailsGapSummary(t.store, a.Chapter, partial, merged), "；"),
@@ -415,7 +425,13 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 
 	if !a.Finalize {
 		groundingReviewNeeded := false
-		if result, finalized, err := t.autoFinalizePartialIfComplete(ctx, a.Chapter, partial, merged); finalized || err != nil {
+		if result, finalized, err := t.autoFinalizePartialIfCompleteUnless(
+			ctx,
+			a.Chapter,
+			partial,
+			merged,
+			explicitExternalReferenceClear,
+		); finalized || err != nil {
 			if t.grounding.Review != nil || !errors.Is(err, ErrPlanGroundingReviewRequired) {
 				return result, err
 			}
@@ -447,6 +463,19 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	}
 
 	return t.finalizePartial(ctx, a.Chapter, partial, merged)
+}
+
+func (t *PlanDetailsTool) autoFinalizePartialIfCompleteUnless(
+	ctx context.Context,
+	chapter int,
+	partial map[string]any,
+	merged map[string]any,
+	skip bool,
+) (json.RawMessage, bool, error) {
+	if skip {
+		return nil, false, nil
+	}
+	return t.autoFinalizePartialIfComplete(ctx, chapter, partial, merged)
 }
 
 func normalizePartialVisibleCharacterScope(s *store.Store, chapter int, merged map[string]any) []string {
@@ -502,6 +531,18 @@ func mergeCausalSimulationPatch(dst, patch map[string]any) {
 		}
 		dst[key] = value
 	}
+}
+
+func explicitlyClearsExternalReferencePlan(patch map[string]any) bool {
+	if patch == nil {
+		return false
+	}
+	value, present := patch["external_reference_plan"]
+	if !present {
+		return false
+	}
+	rows, ok := value.([]any)
+	return ok && len(rows) == 0
 }
 
 func mergeReviewRefinementPatch(existing, incoming any) (map[string]any, bool) {

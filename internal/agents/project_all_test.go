@@ -51,8 +51,9 @@ func TestProjectAllPlanningProtocolDigestKeepsRuntimeRecoveryOutOfIdentity(t *te
 	// Explicit world views and receipt-backed clocks change the actor knowledge
 	// contract, so they intentionally receive a new protocol identity.
 	// Runtime-only recovery prompts must remain outside this digest.
-	// Identity-correct projection is a compiler contract, not runtime recovery.
-	const want = "00e76d21c9cb61482e81369eb5aa6879f6e930de0cb9ad251cae083fc1874390"
+	// Identity-correct projection and explicit partial-removal semantics are
+	// compiler contracts, not runtime recovery.
+	const want = "a39ec3b115d5c12038f1866e7ccf6ae292b22547d4f8aad6cc753b5230e3df26"
 	if got := ProjectAllPlanningProtocolDigest(plannerFixture); got != want {
 		t.Fatalf("project-all planning protocol digest changed: got %s want %s", got, want)
 	}

@@ -1670,6 +1670,19 @@ func causalSimulationSchema(strict bool) map[string]any {
 	return focusedCausalSimulationSchema()
 }
 
+func focusedExternalReferencePlanSchema() map[string]any {
+	return schema.Object(
+		schema.Property("query_or_need", schema.String("本章需要的项目事实、外部资料或现实细节用途")).Required(),
+		schema.Property("source_type", schema.String("资料类型；项目事实使用 RAG/rag_fact，craft 使用公开合同规定的 canonical source_type")).Required(),
+		schema.Property("source_refs", schema.Array("精确来源引用；RAG 项目事实使用当前 rag_fact_receipt.hits.ref", schema.String("精确来源引用"))).Required(),
+		schema.Property("retrieved_at", schema.String("检索、简报或 receipt 日期")).Required(),
+		schema.Property("freshness_requirement", schema.String("时效要求及刷新边界")).Required(),
+		schema.Property("usable_details", schema.Array("只用于现实化最终 Story Facts 的本章细节，不得创建新事实", schema.String("本章化细节"))).Required(),
+		schema.Property("transformation_rule", schema.String("把来源转换为已有 Story Fact 表现的规则")).Required(),
+		schema.Property("do_not_use", schema.Array("不得使用或不得从来源推出的内容", schema.String("禁止内容"))).Required(),
+	)
+}
+
 func renderCapacitySchema() map[string]any {
 	sceneUnit := schema.Object(
 		schema.Property("scene_id", schema.String("场景单元稳定标识；同章不得重复")).Required(),
@@ -1871,6 +1884,10 @@ func focusedCausalSimulationSchema() map[string]any {
 		schema.Property("literary_rendering_plan", literaryRenderingPlanSchema()),
 		schema.Property("emotional_logic", schema.Array("可选；默认由主角选择承载，不逐项填心理矩阵", emotionalLogic)),
 		schema.Property("anti_ai_execution_plan", antiAI),
+		schema.Property("external_reference_plan", schema.Array(
+			"分批外部/RAG资料计划：省略时保留现有值；非空批次会保留绑定当前有效 RAG receipt 的完整暂存 fact row，并按 query_or_need、ordered source_refs、usable_details、transformation_rule、do_not_use 组成的完整 identity 去重。传空数组可显式清除全部条目；修订既有 fact row 时先单独清空，再提交完整替换。null 不属于公开合同",
+			focusedExternalReferencePlanSchema(),
+		)),
 		schema.Property("trend_language_plan", schema.Array("可选热梗上限；默认省略，不把梗变成硬台词", trendLanguage)),
 		schema.Property("reader_entertainment_plan", entertainmentPlan),
 		schema.Property("longform_opening", longformOpening),

@@ -12,19 +12,22 @@ import (
 )
 
 // These are pre-clarification identities. The V3 prompt is part of its frozen
-// protocol; the historical one-shot and V1/V2 execution paths must not change.
+// protocol; the historical one-shot and activation identities must not change.
+// Planning identities also bind the current Planner tool contract, so an
+// intentional Planner schema revision updates every planning-policy variant
+// together without changing the actor/arbiter protocol identities above.
 func TestActivationV3StatementProtocolIsolation(t *testing.T) {
 	for _, tc := range []struct{ name, got, want string }{
 		{"one-shot-v1", CharacterAgentProtocolDigestForVersion(domain.CharacterAgentDecisionProtocolVersion), "sha256:0a031fe80f6a44b477c3c769b9a1e23c2426097df56063b2ad4f02a545f2f135"},
 		{"one-shot-v2", CharacterAgentProtocolDigestForVersion(domain.CharacterAgentDecisionProtocolV2Version), "sha256:4db20d580d6828541d6341fbcfc53b34f432747884add86c78026fcfa5e7127e"},
 		{"activation-v1", characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicy), "sha256:dae804415ae589cc5582236f1b0f7d9a6a9774e42be6f04e1d5466e4b977e5b7"},
 		{"activation-v2", characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicyV2), "sha256:7e3b5eacd9df9c19014b2c1da2c829aad6402a1c92d9480e21aa6e39ab4fd953"},
-		{"planning-v1", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicy), "ed579b8954ef5115970bee0c667f762e2bbad1a7a8f14fa45467f98466175e1d"},
-		{"planning-v2", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicyV2), "62e4118b0a78b5b39b9d10157d3ab8902ee6476ec2576ce55a667072f7128078"},
+		{"planning-v1", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicy), "72287d5b0a912121d02637914527f530477898aa5f5d6e0bfcb3a18a1f167754"},
+		{"planning-v2", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicyV2), "5b23420c38c0515aec26b3d9c3dba8285a6aedb5735c8f2da7e8bd7230da38a7"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if tc.got != tc.want {
-				t.Fatalf("V3 clarification changed historical identity: got %s, want %s", tc.got, tc.want)
+				t.Fatalf("protocol identity changed without an updated contract fixture: got %s, want %s", tc.got, tc.want)
 			}
 		})
 	}
