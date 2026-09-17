@@ -1,0 +1,39 @@
+{
+  "schema": "p0-5r-bundle-genesis-matrix.v1",
+  "classification": "SYNTHETIC",
+  "cases": [
+    {
+      "case": "first bundle",
+      "expected": "derived generation genesis + base state",
+      "result": "PASS"
+    },
+    {
+      "case": "second bundle",
+      "expected": "chapter 1 digest + post state",
+      "result": "PASS"
+    },
+    {
+      "case": "empty digest",
+      "expected": "REJECT",
+      "result": "PASS"
+    },
+    {
+      "case": "formatted fake digest",
+      "expected": "chain REJECT",
+      "result": "PASS"
+    },
+    {
+      "case": "wrong generation genesis",
+      "expected": "chain REJECT",
+      "result": "PASS"
+    }
+  ],
+  "production_authority": "pipelineProjectAllTail",
+  "harness_change": "uses pipelineProjectAllTail(generation,nil)",
+  "model_runtime_bundle": false,
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  }
+}

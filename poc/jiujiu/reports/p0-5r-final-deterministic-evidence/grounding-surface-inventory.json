@@ -1,0 +1,609 @@
+{
+  "schema": "p0-5r-grounding-surface-inventory.v1",
+  "classification": "TEST_SCAFFOLD",
+  "plan_projection": "PlanGroundingInput.Plan contains the complete ChapterPlan with GroundingReview removed",
+  "activation_projection": "verified per-cycle decision trace plus POV before/after/new knowledge; not every actor original observation, every physical-state record, or per-leaf binding",
+  "entries": [
+    {
+      "path": "/chapter",
+      "classification": "STRUCTURAL_ONLY",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "exact chapter checks",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "Store/checkpoint/bundle identity"
+    },
+    {
+      "path": "/title",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape only",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/render metadata"
+    },
+    {
+      "path": "/goal",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "semantic model review",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/Editor"
+    },
+    {
+      "path": "/conflict",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "semantic model review",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/Editor"
+    },
+    {
+      "path": "/hook",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "semantic model review",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/Editor/continuity"
+    },
+    {
+      "path": "/emotion_arc",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape only",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/Editor"
+    },
+    {
+      "path": "/notes",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "proposal/contamination checks",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Planner repair context"
+    },
+    {
+      "path": "/advance_events",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "event/weave validation",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "event weave"
+    },
+    {
+      "path": "/grounding_review",
+      "classification": "STRUCTURAL_ONLY",
+      "grounding_input": "STRIPPED_TO_AVOID_SELF_ATTESTATION",
+      "host_validator": "exact digest/protocol validation",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "receipt/read gate"
+    },
+    {
+      "path": "/contract/required_beats",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/Editor hard results"
+    },
+    {
+      "path": "/contract/forbidden_moves",
+      "classification": "STRUCTURAL_ONLY",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "negative constraint"
+    },
+    {
+      "path": "/contract/continuity_checks",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Editor continuity"
+    },
+    {
+      "path": "/contract/evaluation_focus",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Editor instruction that may carry positive required outcomes"
+    },
+    {
+      "path": "/contract/emotion_target",
+      "classification": "PRESENTATION_ONLY",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "tone target"
+    },
+    {
+      "path": "/contract/payoff_points",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter payoff candidate"
+    },
+    {
+      "path": "/contract/hook_goal",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter ending intent"
+    },
+    {
+      "path": "/contract/scene_anchors",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "contract/shape plus semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter objects/actions"
+    },
+    {
+      "path": "/causal_simulation/world_simulation_id",
+      "classification": "STRUCTURAL_ONLY",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "exact equality",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "exact simulation binding"
+    },
+    {
+      "path": "/causal_simulation/protagonist_decision",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "exact equality",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "POV choice"
+    },
+    {
+      "path": "/causal_simulation/project_promise",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/longform"
+    },
+    {
+      "path": "/causal_simulation/chapter_function",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/arc"
+    },
+    {
+      "path": "/causal_simulation/context_sources",
+      "classification": "STRUCTURAL_ONLY",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "exact current tokens",
+      "source_binding": "NONE",
+      "coverage": "NOT_REQUIRED",
+      "consumer": "receipt/source identity"
+    },
+    {
+      "path": "/causal_simulation/writing_norms_applied",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter method plus positive chapter_application/proof_targets"
+    },
+    {
+      "path": "/causal_simulation/anti_ai_execution_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter style guard plus positive counter_moves/dialogue actions"
+    },
+    {
+      "path": "/causal_simulation/external_reference_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "current RAG/craft receipt validators",
+      "source_binding": "POST_GROUNDING_PER_ENTRY_TRANSFORMATION_AND_RECEIPT",
+      "coverage": "FULL",
+      "consumer": "Drafter fact anchors"
+    },
+    {
+      "path": "/causal_simulation/trend_language_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter dialogue/texture"
+    },
+    {
+      "path": "/causal_simulation/reader_entertainment_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter positive beats"
+    },
+    {
+      "path": "/causal_simulation/grounding_details",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "POST_GROUNDING_RECEIPT_LEVEL_ONLY",
+      "coverage": "FULL",
+      "consumer": "Drafter reality anchors"
+    },
+    {
+      "path": "/causal_simulation/offscreen_character_stage",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter + persisted character stage ledger"
+    },
+    {
+      "path": "/causal_simulation/longform_opening",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter opening/promises"
+    },
+    {
+      "path": "/causal_simulation/character_arc_tests",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter character actions"
+    },
+    {
+      "path": "/causal_simulation/reader_reward_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter payoff/cost"
+    },
+    {
+      "path": "/causal_simulation/reader_retention_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter surface/latent selection"
+    },
+    {
+      "path": "/causal_simulation/render_capacity",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter scene actions/consequences"
+    },
+    {
+      "path": "/causal_simulation/arc_transition_contract",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "exact predecessor/outgoing validation",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "bundle/next chapter"
+    },
+    {
+      "path": "/causal_simulation/evidence_return_chains",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/future evidence"
+    },
+    {
+      "path": "/causal_simulation/ending_consequence_contract",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "bundle/next chapter"
+    },
+    {
+      "path": "/causal_simulation/dormant_character_policy",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "future character continuity"
+    },
+    {
+      "path": "/causal_simulation/reality_support_plan",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "POST_GROUNDING_RECEIPT_LEVEL_ONLY",
+      "coverage": "FULL",
+      "consumer": "Drafter reality facts"
+    },
+    {
+      "path": "/causal_simulation/emotional_logic",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter action/emotion evidence"
+    },
+    {
+      "path": "/causal_simulation/relationship_emotion_arcs",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "relationship continuity"
+    },
+    {
+      "path": "/causal_simulation/visual_design",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter character state"
+    },
+    {
+      "path": "/causal_simulation/character_kit",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter resources/abilities"
+    },
+    {
+      "path": "/causal_simulation/world_background_layers",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter world pressures"
+    },
+    {
+      "path": "/causal_simulation/information_asymmetry",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "knowledge boundaries"
+    },
+    {
+      "path": "/causal_simulation/hidden_rule_pressure",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "world rules/costs"
+    },
+    {
+      "path": "/causal_simulation/social_mood_rumors",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "crowd knowledge/actions"
+    },
+    {
+      "path": "/causal_simulation/ritual_calendar",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "time/deadline constraints"
+    },
+    {
+      "path": "/causal_simulation/structural_resources",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "resources/access/cost"
+    },
+    {
+      "path": "/causal_simulation/cosmology_checks",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "world rules/abilities"
+    },
+    {
+      "path": "/causal_simulation/conflict_web",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "actors/goals/resources"
+    },
+    {
+      "path": "/causal_simulation/narrative_tension_matrix",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter pressure/POV"
+    },
+    {
+      "path": "/causal_simulation/initial_state",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter opening character state"
+    },
+    {
+      "path": "/causal_simulation/voice_logic",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter knowledge/dialogue"
+    },
+    {
+      "path": "/causal_simulation/dialogue_scene_blueprints",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter communication/new knowledge"
+    },
+    {
+      "path": "/causal_simulation/literary_rendering_plan",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter presentation + state_change"
+    },
+    {
+      "path": "/causal_simulation/crowd_roles",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter participants/actions"
+    },
+    {
+      "path": "/causal_simulation/review_refinement",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "repair constraints/targets"
+    },
+    {
+      "path": "/causal_simulation/environment_state",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter visible world state"
+    },
+    {
+      "path": "/causal_simulation/world_rules_in_force",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "world constraint"
+    },
+    {
+      "path": "/causal_simulation/information_gaps",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "knowledge/uncertainty"
+    },
+    {
+      "path": "/causal_simulation/causal_beats",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter/bundle causality"
+    },
+    {
+      "path": "/causal_simulation/decision_points",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter choices"
+    },
+    {
+      "path": "/causal_simulation/outcome_shift",
+      "classification": "FACT_BEARING",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "bundle/state delta"
+    },
+    {
+      "path": "/causal_simulation/scene_constraints",
+      "classification": "MIXED",
+      "grounding_input": "FULL_PLAN",
+      "host_validator": "shape/domain validators + semantic Grounding",
+      "source_binding": "NONE",
+      "coverage": "FULL",
+      "consumer": "Drafter authority boundary"
+    }
+  ],
+  "summary": {
+    "surfaces": 65,
+    "full": 59,
+    "not_required": 6,
+    "partial": 0,
+    "none": 0
+  },
+  "coverage_conclusion": "COMPLETE",
+  "caveat": "FULL means the fact-bearing field and authoritative source packet are model-visible under the broad Grounding rule; it does not make a probabilistic reviewer infallible.",
+  "inventory_unit": "65 direct JSON field surfaces declared by ChapterPlan, ChapterContract, and ChapterCausalSimulation; nested members are assessed under the owning field",
+  "coverage_semantics": "FULL means the owning field is model-visible, current protocol authority packet is available, and the general authority rule applies; it does not assert per-leaf support or reviewer correctness",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  }
+}

@@ -236,11 +236,15 @@ func TestLiveP05FrozenPlannerProjection(t *testing.T) {
 		}
 	}
 
+	previousBundleDigest, preStateRoot, err := pipelineProjectAllTail(generation, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
 	bundle, nextRegistry, err := buildPipelineProjectedChapterBundle(
 		generation,
 		*outline,
-		"",
-		generation.BaseStateRoot,
+		previousBundleDigest,
+		preStateRoot,
 		artifacts,
 		registry,
 	)

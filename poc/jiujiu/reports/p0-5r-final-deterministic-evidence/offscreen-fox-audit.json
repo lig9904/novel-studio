@@ -1,0 +1,48 @@
+{
+  "schema": "p0-5r-offscreen-fox-audit.v1",
+  "classification": "TEST_SCAFFOLD",
+  "overall": "UNSUPPORTED-COVERED",
+  "case": "REVIEWER_JUDGMENT_FAILURE",
+  "claims": [
+    {
+      "path": "/plan/causal_simulation/offscreen_character_stage/0/current_action",
+      "claim": "伏低身体、以九尾兽体避开浪花",
+      "source_support": "activation supports staying in place and observing privately; crouching/wave-avoidance is a removable micro-action that does not change state, knowledge, resources, location or future obligation",
+      "result": "PRESENTATION-ONLY / NO STORY AUTHORITY"
+    },
+    {
+      "path": "/plan/causal_simulation/offscreen_character_stage/0/pressure",
+      "claim": "浪花随时会抹掉潮痕",
+      "source_support": "activation supports meaning/source TBD but does not adjudicate erasure by waves",
+      "result": "UNSUPPORTED BUT COVERED AND SHOULD HAVE BEEN REJECTED"
+    },
+    {
+      "path": "/plan/causal_simulation/initial_state/1/pressure",
+      "claim": "浪花随时会把它抹掉",
+      "source_support": "activation supports meaning/source TBD but not erasure risk",
+      "result": "UNSUPPORTED BUT COVERED AND SHOULD HAVE BEEN REJECTED"
+    },
+    {
+      "path": "/plan/causal_simulation/offscreen_character_stage/0/decision",
+      "claim": "不动、不发声、不传递",
+      "source_support": "exact decision/immediate result supports no movement/no transmission",
+      "result": "SUPPORTED"
+    },
+    {
+      "path": "/plan/causal_simulation/offscreen_character_stage/0/knowledge_boundary",
+      "claim": "private observation remains fox-only",
+      "source_support": "activation state_after and butterfly effect explicitly preserve isolation",
+      "result": "SUPPORTED"
+    }
+  ],
+  "grounding_input_contains_claims": true,
+  "grounding_input_contains_authoritative_activation": true,
+  "host_can_validate_exact_finding_paths": true,
+  "passing_verdict": true,
+  "conclusion": "The substantive wave-erasure pressure claims were present in the exact packet and should have been rejected. The crouch/wave-avoidance micro-action is permissible Derived Presentation. The substantive false pass is Case B reviewer judgment failure, not an input coverage hole.",
+  "authority": {
+    "classification": "TEST_SCAFFOLD",
+    "accepted_canon": false,
+    "human_approval": false
+  }
+}
