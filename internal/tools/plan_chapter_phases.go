@@ -281,10 +281,31 @@ func stringSliceFromAny(value any) []string {
 type PlanDetailsTool struct {
 	store     *store.Store
 	grounding PlanGroundingReviewer
+	trace     PlanDetailsTraceRecorder
+	traceSeq  int
 }
+
+type PlanDetailsTraceEvent struct {
+	Sequence      int      `json:"sequence"`
+	Phase         string   `json:"phase"`
+	Chapter       int      `json:"chapter"`
+	PatchKeys     []string `json:"patch_keys,omitempty"`
+	PatchDigest   string   `json:"patch_digest,omitempty"`
+	PartialDigest string   `json:"partial_digest,omitempty"`
+	StateDigest   string   `json:"state_digest,omitempty"`
+	Result        string   `json:"result,omitempty"`
+	Error         string   `json:"error,omitempty"`
+}
+
+type PlanDetailsTraceRecorder func(PlanDetailsTraceEvent) error
 
 func NewPlanDetailsTool(store *store.Store) *PlanDetailsTool {
 	return &PlanDetailsTool{store: store}
+}
+
+func (t *PlanDetailsTool) WithTraceRecorder(recorder PlanDetailsTraceRecorder) *PlanDetailsTool {
+	t.trace = recorder
+	return t
 }
 
 func (t *PlanDetailsTool) Name() string { return "plan_details" }
@@ -322,7 +343,22 @@ func (t *PlanDetailsTool) inProgressChapter() int {
 	return inProgressChapterOf(t.store)
 }
 
-func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (json.RawMessage, error) {
+func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (result json.RawMessage, returnErr error) {
+	traceChapter := 0
+	defer func() {
+		if t.trace == nil {
+			return
+		}
+		outcome := "PASS"
+		errorText := ""
+		if returnErr != nil {
+			outcome = "FAIL"
+			errorText = returnErr.Error()
+		}
+		if err := t.emitTrace(PlanDetailsTraceEvent{Phase: "validation", Chapter: traceChapter, Result: outcome, Error: errorText}); err != nil && returnErr == nil {
+			returnErr = fmt.Errorf("record plan_details validation trace: %w", err)
+		}
+	}()
 	var a struct {
 		Chapter          int            `json:"chapter"`
 		CausalSimulation map[string]any `json:"causal_simulation"`
@@ -334,6 +370,7 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	if a.Chapter <= 0 {
 		a.Chapter = t.inProgressChapter()
 	}
+	traceChapter = a.Chapter
 	if a.Chapter <= 0 {
 		return nil, fmt.Errorf("chapter 缺失且无法从进度推断当前章：请显式传 chapter: %w", errs.ErrToolArgs)
 	}
@@ -346,6 +383,15 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	}
 	if partial == nil {
 		return nil, fmt.Errorf("第 %d 章没有两阶段规划中间态：请先调用 plan_structure 提交核心字段，或改用 plan_chapter 一次性提交: %w", a.Chapter, errs.ErrToolPrecondition)
+	}
+	if err := t.emitTrace(PlanDetailsTraceEvent{
+		Phase:         "before_merge",
+		Chapter:       a.Chapter,
+		PatchKeys:     sortedKeys(a.CausalSimulation),
+		PatchDigest:   planDetailsTraceDigest(a.CausalSimulation),
+		PartialDigest: planDetailsTraceDigest(partial),
+	}); err != nil {
+		return nil, fmt.Errorf("record plan_details before-merge trace: %w", err)
 	}
 	worldSimulation, err := ensureChapterWorldSimulationReadyForPlanning(t.store, a.Chapter)
 	if err != nil {
@@ -388,6 +434,9 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 		)
 	}
 	mergeCausalSimulationPatch(merged, a.CausalSimulation)
+	if err := t.emitTrace(PlanDetailsTraceEvent{Phase: "after_merge", Chapter: a.Chapter, StateDigest: planDetailsTraceDigest(merged)}); err != nil {
+		return nil, fmt.Errorf("record plan_details after-merge trace: %w", err)
+	}
 	_, projectAllContextToken, err := loadProjectAllStateForExecution(t.store, a.Chapter)
 	if err != nil {
 		return nil, err
@@ -403,6 +452,9 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	}
 	if err := applyPlanDetailsSourceAnchors(t.store, a.Chapter, merged, worldSimulation, craftReceipt, stagedExternalReferences); err != nil {
 		return nil, err
+	}
+	if err := t.emitTrace(PlanDetailsTraceEvent{Phase: "after_source_anchor", Chapter: a.Chapter, StateDigest: planDetailsTraceDigest(merged)}); err != nil {
+		return nil, fmt.Errorf("record plan_details source-anchor trace: %w", err)
 	}
 	normalizations := normalizePartialVisibleCharacterScope(t.store, a.Chapter, merged)
 	partial["causal_simulation"] = merged
@@ -421,6 +473,11 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	}
 	if err := t.store.Drafts.SaveChapterPlanPartial(a.Chapter, partial); err != nil {
 		return nil, fmt.Errorf("save chapter plan partial: %w: %w", errs.ErrStoreWrite, err)
+	}
+	if persisted, err := t.store.Drafts.LoadChapterPlanPartial(a.Chapter); err != nil {
+		return nil, fmt.Errorf("reload persisted plan partial for trace: %w", err)
+	} else if err := t.emitTrace(PlanDetailsTraceEvent{Phase: "persisted", Chapter: a.Chapter, PartialDigest: planDetailsTraceDigest(persisted)}); err != nil {
+		return nil, fmt.Errorf("record persisted plan_details trace: %w", err)
 	}
 
 	if !a.Finalize {
@@ -463,6 +520,47 @@ func (t *PlanDetailsTool) Execute(ctx context.Context, args json.RawMessage) (js
 	}
 
 	return t.finalizePartial(ctx, a.Chapter, partial, merged)
+}
+
+func (t *PlanDetailsTool) emitTrace(event PlanDetailsTraceEvent) error {
+	if t == nil || t.trace == nil {
+		return nil
+	}
+	t.traceSeq++
+	event.Sequence = t.traceSeq
+	return t.trace(event)
+}
+
+func planDetailsTraceDigest(value any) string {
+	digest, err := domain.DeterministicPlanningHash(value)
+	if err != nil {
+		return ""
+	}
+	return "sha256:" + digest
+}
+
+// CurrentChapterPlanPartialBindingDigest verifies that the staged Planner
+// candidate is still bound to the exact current simulation/rewrite sources.
+// Retention remains candidate state; this helper does not finalize or promote it.
+func CurrentChapterPlanPartialBindingDigest(
+	st *store.Store,
+	chapter int,
+	simulation *domain.ChapterWorldSimulation,
+) (string, error) {
+	if st == nil || chapter <= 0 || simulation == nil || simulation.Chapter != chapter {
+		return "", fmt.Errorf("invalid Planner partial binding request: %w", errs.ErrToolArgs)
+	}
+	partial, err := st.Drafts.LoadChapterPlanPartial(chapter)
+	if err != nil {
+		return "", err
+	}
+	if partial == nil {
+		return "", fmt.Errorf("chapter %d has no recoverable Planner partial: %w", chapter, errs.ErrToolPrecondition)
+	}
+	if !planStructureBoundToSources(st, chapter, partial, simulation) {
+		return "", fmt.Errorf("chapter %d Planner partial is stale for the current simulation/rewrite sources: %w", chapter, errs.ErrToolPrecondition)
+	}
+	return planDetailsTraceDigest(partial), nil
 }
 
 func (t *PlanDetailsTool) autoFinalizePartialIfCompleteUnless(

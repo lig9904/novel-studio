@@ -217,3 +217,39 @@ func TestPlanDetailsClearThenReplaceCurrentRAGRow(t *testing.T) {
 		t.Fatalf("clear-then-replace retained stale authored content: %#v", rows)
 	}
 }
+
+func TestPlanDetailsTraceRecordsBoundedPatchStages(t *testing.T) {
+	st := newPhaseTestStore(t)
+	if _, err := NewPlanStructureTool(st).Execute(context.Background(), planStructureArgs(1)); err != nil {
+		t.Fatal(err)
+	}
+	events := []PlanDetailsTraceEvent{}
+	tool := NewPlanDetailsTool(st).WithTraceRecorder(func(event PlanDetailsTraceEvent) error {
+		events = append(events, event)
+		return nil
+	})
+	args, _ := json.Marshal(map[string]any{
+		"chapter": 1,
+		"causal_simulation": map[string]any{
+			"chapter_function": "合成trace验证",
+		},
+	})
+	if _, err := tool.Execute(context.Background(), args); err != nil {
+		t.Fatal(err)
+	}
+	want := []string{"before_merge", "after_merge", "after_source_anchor", "persisted", "validation"}
+	if len(events) != len(want) {
+		t.Fatalf("trace event count=%d want=%d: %+v", len(events), len(want), events)
+	}
+	for index, phase := range want {
+		if events[index].Sequence != index+1 || events[index].Phase != phase {
+			t.Fatalf("trace[%d]=%+v want phase=%s", index, events[index], phase)
+		}
+	}
+	if len(events[0].PatchKeys) != 1 || events[0].PatchKeys[0] != "chapter_function" ||
+		events[0].PatchDigest == "" || events[0].PartialDigest == "" ||
+		events[1].StateDigest == "" || events[2].StateDigest == "" ||
+		events[3].PartialDigest == "" || events[4].Result != "PASS" {
+		t.Fatalf("trace omitted sanitized patch or state evidence: %+v", events)
+	}
+}

@@ -13,6 +13,7 @@ import (
 	"github.com/chenhongyang/novel-studio/assets"
 	"github.com/chenhongyang/novel-studio/internal/bootstrap"
 	"github.com/chenhongyang/novel-studio/internal/domain"
+	"github.com/chenhongyang/novel-studio/internal/errs"
 	"github.com/chenhongyang/novel-studio/internal/host/reminder"
 	"github.com/chenhongyang/novel-studio/internal/store"
 	"github.com/chenhongyang/novel-studio/internal/tools"
@@ -552,6 +553,45 @@ func RunProjectedChapterPlanning(
 	arcBoundary ProjectedArcBoundary,
 	accounting ...ProjectedPlanningAccounting,
 ) (_ *ProjectedChapterArtifacts, returnErr error) {
+	return runProjectedChapterPlanning(
+		ctx, cfg, bundle, isolatedOutputDir, chapter, planningContextDigest,
+		characterAgentProtocol, arcBoundary, nil, nil, accounting...,
+	)
+}
+
+// RunPlannerOnlyProjectedChapterPlanning resumes one existing, source-bound
+// Planner partial and refuses every Character/World fallback.
+func RunPlannerOnlyProjectedChapterPlanning(
+	ctx context.Context,
+	cfg bootstrap.Config,
+	bundle assets.Bundle,
+	isolatedOutputDir string,
+	chapter int,
+	planningContextDigest string,
+	characterAgentProtocol string,
+	arcBoundary ProjectedArcBoundary,
+	request PlannerOnlyRecoveryRequest,
+	accounting ...ProjectedPlanningAccounting,
+) (_ *ProjectedChapterArtifacts, returnErr error) {
+	return runProjectedChapterPlanning(
+		ctx, cfg, bundle, isolatedOutputDir, chapter, planningContextDigest,
+		characterAgentProtocol, arcBoundary, &request, nil, accounting...,
+	)
+}
+
+func runProjectedChapterPlanning(
+	ctx context.Context,
+	cfg bootstrap.Config,
+	bundle assets.Bundle,
+	isolatedOutputDir string,
+	chapter int,
+	planningContextDigest string,
+	characterAgentProtocol string,
+	arcBoundary ProjectedArcBoundary,
+	plannerOnly *PlannerOnlyRecoveryRequest,
+	modelsOverride *bootstrap.ModelSet,
+	accounting ...ProjectedPlanningAccounting,
+) (_ *ProjectedChapterArtifacts, returnErr error) {
 	if len(accounting) > 0 {
 		ctx = context.WithValue(ctx, projectedPlanningAccountingKey{}, accounting[0])
 		ctx = context.WithValue(ctx, projectedPlanningChapterKey{}, chapter)
@@ -573,12 +613,22 @@ func RunProjectedChapterPlanning(
 	}
 	arcBoundary.CharacterProtocolPinned = true
 	arcBoundary.FrozenActivationProducer = cfg.CharacterAgents.FrozenActivationProducer
+	currentPlannerProtocol := ProjectAllPlanningProtocolWithActivationProducer(
+		bundle.Prompts.Planner,
+		characterAgentProtocol,
+		arcBoundary.MaxCharacterActivationCycles,
+		arcBoundary.CharacterActivationPolicy,
+		arcBoundary.FrozenActivationProducer,
+	)
 	st := store.NewStore(isolatedOutputDir)
 	if err := st.Init(); err != nil {
 		return nil, fmt.Errorf("init project-all workspace: %w", err)
 	}
 
 	owner := fmt.Sprintf("project-all-ch%06d", chapter)
+	if plannerOnly != nil {
+		owner = plannerOnlyLockOwner("project-all-planner-only", plannerOnly.Contract.ExecutionID)
+	}
 	if err := st.Runtime.AcquirePipelineExecution(domain.PipelineExecutionLock{
 		Mode:          domain.PipelineExecutionProjectAll,
 		TargetChapter: chapter,
@@ -592,10 +642,42 @@ func RunProjectedChapterPlanning(
 			returnErr = fmt.Errorf("release project-all execution lock: %w", err)
 		}
 	}()
+	trace := newPlannerOnlyTraceEmitter(plannerOnly)
+	if trace != nil {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithCancel(ctx)
+		trace.cancel = cancel
+		defer cancel()
+	}
+	var plannerOnlyState *plannerOnlyValidatedState
+	if plannerOnly != nil {
+		contract := plannerOnly.Contract
+		if err := trace.emit(PlannerOnlyTraceEvent{Stage: "preflight", Result: "STARTED"}); err != nil {
+			return nil, err
+		}
+		if contract.Chapter != chapter ||
+			contract.PlanningContextDigest != strings.TrimSpace(planningContextDigest) ||
+			contract.PlannerProtocol != currentPlannerProtocol {
+			err := fmt.Errorf("planner-only request does not match execution chapter/context/protocol: %w", errs.ErrToolPrecondition)
+			_ = trace.emit(PlannerOnlyTraceEvent{Stage: "preflight", Result: "FAIL", Error: err.Error()})
+			return nil, err
+		}
+		plannerOnlyState, err = inspectPlannerOnlyRecoveryState(st, contract, true)
+		if err != nil {
+			_ = trace.emit(PlannerOnlyTraceEvent{Stage: "preflight", Result: "FAIL", Error: err.Error()})
+			return nil, err
+		}
+		if err := trace.emit(PlannerOnlyTraceEvent{Stage: "preflight", Result: "PASS", StateDigest: contract.SimulationDigest}); err != nil {
+			return nil, err
+		}
+	}
 
-	models, err := bootstrap.NewModelSet(cfg)
-	if err != nil {
-		return nil, fmt.Errorf("create project-all models: %w", err)
+	models := modelsOverride
+	if models == nil {
+		models, err = bootstrap.NewModelSet(cfg)
+		if err != nil {
+			return nil, fmt.Errorf("create project-all models: %w", err)
+		}
 	}
 	model := models.ForRole("writer")
 	if model == nil {
@@ -607,13 +689,22 @@ func RunProjectedChapterPlanning(
 	// Project-all never queries live Qdrant, but it may use the immutable local
 	// vector_store copied into this generation workspace. This keeps semantic
 	// RAG in the planning phase while render remains receipt-only.
-	if embedder, enabled, embedErr := bootstrap.NewRAGEmbedder(cfg); embedErr != nil {
-		return nil, fmt.Errorf("project-all snapshot embedding model: %w", embedErr)
-	} else if enabled {
-		contextTool.WithRAGEmbedder(embedder)
+	if plannerOnly == nil {
+		if embedder, enabled, embedErr := bootstrap.NewRAGEmbedder(cfg); embedErr != nil {
+			return nil, fmt.Errorf("project-all snapshot embedding model: %w", embedErr)
+		} else if enabled {
+			contextTool.WithRAGEmbedder(embedder)
+		}
 	}
 
-	simulation, simulationCP, simulationErr := loadCurrentProjectedSimulation(st, chapter)
+	var simulation *domain.ChapterWorldSimulation
+	var simulationCP *domain.Checkpoint
+	var simulationErr error
+	if plannerOnlyState != nil {
+		simulation, simulationCP = plannerOnlyState.simulation, plannerOnlyState.checkpoint
+	} else {
+		simulation, simulationCP, simulationErr = loadCurrentProjectedSimulation(st, chapter)
+	}
 	if simulationErr != nil {
 		return nil, simulationErr
 	}
@@ -846,15 +937,34 @@ func RunProjectedChapterPlanning(
 		}
 	}
 
+	if err := trace.emit(PlannerOnlyTraceEvent{Stage: "craft_receipt", Result: "STARTED"}); err != nil {
+		return nil, err
+	}
 	craftReceipt, err := tools.EnsureProjectAllCraftReceiptForCurrentContext(st, chapter)
 	if err != nil {
+		_ = trace.emit(PlannerOnlyTraceEvent{Stage: "craft_receipt", Result: "FAIL", Error: err.Error()})
 		return nil, fmt.Errorf("project-all chapter %d craft receipt: %w", chapter, err)
+	}
+	if err := trace.emit(PlannerOnlyTraceEvent{Stage: "craft_receipt", Result: "PASS", StateDigest: plannerOnlyDigest(craftReceipt)}); err != nil {
+		return nil, err
 	}
 	plan, planCP, planErr := loadCurrentProjectedPlan(st, chapter)
 	if planErr != nil {
 		return nil, planErr
 	}
 	if plan == nil {
+		if plannerOnly != nil {
+			// Revalidate under the acquired project-all lock immediately before any
+			// provider call. Drift fails closed and never reopens upstream stages.
+			plannerOnlyState, err = inspectPlannerOnlyRecoveryState(st, plannerOnly.Contract, true)
+			if err != nil {
+				_ = trace.emit(PlannerOnlyTraceEvent{Stage: "pre_planner_revalidation", Result: "FAIL", Error: err.Error()})
+				return nil, err
+			}
+			if err := trace.emit(PlannerOnlyTraceEvent{Stage: "pre_planner_revalidation", Result: "PASS", StateDigest: plannerOnly.Contract.PartialDigest}); err != nil {
+				return nil, err
+			}
+		}
 		bookBudget := ""
 		if receipt, receiptErr := st.LoadOutlineAllExecutionReceipt(); receiptErr == nil && receipt != nil && receipt.TargetWords > 0 {
 			bookBudget = fmt.Sprintf(
@@ -871,17 +981,27 @@ func RunProjectedChapterPlanning(
 		if err != nil {
 			return nil, fmt.Errorf("project-all planner context args chapter %d: %w", chapter, err)
 		}
+		if err := trace.emit(PlannerOnlyTraceEvent{Stage: "host_context", Tool: "novel_context", ArgumentsHash: plannerOnlyDigest(json.RawMessage(planningContextArgs)), ArgumentKeys: []string{"chapter", "profile"}, Result: "STARTED"}); err != nil {
+			return nil, err
+		}
 		planningContextRaw, err := contextTool.Execute(ctx, planningContextArgs)
 		if err != nil {
+			_ = trace.emit(PlannerOnlyTraceEvent{Stage: "host_context", Tool: "novel_context", Result: "FAIL", Error: err.Error()})
 			return nil, fmt.Errorf("project-all planner host context chapter %d: %w", chapter, err)
 		}
 		if len(planningContextRaw) == 0 {
 			return nil, fmt.Errorf("project-all planner host context chapter %d is empty", chapter)
 		}
+		if err := trace.emit(PlannerOnlyTraceEvent{Stage: "host_context", Tool: "novel_context", StateDigest: plannerOnlyDigest(json.RawMessage(planningContextRaw)), Result: "PASS"}); err != nil {
+			return nil, err
+		}
 		if err := projectedAccountingBefore(ctx); err != nil {
 			return nil, err
 		}
 		plannerModel, plannerOnMessage := projectedAccountingModel(ctx, model, "project_all_planner", "")
+		if plannerOnly != nil {
+			plannerModel = &plannerOnlyGuardedModel{base: plannerModel, trace: trace}
+		}
 		thinking, _ := ResolveThinkingForModel(model, roleThinking(cfg, "writer"))
 		plannerPrompt := fmt.Sprintf(
 			"Host 已代你完成本章唯一一次 novel_context(chapter=%d, profile=planning) 调用并签发当前访问收据；不要再次调用 novel_context，也不要解释或结束，直接消费下列权威 JSON 并调用 plan_structure，然后用 plan_details 分批 finalize：\n<host_prefetched_novel_context>\n%s\n</host_prefetched_novel_context>\n\nProject-Arc 已完成 V%dA%d《%s》中第 %d 章的全角色世界推演。本弧范围第%d-%d章，整体目标：%s。只规划第 %d 章：必须消费当前 content-addressed craft receipt；有 hits 的每个 need 都要按 receipt pack 精确转化进 external_reference_plan，fact receipt 有 hits 时同理；no_material 只绑定来源，禁止伪造材料。用 plan_structure + plan_details 分批生成并 finalize 完整 POV plan。若 project_all_state 有 predecessor_contract，arc_transition_contract 的 incoming id/text 必须逐字复制，consumed_by_cause 必须逐字等于本章一个 causal_beats[].cause；弧首章 incoming 留空。每章都必须另写弧内唯一的 outgoing consequence id/text，禁止用 goal/hook 冒充。render_capacity 必须给出3-6个有主动阻力、转折、退出后果和具体行动证据的场景单元，总量自然支撑 user_rules.chapter_words，不得靠手续、复述或总结注水。%s不得读取或生成正文，不得转去其他章节。跨弧 payoff/reveal/reward 必须保留为 carried-forward，不能挤到本弧末章提前兑现；只有第%d章才是全书末章。",
@@ -902,14 +1022,34 @@ func RunProjectedChapterPlanning(
 		if simulation.CharacterActivation != nil {
 			plannerSystem += projectAllActivationPlannerBoundary
 		}
+		planStructureTool := agentcore.Tool(tools.NewPlanStructureTool(st))
+		planDetailsTool := tools.NewPlanDetailsTool(st).WithGroundingReviewer(NewPlanGroundingReviewer(cfg, models, nil))
+		plannerTools := []agentcore.Tool{contextTool, tools.NewCraftRecallTool(st), planStructureTool, planDetailsTool}
+		if plannerOnly != nil {
+			planDetailsTool.WithTraceRecorder(func(event tools.PlanDetailsTraceEvent) error {
+				beforePartial, afterPartial := "", ""
+				if event.Phase == "before_merge" {
+					beforePartial = event.PartialDigest
+				}
+				if event.Phase == "persisted" {
+					afterPartial = event.PartialDigest
+				}
+				return trace.emit(PlannerOnlyTraceEvent{
+					Stage: event.Phase, Tool: "plan_details", ArgumentKeys: event.PatchKeys,
+					ArgumentsHash: event.PatchDigest, BeforePartial: beforePartial,
+					AfterPartial: afterPartial, StateDigest: event.StateDigest,
+					Result: event.Result, Error: event.Error,
+				})
+			})
+			plannerTools = []agentcore.Tool{
+				&plannerOnlyTracedTool{tool: contextTool, store: st, emit: trace},
+				&plannerOnlyTracedTool{tool: planStructureTool, store: st, emit: trace},
+				&plannerOnlyTracedTool{tool: planDetailsTool, store: st, emit: trace},
+			}
+		}
 		if err := runProjectAllPlannerLoop(ctx, chapter, plannerPrompt, agentcore.AgentContext{
 			SystemPrompt: plannerSystem,
-			Tools: []agentcore.Tool{
-				contextTool,
-				tools.NewCraftRecallTool(st),
-				tools.NewPlanStructureTool(st),
-				tools.NewPlanDetailsTool(st).WithGroundingReviewer(NewPlanGroundingReviewer(cfg, models, nil)),
-			},
+			Tools:        plannerTools,
 		}, agentcore.LoopConfig{
 			Model: plannerModel, OnMessage: plannerOnMessage,
 			MaxTurns:           cappedMaxTurns(cfg.ResolveMaxTurns("writer", 36), 36),
@@ -918,6 +1058,9 @@ func RunProjectedChapterPlanning(
 			PromptCacheKey: agentPromptCacheKey("project_all_planner", st.Dir(), fmt.Sprint(chapter)),
 			StopGuard:      reminder.NewPlannerStopGuard(st),
 		}); err != nil {
+			if traceErr := trace.terminalError(); traceErr != nil {
+				return nil, traceErr
+			}
 			return nil, fmt.Errorf("project-all POV plan chapter %d: %w", chapter, err)
 		}
 		plan, planCP, err = loadCurrentProjectedPlan(st, chapter)
@@ -984,7 +1127,11 @@ func RunProjectedChapterPlanning(
 	var characterAgentEvidence *domain.CharacterAgentEvidenceBundle
 	var characterActivationEvidence *domain.CharacterActivationChapterEvidence
 	if simulation.CharacterActivation != nil {
-		characterActivationEvidence, err = st.LoadCharacterActivationChapterEvidence(simulation.GenerationID, chapter)
+		if plannerOnlyState != nil {
+			characterActivationEvidence = plannerOnlyState.activationEvidence
+		} else {
+			characterActivationEvidence, err = st.LoadCharacterActivationChapterEvidence(simulation.GenerationID, chapter)
+		}
 		if err == nil && characterActivationEvidence == nil {
 			err = fmt.Errorf("whole-chapter activation evidence is missing")
 		}
@@ -992,7 +1139,11 @@ func RunProjectedChapterPlanning(
 			err = domain.ValidateCharacterActivationSimulation(*simulation, *characterActivationEvidence)
 		}
 	} else {
-		characterAgentEvidence, err = loadCharacterAgentEvidence(st, *simulation)
+		if plannerOnlyState != nil {
+			characterAgentEvidence = plannerOnlyState.characterEvidence
+		} else {
+			characterAgentEvidence, err = loadCharacterAgentEvidence(st, *simulation)
+		}
 	}
 	if err != nil {
 		return nil, fmt.Errorf("project-all chapter %d load character-agent evidence: %w", chapter, err)
