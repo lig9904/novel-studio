@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "protocol": "world-coherence.v1",
+  "ready": true,
+  "source_digest": "sha256:1ca7f00142307b8f0c8a6346ffd26d1dbaa803bbd90f0783ffe7153a78811155",
+  "report_digest": "sha256:17022d363b4c0d828b12be32d3e72f38e9813d24f9dd53f2b8a50ad7bc0cdab4",
+  "stats": {
+    "world_rules": 8,
+    "codex_sections": 16,
+    "mechanisms": 3,
+    "counterfactual_tests": 5,
+    "places": 3,
+    "routes": 1,
+    "factions": 1,
+    "connected_components": 1
+  }
+}

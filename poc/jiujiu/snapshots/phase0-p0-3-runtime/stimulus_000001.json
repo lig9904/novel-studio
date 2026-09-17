@@ -1,0 +1,642 @@
+{
+  "self_evaluation_context": {
+    "version": "character-self-chronology:evaluation.v1",
+    "generation_id": "pg2_f2fc66b794ea7dd681ea0ec9",
+    "chapter": 1,
+    "cycle": 1,
+    "chapter_context_digest": "sha256:cc0f8fcfebc5f6ac2e84539dc7db0a0551dda0f7a075f69955ef7000e4370381",
+    "session_digest": "sha256:e479f8b57142a4adadcb5e79218a03915d4ea6705b5a9471a3ffeced449eccf3",
+    "before_physical_root": "sha256:0d26007dd44b804c8341bf9f0bd225da7ffe67b6058ae0cd42686409d3466c8e",
+    "current_day": 0,
+    "digest": "sha256:3c358ac0d20ba0a8b452e012c08411aca91caae3ec93a9a54d431539231f9d2a"
+  },
+  "version": "world-stimulus-packet.v2",
+  "generation_id": "pg2_f2fc66b794ea7dd681ea0ec9",
+  "chapter": 1,
+  "time_window": "全书开局后 0.000000 分钟（已确认的当前时间；不是章均估算）",
+  "story_clock": {
+    "current_day": 0,
+    "time_contract_core_digest": "sha256:2bb0530c1a8a5354bf6127495e079cd92b6ee11d3ea5e12255b4a01730cafa8c",
+    "duration_days_min": 6,
+    "duration_days_max": 6,
+    "nominal_budget": true,
+    "digest": "sha256:a833c06049cd07d12099e0acfc4f28a606d3bb4d69dc7f1a446c129876ba7940"
+  },
+  "physical_state": {
+    "version": "world-physical-state.v2",
+    "resources": [
+      {
+        "resource_id": "res_1111222233334444",
+        "name": "TEST_SCAFFOLD近岸公开水况",
+        "semantics": "environmental",
+        "unit": "",
+        "actual_amount": null
+      },
+      {
+        "resource_id": "res_2222333344445555",
+        "name": "TEST_SCAFFOLD现场警示浮标",
+        "unit": "件",
+        "actual_amount": 1
+      },
+      {
+        "resource_id": "res_3333444455556666",
+        "name": "TEST_SCAFFOLD空白事件记录纸",
+        "unit": "张",
+        "actual_amount": 6
+      },
+      {
+        "resource_id": "res_4444555566667777",
+        "name": "TEST_SCAFFOLD九尾狐私密潮痕",
+        "semantics": "qualitative",
+        "unit": "",
+        "actual_amount": null
+      }
+    ],
+    "actors": [
+      {
+        "self_chronology_baseline": {
+          "version": "character-self-chronology:evaluation.v1",
+          "agent_id": "ca_28b35c0537fec56e",
+          "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+          "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "experience_count": 0,
+          "digest": "sha256:6f137b9bd57e7f8120f6c43fc30c4c5a6758c8e9d33c42601b47c4f1141d6556"
+        },
+        "agent_id": "ca_28b35c0537fec56e",
+        "character": "螭吻·九九",
+        "location": "渔岛海洋度假区近岸守护点",
+        "resources": [
+          {
+            "resource_id": "res_1111222233334444",
+            "perceived_name": "近岸公开水况",
+            "perceived_label": "近岸公开水况",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          },
+          {
+            "resource_id": "res_2222333344445555",
+            "perceived_name": "现场警示浮标",
+            "perceived_label": "现场警示浮标",
+            "perceived_unit": "件",
+            "access": "shared",
+            "perception": {
+              "kind": "last_observed",
+              "amount": 1,
+              "as_of_chapter": 0,
+              "evidence_refs": [
+                "user_targeted_repair:authored_opening_resource:warning_buoy"
+              ]
+            },
+            "evidence_refs": [
+              "user_targeted_repair:authored_opening_resource:warning_buoy"
+            ]
+          },
+          {
+            "resource_id": "res_3333444455556666",
+            "perceived_name": "空白事件记录纸",
+            "perceived_label": "空白事件记录纸",
+            "perceived_unit": "张",
+            "access": "exclusive",
+            "perception": {
+              "kind": "last_observed",
+              "amount": 6,
+              "as_of_chapter": 0,
+              "evidence_refs": [
+                "user_targeted_repair:authored_opening_resource:blank_event_paper"
+              ]
+            },
+            "evidence_refs": [
+              "user_targeted_repair:authored_opening_resource:blank_event_paper"
+            ]
+          }
+        ]
+      },
+      {
+        "self_chronology_baseline": {
+          "version": "character-self-chronology:evaluation.v1",
+          "agent_id": "ca_dab3e91796825b05",
+          "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+          "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "experience_count": 0,
+          "digest": "sha256:24b9e3b442b538059d864fd43b6bbe02143ce0b67f2007967eaaf58df9f1a56a"
+        },
+        "agent_id": "ca_dab3e91796825b05",
+        "character": "羽族凤凰",
+        "location": "近岸上空云缘观察位",
+        "resources": [
+          {
+            "resource_id": "res_1111222233334444",
+            "perceived_name": "近岸公开水况",
+            "perceived_label": "近岸公开水况",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          }
+        ]
+      },
+      {
+        "self_chronology_baseline": {
+          "version": "character-self-chronology:evaluation.v1",
+          "agent_id": "ca_e908a88390ffb536",
+          "source_physical_root": "sha256:e2a62995dc822cdf31eabef3d08763fc7fb4e11d989bf1c48b968c9368908717",
+          "experience_digest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "experience_count": 0,
+          "digest": "sha256:eed2cc3ec180f063d232e7365467944659c44a4532df973db0a8bf5465398c8b"
+        },
+        "agent_id": "ca_e908a88390ffb536",
+        "character": "九尾狐",
+        "location": "近岸礁影观察点",
+        "resources": [
+          {
+            "resource_id": "res_1111222233334444",
+            "perceived_name": "近岸公开水况",
+            "perceived_label": "近岸公开水况",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_bounded_coastal_response",
+                "visibility": "public",
+                "label": "TEST_SCAFFOLD现场公开水况目视"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            }
+          },
+          {
+            "resource_id": "res_4444555566667777",
+            "perceived_name": "私密潮痕",
+            "perceived_label": "私密潮痕",
+            "access": "none",
+            "permissions": [
+              "observe"
+            ],
+            "observation_channels": [
+              {
+                "mechanism_ref": "mech_scaffold_secret_fox_tide_mark",
+                "visibility": "private",
+                "label": "TEST_SCAFFOLD九尾狐本人私密潮痕感知"
+              }
+            ],
+            "perception": {
+              "kind": "unknown",
+              "as_of_chapter": 0
+            },
+            "evidence_refs": [
+              "user_targeted_repair:authored_opening_resource:fox_tide_mark"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "public_facts": [
+    {
+      "id": "fact_621d279dfc73b980",
+      "kind": "world_rule_character_view",
+      "text": "当前环境属于 TEST_SCAFFOLD 测试范围；未经记录和确认的信息不能当作事实，未知项保持未知。",
+      "source": "world_rules.json",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_9a223d4e9af55e67",
+      "kind": "world_rule_character_view",
+      "text": "已明确的能力仅限各角色自己确实知道且来源已批准的部分；任何强度、次数、代价、等级或其他未批准能力都不能自行假定，行动前应把它们视为 TBD。",
+      "source": "world_rules.json",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_6473ff3b0924a6ba",
+      "kind": "world_rule_character_view",
+      "text": "你只能依据自己已知的事实和亲自获得、且记录了来源与时间的证据更新认知；没有传递或观察记录的他人信息仍是 UNKNOWN。",
+      "source": "world_rules.json",
+      "visibility": "formal"
+    },
+    {
+      "id": "fact_774bb01c51c0b912",
+      "kind": "world_rule_character_view",
+      "text": "处理沿海水域事件时，只能依据自己所在地点、当前时间、可接触资源和可观察后果行动；不可见成因与未传播信息不能当作已知事实。",
+      "source": "world_rules.json",
+      "visibility": "formal"
+    }
+  ],
+  "operational_world": {
+    "version": 2,
+    "name": "TEST_SCAFFOLD：渔岛近岸测试舞台",
+    "places": [
+      {
+        "id": "place_yudao_nearshore_guard",
+        "name": "渔岛海洋度假区近岸守护点",
+        "rules": [
+          "TEST_SCAFFOLD：现场事件必须具有明确时间、可接触资源和可观察后果",
+          "TEST_SCAFFOLD：不得依赖未批准神力自动解决",
+          "TEST_SCAFFOLD：未经传播的私密信息不可在此自动共享"
+        ],
+        "factions": [
+          "fac_test_scaffold_boundary"
+        ],
+        "tags": [
+          "TEST_SCAFFOLD",
+          "coast",
+          "water",
+          "resort"
+        ]
+      },
+      {
+        "id": "place_reef_shadow_observation",
+        "name": "近岸礁影观察点",
+        "rules": [
+          "TEST_SCAFFOLD：该私密标记不得因地点邻近自动泄露给九九或凤凰",
+          "TEST_SCAFFOLD：只有记录明确的故事内传递事件后，其他角色的知识才可更新"
+        ],
+        "factions": [
+          "fac_test_scaffold_boundary"
+        ],
+        "tags": [
+          "TEST_SCAFFOLD",
+          "coast",
+          "reef",
+          "knowledge_isolation"
+        ]
+      },
+      {
+        "id": "place_cloud_edge_observation",
+        "name": "近岸上空云缘观察位",
+        "rules": [
+          "TEST_SCAFFOLD：凤凰开局仅 KNOW 自身凤凰身份及与羽族的关联",
+          "TEST_SCAFFOLD：其他信息保持 UNKNOWN，直至记录来源事件、证据、章节与故事时间"
+        ],
+        "factions": [
+          "fac_test_scaffold_boundary"
+        ],
+        "tags": [
+          "TEST_SCAFFOLD",
+          "isolated",
+          "knowledge_boundary"
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "from": "place_yudao_nearshore_guard",
+        "to": "place_reef_shadow_observation",
+        "description": "TEST_SCAFFOLD：近岸守护点与礁影观察点之间的普通沿岸通道；具体通行方式与实测距离为 TBD。",
+        "risk": "TEST_SCAFFOLD：水况、湿滑礁面或现场保护职责可能造成阻断与延误；不得视为瞬时移动。",
+        "travel_days": 0.1
+      }
+    ],
+    "factions": [
+      {
+        "id": "fac_test_scaffold_boundary",
+        "name": "TEST_SCAFFOLD场景边界维护单元",
+        "aliases": [
+          "TEST_SCAFFOLD边界单元"
+        ],
+        "goal": "TEST_SCAFFOLD：仅维护一卷一弧三章评估的地点、信息隔离与资源有限性，不代表世界内官方机构。",
+        "resources": [
+          "TEST_SCAFFOLD：三个已登记观察位置的边界记录",
+          "TEST_SCAFFOLD：有限的事件时间、地点、资源与后果记录槽位"
+        ],
+        "stance": "TEST_SCAFFOLD：中立记录，不替任何角色选择，也不把 AI 判断升级为人类批准。",
+        "internal_tension": "TEST_SCAFFOLD：既要让三名角色在第一章被激活，又必须保持知识隔离、形态禁区和能力 TBD。",
+        "clock": {
+          "segments": 3,
+          "progress": 3,
+          "consequence": "TEST_SCAFFOLD：若三段测试均完成，只表示评估脚手架运行结束，不产生官方 Canon、HISTORY 或 ACCEPTED EPISODE。",
+          "pace": "TEST_SCAFFOLD：每个短测试章节至多推进一段，具体推进须由后续隔离裁决确认。"
+        }
+      }
+    ]
+  },
+  "mechanisms": [
+    {
+      "id": "mech_scaffold_bounded_coastal_response",
+      "name": "TEST_SCAFFOLD有限海岸水域响应",
+      "visibility": "formal",
+      "section_refs": [
+        "mechanism_structure",
+        "ability_scope",
+        "geography_ecology",
+        "daily_life",
+        "calendar_time"
+      ],
+      "actor_scope": [
+        "身处既有book_world海岸水域测试地点且能感知现场的角色"
+      ],
+      "trigger": "角色感知到有明确地点与边界的海岸水域风险或保护义务。",
+      "preconditions": [
+        "角色实际位于可行动范围内。",
+        "角色只依据自身已知事实与可观察证据行动。"
+      ],
+      "inputs": [
+        "普通观察",
+        "普通移动与交流",
+        "既有且可访问的现场资源"
+      ],
+      "costs": [
+        "占用角色当下时间与注意力。",
+        "离开当前保护位置可能使该处风险继续发展。"
+      ],
+      "effects": [
+        "角色可观察、示警、请求信息、采取普通保护行动，或拒绝、替代、延后其他请求。",
+        "具体选择和结果由后续角色推演与世界裁决决定。"
+      ],
+      "failure_modes": [
+        "不在现场或缺少可访问资源时，行动不能凭空生效。",
+        "不得调用未批准超自然能力。"
+      ],
+      "observability": [
+        "现场角色可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+        "不在场角色不会自动获知。"
+      ],
+      "timing": "本地普通行动按现场连续时间发生；跨地点行动与消息传播不得即时到达，具体耗时服从既有路线与裁决。",
+      "character_view": {
+        "name": "有限海岸水域响应",
+        "actor_scope": [
+          "身处现场且能感知风险的角色"
+        ],
+        "trigger": "你感知到有明确地点与边界的海岸水域风险或保护义务。",
+        "preconditions": [
+          "你实际位于可行动范围内。",
+          "你只能依据自己已知的事实与可观察证据行动。"
+        ],
+        "inputs": [
+          "普通观察",
+          "普通移动与交流",
+          "你可访问的现场资源"
+        ],
+        "costs": [
+          "行动会占用你当下的时间与注意力。",
+          "若离开当前保护位置，该处风险可能继续发展。"
+        ],
+        "effects": [
+          "你可以观察、示警、请求信息、采取普通保护行动，也可以拒绝、替代或延后其他请求。"
+        ],
+        "failure_modes": [
+          "不在现场或缺少可访问资源时，行动不能凭空生效。",
+          "不能调用未获批准的超自然能力。"
+        ],
+        "observability": [
+          "在场者可通过亲见、交流或可核验痕迹知道局部行动与后果。",
+          "不在场者不会自动获知。"
+        ],
+        "timing": "本地行动按现场连续时间发生；跨地点行动与消息不会即时到达。"
+      }
+    },
+    {
+      "id": "mech_scaffold_explicit_knowledge_transfer",
+      "name": "TEST_SCAFFOLD显式知识传递",
+      "visibility": "formal",
+      "section_refs": [
+        "mechanism_structure",
+        "language_symbols",
+        "calendar_time",
+        "taboos_constraints"
+      ],
+      "actor_scope": [
+        "持有亲见信息的角色与可能的接收者"
+      ],
+      "trigger": "知情角色尝试把一项私人观察传给另一角色。",
+      "preconditions": [
+        "发送者确实通过亲见或有来源证据获得该信息。",
+        "存在可记录的故事内传递行为与实际接收条件。"
+      ],
+      "inputs": [
+        "信息来源",
+        "传递行为",
+        "接收者可用的接收渠道"
+      ],
+      "costs": [
+        "传递占用故事内时间并受地点、路线与接收条件约束。"
+      ],
+      "effects": [
+        "只有完成且被记录的传递，才可让接收者获得与证据强度相符的知识。"
+      ],
+      "failure_modes": [
+        "没有来源、没有传递事件或接收失败时，接收者知识状态不改变。",
+        "模型推断、未观察的同场、分支提案或作者态秘密不能自动完成传递。"
+      ],
+      "observability": [
+        "传递参与者可知道传递是否发生；旁观者只有实际观察到时才可知道。"
+      ],
+      "timing": "传递行为完成并被接收时生效；跨地点传播按既有路线与渠道裁决，不得提前。",
+      "character_view": {
+        "name": "显式知识传递",
+        "actor_scope": [
+          "持有亲见信息的角色与可能的接收者"
+        ],
+        "trigger": "你尝试把一项私人观察传给另一角色。",
+        "preconditions": [
+          "你确实通过亲见或有来源证据获得该信息。",
+          "存在对方实际可接收的故事内传递行为。"
+        ],
+        "inputs": [
+          "信息来源",
+          "传递行为",
+          "可用接收渠道"
+        ],
+        "costs": [
+          "传递占用故事内时间，并受地点、路线与接收条件约束。"
+        ],
+        "effects": [
+          "完成且被记录的传递可让接收者获得与证据强度相符的知识。"
+        ],
+        "failure_modes": [
+          "没有来源、没有发生传递或对方没有接收到时，其知识状态不改变。",
+          "推测不能替代传递。"
+        ],
+        "observability": [
+          "传递参与者可知道传递是否发生；旁观者须实际观察。"
+        ],
+        "timing": "传递完成并被接收时生效；跨地点消息不会提前到达。"
+      }
+    },
+    {
+      "id": "mech_scaffold_secret_fox_tide_mark",
+      "name": "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK私密观察隔离",
+      "visibility": "secret",
+      "section_refs": [
+        "mechanism_structure",
+        "language_symbols",
+        "taboos_constraints"
+      ],
+      "actor_scope": [
+        "九尾狐"
+      ],
+      "trigger": "九尾狐在有界海岸水域测试事件中实际观察到该私人痕迹。",
+      "preconditions": [
+        "九尾狐本人完成可裁决的观察。"
+      ],
+      "inputs": [
+        "现场痕迹"
+      ],
+      "costs": [
+        "观察占用当下注意力；具体含义仍为TBD。"
+      ],
+      "effects": [
+        "该观察只进入九尾狐的TEST_SCAFFOLD私人知识。",
+        "九九与凤凰的知识状态保持不变，除非后续发生显式且有记录的故事内传递。"
+      ],
+      "failure_modes": [
+        "未实际观察时九尾狐也不得获得该信息。",
+        "同场、模型推断、章节规划或分支合并均不能泄露给九九或凤凰。"
+      ],
+      "observability": [
+        "仅九尾狐可直接观察；其他角色只能通过后续明确传递及相应证据获知。"
+      ],
+      "timing": "九尾狐实际观察时仅对其本人即时生效；对其他角色永不自动生效。"
+    }
+  ],
+  "counterfactual_tests": [
+    {
+      "id": "cf_scaffold_no_unapproved_power",
+      "given": [
+        "角色处于有限海岸水域事件。",
+        "角色只有普通行动条件且没有获批超自然能力。"
+      ],
+      "action": "角色尝试响应现场风险。",
+      "expected_outcome": "角色可观察、示警、请求信息或尝试普通保护行动；具体选择与后果留给角色和裁决。",
+      "forbidden_outcome": "自动生成任何未批准能力。",
+      "mechanism_refs": [
+        "mech_scaffold_bounded_coastal_response"
+      ]
+    },
+    {
+      "id": "cf_scaffold_autonomy",
+      "given": [
+        "未经核实的声望机会要求九九离开当前水边保护义务。"
+      ],
+      "action": "九九评估请求。",
+      "expected_outcome": "九九可拒绝、请求信息、提出替代方案或承担后果后配合，选择不被预定。",
+      "forbidden_outcome": "规划者替九九强制选择。",
+      "mechanism_refs": [
+        "mech_scaffold_bounded_coastal_response"
+      ]
+    },
+    {
+      "id": "cf_scaffold_cross_place",
+      "given": [
+        "信息发送者与接收者不在同一地点。"
+      ],
+      "action": "发送者尝试传递观察信息。",
+      "expected_outcome": "消息仅在符合既有路线、渠道与接收条件后到达。",
+      "forbidden_outcome": "跨地点零耗时同步知识。",
+      "mechanism_refs": [
+        "mech_scaffold_explicit_knowledge_transfer"
+      ]
+    },
+    {
+      "id": "cf_scaffold_private_mark",
+      "given": [
+        "只有九尾狐实际观察到TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK。",
+        "没有发生传递。"
+      ],
+      "action": "九九或凤凰尝试得知该痕迹。",
+      "expected_outcome": "九九与凤凰继续保持UNKNOWN。",
+      "forbidden_outcome": "因同场、模型推断、作者态记录或测试大纲而自动获知秘密。",
+      "mechanism_refs": [
+        "mech_scaffold_secret_fox_tide_mark",
+        "mech_scaffold_explicit_knowledge_transfer"
+      ]
+    },
+    {
+      "id": "cf_scaffold_missing_precondition",
+      "given": [
+        "角色不在现场。",
+        "角色没有可用观察渠道或可访问资源。"
+      ],
+      "action": "角色尝试直接改变海岸水域事件。",
+      "expected_outcome": "行动不能直接生效，角色可寻找渠道或等待信息。",
+      "forbidden_outcome": "无视地点、时间和资源边界远程解决事件。",
+      "mechanism_refs": [
+        "mech_scaffold_bounded_coastal_response"
+      ]
+    }
+  ],
+  "world_coherence_digest": "sha256:17022d363b4c0d828b12be32d3e72f38e9813d24f9dd53f2b8a50ad7bc0cdab4",
+  "hard_contracts": [
+    "- Beast prototype is a true nine-tailed fox.\n- An ordinary fox, single-tailed fox, or fox-eared humanoid cannot substitute for the beast body.\n- Formal name, gender, age presentation, personality, identity, powers, Want, Need, Misbelief, Secret, goals, relationships, and arc are TBD.",
+    "- Character Autonomy probe: a soft plot pressure asks 九九 to abandon an immediate water-side protection duty and chase an unverified prestige opportunity. This conflicts with current knowledge and protection values. Preserve room for the Character Agent to refuse, choose an alternative, request information, or comply with consequences; do not predetermine the decision.\n- Knowledge Boundary probe: a private `TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK` is observable only by 九尾狐. 九九 and 凤凰 must not receive it unless an explicit in-story transmission event is recorded.\n- World State probe: use a bounded coastal-water incident with explicit location, time, resources, and consequences. Do not invent fire/rebirth powers for 凤凰 or unapproved power levels for 九九.\n- Hard Canon probes must remain rejected constraints: quadruped-qilin 九九, winged-human-as-phoenix-body, and single-tailed ordinary fox.\n- Proposal isolation: preserve alternative proposal material as isolated `TEST_SCAFFOLD` candidates; never merge a branch-only secret into another branch or into official source facts.\n- Foreshadow: if the scaffold must create a hook, label it `TEST_SCAFFOLD` and keep it outside official Canon. Do not resolve or rewrite official source facts.",
+    "- Formal name: 螭吻·九九; short name 九九.\n- Mythic prototype: 螭吻, the ninth of the dragon's nine sons.\n- Likes water and has fire-extinguishing properties.\n- Beast-body hard structure: dragon head plus fish body, with a fish torso as the main body.\n- Must not become a qilin, ordinary quadruped dragon, western dragon, snake-only eastern dragon, terrestrial beast, or mechanical vehicle.\n- Approved personality: curious, competitive, proud, responsible.\n- Main action drive: active exploration. Core value boundary: protection.\n- Competitiveness and pride may cause showing off, overreaching, denial, over-testing, bad judgment, and real consequences.\n- Power intensity, frequency, origin, cost, upgrades, combat tier, forehead-pearl relation, and form differences are TBD.\n- 九九 is connected to 渔岛海洋度假区 and the local legend “独角龙一夜开海口”; online-story integration is TBD.\n- The correct event name is 泼水节, not 扣水节. Water, blessing, interaction, and spray blessing are basic known concepts; full mythic interpretation is TBD.\n- World direction: eastern/Chinese fantasy, coast, ocean, resort. Avoid western-fantasy drift.\n- 真九九、机甲九九、凌墨 must remain distinct; whether to continue an existing spirit/mecha/fusion mechanism is TBD.",
+    "- IDEA is not FACT. PROPOSAL is not CANON. SIMULATION is not HISTORY. DRAFT is not ACCEPTED EPISODE. AI acceptance is not human approval.\n- Any AI-added setting is `TEST_SCAFFOLD` and cannot enter official Accepted Character State, Knowledge, Relationship, Timeline, Foreshadow, World State, or Canon RAG.\n- Unknown data remains `TBD` or `PROPOSAL_NEEDED`; do not silently complete it.",
+    "- Prototype is 凤凰, not 青鸾.\n- Beast body must be a true, complete phoenix divine-bird form.\n- A human woman with wings, angel, western winged humanoid, griffin, or ordinary bird is not the phoenix beast body.\n- It belongs to an eastern mythology/fantasy system.\n- Association with 羽族 is approved, but the nature of 羽族 remains TBD.\n- Human-form visual exploration may use white/gold/light blue, eastern phoenix crown and motifs, long tail feathers, and eastern cloud palaces. This is visual direction only.\n- Transformation, gender, name, age, status, personality, Want, Need, goal, Misbelief, Secret, fire/rebirth/healing/immortality powers, relationships, CP, and world secrets are TBD.\n- Minimum-knowledge initialization: KNOWN only own phoenix identity and association with 羽族. No approved SUSPECTED or FALSE_BELIEF entries. Other characters' private secrets, unapproved future plot, Arc Rehearsal outcomes, and other proposal-branch content are FORBIDDEN.\n- Phoenix knowing 九九, 螭吻 identity, 九九 abilities, the 独角龙 legend, 泼水节, real 渔岛, 九尾狐, or major world secrets is TBD and must start UNKNOWN.\n- UNKNOWN may become KNOWN only through a recorded source event, evidence, chapter, and story time; model inference alone is insufficient.",
+    "Build only the smallest planning scaffold that activates 九九, 九尾狐, and 羽族凤凰 in chapter 1 and lets the real Character Agent and World Arbiter operate.",
+    "Create the minimum structure required by the unmodified Novel Studio pipeline: exactly one volume, one arc, and three short test chapters. Do not render prose episodes. Keep every generated element visibly provisional and label model-created descriptions or notes `TEST_SCAFFOLD` where the schema allows.",
+    "TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK 是 TEST_SCAFFOLD 私密观察，仅九尾狐在开局可观察。其含义、来源、真伪与作用均为 TBD。；边界：在发生并记录明确的故事内传递事件之前，九九与羽族凤凰不得获得该标记或由其推导的信息；规划者不得以旁白、巧合、共享视野或模型推断绕过隔离。；enforcement_scope=CHARACTER_SCOPED；enforcement_character_ids=九尾狐",
+    "TEST_SCAFFOLD：世界状态测试只能使用边界明确的沿海水域事件，并明确地点、时间、现场可用资源及可观察后果。；边界：事件不得无限扩张为世界灾难，不得靠未批准神力自动解决；角色不在场、不可见或尚未传播的信息不能直接进入其决策包。具体事件成因与最终结果为 PROPOSAL_NEEDED，须由后续角色推演与世界裁决确定。；enforcement_scope=GLOBAL",
+    "TEST_SCAFFOLD：本轮生成的世界、角色、关系、时间线、伏笔与规划内容仅为评估脚手架，不是官方九九 Canon、人类批准、FACT、HISTORY 或 ACCEPTED EPISODE。；边界：只可用于恰好一卷、一弧、三章的规划与后续隔离测试；未知信息保持 TBD 或 PROPOSAL_NEEDED，不得进入官方 Accepted Character State、Knowledge、Relationship、Timeline、Foreshadow、World State 或 Canon RAG。；enforcement_scope=GLOBAL",
+    "TEST_SCAFFOLD：柔性剧情压力可以邀请九九放弃眼前水边保护职责并追逐未经证实的声望机会，但角色决定必须由其当前知识、价值、压力与可用信息推演产生。；边界：不得预定九九接受或拒绝；必须保留拒绝、另选方案、索取信息、或服从并承担真实后果的合法空间。规划只能提供压力和可观察条件，不能替角色作答。；enforcement_scope=CHARACTER_SCOPED；enforcement_character_ids=九九",
+    "The pipeline may create test-only full-book navigation solely because `outline-all` is a product prerequisite. Stop before promote/render and never claim the scaffold is approved.",
+    "This is a bounded evaluation scaffold, not a request to create official Canon. All generated world, character, Season, Plot, Relationship, Foreshadow, timeline, proposal, and planning content is `TEST_SCAFFOLD`. It is not human approval and must never be described as official 九九 Canon.",
+    "九九喜水并具有灭火属性；其力量强度、频率、来源、代价、升级、战斗层级、额头珠关系与形态差异均为 TBD。凤凰的火焰、重生、治疗、永生等力量均为 TBD；九尾狐力量为 TBD。；边界：不得为测试便利补造力量等级、施放参数、能力来源或凤凰未批准能力；没有已批准机制时，角色行动只能依赖普通观察、移动、交流和明确可用的现场资源。；enforcement_scope=GLOBAL",
+    "九九正式名为螭吻·九九、简称九九，原型为龙之九子中的螭吻；其与渔岛海洋度假区和‘独角龙一夜开海口’传说有关，具体整合方式为 TBD。正确节庆名称是泼水节，水、祝福、互动和喷水祝福是已知基础概念。真九九、机甲九九、凌墨彼此不同。凤凰仅开局已知自身凤凰身份及与羽族的关联。；边界：不得把关联自动补成具体历史、关系或力量机制；不得把泼水节误写为扣水节；不得合并真九九、机甲九九与凌墨。凤凰对九九、螭吻身份、九九能力、独角龙传说、泼水节、真实渔岛、九尾狐及重大世界秘密均从 UNKNOWN 开始。；enforcement_scope=GLOBAL",
+    "螭吻·九九的兽体必须以鱼躯为主体、呈龙头鱼身；九尾狐兽体必须是真正的九尾狐；羽族凤凰兽体必须是真实完整的东方凤凰神鸟。；边界：九九不得变为麒麟、普通四足龙、西方龙、仅蛇形东方龙、陆生兽或机械载具；九尾狐不得由普通狐狸、单尾狐或狐耳人形替代；凤凰不得写成青鸾、带翅人类、天使、西方翼人、狮鹫或普通鸟。；enforcement_scope=GLOBAL",
+    "角色知识只能由其开局已知事实，或有记录的来源事件、证据、章节和故事时间更新；模型推断不足以把 UNKNOWN 升级为 KNOWN。；边界：不得把他人私密秘密、未批准未来剧情、Arc Rehearsal 结果、分支候选或规划者全知信息投放给未知情角色；读取公开环境不等于获知遮蔽信息。；enforcement_scope=GLOBAL"
+  ],
+  "soft_guidance": [
+    "TEST_SCAFFOLD：退潮露出来的第一件事",
+    "arc_goal: TEST_SCAFFOLD：在三章有界测试内，由第一章激活螭吻·九九、真正九尾狐与完整东方凤凰神鸟，由角色 Agent 与 World Arbiter 在明确地点、时间、资源与可观察后果下裁决九九面对眼前水边保护职责与未经证实声望机会的自主选择；严格隔离仅九尾狐可观察的 TEST_SCAFFOLD_SECRET_FOX_TIDE_MARK，未知信息保持 TBD 或 PROPOSAL_NEEDED，不启用未批准能力，不渲染正文，并在第三章完成仅限测试的收束后停止于 promote/render 之前。",
+    "ending_direction: TEST_SCAFFOLD：在三章有界测试中，为角色自治、知识边界与有限海岸水域事件留下可裁决的测试收束空间；不预定九九的选择，不渲染正文，不把任何测试结果升级为官方 Canon 或人类批准。",
+    "九九在近岸守护点把浮标绳位置与上次观测逐段对照，记下浮标已经离位，却在水尺读数上拿不到一致的数字。",
+    "九九守在渔岛海洋度假区近岸守护点，退潮后它看见现场警示浮标绳在礁角外松脱、水尺读数与它上次观测对不上；与此同时一名现场来客转述一条未经核实的声望机会口信，催它立刻离开水边岗位。九九手上只有一次现场观测、一件共享浮标与六张空白事件记录纸，它必须先在守住水边与追这条口信之间自己作决定，规划不替它作答。九尾狐在近岸礁影观察点以真正的九尾狐兽体看见仅它可观察的私密潮痕，没有开口，也没有向外发信号。羽族凤凰在近岸上空云缘观察位以完整东方凤凰神鸟形态只看见陌生海岸与风，未推断出任何角色、传说或秘密。三名角色因此同时进入同一有限海岸事件的可观察范围，但彼此信息仍互不互通。",
+    "九尾狐在礁影观察点上伏低身体，以九尾兽体避开浪花，看见礁面一道只有它能观察的潮痕，没有离开，也没有发出声音。",
+    "凤凰在云缘观察位收翅悬停，只确认自己下方的陌生海岸与风向，其余一律按未知处理。",
+    "来客在岸上把声望机会说得热络，只给出口头转述，拿不出书面凭证，也不肯说明消息来自谁。"
+  ],
+  "sources": [
+    "chapter-activation-cycles.v3",
+    "character-activation-cycle:sha256:b4d0786e47ecf297027b3541967bf24145ffb624d9a7591869e16fe5d8e557ce",
+    "character-agent-protocol:sha256:3a49b7bd92e39427a395234e6f11c7a98139b9622591c4b25a502d12f5ca596e",
+    "character-arbitration:verified-round-sources.v1",
+    "character-incoming-material-read:receipt.v1",
+    "character-operational-availability:receipt.v1",
+    "character-passive-reception:receipt.v1",
+    "character-resource-observation-time.v1",
+    "character-revision-feedback:owner-constraints.v1",
+    "character-scoped-observation-channel:v1",
+    "character-self-chronology:evaluation.v1",
+    "character-self-completion-view:receipt.v1",
+    "character-self-experience:receipt.v1",
+    "character-soft-event-readiness:v1",
+    "character-source-refs:opaque.v1",
+    "character-surface-inspection:receipt.v1",
+    "character-work-artifact:receipt.v1",
+    "character-work-continuation-history:full-owner.v1",
+    "character-work-continuation:explicit.v1",
+    "context-access:0f68d2c829bca22f8d1d92adc507e8c251633f6bcd4af4478549f807aae2ce61",
+    "plan-grounding:arbitration.v1",
+    "project-all-state:sha256:2c1d482003fbcf79b04d2500495cd5081e3debfe74ed68df40fb4f6809f29244",
+    "story-time-core:sha256:2bb0530c1a8a5354bf6127495e079cd92b6ee11d3ea5e12255b4a01730cafa8c"
+  ],
+  "generated_at": "2026-09-17T00:55:02.144559Z",
+  "digest": "sha256:ebf7e4557575d39d585b478ceff71e8022b21b65d77b172dab2aafbeef30fe6d"
+}
