@@ -1,0 +1,12 @@
+{
+  "schema": "p0-5r-planner-only-budget-inventory.v1",
+  "planner_turn_ceiling": 36,
+  "grounding_model_responses": 1,
+  "grounding_required_tool_calls": 1,
+  "grounding_max_output_tokens": 6144,
+  "trace_default_events": 128,
+  "trace_max_events": 1024,
+  "overall_deadline": "CALLER_CONTEXT_REQUIRED_GAP",
+  "planner_grounding_per_call_hard_timeout": "GAP",
+  "paid_runtime_executed": false
+}

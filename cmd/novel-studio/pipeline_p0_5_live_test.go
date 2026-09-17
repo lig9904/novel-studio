@@ -83,6 +83,35 @@ func TestLiveP05FrozenPlannerProjection(t *testing.T) {
 		CharacterActivationPolicy:    generation.CharacterActivationPolicy,
 		MaxCharacterActivationCycles: generation.MaxCharacterActivationCycles,
 	}
+	plannerProtocol := agents.ProjectAllPlanningProtocolWithActivationProducer(
+		assets.Load(cfg.Style).Prompts.Planner,
+		generation.CharacterAgentProtocol,
+		generation.MaxCharacterActivationCycles,
+		generation.CharacterActivationPolicy,
+		cfg.CharacterAgents.FrozenActivationProducer,
+	)
+	recoveryContract, err := agents.PreparePlannerOnlyRecoveryContract(
+		st,
+		"p0-5-controlled-recovery-"+time.Now().UTC().Format("20060102T150405.000000000"),
+		generationID,
+		chapter,
+		projected.ContextDigest,
+		plannerProtocol,
+	)
+	if err != nil {
+		t.Fatal(err)
+	}
+	p05WriteJSON(t, filepath.Join(resultDir, "planner-only-recovery-contract.json"), recoveryContract)
+	tracePath := filepath.Join(resultDir, "planner-only-trace.jsonl")
+	if err := os.WriteFile(tracePath, nil, 0o644); err != nil {
+		t.Fatal(err)
+	}
+	recoveryRequest := agents.PlannerOnlyRecoveryRequest{
+		Contract: recoveryContract,
+		Trace: func(event agents.PlannerOnlyTraceEvent) error {
+			return p05AppendJSONL(tracePath, event)
+		},
+	}
 
 	usagePath := filepath.Join(liveDir, store.UsageAuditPath)
 	usageBefore, _ := os.ReadFile(usagePath)
@@ -91,7 +120,7 @@ func TestLiveP05FrozenPlannerProjection(t *testing.T) {
 		t.Fatal(err)
 	}
 	started := time.Now()
-	artifacts, runErr := agents.RunProjectedChapterPlanning(
+	artifacts, runErr := agents.RunPlannerOnlyProjectedChapterPlanning(
 		accounting.ctx,
 		cfg,
 		assets.Load(cfg.Style),
@@ -100,6 +129,7 @@ func TestLiveP05FrozenPlannerProjection(t *testing.T) {
 		projected.ContextDigest,
 		generation.CharacterAgentProtocol,
 		boundary,
+		recoveryRequest,
 		accounting.hooks(),
 	)
 	closeErr := accounting.close()
@@ -336,5 +366,50 @@ func p05WriteJSON(t *testing.T, path string, value any) {
 	}
 	if err := os.WriteFile(path, append(raw, '\n'), 0o644); err != nil {
 		t.Fatal(err)
+	}
+}
+
+func p05AppendJSONL(path string, value any) error {
+	raw, err := json.Marshal(value)
+	if err != nil {
+		return err
+	}
+	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o644)
+	if err != nil {
+		return err
+	}
+	if _, err := file.Write(append(raw, '\n')); err != nil {
+		_ = file.Close()
+		return err
+	}
+	if err := file.Sync(); err != nil {
+		_ = file.Close()
+		return err
+	}
+	return file.Close()
+}
+
+func TestP05PlannerOnlyTraceAppendsDurably(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "planner-only-trace.jsonl")
+	for sequence := 1; sequence <= 2; sequence++ {
+		if err := p05AppendJSONL(path, agents.PlannerOnlyTraceEvent{
+			Sequence: sequence, ExecutionID: "synthetic", Stage: "preflight", Result: "PASS",
+		}); err != nil {
+			t.Fatal(err)
+		}
+	}
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	lines := bytes.Split(bytes.TrimSpace(raw), []byte{'\n'})
+	if len(lines) != 2 {
+		t.Fatalf("durable trace lines=%d want=2", len(lines))
+	}
+	for index, line := range lines {
+		var event agents.PlannerOnlyTraceEvent
+		if err := json.Unmarshal(line, &event); err != nil || event.Sequence != index+1 {
+			t.Fatalf("trace line %d invalid: event=%+v err=%v", index, event, err)
+		}
 	}
 }

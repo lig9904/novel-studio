@@ -1,0 +1,106 @@
+{
+  "schema": "p0-5r-planner-only-trace-example.v1",
+  "classification": "SYNTHETIC_FORMAT_EXAMPLE",
+  "authority": [
+    "TEST_SCAFFOLD",
+    "NOT ACCEPTED CANON",
+    "NOT HUMAN APPROVAL"
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "execution_id": "synthetic-example",
+      "stage": "preflight",
+      "result": "STARTED"
+    },
+    {
+      "sequence": 2,
+      "execution_id": "synthetic-example",
+      "stage": "preflight",
+      "state_digest": "sha256:32e4bc02a7ccf34d72692db7f08aa945102e290beb4832d5673b987015d8cb4f",
+      "result": "PASS"
+    },
+    {
+      "sequence": 3,
+      "execution_id": "synthetic-example",
+      "stage": "craft_receipt",
+      "state_digest": "sha256:355543f790a3b210ecf36c82a2738896d9574c17e963a63633febac1f2386737",
+      "result": "PASS"
+    },
+    {
+      "sequence": 4,
+      "execution_id": "synthetic-example",
+      "stage": "pre_planner_revalidation",
+      "state_digest": "sha256:1e4dac4347923cc1619667d3d9ada503f2b7789b29452a924ba9b8fc1589982e",
+      "result": "PASS"
+    },
+    {
+      "sequence": 5,
+      "execution_id": "synthetic-example",
+      "stage": "host_context",
+      "tool": "novel_context",
+      "argument_keys": [
+        "chapter",
+        "profile"
+      ],
+      "arguments_digest": "sha256:796a0ebcaab65468adac8a232dadf869a3ae4bf17cc3dbf04190f9226e2fd102",
+      "result": "PASS"
+    },
+    {
+      "sequence": 6,
+      "execution_id": "synthetic-example",
+      "stage": "tool_start",
+      "tool": "plan_details",
+      "argument_keys": [
+        "causal_simulation",
+        "chapter"
+      ],
+      "arguments_digest": "sha256:eb423770f1b6e04ce93dfe5a352857b323e91601b1b730b5f863559b90a8e18e",
+      "before_partial_digest": "sha256:1e4dac4347923cc1619667d3d9ada503f2b7789b29452a924ba9b8fc1589982e",
+      "result": "STARTED"
+    },
+    {
+      "sequence": 7,
+      "execution_id": "synthetic-example",
+      "stage": "after_merge",
+      "tool": "plan_details",
+      "state_digest": "sha256:eefa73f011de0ce3748d35de54f682f579eaa2d59d6acecda3e7bb47cb76053e",
+      "result": "PASS"
+    },
+    {
+      "sequence": 8,
+      "execution_id": "synthetic-example",
+      "stage": "after_source_anchor",
+      "tool": "plan_details",
+      "state_digest": "sha256:5484274215aa812ba3f119dc7189ccc5efcda51dd6289f5a569d8f5435bb5b74",
+      "result": "PASS"
+    },
+    {
+      "sequence": 9,
+      "execution_id": "synthetic-example",
+      "stage": "persisted",
+      "tool": "plan_details",
+      "after_partial_digest": "sha256:255703f871486907cb7a6c85388489e0e2f3ba54d8714960e2e3e1c8f333d664",
+      "result": "PASS"
+    },
+    {
+      "sequence": 10,
+      "execution_id": "synthetic-example",
+      "stage": "validation",
+      "tool": "plan_details",
+      "result": "FAIL",
+      "error": "GROUNDING_REJECTED"
+    },
+    {
+      "sequence": 11,
+      "execution_id": "synthetic-example",
+      "stage": "tool_end",
+      "tool": "plan_details",
+      "after_partial_digest": "sha256:255703f871486907cb7a6c85388489e0e2f3ba54d8714960e2e3e1c8f333d664",
+      "result": "FAIL",
+      "error": "GROUNDING_REJECTED"
+    }
+  ],
+  "grounding_receipt": "NOT EXECUTED IN SYNTHETIC EXAMPLE",
+  "note": "Digests are format placeholders derived from labels. This file is not historical or model-runtime evidence."
+}

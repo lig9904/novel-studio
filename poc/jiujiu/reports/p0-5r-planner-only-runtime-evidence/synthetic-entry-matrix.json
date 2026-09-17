@@ -1,0 +1,158 @@
+{
+  "schema": "p0-5r-planner-only-synthetic-matrix.v1",
+  "authority": [
+    "TEST_SCAFFOLD",
+    "NOT ACCEPTED CANON",
+    "NOT HUMAN APPROVAL"
+  ],
+  "historical_runtime": false,
+  "paid_model_runtime": false,
+  "cases": [
+    {
+      "case": "valid_bound_partial",
+      "planner_calls": 4,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "ENTERED_PRODUCTION_PLANNER_LOOP_ONLY",
+      "frozen_sources_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_generation",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_chapter",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_context_digest",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_checkpoint_digest",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_partial_digest",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "wrong_planner_protocol",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "missing_simulation",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "simulation_not_ready",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "stale_context_source",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "tampered_activation_evidence",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "parent_canceled",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "trace_limit",
+      "planner_calls": 0,
+      "grounding_calls": 0,
+      "character_calls": 0,
+      "world_calls": 0,
+      "readiness_calls": 0,
+      "result": "FAIL_CLOSED",
+      "partial_after": "UNCHANGED"
+    },
+    {
+      "case": "same_contract_concurrent_attempt",
+      "first_attempt": "ENTERED_FAKE_PLANNER",
+      "second_attempt": "LOCK_REJECTED",
+      "second_planner_calls": 0,
+      "result": "MUTUALLY_EXCLUSIVE"
+    },
+    {
+      "case": "trace_sink_failure_after_first_tool",
+      "planner_calls": 1,
+      "trace_error": "TRACE_SINK_FAILED",
+      "subsequent_calls": 0,
+      "result": "RUN_CANCELED"
+    }
+  ],
+  "positive_plan": "NOT EXECUTED",
+  "bundle": "NOT CREATED"
+}
