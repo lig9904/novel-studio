@@ -1,0 +1,26 @@
+{
+  "policy": "story-proposal.v1",
+  "id": "PROPOSAL-P001",
+  "statement": "凤凰具有火属性。",
+  "authority": "PROPOSAL",
+  "status": "PENDING",
+  "accepted_canon": false,
+  "human_approved": false,
+  "source_refs": [
+    "p0-6-controlled-test"
+  ],
+  "subject_terms": [
+    "凤凰"
+  ],
+  "predicate_terms": [
+    "具有",
+    "具备",
+    "拥有",
+    "是",
+    "为"
+  ],
+  "object_terms": [
+    "火属性",
+    "火"
+  ]
+}

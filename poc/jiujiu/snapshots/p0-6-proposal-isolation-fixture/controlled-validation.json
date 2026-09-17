@@ -1,0 +1,29 @@
+{
+  "schema": "p0-6-controlled-validation.v1",
+  "classification": "TEST_SCAFFOLD",
+  "accepted_canon": false,
+  "human_approved": false,
+  "proposal_id": "PROPOSAL-P001",
+  "status": "PASS",
+  "story_simulation_rerun": false,
+  "model_run": false,
+  "checks": {
+    "typed_registry_pending_only": "PASS",
+    "model_cannot_write_authority_or_approval": "PASS",
+    "host_derives_claim_identity": "PASS",
+    "dedicated_proposal_read_capability": "PASS",
+    "shared_novel_context_does_not_expose_proposal": "PASS",
+    "proposal_rag_excluded_from_fact_recall": "PASS",
+    "pending_rag_queue_revalidated": "PASS",
+    "legacy_rag_index_revalidated": "PASS",
+    "rag_fact_receipt_revalidated": "PASS",
+    "foundation_summary_world_character_plan_commit_guards": "PASS",
+    "source_binding_authority_downgrade_rejected": "PASS",
+    "bundle_exact_paraphrase_structured_claims_rejected": "PASS",
+    "negative_unknown_and_unrelated_claims_allowed": "PASS",
+    "project_all_live_and_shadow_registry_bound": "PASS",
+    "project_all_shadow_registry_missing_or_replaced_rejected": "PASS",
+    "recovery_fact_surface_matches_bundle_semantics": "PASS"
+  },
+  "language_scope": "Free-text mechanical matching covers the supported subject-predicate-object forms tested here. Arbitrary semantic paraphrases remain subject to existing simulation authority and Planner Grounding; no claim of universal semantic equivalence is made."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "p0-6-proposal-isolation-fixture.v1",
+  "classification": "TEST_SCAFFOLD",
+  "accepted_canon": false,
+  "human_approved": false,
+  "audit_baseline": "75854b11cc1703c4b29150afd75c86101cdfbe22",
+  "p0_5_evidence_baseline": "92e9b5767aefa8b1e987677acb44fb87e58312af",
+  "official_input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a",
+  "official_authority_source": "../p0-5-plan-projection-fixture/source-user-input.md",
+  "official_boundary": "Phoenix fire/rebirth/healing/immortality powers are TBD and must not be filled automatically.",
+  "proposal": "proposal-p001.json",
+  "diagnostic_result_before_fix": "FAIL",
+  "diagnostic_basis": [
+    "RAGChunk has source_kind but no authority field",
+    "proposal is not a design-only RAG source kind",
+    "active fact recall admits every non-forbidden non-design source kind",
+    "RAG fact receipts bind identity/provenance but not proposal approval",
+    "SourceBindingV2 has no explicit authority classification"
+  ],
+  "validation_result_after_fix": "PASS",
+  "validation_evidence": "controlled-validation.json"
+}
