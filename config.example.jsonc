@@ -56,7 +56,8 @@
   // 按角色覆盖默认模型；未配的角色使用上面的 model。
   // drafter 专司正文渲染；未配置时完整继承 writer 的模型、兜底、推理强度和 max_turns。
   // reasoning_effort 也可按角色覆盖；未配时继承顶层 reasoning_effort。
-  // 角色：coordinator / architect / writer / character / world_arbiter / drafter / editor / reviewer。
+  // 角色：coordinator / architect / writer / character / world_arbiter / plan_grounding / drafter / editor / reviewer。
+  // plan_grounding 是只读的精确计划裁决器；未配置时继承 world_arbiter。
   // fallbacks 在主模型失败（宕机/限流/余额不足）时按序尝试，恢复后自动回主路；
   // reasoning_effort 可给每个兜底模型单独设置，避免继承主模型不兼容的档位。
   // reviewer 用于三采样 pairwise 终选与 AI 味盲测判别；内置 DeepSeek 裸正文审核
@@ -73,6 +74,7 @@
                      "fallbacks": [{ "provider": "minimax", "model": "MiniMax-M3" }] },
     "character":   { "provider": "minimax", "model": "MiniMax-M3[1M]", "reasoning_effort": "high" },
     "world_arbiter": { "provider": "minimax", "model": "MiniMax-M3[1M]", "reasoning_effort": "high" },
+    "plan_grounding": { "provider": "subscription", "model": "gpt-5.6-sol", "reasoning_effort": "medium" },
     "drafter":     { "provider": "minimax", "model": "MiniMax-M3[1M]", "reasoning_effort": "high",
                      "fallbacks": [{ "provider": "minimax", "model": "MiniMax-M3" }] },
     "editor":      { "provider": "minimax", "model": "MiniMax-M3[1M]", "reasoning_effort": "medium",

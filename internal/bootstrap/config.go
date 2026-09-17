@@ -129,6 +129,9 @@ var knownRoles = map[string]bool{
 	// 裁决行动可行性与结果。两者未配置时都继承 writer。
 	"character":     true,
 	"world_arbiter": true,
+	// plan_grounding is an independent exact-plan classifier. When omitted it
+	// inherits world_arbiter for backward compatibility.
+	"plan_grounding": true,
 	// drafter：正文渲染角色。未配置时完整继承 writer，保持老配置行为不变；
 	// 显式配置后可让推演继续走 writer，而正文改用另一模型。
 	"drafter": true,
@@ -383,7 +386,7 @@ func (c *Config) ValidateBase() error {
 			return err
 		}
 		if !knownRoles[role] {
-			return fmt.Errorf("unknown role %q in roles config (valid: coordinator/architect/writer/character/world_arbiter/drafter/editor/reviewer): %w", role, errs.ErrConfig)
+			return fmt.Errorf("unknown role %q in roles config (valid: coordinator/architect/writer/character/world_arbiter/plan_grounding/drafter/editor/reviewer): %w", role, errs.ErrConfig)
 		}
 		if rc.Provider == "" || rc.Model == "" {
 			return fmt.Errorf("role %q must have both provider and model: %w", role, errs.ErrConfig)
@@ -623,7 +626,7 @@ func (c Config) ResolveContextWindow(modelName string) (int, ContextWindowSource
 
 // ResolveReasoningEffort 返回某角色生效的推理强度原始串（off/low/medium/high/xhigh/max/ultra 或空）。
 // 优先级：角色级 Roles[role].ReasoningEffort → 顶层默认 ReasoningEffort → ""（不覆盖，沿用模型/provider 默认）。
-// drafter/draft_finalizer、character/world_arbiter 未显式配置时先回落 writer；world_simulator 始终使用 writer。
+// drafter/draft_finalizer、character/world_arbiter 未显式配置时先回落 writer；plan_grounding 未配置时回落 world_arbiter；world_simulator 始终使用 writer。
 // role 为空或 "default" 时直接取顶层默认。值的合法性由 agents.ParseThinkingLevel 把关。
 func (c Config) ResolveReasoningEffort(role string) string {
 	if role != "" && role != "default" {
@@ -655,6 +658,10 @@ func (c Config) resolveWritingRole(role string) string {
 		return "writer"
 	case "draft_finalizer":
 		role = "drafter"
+	case "plan_grounding":
+		if _, configured := c.Roles[role]; !configured {
+			role = "world_arbiter"
+		}
 	}
 	if role == "drafter" {
 		if _, configured := c.Roles["drafter"]; !configured {

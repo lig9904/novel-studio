@@ -130,7 +130,7 @@ type ModelSet struct {
 }
 
 // ForRole 返回指定角色的模型，未配置时返回默认模型。
-// reviewer 未配置时回落 editor；drafter 未配置时回落 writer。
+// reviewer 未配置时回落 editor；drafter 未配置时回落 writer；plan_grounding 未配置时回落 world_arbiter。
 func (ms *ModelSet) ForRole(role string) agentcore.ChatModel {
 	ms.selectionMu.RLock()
 	defer ms.selectionMu.RUnlock()
@@ -150,6 +150,10 @@ func resolveRoleAlias(ms *ModelSet, role string) string {
 		return "writer"
 	case "draft_finalizer":
 		role = "drafter"
+	case "plan_grounding":
+		if _, ok := ms.models[role]; !ok {
+			role = "world_arbiter"
+		}
 	}
 	if role == "drafter" {
 		if _, ok := ms.models[role]; !ok {

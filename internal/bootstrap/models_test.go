@@ -72,7 +72,7 @@ func TestModelSetDrafterAliasAndExplicitSelection(t *testing.T) {
 	if provider != "local" || model != "planner-model" {
 		t.Errorf("world_simulator selection = %s/%s, want writer model", provider, model)
 	}
-	for _, role := range []string{"character", "character_ca_1234", "world_arbiter"} {
+	for _, role := range []string{"character", "character_ca_1234", "world_arbiter", "plan_grounding"} {
 		provider, model, explicit := ms.CurrentSelection(role)
 		if provider != "local" || model != "planner-model" || !explicit {
 			t.Errorf("%s selection = %s/%s explicit=%v, want inherited writer model", role, provider, model, explicit)
@@ -96,6 +96,18 @@ func TestModelSetDrafterAliasAndExplicitSelection(t *testing.T) {
 	}
 	if _, model, _ := ms.CurrentSelection("world_simulator"); model != "planner-model" {
 		t.Errorf("world_simulator moved with explicit drafter: got %s", model)
+	}
+	explicit.Roles["world_arbiter"] = RoleConfig{Provider: "local", Model: "arbiter-model"}
+	explicit.Roles["plan_grounding"] = RoleConfig{Provider: "local", Model: "grounding-model"}
+	ms, err = NewModelSet(explicit)
+	if err != nil {
+		t.Fatalf("NewModelSet explicit plan_grounding: %v", err)
+	}
+	if _, model, _ := ms.CurrentSelection("plan_grounding"); model != "grounding-model" {
+		t.Errorf("explicit plan_grounding model = %s, want grounding-model", model)
+	}
+	if _, model, _ := ms.CurrentSelection("world_arbiter"); model != "arbiter-model" {
+		t.Errorf("world_arbiter moved with explicit plan_grounding: got %s", model)
 	}
 }
 

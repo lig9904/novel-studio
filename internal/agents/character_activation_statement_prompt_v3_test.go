@@ -19,8 +19,8 @@ func TestActivationV3StatementProtocolIsolation(t *testing.T) {
 		{"one-shot-v2", CharacterAgentProtocolDigestForVersion(domain.CharacterAgentDecisionProtocolV2Version), "sha256:4db20d580d6828541d6341fbcfc53b34f432747884add86c78026fcfa5e7127e"},
 		{"activation-v1", characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicy), "sha256:dae804415ae589cc5582236f1b0f7d9a6a9774e42be6f04e1d5466e4b977e5b7"},
 		{"activation-v2", characterActivationProtocolForPolicy(domain.CharacterActivationCyclePolicyV2), "sha256:7e3b5eacd9df9c19014b2c1da2c829aad6402a1c92d9480e21aa6e39ab4fd953"},
-		{"planning-v1", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicy), "620cf9bff7d0b0433ab4cc115439233663ed254f3588ce703225a3867f05655c"},
-		{"planning-v2", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicyV2), "9f0bfd2d636100c2cc54e8c7ff01bfe666695006646c7802923d27c99539778f"},
+		{"planning-v1", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicy), "e2fb5044da9ff96da6e071a115a5a0839c9b588c786ce1aae70c2695864f94c4"},
+		{"planning-v2", ProjectAllPlanningProtocolWithActivation("statement-boundary", domain.CharacterAgentDecisionProtocolV2Version, 4, domain.CharacterActivationCyclePolicyV2), "dba304fd1de514be6760b606a6ee13e57efa3dba100df96aae5fc1f8b1ad2db4"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if tc.got != tc.want {

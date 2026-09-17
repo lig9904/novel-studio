@@ -62,3 +62,35 @@ func TestPlanGroundingReviewerResolvesBeforeCacheButDirectReviewKeepsSnapshot(t 
 		t.Fatal("new explicit override did not change cache identity")
 	}
 }
+
+func TestPlanGroundingReviewerUsesDedicatedRoleWithoutMovingWorldArbiter(t *testing.T) {
+	cfg := bootstrap.Config{
+		Provider:  "local",
+		ModelName: "default",
+		Providers: map[string]bootstrap.ProviderConfig{"local": {Type: "openai"}},
+		Roles: map[string]bootstrap.RoleConfig{
+			"world_arbiter":  {Provider: "local", Model: "arbiter-model", ReasoningEffort: "high"},
+			"plan_grounding": {Provider: "local", Model: "grounding-model", ReasoningEffort: "medium"},
+		},
+	}
+	models, err := bootstrap.NewModelSet(cfg)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var role, name string
+	models.SetAttemptDecorator(func(_ context.Context, gotRole, _, gotName string, _ agentcore.ChatModel) agentcore.ChatModel {
+		role, name = gotRole, gotName
+		return &groundingProbeModel{args: `{"pass":true,"findings":[]}`}
+	})
+	reviewer := NewPlanGroundingReviewer(cfg, models, nil)
+	input := domain.PlanGroundingInput{Policy: domain.PlanGroundingPolicyV1, ReviewProtocol: reviewer.Protocol}
+	if _, err := reviewer.Review(context.Background(), input); err != nil {
+		t.Fatal(err)
+	}
+	if role != "plan_grounding" || name != "grounding-model" {
+		t.Fatalf("grounding reviewer routed to %s/%s, want plan_grounding/grounding-model", role, name)
+	}
+	if _, model, _ := models.CurrentSelection("world_arbiter"); model != "arbiter-model" {
+		t.Fatalf("dedicated grounding route moved world_arbiter to %s", model)
+	}
+}

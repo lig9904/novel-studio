@@ -131,9 +131,6 @@ func (a *pipelineProjectAllAccounting) record(agentName string, raw agentcore.Ag
 	if agentName == "project_all_planner" || agentName == "project_all_world_simulator" {
 		agentName = "writer"
 	}
-	if agentName == "plan_grounding" {
-		agentName = "world_arbiter"
-	}
 	if err := a.meter.Record(id, agentName, message); err != nil {
 		a.mu.Lock()
 		a.err = errors.Join(a.err, err)

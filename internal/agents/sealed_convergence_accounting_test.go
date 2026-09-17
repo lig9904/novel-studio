@@ -112,7 +112,7 @@ func TestSealedConvergenceFivePaidLanesShareScopedWALAndPreserveSessions(t *test
 			want := 10
 			if tool.reviewer.Review != nil {
 				want = 20
-				if state.PerAgent["world_arbiter"].Input != 10 {
+				if state.PerAgent["plan_grounding"].Input != 10 || state.PerAgent["world_arbiter"].Input != 0 {
 					t.Fatal("judge was not charged independently")
 				}
 			}
@@ -128,6 +128,9 @@ func TestSealedConvergenceFivePaidLanesShareScopedWALAndPreserveSessions(t *test
 			}
 			if len(targets) != (want/10) || targets[0] != "writer:writer-test" {
 				t.Fatalf("model routing or dispatch count changed: %v", targets)
+			}
+			if tool.reviewer.Review != nil && targets[1] != "plan_grounding:judge-test" {
+				t.Fatalf("grounding fallback lost its independent role identity: %v", targets)
 			}
 		})
 	}

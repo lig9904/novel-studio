@@ -104,6 +104,20 @@ func TestDrafterConfigInheritsWriterUntilExplicitlyConfigured(t *testing.T) {
 	}
 }
 
+func TestPlanGroundingConfigInheritsWorldArbiterUntilExplicitlyConfigured(t *testing.T) {
+	cfg := Config{ReasoningEffort: "low", Roles: map[string]RoleConfig{
+		"writer":        {ReasoningEffort: "medium"},
+		"world_arbiter": {ReasoningEffort: "high"},
+	}}
+	if got := cfg.ResolveReasoningEffort("plan_grounding"); got != "high" {
+		t.Fatalf("inherited plan_grounding reasoning = %q, want world_arbiter high", got)
+	}
+	cfg.Roles["plan_grounding"] = RoleConfig{ReasoningEffort: "medium"}
+	if got := cfg.ResolveReasoningEffort("plan_grounding"); got != "medium" {
+		t.Fatalf("explicit plan_grounding reasoning = %q, want medium", got)
+	}
+}
+
 func TestResolveContextWindowPerModel(t *testing.T) {
 	cfg := Config{
 		ContextWindow:  200000, // 全局

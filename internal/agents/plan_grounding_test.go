@@ -37,6 +37,15 @@ func TestPlanGroundingModelHasOneReadOnlyCapabilityAndExactSections(t *testing.T
 	if m.calls != 1 || len(m.specs) != 1 || m.specs[0].Name != "submit_plan_grounding_verdict" {
 		t.Fatal("unexpected capabilities/calls")
 	}
+	spec, err := json.Marshal(m.specs[0])
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(m.messages[0].TextContent(), "/plan/causal_simulation/render_capacity/scene_units/") ||
+		!strings.Contains(m.messages[0].TextContent(), "禁止省略/plan/causal_simulation层") ||
+		!strings.Contains(string(spec), "/plan/causal_simulation/...") {
+		t.Fatal("model-facing pointer contract does not expose the actual nested plan namespace")
+	}
 	if len(m.messages) != 5 || !strings.Contains(m.messages[2].TextContent(), "完整观察尾") || !strings.Contains(m.messages[4].TextContent(), "完整计划尾") {
 		t.Fatal("exact source was omitted or truncated")
 	}

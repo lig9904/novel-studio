@@ -77,6 +77,25 @@ func TestPipelineProjectAllAccountingCoveredCharacterCallsDoNotDoubleCountLedger
 	}
 }
 
+func TestPipelineProjectAllAccountingKeepsGroundingRoleDistinct(t *testing.T) {
+	live, shadow := projectAccountingStores(t)
+	a, err := newPipelineProjectAllAccounting(context.Background(), bootstrap.Config{}, live, shadow, "pg2_grounding")
+	if err != nil {
+		t.Fatal(err)
+	}
+	a.record("plan_grounding", projectUsageMessage("grounding-call", .2))
+	if err := a.close(); err != nil {
+		t.Fatal(err)
+	}
+	state, err := live.Usage.Load()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if state.PerAgent["plan_grounding"].Input != 100 || state.PerAgent["world_arbiter"].Input != 0 {
+		t.Fatalf("grounding usage was not isolated from world_arbiter: %+v", state.PerAgent)
+	}
+}
+
 func TestPipelineProjectAllAccountingRejectsChangedImportedUsageIdentity(t *testing.T) {
 	live, shadow := projectAccountingStores(t)
 	a, err := newPipelineProjectAllAccounting(context.Background(), bootstrap.Config{}, live, shadow, "pg2_import_conflict")

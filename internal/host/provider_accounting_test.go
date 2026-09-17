@@ -115,7 +115,7 @@ func TestHostProviderAccountingTypedFailureCompactionAndGroundingRemainDistinct(
 	if err != nil {
 		t.Fatal(err)
 	}
-	if state.Overall.Input != 70 || state.Overall.Cost != .375 || state.PerAgent["writer"].Input != 50 || state.PerAgent["coordinator"].Input != 10 || state.PerAgent["world_arbiter"].Input != 10 {
+	if state.Overall.Input != 70 || state.Overall.Cost != .375 || state.PerAgent["writer"].Input != 50 || state.PerAgent["coordinator"].Input != 10 || state.PerAgent["plan_grounding"].Input != 10 || state.PerAgent["world_arbiter"].Input != 0 {
 		t.Fatalf("failure/context-manager/grounding usage lost: %+v", state)
 	}
 	restored, err := NewDurableUsageMeter(store.NewStore(st.Dir()))
