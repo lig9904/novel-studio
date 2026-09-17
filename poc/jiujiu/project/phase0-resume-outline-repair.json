@@ -1,7 +1,7 @@
 {
   "version": "chapter-zero-outline-repair.v1",
   "reason": "Phase 0 Resume: remove the fabricated messenger and credential verification from the selected path while preserving the unverified pressure as a Character Agent option.",
-  "expected_layered_digest": "sha256:59527f78ac8dd2fc086f970373cfc9a938906c685dde380d00c99348beed0b7d",
+  "expected_layered_digest": "sha256:7a5e67fcc559a85f01227fbc146a8398c371b675d4e4186e155371810a8177e4",
   "arcs": [
     {
       "volume": 1,
