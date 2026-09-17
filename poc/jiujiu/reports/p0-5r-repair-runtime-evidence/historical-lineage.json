@@ -1,0 +1,217 @@
+{
+  "schema": "p0-5r-repair-historical-lineage.v1",
+  "authority": [
+    "TEST_SCAFFOLD",
+    "NOT ACCEPTED CANON",
+    "NOT HUMAN APPROVAL"
+  ],
+  "baseline": "9b2e92cecc86c1cb81e09fa13785fb73f05b3932",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "availability": {
+    "raw_planner_tool_args": "NOT RETAINED",
+    "raw_planner_patch_payloads": "NOT RETAINED",
+    "per_round_merge_intermediates": "NOT RETAINED",
+    "per_round_source_anchor_intermediates": "NOT RETAINED",
+    "invalid_grounding_raw_payload": "NOT RETAINED",
+    "grounding_input_and_valid_receipt_snapshots": 4,
+    "final_partial": "RETAINED",
+    "interrupted_grounding_started_wal": "RETAINED WITHOUT RESPONSE"
+  },
+  "grounding_partial_order": [
+    {
+      "partial_order": 1,
+      "input_digest": "sha256:ecdb60a524256645e1260afe359215a6bfa00274e1252883e321f3325f7c02ab",
+      "receipt_digest": "sha256:c68f9c0b446fa86213b0ff165e1813d9f0156c0b71b2abba0b5c0aede8e42e17",
+      "pass": false,
+      "finding_count": 4,
+      "preserved_local_mtime": "2026-09-17T15:35:24.662441+08:00",
+      "ordering_authority": "preserved local filesystem mtime; not embedded in receipt and not Git-portable"
+    },
+    {
+      "partial_order": 2,
+      "input_digest": "sha256:9b2e8c00b3cb19df4a7de174440af854de8022c137be3e72746f3ab4c9de3d37",
+      "receipt_digest": "sha256:ffca2cd61eda289f6f5e7963f00ff33eb1ffe62aab57a94e47ea8bf86e70ff0a",
+      "pass": false,
+      "finding_count": 3,
+      "preserved_local_mtime": "2026-09-17T15:37:12.391913+08:00",
+      "ordering_authority": "preserved local filesystem mtime; not embedded in receipt and not Git-portable"
+    },
+    {
+      "partial_order": 3,
+      "input_digest": "sha256:6f4a4db2bd8578292546189ef83b9acce023f6d51559b90b6ab20691351c3f58",
+      "receipt_digest": "sha256:90698a3c3b26bca881d1c3a704f5da198dc0b2f2b3862f600f2ccd4f4fdad24e",
+      "pass": false,
+      "finding_count": 4,
+      "preserved_local_mtime": "2026-09-17T15:39:59.786219+08:00",
+      "ordering_authority": "preserved local filesystem mtime; not embedded in receipt and not Git-portable"
+    },
+    {
+      "partial_order": 4,
+      "input_digest": "sha256:9314d546b426c53cb6ba6ea101e9798bb037d08cb0cee960c12c182e8d9dffd3",
+      "receipt_digest": "sha256:fc56ecadd1bcd99863a63b34ceff4191c717502e185c0438141af37ef3683e53",
+      "pass": false,
+      "finding_count": 8,
+      "preserved_local_mtime": "2026-09-17T15:43:04.835194+08:00",
+      "ordering_authority": "preserved local filesystem mtime; not embedded in receipt and not Git-portable"
+    }
+  ],
+  "field_lineage": {
+    "goal": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:67029a796dd346fd804e4842e2f016d87dd38ab0b44e7f65169913824159dc24",
+        "sha256:67029a796dd346fd804e4842e2f016d87dd38ab0b44e7f65169913824159dc24",
+        "sha256:67029a796dd346fd804e4842e2f016d87dd38ab0b44e7f65169913824159dc24",
+        "sha256:67029a796dd346fd804e4842e2f016d87dd38ab0b44e7f65169913824159dc24"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:ad245ae14f73cd6659418e8dbfb1d98d7cb968496c17e04f4077e33032e6fdd4",
+      "final_matches_partial_orders": [],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "hook": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:1cb64bc52d9b015a5dbf60e8a65b30f2e6c9896c8117095f0468b2915ba47190",
+        "sha256:1cb64bc52d9b015a5dbf60e8a65b30f2e6c9896c8117095f0468b2915ba47190",
+        "sha256:1cb64bc52d9b015a5dbf60e8a65b30f2e6c9896c8117095f0468b2915ba47190",
+        "sha256:f4a74e6e27d4e111ea35004677880ce021a0345725d843850c709394d9060566"
+      ],
+      "all_snapshots_same": false,
+      "final_hash": "sha256:f4a74e6e27d4e111ea35004677880ce021a0345725d843850c709394d9060566",
+      "final_matches_partial_orders": [
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "required_beats": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:65f2c0005ef71412e9b1855e1503209d06b2eafb0bf61be5c771fa42e9819ca9",
+        "sha256:65f2c0005ef71412e9b1855e1503209d06b2eafb0bf61be5c771fa42e9819ca9",
+        "sha256:65f2c0005ef71412e9b1855e1503209d06b2eafb0bf61be5c771fa42e9819ca9",
+        "sha256:b5a1b0a57d41e6a8b654b3179dde5b71d34f4b91877f478a2f78cc1d051dd66e"
+      ],
+      "all_snapshots_same": false,
+      "final_hash": "sha256:b5a1b0a57d41e6a8b654b3179dde5b71d34f4b91877f478a2f78cc1d051dd66e",
+      "final_matches_partial_orders": [
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "ending_consequence_contract": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:63a603ddc7f6f6653a489922d0c435b91ffef6c0fe0bbff41193ca98a27c818b",
+        "sha256:63a603ddc7f6f6653a489922d0c435b91ffef6c0fe0bbff41193ca98a27c818b",
+        "sha256:63a603ddc7f6f6653a489922d0c435b91ffef6c0fe0bbff41193ca98a27c818b",
+        "sha256:63a603ddc7f6f6653a489922d0c435b91ffef6c0fe0bbff41193ca98a27c818b"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:63a603ddc7f6f6653a489922d0c435b91ffef6c0fe0bbff41193ca98a27c818b",
+      "final_matches_partial_orders": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "emotional_logic": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:62a6e3caea261aff6e7de6f99c226ac1adf51ab2bba922cb1d753c78cf674f0e",
+        "sha256:62a6e3caea261aff6e7de6f99c226ac1adf51ab2bba922cb1d753c78cf674f0e",
+        "sha256:62a6e3caea261aff6e7de6f99c226ac1adf51ab2bba922cb1d753c78cf674f0e",
+        "sha256:62a6e3caea261aff6e7de6f99c226ac1adf51ab2bba922cb1d753c78cf674f0e"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:62a6e3caea261aff6e7de6f99c226ac1adf51ab2bba922cb1d753c78cf674f0e",
+      "final_matches_partial_orders": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "reader_entertainment_plan": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:21f4908464955c45fb8d86d197ac51a1613249c9c430967d511320edc3cfb3e0",
+        "sha256:21f4908464955c45fb8d86d197ac51a1613249c9c430967d511320edc3cfb3e0",
+        "sha256:21f4908464955c45fb8d86d197ac51a1613249c9c430967d511320edc3cfb3e0",
+        "sha256:21f4908464955c45fb8d86d197ac51a1613249c9c430967d511320edc3cfb3e0"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:4172b16a858c23eead4b00bbf738b57ff5e2bf3b0d35e1f10bb3618442c761a2",
+      "final_matches_partial_orders": [],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "reader_reward_plan": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:6238e4056d8822315bd1675e711e4363f76032844e63d5e8b544b77e739c4e58",
+        "sha256:6238e4056d8822315bd1675e711e4363f76032844e63d5e8b544b77e739c4e58",
+        "sha256:6238e4056d8822315bd1675e711e4363f76032844e63d5e8b544b77e739c4e58",
+        "sha256:6238e4056d8822315bd1675e711e4363f76032844e63d5e8b544b77e739c4e58"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:6238e4056d8822315bd1675e711e4363f76032844e63d5e8b544b77e739c4e58",
+      "final_matches_partial_orders": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "longform_opening": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:91b1ea1c19fe310f638dda255c64844e2918d9f037a5e54f151c1f762aaa4a21",
+        "sha256:91b1ea1c19fe310f638dda255c64844e2918d9f037a5e54f151c1f762aaa4a21",
+        "sha256:91b1ea1c19fe310f638dda255c64844e2918d9f037a5e54f151c1f762aaa4a21",
+        "sha256:91b1ea1c19fe310f638dda255c64844e2918d9f037a5e54f151c1f762aaa4a21"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:91b1ea1c19fe310f638dda255c64844e2918d9f037a5e54f151c1f762aaa4a21",
+      "final_matches_partial_orders": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    },
+    "external_reference_plan": {
+      "snapshot_hashes_in_partial_order": [
+        "sha256:70947941a92146fca6fab71947e17f1362b6f1e8a948576a32e4bba3f905aff5",
+        "sha256:70947941a92146fca6fab71947e17f1362b6f1e8a948576a32e4bba3f905aff5",
+        "sha256:70947941a92146fca6fab71947e17f1362b6f1e8a948576a32e4bba3f905aff5",
+        "sha256:70947941a92146fca6fab71947e17f1362b6f1e8a948576a32e4bba3f905aff5"
+      ],
+      "all_snapshots_same": true,
+      "final_hash": "sha256:70947941a92146fca6fab71947e17f1362b6f1e8a948576a32e4bba3f905aff5",
+      "final_matches_partial_orders": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "planner_patch": "NOT RETAINED",
+      "merge_intermediate": "NOT RETAINED",
+      "source_anchor_intermediate": "NOT RETAINED"
+    }
+  },
+  "historical_causal_attribution": "INCONCLUSIVE",
+  "note": "Hash equality proves retained state equality only. It does not prove an omitted, submitted, merged, restored, or rejected Planner patch when the raw patch is unavailable."
+}

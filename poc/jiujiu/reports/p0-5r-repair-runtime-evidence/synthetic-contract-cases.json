@@ -1,0 +1,59 @@
+{
+  "schema": "p0-5r-repair-synthetic-contract-cases.v1",
+  "authority": [
+    "TEST_SCAFFOLD",
+    "NOT ACCEPTED CANON",
+    "NOT HUMAN APPROVAL"
+  ],
+  "historical_runtime_evidence": false,
+  "baseline": "9b2e92cecc86c1cb81e09fa13785fb73f05b3932",
+  "pre_fix_reproduction": {
+    "command_scope": "go test ./internal/tools with the new generic contract tests applied to the fixed baseline",
+    "exit_code": 1,
+    "failures": [
+      {
+        "test": "TestPlanDetailsSchemaPublishesExternalReferencePatchContract",
+        "observed": "focused plan_details schema omitted external_reference_plan"
+      },
+      {
+        "test": "TestPlanDetailsExplicitEmptyExternalReferencePlanClearsCurrentRows",
+        "observed": "a complete fact row bound to the current receipt was restored after an explicit empty-array patch"
+      },
+      {
+        "test": "TestPlanDetailsClearThenReplaceCurrentRAGRow",
+        "observed": "the stale authored row coexisted with the corrected row because the clear operation could not take effect"
+      }
+    ]
+  },
+  "post_fix_contract": [
+    {
+      "case": "omission",
+      "result": "retains the staged field"
+    },
+    {
+      "case": "external_reference_plan empty array",
+      "result": "explicitly clears all rows and skips current-receipt row restoration for that patch"
+    },
+    {
+      "case": "external_reference_plan null",
+      "result": "not an explicit removal operation; null is outside the published schema"
+    },
+    {
+      "case": "non-empty craft-only replacement",
+      "result": "retains eligible current-receipt fact rows and preserves craft replacement semantics"
+    },
+    {
+      "case": "same refs with different usable_details or transformation_rule",
+      "result": "rows remain distinct because the complete authored identity changed"
+    },
+    {
+      "case": "identical complete authored identity",
+      "result": "deduplicated"
+    },
+    {
+      "case": "clear then corrected replacement",
+      "result": "exactly one corrected row remains"
+    }
+  ],
+  "historical_causation": "INCONCLUSIVE"
+}
