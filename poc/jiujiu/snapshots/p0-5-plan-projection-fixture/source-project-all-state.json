@@ -1,0 +1,19 @@
+{
+  "detail_window": {
+    "version": "planning-detail-window.v1",
+    "arc_id": "arc:v001:a001:c000001-000003",
+    "arc_first_chapter": 1,
+    "arc_last_chapter": 3,
+    "rehearsal_digest": "sha256:228542551ede63f25cbf9c8ccc5ac1fcd17e9f299782cb3577d0ebd897b08ea0",
+    "rehearsal_input_digest": "sha256:54050c44c1ad505cc02fd3dd32fc8d431c37d9a37e3832ff6044b5e8c7104e7a"
+  },
+  "version": "projected-planning-context.v2",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "next_chapter": 1,
+  "through_chapter": 0,
+  "state_root": "sha256:0b27a4a845f14bb4f522f93bf43787a53dda63e208a359d170a05c89cf246383",
+  "cumulative_state": [],
+  "recent_transitions": null,
+  "open_obligations": null,
+  "context_digest": "sha256:b375711231d23e46b6a08ea1e169ee0dd8eb13e6ee974573832aab3801fd1079"
+}

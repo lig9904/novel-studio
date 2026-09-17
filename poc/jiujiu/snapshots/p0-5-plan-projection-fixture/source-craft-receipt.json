@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "id": "f992760b73a77da629b793fe",
+  "chapter": 1,
+  "stage": "project_all",
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "planning_context_digest": "sha256:b375711231d23e46b6a08ea1e169ee0dd8eb13e6ee974573832aab3801fd1079",
+  "rewrite_body_path": "",
+  "rewrite_body_sha256": "",
+  "rewrite_brief_path": "",
+  "rewrite_brief_sha256": "",
+  "index_identity": "a1709ff8b2b8ed1ba7b39d994f997a7292ea340746bca890e2ed0c80905f85de",
+  "index_updated_at": "2026-09-17T08:44:52+08:00",
+  "payload_sha256": "f0ddd38b05e8983b7a0d3ac1f53f850449986d23353c5ae01cb1747b0b500950",
+  "enforcement": true,
+  "created_at": "2026-09-17T02:08:58.048248Z",
+  "attempts": [
+    {
+      "need": {
+        "id": "project-all-methodology",
+        "field": "methodology",
+        "topic": "人物主观因果 章节节奏 信息延迟 场景后果 叙事功能变化 TEST_SCAFFOLD：退潮露出来的第一件事 九九守在渔岛海洋度假区近岸守护点，退潮后它看见现场警示浮标绳在礁角外松脱、水尺读数与它上次观测对不上；与此同时一名现场来客转述一条未经核实的声望 松脱的浮标绳被浪推得离位，退潮通道露出一段无记录的痕迹；无论九九怎么选，它都必须在下一段潮水回来",
+        "trigger_refs": [
+          "outline.json#chapter=1",
+          "project_all.required.methodology"
+        ]
+      },
+      "no_material": true,
+      "filtered_count": 177,
+      "filtered_reason": {
+        "source_kind": 177
+      }
+    },
+    {
+      "need": {
+        "id": "project-all-scene",
+        "field": "scene_situation",
+        "topic": "场景调度 空间压力 环境承载 误判 后果 过场省略 TEST_SCAFFOLD：退潮露出来的第一件事 九九守在渔岛海洋度假区近岸守护点，退潮后它看见现场警示浮标绳在礁角外松脱、水尺读数与它上次观测对不上；与此同时一名现场来客转述一条未经核实的声望 松脱的浮标绳被浪推得离位，退潮通道露出一段无记录的痕迹；无论九九怎么选，它都必须在下一段潮水回来 九九在近岸守护点把浮标绳位置与上次观测逐段对照，记下浮标已经离位，却在水尺读数上拿不到一致的数字 来客在岸上把声望机会说得热络，只给出口头转述，拿不出书面凭证，也不肯说明消息来自谁。",
+        "trigger_refs": [
+          "outline.json#chapter=1",
+          "project_all.required.dialogue_or_scene"
+        ]
+      },
+      "no_material": true,
+      "filtered_count": 177,
+      "filtered_reason": {
+        "source_kind": 177
+      }
+    }
+  ]
+}

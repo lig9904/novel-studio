@@ -1,0 +1,51 @@
+{
+  "classification": "TEST_SCAFFOLD",
+  "findings": [
+    {
+      "kind": "time",
+      "plan_path": "/plan/causal_simulation/ending_consequence_contract/consequence",
+      "plan_quote": "到第1章结束，九九在两段连续时段完成原地目视观察",
+      "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+      "source_quote": "九九在渔岛海洋度假区近岸守护点原地完成一次约 10 分钟的现场目视观察",
+      "explanation": "计划把两次观察写成‘连续时段’，但周期1实际观察仅为T+0至T+10，周期2实际观察为T+20至T+30，两次执行之间存在间隔。应删去‘连续’或改为两轮已完成的原地观察。"
+    },
+    {
+      "kind": "outcome",
+      "plan_path": "/plan/causal_simulation/external_reference_plan/3/transformation_rule",
+      "plan_quote": "转成九九在守护点能亲见的现场质感：退潮后的水线、浮标的位置、潮水回涨的时间压力；不引入未裁决的物件或事件",
+      "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+      "source_quote": "近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象",
+      "explanation": "最终周期只裁决亲见范围内无明确风险，没有裁决潮水正在回涨或存在回涨期限；RAG材料不能把‘潮水回涨的时间压力’变成章内事实。应删除该时间压力，仅保留已裁决的水线质感与浮标位置。"
+    },
+    {
+      "kind": "outcome",
+      "plan_path": "/plan/causal_simulation/external_reference_plan/4/usable_details/0",
+      "plan_quote": "渔岛海洋度假区近岸的共享水域、守护点、警示浮标与退潮水线，可转化为九九现场可见的浮标、水尺、退潮通道与潮水回涨窗口",
+      "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+      "source_quote": "目视范围内未见需要在现场立即就地示警、且地点与边界明确的可见风险，故未书写任何事件记录。她确认了现场警示浮标的所在位置与空白事件记录纸可用",
+      "explanation": "该正向可用细节新增水尺、退潮通道和潮水回涨窗口，而最终裁决只支持水况观察、浮标位置和记录纸；RAG命中不能证明这些物件或状态在章内出现。应将usable_details限于守护点、公开水况、浮标和记录纸。"
+    },
+    {
+      "kind": "outcome",
+      "plan_path": "/plan/causal_simulation/external_reference_plan/7/usable_details/0",
+      "plan_quote": "退潮后礁角外会露出一段平时被水盖住、现场没有任何记录的通道痕迹，浮标绳与浮标就卡在这截通道上",
+      "source_path": "/activation/cycles/0/decisions/0/decision/immediate_result",
+      "source_quote": "她确认了现场警示浮标的所在位置与空白事件记录纸可用，但除使用外未变更浮标归属，六张空白纸未消耗。",
+      "explanation": "该字段把退潮通道痕迹、浮标绳以及浮标卡在通道上的状态列为可正向消费事实，均未在最终裁决中发生或被观察。应删除这些细节，不得由RAG命中补成现场事件。"
+    },
+    {
+      "kind": "location",
+      "plan_path": "/plan/causal_simulation/external_reference_plan/8/transformation_rule",
+      "plan_quote": "把命中记录里的地点、资源数量与隔离关系，逐条转成本章现场可观察的水线、绳结状态、纸张张数与距离感；只借其空间与资源结构，不沿用它的大纲句式与说明腔。",
+      "source_path": "/activation/cycles/1/decisions/0/decision/immediate_result",
+      "source_quote": "九九保持在渔岛海洋度假区近岸守护点，按原提案完成第二段十分钟的现场目视观察。近岸公开水况在本人可亲见范围内未出现有明确地点与边界的风险迹象",
+      "explanation": "该转换规则会把未裁决的绳结状态及不同观察点之间的距离写成九九现场可观察内容；最终裁决仅支持九九留在守护点观察公开水况，且未让它感知其他观察点。应删除绳结状态与跨观察点距离感，只保留九九所在守护点内已裁决的可见细节。"
+    }
+  ],
+  "grounding_pass": false,
+  "planner_rerun": false,
+  "review_protocol": "sha256:3f8e557cabb1ec2f832e03e3b2205dd71408e1e76ac893b86b849014976d7abb",
+  "schema": "p0-5-grounding-rag-authority-regression.v1",
+  "status": "PASS",
+  "story_simulation_rerun": false
+}

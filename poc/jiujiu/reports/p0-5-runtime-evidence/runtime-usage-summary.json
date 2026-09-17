@@ -1,0 +1,628 @@
+{
+  "schema": "p0-5-runtime-usage-summary.v1",
+  "calls": [
+    {
+      "id": "direct_usage_ZFRA7OZQRNOLGSPUDAA6IVNKYS",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:23:20.704816Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 21274,
+        "output": 7167,
+        "cache_read": 512,
+        "cache_write": 0,
+        "total_tokens": 28441
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_ZFRA7OZQRNOLGSPUDAA6IVNKYS"
+      }
+    },
+    {
+      "id": "direct_usage_Z4CWG6P6Q3NWCANBCPW6WS3KQM",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:23:55.072597Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 30732,
+        "output": 2236,
+        "cache_read": 28416,
+        "cache_write": 0,
+        "total_tokens": 32968
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_Z4CWG6P6Q3NWCANBCPW6WS3KQM"
+      }
+    },
+    {
+      "id": "direct_usage_BCNXC2MI4NQYRUMAYDNB4HKQBV",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:24:05.395538Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41857,
+        "output": 1997,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 43854
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41857,
+            "output": 1997,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_BCNXC2MI4NQYRUMAYDNB4HKQBV"
+      }
+    },
+    {
+      "id": "direct_usage_5COKTIMCQBRRFAYIMXYCH2VJY2",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:24:52.027889Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 34551,
+        "output": 10326,
+        "cache_read": 32896,
+        "cache_write": 0,
+        "total_tokens": 44877
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_5COKTIMCQBRRFAYIMXYCH2VJY2"
+      }
+    },
+    {
+      "id": "direct_usage_UEYNJTGSA5OECFSMRMFAOUMFPM",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:25:47.512176Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 47168,
+        "output": 2270,
+        "cache_read": 44800,
+        "cache_write": 0,
+        "total_tokens": 49438
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_UEYNJTGSA5OECFSMRMFAOUMFPM"
+      }
+    },
+    {
+      "id": "direct_usage_BBRA3SEJNWH2TWT3X5CENSQBB3",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:25:58.905012Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42058,
+        "output": 2396,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 44454
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42058,
+            "output": 2396,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_BBRA3SEJNWH2TWT3X5CENSQBB3"
+      }
+    },
+    {
+      "id": "direct_usage_75FTBVLER4SWZUCMPJ2YZBO5NH",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:27:01.694003Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 50936,
+        "output": 6145,
+        "cache_read": 49408,
+        "cache_write": 0,
+        "total_tokens": 57081
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_75FTBVLER4SWZUCMPJ2YZBO5NH"
+      }
+    },
+    {
+      "id": "direct_usage_CJ7Q4LTYI67DN4SZQIF2CAS6OU",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:27:29.948991Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 41480,
+        "output": 2990,
+        "cache_read": 10240,
+        "cache_write": 0,
+        "total_tokens": 44470
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 41480,
+            "output": 2990,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_CJ7Q4LTYI67DN4SZQIF2CAS6OU"
+      }
+    },
+    {
+      "id": "direct_usage_UQ7NKY34QYZPZTF2SQ3QMEQZ76",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:28:44.229307Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 59102,
+        "output": 5522,
+        "cache_read": 56960,
+        "cache_write": 0,
+        "total_tokens": 64624
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_UQ7NKY34QYZPZTF2SQ3QMEQZ76"
+      }
+    },
+    {
+      "id": "direct_usage_SXMYLCLWK7R5K2ZBVAUSVRCKT3",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:29:07.605299Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 66915,
+        "output": 2735,
+        "cache_read": 64512,
+        "cache_write": 0,
+        "total_tokens": 69650
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_SXMYLCLWK7R5K2ZBVAUSVRCKT3"
+      }
+    },
+    {
+      "id": "direct_usage_GSOT22TRJKMJA3XSLFVVDPJJHM",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:29:21.474756Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42487,
+        "output": 2244,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 44731
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42487,
+            "output": 2244,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_GSOT22TRJKMJA3XSLFVVDPJJHM"
+      }
+    },
+    {
+      "id": "direct_usage_QHWZW6NFLL7I67RM52T73AT5IP",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:30:18.785404Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 71481,
+        "output": 1840,
+        "cache_read": 66944,
+        "cache_write": 0,
+        "total_tokens": 73321
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_QHWZW6NFLL7I67RM52T73AT5IP"
+      }
+    },
+    {
+      "id": "direct_usage_ZECUCJWO6EP5IFA3E5Q7IAME4Q",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:30:30.345958Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42488,
+        "output": 3521,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 46009
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42488,
+            "output": 3521,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_ZECUCJWO6EP5IFA3E5Q7IAME4Q"
+      }
+    },
+    {
+      "id": "direct_usage_YN6VC2PWSVQ7RDXTDLTDF5G6OC",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:31:49.252933Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 75014,
+        "output": 4553,
+        "cache_read": 73216,
+        "cache_write": 0,
+        "total_tokens": 79567
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_YN6VC2PWSVQ7RDXTDLTDF5G6OC"
+      }
+    },
+    {
+      "id": "direct_usage_UVCLXYRTMWPUOYV3TKHOXLIBYP",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:32:08.212661Z",
+      "process_id": 16799,
+      "completed": true,
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 0
+      },
+      "metadata": {
+        "codex_usage_breakdown": [
+          null
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "unknown",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "usage_accounting_gap": "direct provider attempt lost its owner before a usage receipt was persisted; tokens and price remain unknown",
+        "usage_audit_id": "direct_usage_UVCLXYRTMWPUOYV3TKHOXLIBYP"
+      }
+    },
+    {
+      "id": "direct_usage_AZDVOC6OMJ2E632MYYZSGCMYDM",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:37:26.340929Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 21419,
+        "output": 23755,
+        "cache_read": 12416,
+        "cache_write": 0,
+        "total_tokens": 45174
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_AZDVOC6OMJ2E632MYYZSGCMYDM"
+      }
+    },
+    {
+      "id": "direct_usage_WU4AVDQ2INPDXFGJGN3424Q2HX",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:39:16.035921Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 47465,
+        "output": 2192,
+        "cache_read": 45056,
+        "cache_write": 0,
+        "total_tokens": 49657
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_WU4AVDQ2INPDXFGJGN3424Q2HX"
+      }
+    },
+    {
+      "id": "direct_usage_SZYDM34VZHOEZ2DOYGLRKBXCFV",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:39:24.692017Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42413,
+        "output": 2417,
+        "cache_read": 10240,
+        "cache_write": 0,
+        "total_tokens": 44830
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42413,
+            "output": 2417,
+            "cache_read": 10240,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_SZYDM34VZHOEZ2DOYGLRKBXCFV"
+      }
+    },
+    {
+      "id": "direct_usage_MG3XS7NM2N374E2D7QIOMLGWZM",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:40:24.41382Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 50884,
+        "output": 4644,
+        "cache_read": 49536,
+        "cache_write": 0,
+        "total_tokens": 55528
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_MG3XS7NM2N374E2D7QIOMLGWZM"
+      }
+    },
+    {
+      "id": "direct_usage_VJYTBELCW623L53HU7TXYM5M67",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:40:47.043707Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 42582,
+        "output": 2332,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 44914
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 42582,
+            "output": 2332,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_VJYTBELCW623L53HU7TXYM5M67"
+      }
+    },
+    {
+      "id": "direct_usage_XCGMWSGEIYCWKNX4B2FLMNJWCP",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:41:40.053948Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 56849,
+        "output": 2154,
+        "cache_read": 55424,
+        "cache_write": 0,
+        "total_tokens": 59003
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_XCGMWSGEIYCWKNX4B2FLMNJWCP"
+      }
+    },
+    {
+      "id": "direct_usage_CACPAC52BJMILFS2BVTDIQWAII",
+      "agent": "writer",
+      "started_at": "2026-09-17T04:41:51.341644Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "input": 56907,
+        "output": 3024,
+        "cache_read": 56704,
+        "cache_write": 0,
+        "total_tokens": 59931
+      },
+      "metadata": {
+        "chapter": 1,
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "project_all_planner",
+        "usage_audit_id": "direct_usage_CACPAC52BJMILFS2BVTDIQWAII"
+      }
+    },
+    {
+      "id": "direct_usage_CHHVYYJPW3QUA6SAGMRSYHKS6S",
+      "agent": "plan_grounding",
+      "started_at": "2026-09-17T04:42:06.878814Z",
+      "process_id": 17968,
+      "completed": true,
+      "usage": {
+        "provider": "codex-cli",
+        "model": "gpt-5.6-sol",
+        "input": 44161,
+        "output": 2077,
+        "cache_read": 0,
+        "cache_write": 0,
+        "total_tokens": 46238
+      },
+      "metadata": {
+        "chapter": 1,
+        "codex_usage_breakdown": [
+          {
+            "input": 44161,
+            "output": 2077,
+            "cache_read": 0,
+            "cache_write": 0,
+            "provider": "codex-cli",
+            "model": "gpt-5.6-sol"
+          }
+        ],
+        "codex_usage_breakdown_complete": true,
+        "codex_usage_source": "reported",
+        "generation_id": "pg2_b2354a98e8714bba2baca89a",
+        "stage": "plan_grounding",
+        "usage_audit_id": "direct_usage_CHHVYYJPW3QUA6SAGMRSYHKS6S"
+      }
+    }
+  ],
+  "aggregate_by_agent": {
+    "writer": {
+      "started": 14,
+      "completed": 14,
+      "input": 690697,
+      "output": 78563,
+      "cache_read": 636800,
+      "total_tokens": 769260
+    },
+    "plan_grounding": {
+      "started": 9,
+      "completed": 9,
+      "input": 339526,
+      "output": 19974,
+      "cache_read": 20480,
+      "total_tokens": 359500
+    }
+  },
+  "note": "Started calls without matching record were interrupted and are not assigned token totals."
+}

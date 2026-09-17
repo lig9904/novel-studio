@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "id": "e0e5c73f2bd9cb27fae56f61",
+  "chapter": 1,
+  "query": "TEST_SCAFFOLD：退潮露出来的第一件事 九九守在渔岛海洋度假区近岸守护点，退潮后它看见现场警示浮标绳在礁角外松脱、水尺读数与它上次观测对不上；与此同时一名现场来客转述一条未经核实的声望机会口信，催它立刻离开水边岗位。九九手上只有一次现场观测、一件共享浮标与六张空白事件记录纸，它必须先在守住水边与追这条口信之间自己作决定，规划不替它作答。九尾狐在近岸礁影观察点以真正的九尾狐兽体看见仅它可观察的私密潮痕，没有开口，也没有向外发信号。羽族凤凰在近岸上空云缘观察位以完整东方凤凰神鸟形态只看见陌生海岸与风，未推断出任何角色、传说或秘密。三名角色因此同时进入同一有限海岸事件的可观察范围，但彼此信息仍互不互通。 松脱的浮标绳被浪推得离位，退潮通道露出一段无记录的痕迹；无论九九怎么选，它都必须在下一段潮水回来前给出可核实的现场处置，而那条口信依旧没有任何来源。 九九在近岸守护点把浮标绳位置与上次观测逐段对照，记下浮标已经离位，却在水尺读数上拿不到一致的数字。 来客在岸上把声望机会说得热络，只给出口头转述，拿不出书面凭证，也不肯说明消息来自谁。 九尾狐在礁影观察点上伏低身体，以九尾兽体避开浪花，看见礁面一道只有它能观察的潮痕，没有离开，也没有发出声音。 凤凰在云缘观察位收翅悬停，只确认自己下方的陌生海岸与风向，其余一律按未知处理。 螭吻·九九 九尾狐 羽族凤凰",
+  "query_terms": [
+    "TEST",
+    "TES",
+    "EST",
+    "TE",
+    "ES",
+    "ST",
+    "SCAFFOLD",
+    "SCAF",
+    "CAFF",
+    "AFFO",
+    "FFOL",
+    "FOLD",
+    "SCA",
+    "CAF",
+    "AFF",
+    "FFO",
+    "FOL",
+    "OLD",
+    "SC",
+    "CA",
+    "AF",
+    "FF",
+    "FO",
+    "OL"
+  ],
+  "retrieval_policy": "local_bm25_keyword_hybrid_v1",
+  "trace_sha256": "aa097722212c1d4841c7fa44b93590e1759467ddbf34148ab81344d72a16dec0",
+  "selected_facts_sha256": "b36eab373afa8c1e742f2e7e192fc4bff5fb59bcb975d13bd33b34e1dc1dc437",
+  "payload_sha256": "e0e5c73f2bd9cb27fae56f6178b265e00317f458f18d95029404d9a78ca537bf",
+  "no_material": false,
+  "created_at": "2026-09-17T02:08:58Z",
+  "hits": [
+    {
+      "rank": 1,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:8fc8d798075423d:001#hash=6241133246ca555f13767b44214e20a46417e5ea4b1038afd7f56417de6c4d35",
+      "chunk_id": "local:8fc8d798075423d:001",
+      "content_sha256": "6241133246ca555f13767b44214e20a46417e5ea4b1038afd7f56417de6c4d35",
+      "source_path": "project/output/novel/outline.md",
+      "source_kind": "note",
+      "facet": "plot"
+    },
+    {
+      "rank": 2,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:d03a67b78df9039:001#hash=b44691c8227e1a369daf5cbc7b4c8153918a1fae403f2b5eb8dad20372b60196",
+      "chunk_id": "local:d03a67b78df9039:001",
+      "content_sha256": "b44691c8227e1a369daf5cbc7b4c8153918a1fae403f2b5eb8dad20372b60196",
+      "source_path": "project/output/novel/meta/ch01_zero_init_plan.md",
+      "source_kind": "note",
+      "facet": "project"
+    },
+    {
+      "rank": 3,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:9382b1d5e859b846:003#hash=43a57bf9cf5098f9c31d0c0cbc9b724f888ae13075ea75a3512300cc7a004975",
+      "chunk_id": "local:9382b1d5e859b846:003",
+      "content_sha256": "43a57bf9cf5098f9c31d0c0cbc9b724f888ae13075ea75a3512300cc7a004975",
+      "source_path": "project/output/novel/meta/world_background_plan.md",
+      "source_kind": "note",
+      "facet": "world"
+    },
+    {
+      "rank": 4,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:a77aed80bc535c49:003#hash=b0b314368765fdec268de30b059742de13de614b3528002c6166baeeaeb438bb",
+      "chunk_id": "local:a77aed80bc535c49:003",
+      "content_sha256": "b0b314368765fdec268de30b059742de13de614b3528002c6166baeeaeb438bb",
+      "source_path": "project/output/novel/book_world.md",
+      "source_kind": "note",
+      "facet": "world"
+    },
+    {
+      "rank": 5,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:ab98a3e26c5ba633:004#hash=1cb5b3cca59ece78b4c3fc3ed5048f79ad8a24f1ba69af8b1a6755a80d6c3f8b",
+      "chunk_id": "local:ab98a3e26c5ba633:004",
+      "content_sha256": "1cb5b3cca59ece78b4c3fc3ed5048f79ad8a24f1ba69af8b1a6755a80d6c3f8b",
+      "source_path": "project/output/novel/meta/prewrite_storycraft_plan.md",
+      "source_kind": "note",
+      "facet": "craft"
+    },
+    {
+      "rank": 6,
+      "ref": "rag_fact_receipt:e0e5c73f2bd9cb27fae56f61#chunk=local:2e1ec3d0559d5dbe:006#hash=7624c8c5c9fab0b5adc94c3a3fe31af0b9b93975e5b94933f733865bd0e0518f",
+      "chunk_id": "local:2e1ec3d0559d5dbe:006",
+      "content_sha256": "7624c8c5c9fab0b5adc94c3a3fe31af0b9b93975e5b94933f733865bd0e0518f",
+      "source_path": "project/output/novel/meta/characters/螭吻·九九/dossier.md",
+      "source_kind": "note",
+      "facet": "character"
+    }
+  ]
+}

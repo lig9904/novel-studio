@@ -1,0 +1,15 @@
+{
+  "schema": "jiujiu-test-scaffold-scope.v1",
+  "classification": "TEST_SCAFFOLD",
+  "scope": "entire_subtree",
+  "root": "poc/jiujiu/project/test-scaffold-run",
+  "human_approved": false,
+  "official_jiujiu_canon": false,
+  "may_promote_to_official_canon": false,
+  "outline_all_authorized_as_scaffold_only": true,
+  "promote_stage_authorized": false,
+  "render_stage_authorized": false,
+  "phase1_authorized": false,
+  "core_source_edits_authorized": false,
+  "source_input_sha256": "7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a"
+}

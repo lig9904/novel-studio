@@ -1,0 +1,57 @@
+{
+  "schema": "p0-5-plan-projection-fixture.v1",
+  "immutable_for_diagnosis_and_runtime_replay": true,
+  "source_generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "simulation_id": "ch001-4db45dbca11c",
+  "simulation_digest": "sha256:cd312f3ac76daa340f5bec568c68f5286766775480b1432f06eea57e4fa80642",
+  "activation_evidence_digest": "sha256:d498f00a4d40f9e635d54b3f5bdfdd968e170b56cff826cef247756c4992ecfa",
+  "grounding_input_digest": "sha256:4d5763e8c237e5f20f274fd478272902ca0e97194fd8109e17601c53b8ab1637",
+  "readiness_context_digest": "sha256:53699b7ec22d04245845b23be4ad0e9f12ce3bc4e9458559acb5387b8cf12733",
+  "readiness_receipt_digests": [
+    "sha256:ec0fa6ef04905a44eb00d08983b7442fe4957a2fe170a1f23ec9ae00d86928fe",
+    "sha256:0252540860b3112f99aa4b674dd700a959a5bc995f84d93037a2b3a0977e94cb"
+  ],
+  "character_decision_source": "source-chapter-simulation.json#/character_decision_trace",
+  "world_arbitration_source": "source-chapter-evidence.json#/cycles/*/evidence/arbitrations",
+  "readiness_source": "source-chapter-evidence.json#/reviews",
+  "story_facts_source": "source-chapter-simulation.json#/character_decision_trace + /physical_state",
+  "world_state_source": "source-chapter-simulation.json#/physical_state",
+  "planner_input_capture": {
+    "status": "DURABLE_COMPONENT_BINDING",
+    "note": "The exact host-prefetched Planner packet was not persisted by P0-2. This fixture binds every durable input component used to build it; it does not claim byte-identical reconstruction.",
+    "components": [
+      "source-soft-outline.json",
+      "source-layered-outline.json",
+      "source-chapter-simulation.json",
+      "source-chapter-evidence.json",
+      "source-project-all-state.json",
+      "source-rag-fact-receipt.json",
+      "source-craft-receipt.json",
+      "source-planning-context-access.json",
+      "planner-prompt-before.md"
+    ]
+  },
+  "rejected_plan_source": "rejected-plan.json",
+  "grounding_verdict_sources": [
+    "grounding-verdict-run-1.json",
+    "grounding-verdict-run-2.json"
+  ],
+  "files": {
+    "grounding-input-with-rejected-plan.json": "sha256:18a64ea26c3bfe70dc41f77259142615741d77af4b23e7c193b903964ff22b0c",
+    "grounding-verdict-run-1.json": "sha256:c127b6ea0098a032e02581e1aff576d198792bc933f49b39f73cd8a86dd3661a",
+    "grounding-verdict-run-2.json": "sha256:2fb1cb0975346f76fda05f6576eebccb645f043ed8c8d251955096c3c0748225",
+    "planner-prompt-before.md": "sha256:46938da00b0192a1bfeeaf7b64fe042d2281908a2fdbdd0db42a605c252894c6",
+    "rejected-plan-partial.json": "sha256:c2d26f94b98d0533cb5577871c1dc49223436d81315f930f6d5db65ea58ec25a",
+    "rejected-plan.json": "sha256:3c05e88f12165680fc6e3a0350ac156ca0e9bb65549ae1980ab0813828bb0192",
+    "source-chapter-evidence.json": "sha256:fdbefdc0c001f18e0e15d448ab9fe1f5d8ac60487e82081b833dbc34d4fce4fa",
+    "source-chapter-simulation.json": "sha256:5471807b513f333d9d3a2675e870f1e3d96498dcf63c140411eaa93b7d99f15e",
+    "source-craft-receipt.json": "sha256:5523b69bd72589382c78e1d199ef45c6a4838800d6fe464d5a386f49f8f7edb5",
+    "source-layered-outline.json": "sha256:eeb73b94031e59ecac17d0dd70794cbd6aa1e3467f808f21672fb844fb733f55",
+    "source-planning-context-access.json": "sha256:99ac94ee4c79e771ca18d55b8cac9ae3e0667fa54338ca2250fa2ae1e7b90f4b",
+    "source-project-all-state.json": "sha256:6381dac99872d033d8e8733890d75a8efd1372356cd5bccdb3566e86b3d9e4a5",
+    "source-rag-fact-receipt.json": "sha256:f889435efd19d9b9a4aedd7a84da7cc5e68bdf223db3bf643555a5339654e500",
+    "source-soft-outline.json": "sha256:70b08086a81e1d2b04302a2332dc98c79f53aaec9dd7b4c81b5d2099e71f1849",
+    "source-user-input.md": "sha256:7ef95a96f17ac3290a0bff2a3d00afd0097bc919cc7797165dda428a8d28715a"
+  }
+}

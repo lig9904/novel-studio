@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generation_id": "pg2_b2354a98e8714bba2baca89a",
+  "chapter": 1,
+  "profile": "planning",
+  "planning_context_digest": "sha256:b375711231d23e46b6a08ea1e169ee0dd8eb13e6ee974573832aab3801fd1079",
+  "phase": "plan",
+  "lock_mode": "project_all",
+  "lock_owner": "project-all-ch000001",
+  "lock_process_id": 99476,
+  "lock_acquired_at": "2026-09-17T02:14:52.879658Z",
+  "issued_at": "2026-09-17T02:14:53.293235Z",
+  "expires_at": "2026-09-17T08:14:52.879658Z",
+  "token_sha256": "sha256:0a3fb34f98eeb597e93b49510637508f408fc5ce95e92b156427854e907d33b7",
+  "consumed_at": "0001-01-01T00:00:00Z",
+  "receipt_digest": "sha256:63bc85441edcc4c2ab77039d92bc4a93507d8e553c8d6693af8d7c805a46292e"
+}
